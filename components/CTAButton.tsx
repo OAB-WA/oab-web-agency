@@ -2,12 +2,15 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { trackCTAClick } from "@/lib/gtag";
 
 interface CTAButtonProps {
   href: string;
   children: React.ReactNode;
   variant?: "primary" | "secondary";
   className?: string;
+  trackingLabel?: string;
+  trackingLocation?: string;
 }
 
 export default function CTAButton({
@@ -15,7 +18,13 @@ export default function CTAButton({
   children,
   variant = "primary",
   className = "",
+  trackingLabel,
+  trackingLocation,
 }: CTAButtonProps) {
+  const handleClick = () => {
+    const label = trackingLabel || (typeof children === "string" ? children : "CTA Button");
+    trackCTAClick(label, trackingLocation);
+  };
   const baseStyles =
     "inline-flex items-center justify-center rounded-xl px-8 py-4 text-base font-semibold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 relative overflow-hidden group";
 
@@ -34,6 +43,7 @@ export default function CTAButton({
       <Link
         href={href}
         className={`${baseStyles} ${variantStyles[variant]} ${className}`}
+        onClick={handleClick}
       >
         <span className="relative z-10">{children}</span>
         {variant === "primary" && (

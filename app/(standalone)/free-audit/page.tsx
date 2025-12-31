@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import { trackFormSubmission } from "@/lib/gtag";
+import { trackFormSubmission, trackCTAClick } from "@/lib/gtag";
 
 export default function LandingPage() {
   const [formData, setFormData] = useState({
@@ -31,7 +31,6 @@ export default function LandingPage() {
         body: JSON.stringify({
           ...formData,
           message: `Free Website Audit Request - Website: ${formData.website || "Not provided"}`,
-          source: "Landing Page",
         }),
       });
 
@@ -268,6 +267,7 @@ export default function LandingPage() {
           </p>
           <a
             href="#audit-form"
+            onClick={() => trackCTAClick("Get Your Free Website Audit", "Solution Section")}
             className="inline-flex items-center justify-center rounded-xl bg-[#001B3A] px-10 py-5 text-lg font-bold text-white hover:bg-[#00152E] transition-all duration-300 shadow-2xl hover:shadow-3xl hover:scale-[1.02]"
           >
             Get Your Free Website Audit →
@@ -461,6 +461,7 @@ export default function LandingPage() {
           </p>
           <a
             href="#audit-form"
+            onClick={() => trackCTAClick("Get Your Free Website Audit", "Strong CTA Section")}
             className="inline-flex items-center justify-center rounded-xl bg-white px-10 py-5 text-lg font-bold text-[#001B3A] hover:bg-gray-100 transition-all duration-300 shadow-2xl hover:shadow-3xl hover:scale-[1.02]"
           >
             Get Your Free Website Audit →
@@ -519,6 +520,7 @@ export default function LandingPage() {
           </p>
           <a
             href="#audit-form"
+            onClick={() => trackCTAClick("Get Your Free Website Audit", "Solution Section")}
             className="inline-flex items-center justify-center rounded-xl bg-[#001B3A] px-10 py-5 text-lg font-bold text-white hover:bg-[#00152E] transition-all duration-300 shadow-2xl hover:shadow-3xl hover:scale-[1.02]"
           >
             Get Your Free Website Audit →

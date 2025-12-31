@@ -4,7 +4,7 @@ import Section from "@/components/Section";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import Image from "next/image";
-import { trackFormSubmission } from "@/lib/gtag";
+import { trackFormSubmission, trackOutboundLink } from "@/lib/gtag";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -287,6 +287,7 @@ export default function Contact() {
                 href="https://calendly.com/ayomidebasit099/30min"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackOutboundLink("https://calendly.com/ayomidebasit099/30min", "Book a 15-Minute Call - Contact Page")}
                 className="inline-block bg-[#001B3A] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#00152E] transition-colors"
               >
                 Book a 15-Minute Call

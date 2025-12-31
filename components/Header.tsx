@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
+import { trackCTAClick } from "@/lib/gtag";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -69,6 +70,7 @@ export default function Header() {
               })}
               <Link
                 href="/contact"
+                onClick={() => trackCTAClick("Book a Call", "Header - Desktop")}
                 className="rounded-lg bg-[#001B3A] px-4 py-2 text-sm font-semibold text-white hover:bg-[#00152E] transition-colors"
               >
                 Book a Call
@@ -78,6 +80,7 @@ export default function Header() {
             <div className="hidden md:flex md:items-center">
               <a
                 href="#audit-form"
+                onClick={() => trackCTAClick("Get Your Free Audit", "Header - Landing Page")}
                 className="rounded-lg bg-[#001B3A] px-6 py-2.5 text-sm font-semibold text-white hover:bg-[#00152E] transition-colors shadow-lg hover:shadow-xl"
               >
                 Get Your Free Audit
@@ -123,6 +126,7 @@ export default function Header() {
             <div className="md:hidden">
               <a
                 href="#audit-form"
+                onClick={() => trackCTAClick("Get Free Audit", "Header - Mobile - Landing Page")}
                 className="rounded-lg bg-[#001B3A] px-4 py-2 text-sm font-semibold text-white hover:bg-[#00152E] transition-colors"
               >
                 Get Free Audit
@@ -162,7 +166,10 @@ export default function Header() {
                   <Link
                     href="/contact"
                     className="block rounded-md bg-[#001B3A] px-3 py-2 text-base font-semibold text-white hover:bg-[#00152E] text-center"
-                    onClick={() => setMobileMenuOpen(false)}
+                    onClick={() => {
+                      setMobileMenuOpen(false);
+                      trackCTAClick("Book a Call", "Header - Mobile Menu");
+                    }}
                   >
                     Book a Call
                   </Link>
