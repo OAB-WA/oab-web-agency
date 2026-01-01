@@ -22,16 +22,14 @@ export default function LandingPage() {
     setError(null);
 
     try {
+      // Using Formspark
       const response = await fetch("https://submit-form.com/LIAVJSrnY", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
-        body: JSON.stringify({
-          ...formData,
-          message: `Free Website Audit Request - Website: ${formData.website || "Not provided"}`,
-        }),
+        body: JSON.stringify(formData),
       });
 
       if (!response.ok) {
@@ -44,6 +42,7 @@ export default function LandingPage() {
       // Track form submission
       trackFormSubmission("Free Audit Form");
       
+      // Reset success message after 5 seconds
       setTimeout(() => {
         setSubmitted(false);
       }, 5000);
