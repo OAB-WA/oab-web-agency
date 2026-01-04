@@ -6,11 +6,12 @@ import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { trackCTAClick } from "@/lib/gtag";
+import { CALENDLY_URL } from "@/lib/constants";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
-  const isLandingPage = pathname === "/free-audit";
+  const isLandingPage = pathname === "/free-audit" || pathname === "/free-audit-plumbers";
 
   const navLinks = [
     { href: "/", label: "Home" },
@@ -31,7 +32,7 @@ export default function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200/50 shadow-sm">
+    <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-neutral-200/50 shadow-sm">
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
@@ -57,21 +58,23 @@ export default function Header() {
                     href={link.href}
                     className={`text-sm font-medium transition-colors relative ${
                       active
-                        ? "text-[#001B3A] font-semibold"
-                        : "text-gray-700 hover:text-gray-900"
+                        ? "text-primary-950 font-semibold"
+                        : "text-neutral-700 hover:text-neutral-900"
                     }`}
                   >
                     {link.label}
                     {active && (
-                      <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#001B3A] rounded-full" />
+                      <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary-950 rounded-full" />
                     )}
                   </Link>
                 );
               })}
               <Link
-                href="/contact"
+                href={CALENDLY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => trackCTAClick("Book a Call", "Header - Desktop")}
-                className="rounded-lg bg-[#001B3A] px-4 py-2 text-sm font-semibold text-white hover:bg-[#00152E] transition-colors"
+                className="btn-primary text-sm px-4 py-2"
               >
                 Book a Call
               </Link>
@@ -80,10 +83,10 @@ export default function Header() {
             <div className="hidden md:flex md:items-center">
               <a
                 href="#audit-form"
-                onClick={() => trackCTAClick("Get Your Free Audit", "Header - Landing Page")}
-                className="rounded-lg bg-[#001B3A] px-6 py-2.5 text-sm font-semibold text-white hover:bg-[#00152E] transition-colors shadow-lg hover:shadow-xl"
+                onClick={() => trackCTAClick("Get Your Free Audit or Consultation", "Header - Landing Page")}
+                className="btn-primary text-sm px-6 py-2.5"
               >
-                Get Your Free Audit
+                Get Your Free Audit or Consultation
               </a>
             </div>
           )}
@@ -92,7 +95,7 @@ export default function Header() {
           {!isLandingPage && (
             <button
               type="button"
-              className="md:hidden p-2 text-gray-700"
+              className="md:hidden p-2 text-neutral-700"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle menu"
             >
@@ -126,10 +129,10 @@ export default function Header() {
             <div className="md:hidden">
               <a
                 href="#audit-form"
-                onClick={() => trackCTAClick("Get Free Audit", "Header - Mobile - Landing Page")}
-                className="rounded-lg bg-[#001B3A] px-4 py-2 text-sm font-semibold text-white hover:bg-[#00152E] transition-colors"
+                onClick={() => trackCTAClick("Get Free Audit or Consultation", "Header - Mobile - Landing Page")}
+                className="btn-primary text-sm px-4 py-2 text-center block"
               >
-                Get Free Audit
+                Get Free Audit or Consultation
               </a>
             </div>
           )}
@@ -143,7 +146,7 @@ export default function Header() {
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
-                className="md:hidden border-t border-gray-200"
+                className="md:hidden border-t border-neutral-200"
               >
                 <div className="space-y-1 px-2 pb-3 pt-2">
                   {navLinks.map((link) => {
@@ -154,8 +157,8 @@ export default function Header() {
                         href={link.href}
                         className={`block rounded-md px-3 py-2 text-base font-medium transition-colors ${
                           active
-                            ? "bg-[#001B3A]/10 text-[#001B3A] font-semibold"
-                            : "text-gray-700 hover:bg-gray-50 hover:text-gray-900"
+                            ? "bg-primary-950/10 text-primary-950 font-semibold"
+                            : "text-neutral-700 hover:bg-neutral-50 hover:text-neutral-900"
                         }`}
                         onClick={() => setMobileMenuOpen(false)}
                       >
@@ -164,8 +167,10 @@ export default function Header() {
                     );
                   })}
                   <Link
-                    href="/contact"
-                    className="block rounded-md bg-[#001B3A] px-3 py-2 text-base font-semibold text-white hover:bg-[#00152E] text-center"
+                    href={CALENDLY_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-primary text-base px-3 py-2 text-center block"
                     onClick={() => {
                       setMobileMenuOpen(false);
                       trackCTAClick("Book a Call", "Header - Mobile Menu");

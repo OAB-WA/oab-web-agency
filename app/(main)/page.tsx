@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { BoltIcon, PhoneIcon, MapPinIcon } from "@/components/Icons";
+import { CALENDLY_URL } from "@/lib/constants";
 
 export default function Home() {
   return (
@@ -20,11 +21,11 @@ export default function Home() {
             Your Website Should Bring You Jobs — Not Just Look Pretty
           </h2>
           <p className="text-xl text-gray-600 mb-8">
-            Most plumbers, HVAC techs, and electricians have websites that look fine but don't generate calls. Meanwhile, your competitors are ranking higher and getting all the jobs. We build websites designed to get you more phone calls and booked appointments — not just win design awards.
+            Most service businesses have websites that look fine but don't generate calls. Meanwhile, your competitors are ranking higher and getting all the jobs. We build websites designed to get you more phone calls and booked appointments — not just win design awards.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <CTAButton href="/contact">Get a Free Website Audit (See What You're Missing)</CTAButton>
-            <CTAButton href="/contact" variant="secondary">
+            <CTAButton href="/contact">Get a Free Website Audit or Consultation (See What You're Missing)</CTAButton>
+            <CTAButton href={CALENDLY_URL} variant="secondary">
               Book a 15-Min Strategy Call
             </CTAButton>
           </div>
@@ -35,7 +36,7 @@ export default function Home() {
       <Section>
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Why Plumbers, HVAC Companies & Electricians Choose Us
+            Why Service Businesses Choose Us
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             We focus on what actually matters: getting you more calls, more jobs, and more revenue
@@ -44,7 +45,7 @@ export default function Home() {
 
         <div className="grid md:grid-cols-3 gap-8">
           <BenefitCard
-            title="Lightning Fast (Under 2 Seconds)"
+            title="Lightning Fast (Under 2.5 Seconds)"
             description="Your website loads instantly on phones and tablets. Slow sites lose customers before they even see your services. When someone searches 'plumber near me' at 2 AM, your site needs to load fast or they're calling your competitor."
             icon="bolt"
           />
@@ -68,7 +69,7 @@ export default function Home() {
             Real Results From Real Service Business Owners
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            See how other plumbers, HVAC companies, and electricians are getting more calls and jobs
+            See how other service businesses are getting more calls and jobs
           </p>
         </div>
 
@@ -108,8 +109,8 @@ export default function Home() {
         <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           <ProcessStep
             number="1"
-            title="Free Website Audit (See What's Costing You)"
-            description="We analyze your current site and show you exactly what's costing you leads. You'll see why customers are leaving, why you're not ranking, and how many jobs you're missing out on every month."
+            title="Free Website Audit or Consultation"
+            description="If you have a website, we'll analyze it and show you exactly what's costing you leads. Don't have one? We'll discuss building a new website from scratch. You'll see why customers are leaving (or why you're invisible), why you're not ranking, and how many jobs you're missing out on every month."
           />
           <ProcessStep
             number="2"
@@ -134,8 +135,8 @@ export default function Home() {
 
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           <ServiceCard
-            title="Website Redesign"
-            description="Complete website redesigns that convert visitors into customers. Built for speed and performance."
+            title="Website Design & Redesign"
+            description="Build a new website from scratch or redesign your existing site. Converts visitors into customers. Built for speed and performance."
           />
           <ServiceCard
             title="Performance Optimization"
@@ -212,7 +213,7 @@ export default function Home() {
 
         <div className="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
           <StatCard number="2-3x" label="Typical Lead Increase" />
-          <StatCard number="<3s" label="Target Load Time" />
+          <StatCard number="<2.5s" label="Target Load Time" />
           <StatCard number="40%+" label="Conversion Improvement" />
           <StatCard number="24/7" label="Ongoing Support" />
         </div>
@@ -228,21 +229,23 @@ export default function Home() {
         
         <div className="relative text-center max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Every Day Your Website Is Slow, You're Losing Jobs to Competitors
+            Every Day You Don't Have a Website (Or It's Slow), You're Losing Jobs to Competitors
           </h2>
           <p className="text-xl text-white/90 mb-8">
-            Get a free audit and see exactly how many calls and jobs you're missing out on every month. No sales pitch — just real numbers showing what your website is costing you.
+            Get a free audit (if you have a site) or consultation (if you need a new one) and see exactly how many calls and jobs you're missing out on every month. No sales pitch — just real numbers showing what you're missing.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center rounded-xl bg-white px-8 py-4 text-base font-semibold text-[#001B3A] hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+              className="btn-primary-dark px-8 py-4"
             >
-              Get Your Free Audit (See What You're Missing)
+              Get Your Free Audit or Consultation (See What You're Missing)
             </Link>
             <Link
-              href="/contact"
-              className="inline-flex items-center justify-center rounded-xl border-2 border-white px-8 py-4 text-base font-semibold text-white hover:bg-white/10 transition-all duration-300 hover:scale-105"
+              href={CALENDLY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-secondary-dark px-8 py-4"
             >
               Book a 15-Min Call (No Pressure)
             </Link>
@@ -258,7 +261,7 @@ export default function Home() {
                 <span className="text-lg font-bold text-white">100% Money-Back Guarantee</span>
               </div>
               <p className="text-sm text-white/80 max-w-2xl">
-                Delivered in 1-2 weeks or it's free. Site loads in under 2 seconds or we fix it free. Not happy? Full refund in 30 days. No questions asked.
+                Delivered in 1-2 weeks or it's free. Site loads in under 2.5 seconds or we fix it free. Not happy? Full refund in 30 days. No questions asked.
               </p>
             </div>
           </div>
@@ -299,7 +302,7 @@ function HeroSection() {
             className="mb-4"
           >
             <span className="inline-block px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-sm text-sm font-medium text-white/90 border border-white/20">
-              Websites That Get Plumbers, HVAC Techs & Electricians More Jobs
+              Websites That Get Service Businesses More Jobs
             </span>
           </motion.div>
           
@@ -322,7 +325,7 @@ function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-xl md:text-2xl text-white/90 mb-10 max-w-2xl mx-auto leading-relaxed"
           >
-            While your competitors are getting calls from Google, you're losing customers to slow websites and poor mobile experience. We build fast, conversion-focused websites that get plumbers, HVAC companies, and electricians more phone calls and booked jobs.
+            While your competitors are getting calls from Google, you're losing customers to slow websites and poor mobile experience. We build fast, conversion-focused websites that get service businesses more phone calls and booked jobs.
           </motion.p>
           
           <motion.div
@@ -332,9 +335,9 @@ function HeroSection() {
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <CTAButton href="/contact" variant="secondary">
-              See What Your Website Is Costing You (Free Audit)
+              Get Your Free Audit or Consultation
             </CTAButton>
-            <CTAButton href="/contact" variant="secondary">
+            <CTAButton href={CALENDLY_URL} variant="secondary" dark>
               Book a 15-Min Call (No Sales Pitch)
             </CTAButton>
           </motion.div>

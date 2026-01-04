@@ -5,16 +5,17 @@ import CTAButton from "@/components/CTAButton";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { PaintBrushIcon, BoltIcon, MapPinIcon, ChartBarIcon } from "@/components/Icons";
+import { CALENDLY_URL } from "@/lib/constants";
 
 export default function Services() {
   const services = [
     {
-      title: "Website Redesign for Plumbers, HVAC & Electricians",
+      title: "Website Design & Redesign for Service Businesses",
       description:
-        "Complete website redesigns built specifically for service businesses. We focus on getting you phone calls and booked jobs, not just making it look pretty. Your new site will be fast, mobile-friendly, and designed to convert visitors into customers.",
+        "We build brand new websites from scratch or redesign your existing site—either way, we focus on getting you phone calls and booked jobs, not just making it look pretty. Your new site will be fast, mobile-friendly, and designed to convert visitors into customers. Perfect whether you're starting fresh or need to improve your current website.",
       features: [
         "Mobile-responsive design",
-        "Fast loading times (< 2 seconds)",
+        "Fast loading times (< 2.5 seconds)",
         "Conversion-optimized layouts",
         "Clear call-to-action buttons",
         "Trust-building elements",
@@ -39,7 +40,7 @@ export default function Services() {
     {
       title: "Get Found When Customers Search Locally",
       description:
-        "Get found by customers in your area when they search 'plumber near me' or 'HVAC repair [your city]'. We optimize your website for local search, improve your Google Business Profile, and help you rank higher than your competitors.",
+        "Get found by customers in your area when they search for your services locally. Whether it's 'plumber near me', 'HVAC repair [your city]', or any other local service search, we optimize your website for local search, improve your Google Business Profile, and help you rank higher than your competitors.",
       features: [
         "Local keyword optimization",
         "Google Business Profile optimization",
@@ -86,7 +87,7 @@ export default function Services() {
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Services That Get Plumbers, HVAC Techs & Electricians More Jobs
+              Services That Get Service Businesses More Jobs
             </h1>
             <p className="text-xl text-white/90">
               Everything you need to turn your website into a lead-generating machine that actually pays for itself
@@ -163,9 +164,9 @@ export default function Services() {
             Not Sure Which Service You Need?
           </h2>
           <p className="text-xl text-gray-600 mb-8">
-            Book a free 15-minute strategy call (no sales pitch). We'll analyze your current website and show you exactly what's costing you calls and jobs, then recommend the best path forward.
+            Book a free 15-minute strategy call (no sales pitch). We'll analyze your current website (if you have one) and show you exactly what's costing you calls and jobs, then recommend the best path forward. Don't have a website yet? We'll discuss building a new one from scratch.
           </p>
-          <CTAButton href="/contact">Book Your Free Strategy Call</CTAButton>
+          <CTAButton href={CALENDLY_URL}>Book Your Free Strategy Call</CTAButton>
         </div>
       </Section>
     </>

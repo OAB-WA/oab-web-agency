@@ -57,3 +57,23 @@ export const trackOutboundLink = (url: string, label?: string) => {
   });
 };
 
+// Track scroll depth
+export const trackScrollDepth = (depth: number) => {
+  event({
+    action: "scroll",
+    category: "Engagement",
+    label: `${depth}%`,
+    value: depth,
+  });
+};
+
+// Track time on page
+export const trackTimeOnPage = (seconds: number) => {
+  event({
+    action: "time_on_page",
+    category: "Engagement",
+    label: `${Math.round(seconds)}s`,
+    value: Math.round(seconds),
+  });
+};
+

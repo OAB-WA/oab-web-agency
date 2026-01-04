@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "../globals.css";
+import PageAnalytics from "@/components/PageAnalytics";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -24,7 +25,10 @@ export default function StandaloneLayout({
 }>) {
   return (
     <html lang="en" className={inter.variable}>
-      <body className="antialiased bg-white text-gray-900">{children}</body>
+      <body className="antialiased bg-white text-gray-900">
+        <PageAnalytics />
+        {children}
+      </body>
     </html>
   );
 }

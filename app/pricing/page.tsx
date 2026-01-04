@@ -5,6 +5,7 @@ import CTAButton from "@/components/CTAButton";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import { CALENDLY_URL } from "@/lib/constants";
 // Check icon component
 function CheckIcon({ className }: { className?: string }) {
   return (
@@ -39,13 +40,13 @@ export default function Pricing() {
       popular: false,
     },
     {
-      name: "Website Redesign",
+      name: "Website Design & Redesign",
       price: "Starting at $1,800",
-      description: "Complete website redesign that gets you more phone calls and jobs",
+      description: "Build a new website from scratch or redesign your existing site. Gets you more phone calls and jobs",
       features: [
         "Brand new website (5 pages)",
         "Mobile-friendly design",
-        "Fast loading (< 2 seconds)",
+        "Fast loading (< 2.5 seconds)",
         "Contact forms that work",
         "Set up for Google search",
         "Delivered in 1-2 weeks",
@@ -58,7 +59,7 @@ export default function Pricing() {
       price: "Starting at $3,500",
       description: "Everything you need to dominate local search and get more jobs",
       features: [
-        "Complete website redesign (10 pages)",
+        "Complete website design or redesign (10 pages)",
         "Lightning fast performance",
         "Show up first in local Google searches",
         "Google Business Profile optimization",
@@ -91,7 +92,7 @@ export default function Pricing() {
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Transparent Pricing for Plumbers, HVAC Techs & Electricians
+              Transparent Pricing for Service Businesses
             </h1>
             <p className="text-xl text-white/90">
               No hidden fees. No surprises. Just clear pricing that pays for itself with more calls and booked jobs. Most clients see ROI in the first month. Websites delivered in 1-2 weeks.
@@ -185,6 +186,7 @@ export default function Pricing() {
               </div>
               <p className="text-gray-700">
                 Delivered in <span className="font-bold text-green-700">1-2 weeks</span> guaranteed, or it's <span className="font-bold text-green-700">free</span>.
+                <span className="text-sm text-gray-600 block mt-1">(Timeline assumes prompt client feedback and content delivery)</span>
               </p>
             </div>
 
@@ -198,7 +200,7 @@ export default function Pricing() {
                 <h3 className="text-xl font-bold text-gray-900">Lightning Fast</h3>
               </div>
               <p className="text-gray-700">
-                Site loads in under <span className="font-bold text-green-700">2 seconds</span> or we <span className="font-bold text-green-700">fix it free</span>.
+                Site loads in under <span className="font-bold text-green-700">2.5 seconds</span> or we <span className="font-bold text-green-700">fix it free</span>.
               </p>
             </div>
 
@@ -232,7 +234,7 @@ export default function Pricing() {
             Need a Custom Solution?
           </h2>
           <p className="text-lg text-gray-600 mb-8">
-            Every plumber, HVAC company, and electrician has different needs. If you need a custom package or have specific requirements, we'll create a tailored solution that fits your business and budget.
+            Every service business has different needs. If you need a custom package or have specific requirements, we'll create a tailored solution that fits your business and budget.
           </p>
           <div className="bg-white rounded-xl p-8 shadow-lg">
             <h3 className="text-xl font-bold text-gray-900 mb-4">
@@ -310,10 +312,8 @@ export default function Pricing() {
                 Do you offer refunds?
               </h3>
               <p className="text-gray-600">
-                We're confident in our work and offer a satisfaction guarantee.
-                If you're not happy with the initial design or setup, we'll work
-                with you to make it right. Refunds are handled on a case-by-case
-                basis before project completion.
+                We're confident in our work and offer a 100% money-back guarantee.
+                If you're not happy with your website, we offer a full refund within 30 days. No questions asked. This is part of our triple guarantee that removes all risk for you.
               </p>
             </div>
           </div>
@@ -330,11 +330,11 @@ export default function Pricing() {
             Book a free 15-minute call (no sales pitch) to discuss your needs and get a custom quote. See how we can help you get more phone calls and jobs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <CTAButton href="/contact" variant="secondary">
+            <CTAButton href={CALENDLY_URL} variant="secondary">
               Book a Free Call
             </CTAButton>
             <CTAButton href="/contact" variant="secondary">
-              Get a Free Audit
+              Get a Free Audit or Consultation
             </CTAButton>
           </div>
         </div>

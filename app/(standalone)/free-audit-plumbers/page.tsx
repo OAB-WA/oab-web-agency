@@ -6,7 +6,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { trackFormSubmission, trackCTAClick } from "@/lib/gtag";
 
-export default function LandingPage() {
+export default function PlumbersLandingPage() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -42,7 +42,7 @@ export default function LandingPage() {
       setFormData({ name: "", email: "", phone: "", website: "" });
       
       // Track form submission
-      trackFormSubmission("Free Audit Form");
+      trackFormSubmission("Free Audit Form - Plumbers");
       
       // Reset success message after 5 seconds
       setTimeout(() => {
@@ -86,7 +86,7 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section - Outcome-driven headline, ONE primary CTA */}
+      {/* Hero Section - Texas Plumber-specific */}
       <section className="relative text-white overflow-hidden">
         <div className="absolute inset-0">
           <Image
@@ -105,17 +105,17 @@ export default function LandingPage() {
             {/* Left: Headline & Benefits */}
             <div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-white">
-              Get 2-3x More Phone Calls From Your Website
-            </h1>
+                Texas Plumbers: Get 2-3x More Emergency Calls — Website Delivered in 1-2 Weeks
+              </h1>
               <p className="text-xl md:text-2xl text-white/90 mb-6">
-              While your competitors get calls from Google, you're losing customers to slow websites. Get a free audit (if you have a site) or consultation (if you need a new one) showing exactly how many leads you're missing.
-            </p>
+                Texas plumbing companies lose 40-60% of customers to slow websites or no website. Get a free audit showing exactly how many emergency calls you're missing. Integrates with ServiceTitan & Jobber. Delivered in 1-2 weeks.
+              </p>
               <div className="space-y-3 text-white/90">
                 <div className="flex items-start">
                   <svg className="w-6 h-6 text-white mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
-                  <span>See exactly what's costing you leads</span>
+                  <span>See exactly how many emergency calls you're missing</span>
                 </div>
                 <div className="flex items-start">
                   <svg className="w-6 h-6 text-white mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -136,7 +136,7 @@ export default function LandingPage() {
             <div id="audit-form" className="scroll-mt-20">
               <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 md:p-8 shadow-2xl">
                 <h2 className="text-2xl font-bold text-gray-900 mb-4 text-center">
-                  Get Your Free Website Audit or Consultation
+                  Get Your Free Texas Plumbing Website Audit
                 </h2>
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
@@ -204,7 +204,7 @@ export default function LandingPage() {
                       ? "Submitting..."
                       : submitted
                       ? "Request Sent! ✓"
-                      : "Get Your Free Audit or Consultation →"}
+                      : "Get My Free Audit (See What I'm Missing) →"}
                   </button>
                 </form>
                 <p className="mt-4 text-xs text-gray-600 text-center">
@@ -216,15 +216,15 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Problem → Pain → Cost Section */}
+      {/* Problem → Pain → Cost Section - Plumber-specific */}
       <section className="py-16 md:py-24 bg-white">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Your Website (Or Lack of One) Is Costing You Customers Every Day
+              Your Website (Or Lack of One) Is Costing You Emergency Calls Every Day
             </h2>
             <p className="text-lg text-gray-600">
-              Most service businesses lose 40-60% of potential customers. Whether you have a slow website or no website at all, you're losing jobs to competitors.
+              Most Texas plumbing companies lose 40-60% of potential customers. Whether you have a slow website or no website at all, you're losing emergency calls to competitors.
             </p>
           </div>
 
@@ -234,57 +234,57 @@ export default function LandingPage() {
                 No Website = Invisible to 90% of Customers
               </h3>
               <p className="text-gray-700">
-                If you don't have a website, customers can't find you online. They'll call your competitor who shows up in Google search results instead.
+                If you don't have a website, customers searching "plumber near me" can't find you. They'll call your competitor who shows up in Google search results instead.
               </p>
             </div>
 
             <div className="bg-red-50 border-l-4 border-red-500 p-6 rounded-xl">
               <h3 className="font-bold text-gray-900 mb-2 text-lg">
-                Slow Loading = Lost Customers
+                Slow Loading = Lost Emergency Calls
               </h3>
               <p className="text-gray-700">
-                If your site takes more than 3 seconds, 53% of visitors leave. They call your competitor instead.
+                If your site takes more than 3 seconds, 53% of visitors leave. When someone has a plumbing emergency, they need answers fast—or they call your competitor.
               </p>
             </div>
 
             <div className="bg-red-50 border-l-4 border-red-500 p-6 rounded-xl">
               <h3 className="font-bold text-gray-900 mb-2 text-lg">
-                Not Mobile-Friendly = Missing 60% of Searches
+                Not Mobile-Friendly = Missing 60% of Emergency Searches
               </h3>
               <p className="text-gray-700">
-                Over 60% of "plumber near me" searches happen on phones. If your site isn't optimized, you're invisible.
+                Over 60% of "plumber near me" searches happen on phones. If your site isn't optimized for mobile, you're invisible when customers need you most.
               </p>
             </div>
 
             <div className="bg-red-50 border-l-4 border-red-500 p-6 rounded-xl">
               <h3 className="font-bold text-gray-900 mb-2 text-lg">
-                Poor Local SEO = Competitors Get the Calls
+                Poor Local SEO = Competitors Get the Emergency Calls
               </h3>
               <p className="text-gray-700">
-                When customers search for your services, they find your competitors first. You lose the job before you even know about it.
+                When customers search for "plumber [your city]" or "emergency plumber near me", they find your competitors first. You lose the job before you even know about it.
               </p>
             </div>
           </div>
 
           <div className="mt-12 text-center bg-gray-50 p-8 rounded-2xl border-2 border-red-200">
             <p className="text-2xl font-bold text-gray-900 mb-2">
-              Every day you don't have a website, or your website is slow or hard to find, you're losing jobs to competitors.
+              Every day you don't have a website, or your website is slow or hard to find, you're losing emergency calls to competitors.
             </p>
             <p className="text-lg text-gray-700">
-              The average service business loses $2,000-$5,000 per month in missed opportunities from not having a website or having a poor one.
+              The average Texas plumbing company loses $2,000-$5,000 per month in missed opportunities from not having a website or having a poor one.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Solution Positioning */}
+      {/* Solution Positioning - Texas/Plumber-specific */}
       <section className="py-16 md:py-24 bg-gray-50">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-            We Build Websites That Get You More Phone Calls & Booked Jobs
+            We Build Fast Websites for Texas Plumbing Companies That Get 2-3x More Emergency Calls
           </h2>
           <p className="text-xl text-gray-700 mb-8 leading-relaxed">
-            Not fancy designs. Not award-winning portfolios. We build fast, conversion-focused websites that get service businesses more phone calls and booked appointments. We specialize in helping plumbers, HVAC companies, electricians, and other trades.
+            Not fancy designs. Not award-winning portfolios. We build fast, conversion-focused websites that integrate with ServiceTitan and Jobber. Delivered in 1-2 weeks. We specialize in helping Texas plumbers get more emergency calls, more booked jobs, more revenue.
           </p>
           <p className="text-lg text-gray-600 mb-10">
             Most clients see 2-3x more leads within 30 days. Your website pays for itself in the first month.
@@ -299,7 +299,203 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Proof / Credibility Section */}
+      {/* Why Texas Plumbers Choose Us Section */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.5 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Why Texas Plumbers Choose Us
+            </h2>
+            <p className="text-lg text-gray-600">
+              We understand the unique needs of plumbing businesses
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="bg-white p-8 rounded-xl shadow-lg border border-gray-100"
+            >
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-[#001B3A] text-white mb-6 shadow-lg">
+                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Integrates with ServiceTitan & Jobber</h3>
+              <p className="text-gray-600">
+                No need to change your workflow. We integrate with the tools you already use to manage your plumbing business.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="bg-white p-8 rounded-xl shadow-lg border border-gray-100"
+            >
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-[#001B3A] text-white mb-6 shadow-lg">
+                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Understands Emergency Call Urgency</h3>
+              <p className="text-gray-600">
+                We know that when someone has a plumbing emergency, they need to find you fast. Your website is optimized for speed and mobile-first design.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="bg-white p-8 rounded-xl shadow-lg border border-gray-100"
+            >
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-[#001B3A] text-white mb-6 shadow-lg">
+                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Mobile-First Design</h3>
+              <p className="text-gray-600">
+                Most "plumber near me" searches happen on phones. Your website is built mobile-first so customers can easily call or book when they need you.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="bg-white p-8 rounded-xl shadow-lg border border-gray-100"
+            >
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-[#001B3A] text-white mb-6 shadow-lg">
+                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Local SEO for Texas Cities</h3>
+              <p className="text-gray-600">
+                Optimized for local search so when customers search "plumber [your city]" or "emergency plumber near me", you show up first.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              className="bg-white p-8 rounded-xl shadow-lg border border-gray-100"
+            >
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-[#001B3A] text-white mb-6 shadow-lg">
+                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Fast Turnaround</h3>
+              <p className="text-gray-600">
+                Delivered in 1-2 weeks. We know you need to start getting calls fast, not wait months for a website.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              className="bg-white p-8 rounded-xl shadow-lg border border-gray-100"
+            >
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-[#001B3A] text-white mb-6 shadow-lg">
+                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">100% Money-Back Guarantee</h3>
+              <p className="text-gray-600">
+                Delivered in 1-2 weeks or it's free. Site loads in under 2.5 seconds or we fix it free. Not happy? Full refund in 30 days.
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Demo Case Studies Section - Plumbing First */}
+      <section className="py-16 md:py-24 bg-gray-50">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.5 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              See How We'd Approach Your Texas Plumbing Business
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Demonstration projects showing our approach to building conversion-focused websites for plumbing companies
+            </p>
+          </motion.div>
+
+          <div className="space-y-12">
+            <DemoCaseStudy
+              businessType="Texas Plumbing Company"
+              label="Demo Project"
+              problem="Outdated website that wasn't mobile-friendly. Customers searching 'plumber near me' on phones couldn't easily find services or call. Site loaded slowly, causing visitors to leave before seeing emergency services."
+              improvement="Built a new mobile-first website with clear service descriptions, prominent phone number on every page, and fast loading times. Optimized for local search so customers find them when searching 'plumber near me' or 'emergency plumber [city]'. Integrated with ServiceTitan for seamless workflow."
+              outcome="Website now loads quickly on all devices. Clear call-to-action buttons make it easy for customers to call for emergencies or book appointments. Mobile experience matches desktop quality, capturing leads that were previously lost. Easy integration with existing business tools."
+            />
+            
+            <DemoCaseStudy
+              businessType="Residential Plumbing Service"
+              label="Demo Project"
+              problem="No website existed. Business relied solely on word-of-mouth and referrals. Missing out on customers searching online for residential plumbing services, drain cleaning, and water heater repairs in their area."
+              improvement="Built a complete website from scratch focused on local SEO and conversion. Included clear service pages (drain cleaning, water heater repair, pipe repair), customer testimonials, and easy booking options. Optimized for 'plumber [city]' and 'drain cleaning near me' searches. Integrated with Jobber for scheduling."
+              outcome="Now visible to customers searching online for residential plumbing services. Website clearly communicates services and expertise. Easy-to-use contact forms and phone numbers capture leads 24/7. Local SEO helps them rank for area-specific searches. Jobber integration streamlines booking."
+            />
+            
+            <DemoCaseStudy
+              businessType="Commercial Plumbing Contractor"
+              label="Concept Redesign"
+              problem="Existing website was slow and cluttered. Contact form was hard to find, and service pages didn't clearly explain commercial services. Business customers were confused and leaving without requesting quotes for large projects."
+              improvement="Redesigned with focus on clarity and speed. Simplified navigation, made contact information prominent, and created clear service pages for commercial plumbing, maintenance contracts, and project portfolios. Optimized images and code for faster loading. Added ServiceTitan integration for project management."
+              outcome="Faster loading times keep business customers engaged. Clear service descriptions help commercial clients understand offerings immediately. Prominent contact options make it easy to request quotes and schedule consultations. ServiceTitan integration helps manage larger commercial projects efficiently."
+            />
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-center mt-12"
+          >
+            <p className="text-sm text-gray-500 mb-6">
+              These are demonstration projects showing our approach. Your results will vary based on your specific business needs.
+            </p>
+            <a
+              href="#audit-form"
+              onClick={() => trackCTAClick("Get Your Free Audit or Consultation", "Demo Case Studies")}
+              className="btn-primary px-10 py-5 text-lg font-bold inline-block"
+            >
+              Get Your Free Audit or Consultation →
+            </a>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Testimonials Section - With Context */}
       <section className="py-16 md:py-24 bg-white">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -313,7 +509,7 @@ export default function LandingPage() {
               Real Results From Service Business Owners
             </h2>
             <p className="text-lg text-gray-600">
-              See how other plumbers, HVAC companies, and electricians are getting more calls
+              While these testimonials are from other service businesses, we apply the same conversion-focused approach to Texas plumbing companies
             </p>
           </motion.div>
 
@@ -364,97 +560,18 @@ export default function LandingPage() {
               <p className="text-gray-900 font-semibold">— Ben Othman</p>
               <p className="text-sm text-gray-600">Owner, PeerSoc</p>
             </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="bg-gradient-to-br from-[#001B3A]/10 to-[#001B3A]/5 p-8 rounded-2xl border border-[#001B3A]/20"
-            >
-              <div className="flex items-center mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <svg
-                    key={i}
-                    className="w-5 h-5 text-yellow-400"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                ))}
-              </div>
-              <p className="text-lg text-gray-800 italic mb-4 leading-relaxed">
-                "OAB Web Agency genuinely delivered amazing work that helped my business loads. They over-delivered on the website project and maintained professionalism throughout. Stellar performance all around. Would definitely work with them again."
-              </p>
-              <p className="text-gray-900 font-semibold">— Gerald Winkler</p>
-              <p className="text-sm text-gray-600">Owner, Green and Clean Services</p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Demo Case Studies Section */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.5 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              See How We Transform Service Business Websites
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Demonstration projects showing our approach to building conversion-focused websites
-            </p>
-          </motion.div>
-
-          <div className="space-y-12">
-            <DemoCaseStudy
-              businessType="Plumbing Company"
-              label="Demo Project"
-              problem="Outdated website that wasn't mobile-friendly. Customers searching on phones couldn't easily find services or call. Site loaded slowly, causing visitors to leave before seeing services."
-              improvement="Built a new mobile-first website with clear service descriptions, prominent phone number on every page, and fast loading times. Optimized for local search so customers find them when searching 'plumber near me'."
-              outcome="Website now loads quickly on all devices. Clear call-to-action buttons make it easy for customers to call or book. Mobile experience matches desktop quality, capturing leads that were previously lost."
-            />
-            
-            <DemoCaseStudy
-              businessType="HVAC Company"
-              label="Concept Redesign"
-              problem="Existing website was slow and cluttered. Contact form was hard to find, and service pages didn't clearly explain what they offer. Customers were confused and leaving without contacting."
-              improvement="Redesigned with focus on clarity and speed. Simplified navigation, made contact information prominent, and created clear service pages. Optimized images and code for faster loading."
-              outcome="Faster loading times keep visitors engaged. Clear service descriptions help customers understand offerings immediately. Prominent contact options make it easy to get quotes and book appointments."
-            />
-            
-            <DemoCaseStudy
-              businessType="Electrical Services"
-              label="Demo Project"
-              problem="No website existed. Business relied solely on word-of-mouth and referrals. Missing out on customers searching online for electrical services in their area."
-              improvement="Built a complete website from scratch focused on local SEO and conversion. Included service pages, customer testimonials, clear pricing information, and easy booking options. Optimized for 'electrician [city]' searches."
-              outcome="Now visible to customers searching online. Website clearly communicates services and expertise. Easy-to-use contact forms and phone numbers capture leads 24/7. Local SEO helps them rank for area-specific searches."
-            />
           </div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-center mt-12"
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="mt-8 text-center"
           >
-            <p className="text-sm text-gray-500 mb-6">
-              These are demonstration projects showing our approach. Your results will vary based on your specific business needs.
+            <p className="text-sm text-gray-600 italic">
+              See our demo projects above to see how we'd approach your Texas plumbing business.
             </p>
-            <a
-              href="#audit-form"
-              onClick={() => trackCTAClick("Get Your Free Audit or Consultation", "Demo Case Studies")}
-              className="btn-primary px-10 py-5 text-lg font-bold inline-block"
-            >
-              Get Your Free Audit or Consultation →
-            </a>
           </motion.div>
         </div>
       </section>
@@ -470,7 +587,7 @@ export default function LandingPage() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              How We Get You More Calls & Booked Jobs
+              How We Get You More Emergency Calls & Booked Jobs
             </h2>
             <p className="text-lg text-gray-600">
               Simple 3-step process. Delivered in 1-2 weeks.
@@ -493,7 +610,7 @@ export default function LandingPage() {
                   Get Your Free Website Audit or Consultation
                 </h3>
                 <p className="text-gray-700">
-                  If you have a website, we'll analyze it and show you exactly what's costing you leads—speed issues, SEO problems, and how many jobs you're missing. Don't have a website? We'll discuss building a new one from scratch that gets you more calls and jobs.
+                  If you have a website, we'll analyze it and show you exactly what's costing you leads—speed issues, SEO problems, and how many emergency calls you're missing. Don't have a website? We'll discuss building a new one from scratch that gets you more calls and jobs.
                 </p>
               </div>
             </motion.div>
@@ -513,7 +630,7 @@ export default function LandingPage() {
                   We Build Your Lead-Generating Website
                 </h3>
                 <p className="text-gray-700">
-                  We design and build a fast, mobile-friendly website optimized for local search. Every page is designed to get phone calls and booked appointments.
+                  We design and build a fast, mobile-friendly website optimized for local search. Integrates with ServiceTitan and Jobber. Every page is designed to get phone calls and booked appointments. Delivered in 1-2 weeks.
                 </p>
               </div>
             </motion.div>
@@ -530,10 +647,10 @@ export default function LandingPage() {
               </div>
               <div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">
-                  Launch & Watch the Calls Come In
+                  Launch & Watch the Emergency Calls Come In
                 </h3>
                 <p className="text-gray-700">
-                  We launch your new site. You start getting more calls, more booked jobs, and more revenue. Most clients see results within 30 days.
+                  We launch your new site. You start getting more emergency calls, more booked jobs, and more revenue. Most clients see results within 30 days.
                 </p>
               </div>
             </motion.div>
@@ -546,10 +663,10 @@ export default function LandingPage() {
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              What You Get: More Calls, More Jobs, More Revenue
+              What You Get: More Emergency Calls, More Jobs, More Revenue
             </h2>
             <p className="text-lg text-gray-600">
-              Results that matter for your business
+              Results that matter for your Texas plumbing business
             </p>
           </div>
 
@@ -557,10 +674,10 @@ export default function LandingPage() {
             <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
               <div className="text-4xl font-bold text-[#001B3A] mb-4">2-3x</div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">
-                More Phone Calls
+                More Emergency Calls
               </h3>
               <p className="text-gray-700">
-                Clear CTAs and easy-to-find contact information mean more qualified leads calling you every week.
+                Clear CTAs and easy-to-find contact information mean more qualified leads calling you every week for emergencies and scheduled work.
               </p>
             </div>
 
@@ -570,7 +687,7 @@ export default function LandingPage() {
                 Lightning Fast Loading
               </h3>
               <p className="text-gray-700">
-                Pages load in under 2.5 seconds. Fast sites rank higher in Google and keep visitors from leaving.
+                Pages load in under 2.5 seconds. Fast sites rank higher in Google and keep visitors from leaving when they need you most.
               </p>
             </div>
 
@@ -580,7 +697,7 @@ export default function LandingPage() {
                 Found First in Local Search
               </h3>
               <p className="text-gray-700">
-                Optimized for local search so when customers search for your services, you show up first.
+                Optimized for local search so when customers search "plumber [your city]" or "emergency plumber near me", you show up first.
               </p>
             </div>
           </div>
@@ -591,7 +708,7 @@ export default function LandingPage() {
       <section className="py-16 md:py-24 bg-gradient-to-br from-[#001B3A] via-[#00152E] to-[#001022] text-white">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            See Exactly What You're Missing
+            See Exactly How Many Emergency Calls You're Missing
           </h2>
           <p className="text-xl text-white/90 mb-8">
             Get a free website audit (if you have a site) showing speed issues, SEO problems, and conversion opportunities. Or get a consultation to discuss building a new website. No sales pitch. Just real insights.
@@ -669,10 +786,10 @@ export default function LandingPage() {
             transition={{ duration: 0.5 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              Stop Losing Jobs to Competitors
+              Stop Losing Emergency Calls to Competitors
             </h2>
             <p className="text-xl text-gray-700 mb-8">
-              Every day you don't have a website, or your website is slow or hard to find, you're losing customers. Get your free audit (if you have a site) or consultation (if you need a new one) and see exactly what you're missing.
+              Every day you don't have a website, or your website is slow or hard to find, you're losing emergency calls. Get your free audit (if you have a site) or consultation (if you need a new one) and see exactly what you're missing.
             </p>
             <a
               href="#audit-form"
@@ -799,3 +916,4 @@ function DemoCaseStudy({
     </motion.div>
   );
 }
+

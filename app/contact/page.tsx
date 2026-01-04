@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import Image from "next/image";
 import { trackFormSubmission, trackOutboundLink } from "@/lib/gtag";
+import { CALENDLY_URL } from "@/lib/constants";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -85,7 +86,7 @@ export default function Contact() {
               Let's Get You More Calls & Booked Jobs
             </h1>
             <p className="text-xl text-white/90">
-              Book a free 15-minute call (no sales pitch) or get a free website audit showing exactly what's costing you leads
+              Book a free 15-minute call (no sales pitch) or get a free website audit (if you have a site) or consultation (if you need a new one) showing exactly what's costing you leads
             </p>
           </div>
         </div>
@@ -188,7 +189,7 @@ export default function Contact() {
                   value={formData.message}
                   onChange={handleChange}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#001B3A] focus:border-[#001B3A]"
-                  placeholder="Tell us about your website or what you'd like to discuss..."
+                  placeholder="Tell us about your website (if you have one) or what you'd like to discuss..."
                 />
               </div>
 
@@ -266,10 +267,10 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">
-                      Get Your Free Audit
+                      Get Your Free Audit or Consultation
                     </h3>
                     <p className="text-gray-600">
-                      We'll analyze your current website and show you exactly what's costing you calls and jobs — with real numbers.
+                      If you have a website, we'll analyze it and show you exactly what's costing you calls and jobs. Don't have one? We'll discuss building a new website from scratch — with real numbers and a clear plan.
                     </p>
                   </div>
                 </div>
@@ -284,11 +285,11 @@ export default function Contact() {
                 Book a call directly using the button below. No form needed.
               </p>
               <a
-                href="https://calendly.com/ayomidebasit099/30min"
+                href={CALENDLY_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => trackOutboundLink("https://calendly.com/ayomidebasit099/30min", "Book a 15-Minute Call - Contact Page")}
-                className="inline-block bg-[#001B3A] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#00152E] transition-colors"
+                onClick={() => trackOutboundLink(CALENDLY_URL, "Book a 15-Minute Call - Contact Page")}
+                className="btn-primary px-6 py-3"
               >
                 Book a 15-Minute Call
               </a>
@@ -296,10 +297,10 @@ export default function Contact() {
 
             <div className="bg-[#001B3A]/10 p-6 rounded-lg border border-[#001B3A]/30">
               <h3 className="font-semibold text-gray-900 mb-2">
-                Free Website Audit
+                Free Website Audit or Consultation
               </h3>
               <p className="text-gray-600 mb-4">
-                Want to see exactly what your website is costing you? Get a free audit that shows:
+                Have a website? See exactly what it's costing you. Don't have one? Get a consultation on building a new one. Get a free audit or consultation that shows:
               </p>
               <ul className="space-y-2 text-sm text-gray-600">
                 <li className="flex items-start">

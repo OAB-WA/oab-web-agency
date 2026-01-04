@@ -4,44 +4,33 @@ import Section from "@/components/Section";
 import CTAButton from "@/components/CTAButton";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { CALENDLY_URL } from "@/lib/constants";
 
 export default function CaseStudies() {
   const caseStudies = [
     {
-      business: "Example: Plumbing Company",
-      service: "Website Redesign + Local SEO",
-      results: [
-        "2-3x increase in phone calls",
-        "40-50% improvement in page load speed",
-        "Improved local search rankings",
-        "2-3x increase in form submissions",
-      ],
-      description:
-        "A plumbing company had an outdated website that wasn't generating calls. Customers were leaving before the site even loaded. After a redesign focused on speed, mobile experience, and local SEO, they went from 2-3 calls a week to 10-15 calls a week. The investment paid for itself in the first month.",
+      business: "Plumbing Company",
+      label: "Demo Project",
+      service: "Website Design & Redesign + Local SEO",
+      problem: "Outdated website that wasn't mobile-friendly. Customers searching on phones couldn't easily find services or call. Site loaded slowly, causing visitors to leave before seeing services.",
+      approach: "Built a new mobile-first website with clear service descriptions, prominent phone number on every page, and fast loading times. Optimized for local search so customers find them when searching 'plumber near me'.",
+      outcome: "Website now loads quickly on all devices. Clear call-to-action buttons make it easy for customers to call or book. Mobile experience matches desktop quality, capturing leads that were previously lost.",
     },
     {
-      business: "Example: HVAC Company",
+      business: "HVAC Company",
+      label: "Concept Redesign",
       service: "Performance Optimization + Conversion Optimization",
-      results: [
-        "50-60% reduction in bounce rate",
-        "Under 3 second page load time (down from 8+ seconds)",
-        "30-40% increase in contact form submissions",
-        "Improved Core Web Vitals scores",
-      ],
-      description:
-        "An HVAC company's website was so slow (8+ seconds to load), customers were leaving before they could even see the services. After speed optimization and conversion improvements, page load time dropped to under 3 seconds and they're now getting 3x more leads. Best $1,500 they spent all year.",
+      problem: "Existing website was slow and cluttered. Contact form was hard to find, and service pages didn't clearly explain what they offer. Customers were confused and leaving without contacting.",
+      approach: "Redesigned with focus on clarity and speed. Simplified navigation, made contact information prominent, and created clear service pages. Optimized images and code for faster loading.",
+      outcome: "Faster loading times keep visitors engaged. Clear service descriptions help customers understand offerings immediately. Prominent contact options make it easy to get quotes and book appointments.",
     },
     {
-      business: "Example: Electrical Services",
-      service: "Complete Website Redesign",
-      results: [
-        "3-4x increase in monthly leads",
-        "Mobile-friendly design (was not mobile-responsive)",
-        "Improved Google Business Profile visibility",
-        "Better user experience across all devices",
-      ],
-      description:
-        "An electrical services company needed a complete website overhaul. Their old site wasn't mobile-friendly (most customers search on phones) and had terrible conversion rates. The new site focused on speed, mobile experience, and clear calls-to-action. Result: 3-4x more monthly leads and now ranking on page 1 for local searches.",
+      business: "Electrical Services",
+      label: "Demo Project",
+      service: "Complete Website Design & Redesign",
+      problem: "No website existed. Business relied solely on word-of-mouth and referrals. Missing out on customers searching online for electrical services in their area.",
+      approach: "Built a complete website from scratch focused on local SEO and conversion. Included service pages, customer testimonials, clear pricing information, and easy booking options. Optimized for 'electrician [city]' searches.",
+      outcome: "Now visible to customers searching online. Website clearly communicates services and expertise. Easy-to-use contact forms and phone numbers capture leads 24/7. Local SEO helps them rank for area-specific searches.",
     },
   ];
 
@@ -65,10 +54,10 @@ export default function CaseStudies() {
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Real Results From Plumbers, HVAC Companies & Electricians
+              See How We Transform Service Business Websites
             </h1>
             <p className="text-xl text-white/90">
-              See typical outcomes service businesses achieve — more calls, more jobs, more revenue
+              Demonstration projects showing our approach to building conversion-focused websites
             </p>
           </div>
         </div>
@@ -76,56 +65,113 @@ export default function CaseStudies() {
 
       {/* Case Studies */}
       <Section>
-        <div className="space-y-16">
+        <div className="space-y-12 max-w-6xl mx-auto">
           {caseStudies.map((study, index) => (
             <motion.div
               key={study.business}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden"
+              className="bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow"
             >
-              <div className="p-8 md:p-12">
-                <div className="mb-6">
-                  <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
-                    {study.business}
-                  </h2>
-                  <p className="text-[#001B3A] font-semibold">
-                    {study.service}
-                  </p>
+              <div className="p-8 md:p-10">
+                <div className="flex items-center justify-between mb-6">
+                  <div>
+                    <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
+                      {study.business}
+                    </h2>
+                    <p className="text-[#001B3A] font-semibold">
+                      {study.service}
+                    </p>
+                  </div>
+                  <span className="px-3 py-1 text-xs font-semibold text-[#001B3A] bg-[#001B3A]/10 rounded-full">
+                    {study.label}
+                  </span>
                 </div>
 
-                <p className="text-lg text-gray-600 mb-8">
-                  {study.description}
-                </p>
-
-                <div className="grid md:grid-cols-2 gap-4">
-                  {study.results.map((result) => (
-                    <div
-                      key={result}
-                      className="flex items-start bg-gray-50 p-4 rounded-lg"
-                    >
-                      <svg
-                        className="w-6 h-6 text-green-600 mr-3 mt-0.5 flex-shrink-0"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                      <span className="text-gray-900 font-medium">
-                        {result}
-                      </span>
+                <div className="space-y-6">
+                  <div>
+                    <div className="flex items-start mb-2">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-red-100 flex items-center justify-center mr-3 mt-0.5">
+                        <svg
+                          className="w-4 h-4 text-red-600"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                          />
+                        </svg>
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-gray-900 mb-1">The Problem</h4>
+                        <p className="text-gray-600 leading-relaxed">{study.problem}</p>
+                      </div>
                     </div>
-                  ))}
+                  </div>
+
+                  <div>
+                    <div className="flex items-start mb-2">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center mr-3 mt-0.5">
+                        <svg
+                          className="w-4 h-4 text-blue-600"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M13 10V3L4 14h7v7l9-11h-7z"
+                          />
+                        </svg>
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-gray-900 mb-1">Our Approach</h4>
+                        <p className="text-gray-600 leading-relaxed">{study.approach}</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div className="flex items-start mb-2">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-green-100 flex items-center justify-center mr-3 mt-0.5">
+                        <svg
+                          className="w-4 h-4 text-green-600"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                          />
+                        </svg>
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-gray-900 mb-1">The Outcome</h4>
+                        <p className="text-gray-600 leading-relaxed">{study.outcome}</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </motion.div>
           ))}
+        </div>
+
+        <div className="text-center mt-12 max-w-3xl mx-auto">
+          <p className="text-sm text-gray-500 mb-6">
+            These are demonstration projects showing our approach. Your results will vary based on your specific business needs.
+          </p>
         </div>
       </Section>
 
@@ -136,7 +182,7 @@ export default function CaseStudies() {
             Typical Results You Can Expect
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto mt-4">
-            Based on real results from plumbers, HVAC companies, and electricians we've worked with
+            Based on industry standards and typical client outcomes
           </p>
         </div>
 
@@ -157,7 +203,7 @@ export default function CaseStudies() {
             transition={{ delay: 0.1 }}
             className="text-center"
           >
-            <div className="text-5xl font-bold text-[#001B3A] mb-2">&lt;3s</div>
+            <div className="text-5xl font-bold text-[#001B3A] mb-2">&lt;2.5s</div>
             <p className="text-gray-600">Target page load time</p>
           </motion.div>
           <motion.div
@@ -183,11 +229,11 @@ export default function CaseStudies() {
             Let's discuss how we can help your service business get more phone calls, more booked jobs, and more revenue. Book a free 15-minute call (no sales pitch).
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <CTAButton href="/contact" variant="secondary">
+            <CTAButton href={CALENDLY_URL} variant="secondary">
               Book a Free Strategy Call
             </CTAButton>
             <CTAButton href="/contact" variant="secondary">
-              Get a Free Website Audit
+              Get a Free Website Audit or Consultation
             </CTAButton>
           </div>
         </div>

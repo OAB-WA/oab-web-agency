@@ -4,6 +4,7 @@ import Section from "@/components/Section";
 import CTAButton from "@/components/CTAButton";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { CALENDLY_URL } from "@/lib/constants";
 
 export default function About() {
   const values = [
@@ -20,7 +21,7 @@ export default function About() {
     {
       title: "Service Business Focus",
       description:
-        "We understand the unique needs of service businesses. Our websites are built specifically for plumbers, HVAC companies, electricians, and contractors.",
+        "We understand the unique needs of service businesses. Our websites are built specifically for plumbers, HVAC companies, electricians, landscapers, roofers, cleaners, and other service-based businesses.",
     },
     {
       title: "Transparent & Honest",
@@ -52,7 +53,7 @@ export default function About() {
               We Build Websites That Get You More Calls & Jobs
             </h1>
             <p className="text-xl text-white/90">
-              Specializing in high-converting websites for plumbers, HVAC companies, electricians, and other home-based service businesses
+              Specializing in high-converting websites for service-based businesses. We work with plumbers, HVAC companies, electricians, landscapers, roofers, and other trades.
             </p>
           </div>
         </div>
@@ -66,7 +67,7 @@ export default function About() {
           </h2>
           <div className="prose prose-lg max-w-none">
             <p className="text-lg text-gray-600 mb-4">
-              Most plumbers, HVAC techs, and electricians have websites that look fine but don't generate calls. They're slow, hard to use on phones, and don't convert visitors into customers. Meanwhile, competitors with better websites are getting all the jobs.
+              Most service businesses have websites that look fine but don't generate calls. They're slow, hard to use on phones, and don't convert visitors into customers. Meanwhile, competitors with better websites are getting all the jobs.
             </p>
             <p className="text-lg text-gray-600 mb-4">
               We started OAB Web Agency to fix that. We build websites designed specifically for service businesses — websites that turn visitors into phone calls and booked jobs. No fancy animations or design awards. Just websites that bring you customers.
@@ -115,7 +116,7 @@ export default function About() {
             Home-based service businesses have unique needs. When someone's pipe bursts at 2 AM or their AC breaks in the summer, they need to find you quickly, trust you immediately, and contact you easily. Your website needs to be fast, mobile-friendly, and optimized for local search — or they're calling your competitor.
           </p>
           <p className="text-lg text-gray-600 mb-8">
-            We understand these needs because we've worked with plumbers, HVAC companies, electricians, and other service-based businesses. We know what works (fast loading, clear phone numbers, local SEO) and what doesn't (slow sites, fancy animations, confusing navigation).
+            We understand these needs because we've worked with plumbers, HVAC companies, electricians, landscapers, roofers, and other service-based businesses. We know what works (fast loading, clear phone numbers, local SEO) and what doesn't (slow sites, fancy animations, confusing navigation).
           </p>
         </div>
       </Section>
@@ -127,14 +128,14 @@ export default function About() {
             Ready to Get More Calls & Booked Jobs?
           </h2>
           <p className="text-xl text-white/90 mb-8">
-            Let's discuss how we can turn your website into a lead-generating machine that actually pays for itself.
+            Let's discuss how we can build you a new website or turn your existing website into a lead-generating machine that actually pays for itself.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <CTAButton href="/contact" variant="secondary">
+            <CTAButton href={CALENDLY_URL} variant="secondary">
               Book a Strategy Call
             </CTAButton>
             <CTAButton href="/contact" variant="secondary">
-              Get a Free Audit
+              Get a Free Audit or Consultation
             </CTAButton>
           </div>
         </div>
