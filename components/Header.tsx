@@ -11,7 +11,7 @@ import { CALENDLY_URL } from "@/lib/constants";
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
-  const isLandingPage = pathname === "/free-audit" || pathname === "/free-audit-plumbers";
+  const isLandingPage = pathname === "/free-audit" || pathname === "/dallas-plumbers";
 
   const navLinks = [
     { href: "/", label: "Home" },

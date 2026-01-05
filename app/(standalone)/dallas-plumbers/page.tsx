@@ -42,7 +42,7 @@ export default function PlumbersLandingPage() {
       setFormData({ name: "", email: "", phone: "", website: "" });
       
       // Track form submission
-      trackFormSubmission("Free Audit Form - Plumbers");
+      trackFormSubmission("Free Audit Form - Dallas Plumbers");
       
       // Reset success message after 5 seconds
       setTimeout(() => {
@@ -86,7 +86,7 @@ export default function PlumbersLandingPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section - Texas Plumber-specific */}
+      {/* Hero Section - Dallas Plumber-specific */}
       <section className="relative text-white overflow-hidden">
         <div className="absolute inset-0">
           <Image
@@ -105,10 +105,10 @@ export default function PlumbersLandingPage() {
             {/* Left: Headline & Benefits */}
             <div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-white">
-                Texas Plumbers: Get 2-3x More Emergency Calls — Website Delivered in 1-2 Weeks
+                Dallas Plumbers: Get 2-3x More Emergency Calls — Website Delivered in 1-2 Weeks
               </h1>
               <p className="text-xl md:text-2xl text-white/90 mb-6">
-                Texas plumbing companies lose 40-60% of customers to slow websites or no website. Get a free audit showing exactly how many emergency calls you're missing. Integrates with ServiceTitan & Jobber. Delivered in 1-2 weeks.
+                Dallas plumbing companies lose 40-60% of customers to slow websites or no website. Get a free audit showing exactly how many emergency calls you're missing. Integrates with ServiceTitan & Jobber. Delivered in 1-2 weeks.
               </p>
               <div className="space-y-3 text-white/90">
                 <div className="flex items-start">
@@ -136,7 +136,7 @@ export default function PlumbersLandingPage() {
             <div id="audit-form" className="scroll-mt-20">
               <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 md:p-8 shadow-2xl">
                 <h2 className="text-2xl font-bold text-gray-900 mb-4 text-center">
-                  Get Your Free Texas Plumbing Website Audit
+                  Get Your Free Dallas Plumbing Website Audit
                 </h2>
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
@@ -224,7 +224,7 @@ export default function PlumbersLandingPage() {
               Your Website (Or Lack of One) Is Costing You Emergency Calls Every Day
             </h2>
             <p className="text-lg text-gray-600">
-              Most Texas plumbing companies lose 40-60% of potential customers. Whether you have a slow website or no website at all, you're losing emergency calls to competitors.
+              Most Dallas plumbing companies lose 40-60% of potential customers. Whether you have a slow website or no website at all, you're losing emergency calls to competitors.
             </p>
           </div>
 
@@ -271,20 +271,20 @@ export default function PlumbersLandingPage() {
               Every day you don't have a website, or your website is slow or hard to find, you're losing emergency calls to competitors.
             </p>
             <p className="text-lg text-gray-700">
-              The average Texas plumbing company loses $2,000-$5,000 per month in missed opportunities from not having a website or having a poor one.
+              The average Dallas plumbing company loses $2,000-$5,000 per month in missed opportunities from not having a website or having a poor one.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Solution Positioning - Texas/Plumber-specific */}
+      {/* Solution Positioning - Dallas/Plumber-specific */}
       <section className="py-16 md:py-24 bg-gray-50">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-            We Build Fast Websites for Texas Plumbing Companies That Get 2-3x More Emergency Calls
+            We Build Fast Websites for Dallas Plumbing Companies That Get 2-3x More Emergency Calls
           </h2>
           <p className="text-xl text-gray-700 mb-8 leading-relaxed">
-            Not fancy designs. Not award-winning portfolios. We build fast, conversion-focused websites that integrate with ServiceTitan and Jobber. Delivered in 1-2 weeks. We specialize in helping Texas plumbers get more emergency calls, more booked jobs, more revenue.
+            Not fancy designs. Not award-winning portfolios. We build fast, conversion-focused websites that integrate with ServiceTitan and Jobber. Delivered in 1-2 weeks. We specialize in helping Dallas plumbers get more emergency calls, more booked jobs, more revenue.
           </p>
           <p className="text-lg text-gray-600 mb-10">
             Most clients see 2-3x more leads within 30 days. Your website pays for itself in the first month.
@@ -299,7 +299,7 @@ export default function PlumbersLandingPage() {
         </div>
       </section>
 
-      {/* Why Texas Plumbers Choose Us Section */}
+      {/* Why Dallas Plumbers Choose Us Section */}
       <section className="py-16 md:py-24 bg-white">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -310,7 +310,7 @@ export default function PlumbersLandingPage() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Why Texas Plumbers Choose Us
+              Why Dallas Plumbers Choose Us
             </h2>
             <p className="text-lg text-gray-600">
               We understand the unique needs of plumbing businesses
@@ -385,7 +385,7 @@ export default function PlumbersLandingPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Local SEO for Texas Cities</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Local SEO for Dallas & DFW</h3>
               <p className="text-gray-600">
                 Optimized for local search so when customers search "plumber [your city]" or "emergency plumber near me", you show up first.
               </p>
@@ -441,7 +441,7 @@ export default function PlumbersLandingPage() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              See How We'd Approach Your Texas Plumbing Business
+              See How We'd Approach Your Dallas Plumbing Business
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Demonstration projects showing our approach to building conversion-focused websites for plumbing companies
@@ -450,7 +450,7 @@ export default function PlumbersLandingPage() {
 
           <div className="space-y-12">
             <DemoCaseStudy
-              businessType="Texas Plumbing Company"
+              businessType="Dallas Plumbing Company"
               label="Demo Project"
               problem="Outdated website that wasn't mobile-friendly. Customers searching 'plumber near me' on phones couldn't easily find services or call. Site loaded slowly, causing visitors to leave before seeing emergency services."
               improvement="Built a new mobile-first website with clear service descriptions, prominent phone number on every page, and fast loading times. Optimized for local search so customers find them when searching 'plumber near me' or 'emergency plumber [city]'. Integrated with ServiceTitan for seamless workflow."
@@ -509,7 +509,7 @@ export default function PlumbersLandingPage() {
               Real Results From Service Business Owners
             </h2>
             <p className="text-lg text-gray-600">
-              While these testimonials are from other service businesses, we apply the same conversion-focused approach to Texas plumbing companies
+              While these testimonials are from other service businesses, we apply the same conversion-focused approach to Dallas plumbing companies
             </p>
           </motion.div>
 
@@ -570,7 +570,7 @@ export default function PlumbersLandingPage() {
             className="mt-8 text-center"
           >
             <p className="text-sm text-gray-600 italic">
-              See our demo projects above to see how we'd approach your Texas plumbing business.
+              See our demo projects above to see how we'd approach your Dallas plumbing business.
             </p>
           </motion.div>
         </div>
@@ -666,7 +666,7 @@ export default function PlumbersLandingPage() {
               What You Get: More Emergency Calls, More Jobs, More Revenue
             </h2>
             <p className="text-lg text-gray-600">
-              Results that matter for your Texas plumbing business
+              Results that matter for your Dallas plumbing business
             </p>
           </div>
 
