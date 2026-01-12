@@ -21,6 +21,15 @@ export default function CaseStudies() {
       imageUrl: "/swan-after.png",
       originalWebsiteUrl: "https://www.callswan.com/",
       demoUrl: "https://swanplumbing.vercel.app/",
+      // Real Core Web Vitals data from Google PageSpeed Insights
+      performance: {
+        score: { before: 53, after: 94 },
+        fcp: { before: 8.8, after: 1.4, unit: "s" },
+        lcp: { before: 15.1, after: 3.0, unit: "s" },
+        tbt: { before: 190, after: 0, unit: "ms" },
+        cls: { before: 0, after: 0.045, unit: "" },
+        speedIndex: { before: 10.2, after: 2.1, unit: "s" },
+      },
     },
   ];
 
@@ -142,34 +151,154 @@ export default function CaseStudies() {
                     </div>
 
                     {/* Performance Metrics Comparison */}
-                    <div className="mb-6 p-6 bg-gradient-to-br from-gray-50 to-blue-50 rounded-xl border border-gray-200">
-                      <h4 className="text-lg font-bold text-gray-900 mb-4 text-center">
-                        Performance Improvements
-                      </h4>
-                      <div className="grid md:grid-cols-3 gap-6">
-                        <div className="text-center">
-                          <div className="text-3xl font-bold text-red-600 mb-1">4.2s</div>
-                          <div className="text-sm text-gray-600 mb-2">Before: Load Time</div>
-                          <div className="text-3xl font-bold text-green-600">1.8s</div>
-                          <div className="text-sm text-gray-600">After: Load Time</div>
-                          <div className="text-xs text-green-700 font-semibold mt-1">57% faster</div>
+                    {study.performance && (
+                      <div className="mb-6 space-y-6">
+                        {/* Performance Score - Hero Section */}
+                        <div className="p-8 bg-gradient-to-br from-red-50 via-orange-50 to-green-50 rounded-xl border-2 border-gray-200">
+                          <div className="text-center mb-4">
+                            <p className="text-sm font-semibold text-gray-600 mb-2 uppercase tracking-wide">
+                              Overall Performance Score
+                            </p>
+                            <div className="flex items-center justify-center gap-4 mb-2">
+                              <div className="text-center">
+                                <div className="text-5xl md:text-6xl font-bold text-red-600 mb-1">
+                                  {study.performance.score.before}
+                                </div>
+                                <div className="text-xs text-gray-600">Before</div>
+                              </div>
+                              <div className="text-3xl text-gray-400">→</div>
+                              <div className="text-center">
+                                <div className="text-5xl md:text-6xl font-bold bg-gradient-to-br from-green-600 to-green-500 bg-clip-text text-transparent mb-1">
+                                  {study.performance.score.after}
+                                </div>
+                                <div className="text-xs text-gray-600">After</div>
+                              </div>
+                            </div>
+                            <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-100 rounded-full">
+                              <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                              </svg>
+                              <span className="text-sm font-bold text-green-700">
+                                {Math.round(((study.performance.score.after - study.performance.score.before) / study.performance.score.before) * 100)}% Improvement
+                              </span>
+                            </div>
+                            <p className="text-xs text-gray-500 mt-3">
+                              As measured by Google PageSpeed Insights
+                            </p>
+                          </div>
                         </div>
-                        <div className="text-center">
-                          <div className="text-3xl font-bold text-red-600 mb-1">45</div>
-                          <div className="text-sm text-gray-600 mb-2">Before: LCP Score</div>
-                          <div className="text-3xl font-bold text-green-600">92</div>
-                          <div className="text-sm text-gray-600">After: LCP Score</div>
-                          <div className="text-xs text-green-700 font-semibold mt-1">104% improvement</div>
-                        </div>
-                        <div className="text-center">
-                          <div className="text-3xl font-bold text-red-600 mb-1">0.35</div>
-                          <div className="text-sm text-gray-600 mb-2">Before: CLS</div>
-                          <div className="text-3xl font-bold text-green-600">0.02</div>
-                          <div className="text-sm text-gray-600">After: CLS</div>
-                          <div className="text-xs text-green-700 font-semibold mt-1">94% improvement</div>
+
+                        {/* Core Web Vitals - Detailed Metrics */}
+                        <div className="p-6 bg-gradient-to-br from-gray-50 to-blue-50 rounded-xl border border-gray-200">
+                          <h4 className="text-lg font-bold text-gray-900 mb-6 text-center">
+                            Core Web Vitals & Performance Metrics
+                          </h4>
+                          <div className="grid md:grid-cols-3 gap-6 mb-6">
+                            {/* First Contentful Paint */}
+                            <div className="bg-white rounded-lg p-4 border border-gray-200 shadow-sm">
+                              <div className="text-center">
+                                <div className="text-xs font-semibold text-gray-600 mb-2 uppercase tracking-wide">
+                                  First Contentful Paint
+                                </div>
+                                <div className="text-2xl font-bold text-red-600 mb-1">
+                                  {study.performance.fcp.before}{study.performance.fcp.unit}
+                                </div>
+                                <div className="text-xs text-gray-500 mb-2">Before</div>
+                                <div className="text-2xl font-bold text-green-600 mb-1">
+                                  {study.performance.fcp.after}{study.performance.fcp.unit}
+                                </div>
+                                <div className="text-xs text-gray-500 mb-2">After</div>
+                                <div className="text-xs text-green-700 font-semibold">
+                                  {Math.round(((study.performance.fcp.before - study.performance.fcp.after) / study.performance.fcp.before) * 100)}% faster
+                                </div>
+                              </div>
+                            </div>
+
+                            {/* Largest Contentful Paint */}
+                            <div className="bg-white rounded-lg p-4 border border-gray-200 shadow-sm">
+                              <div className="text-center">
+                                <div className="text-xs font-semibold text-gray-600 mb-2 uppercase tracking-wide">
+                                  Largest Contentful Paint
+                                </div>
+                                <div className="text-2xl font-bold text-red-600 mb-1">
+                                  {study.performance.lcp.before}{study.performance.lcp.unit}
+                                </div>
+                                <div className="text-xs text-gray-500 mb-2">Before</div>
+                                <div className="text-2xl font-bold text-green-600 mb-1">
+                                  {study.performance.lcp.after}{study.performance.lcp.unit}
+                                </div>
+                                <div className="text-xs text-gray-500 mb-2">After</div>
+                                <div className="text-xs text-green-700 font-semibold">
+                                  {Math.round(((study.performance.lcp.before - study.performance.lcp.after) / study.performance.lcp.before) * 100)}% faster
+                                </div>
+                              </div>
+                            </div>
+
+                            {/* Total Blocking Time */}
+                            <div className="bg-white rounded-lg p-4 border border-gray-200 shadow-sm">
+                              <div className="text-center">
+                                <div className="text-xs font-semibold text-gray-600 mb-2 uppercase tracking-wide">
+                                  Total Blocking Time
+                                </div>
+                                <div className="text-2xl font-bold text-red-600 mb-1">
+                                  {study.performance.tbt.before}{study.performance.tbt.unit}
+                                </div>
+                                <div className="text-xs text-gray-500 mb-2">Before</div>
+                                <div className="text-2xl font-bold text-green-600 mb-1">
+                                  {study.performance.tbt.after}{study.performance.tbt.unit}
+                                </div>
+                                <div className="text-xs text-gray-500 mb-2">After</div>
+                                <div className="text-xs text-green-700 font-semibold">
+                                  {study.performance.tbt.after === 0 ? "100% eliminated" : `${Math.round(((study.performance.tbt.before - study.performance.tbt.after) / study.performance.tbt.before) * 100)}% faster`}
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div className="grid md:grid-cols-2 gap-6">
+                            {/* Cumulative Layout Shift */}
+                            <div className="bg-white rounded-lg p-4 border border-gray-200 shadow-sm">
+                              <div className="text-center">
+                                <div className="text-xs font-semibold text-gray-600 mb-2 uppercase tracking-wide">
+                                  Cumulative Layout Shift
+                                </div>
+                                <div className="text-2xl font-bold text-green-600 mb-1">
+                                  {study.performance.cls.before}{study.performance.cls.unit}
+                                </div>
+                                <div className="text-xs text-gray-500 mb-2">Before</div>
+                                <div className="text-2xl font-bold text-green-600 mb-1">
+                                  {study.performance.cls.after}{study.performance.cls.unit}
+                                </div>
+                                <div className="text-xs text-gray-500 mb-2">After</div>
+                                <div className="text-xs text-green-700 font-semibold">
+                                  Excellent (under 0.1)
+                                </div>
+                              </div>
+                            </div>
+
+                            {/* Speed Index */}
+                            <div className="bg-white rounded-lg p-4 border border-gray-200 shadow-sm">
+                              <div className="text-center">
+                                <div className="text-xs font-semibold text-gray-600 mb-2 uppercase tracking-wide">
+                                  Speed Index
+                                </div>
+                                <div className="text-2xl font-bold text-red-600 mb-1">
+                                  {study.performance.speedIndex.before}{study.performance.speedIndex.unit}
+                                </div>
+                                <div className="text-xs text-gray-500 mb-2">Before</div>
+                                <div className="text-2xl font-bold text-green-600 mb-1">
+                                  {study.performance.speedIndex.after}{study.performance.speedIndex.unit}
+                                </div>
+                                <div className="text-xs text-gray-500 mb-2">After</div>
+                                <div className="text-xs text-green-700 font-semibold">
+                                  {Math.round(((study.performance.speedIndex.before - study.performance.speedIndex.after) / study.performance.speedIndex.before) * 100)}% faster
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    )}
 
                     {/* Business Impact Section */}
                     <div className="mb-6 p-6 bg-[#001B3A] text-white rounded-xl shadow-lg">
