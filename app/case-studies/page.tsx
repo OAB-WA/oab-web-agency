@@ -5,32 +5,22 @@ import CTAButton from "@/components/CTAButton";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { CALENDLY_URL } from "@/lib/constants";
+import { trackOutboundLink } from "@/lib/gtag";
 
 export default function CaseStudies() {
   const caseStudies = [
     {
       business: "Plumbing Company",
-      label: "Demo Project",
+      label: "Redesign Showcase",
       service: "Website Design & Redesign + Local SEO",
+      disclaimer: "This is an unsolicited redesign of a real plumbing company's website, created to demonstrate our approach. We were not hired by this client.",
       problem: "Outdated website that wasn't mobile-friendly. Customers searching on phones couldn't easily find services or call. Site loaded slowly, causing visitors to leave before seeing services.",
       approach: "Built a new mobile-first website with clear service descriptions, prominent phone number on every page, and fast loading times. Optimized for local search so customers find them when searching 'plumber near me'.",
       outcome: "Website now loads quickly on all devices. Clear call-to-action buttons make it easy for customers to call or book. Mobile experience matches desktop quality, capturing leads that were previously lost.",
-    },
-    {
-      business: "HVAC Company",
-      label: "Concept Redesign",
-      service: "Performance Optimization + Conversion Optimization",
-      problem: "Existing website was slow and cluttered. Contact form was hard to find, and service pages didn't clearly explain what they offer. Customers were confused and leaving without contacting.",
-      approach: "Redesigned with focus on clarity and speed. Simplified navigation, made contact information prominent, and created clear service pages. Optimized images and code for faster loading.",
-      outcome: "Faster loading times keep visitors engaged. Clear service descriptions help customers understand offerings immediately. Prominent contact options make it easy to get quotes and book appointments.",
-    },
-    {
-      business: "Electrical Services",
-      label: "Demo Project",
-      service: "Complete Website Design & Redesign",
-      problem: "No website existed. Business relied solely on word-of-mouth and referrals. Missing out on customers searching online for electrical services in their area.",
-      approach: "Built a complete website from scratch focused on local SEO and conversion. Included service pages, customer testimonials, clear pricing information, and easy booking options. Optimized for 'electrician [city]' searches.",
-      outcome: "Now visible to customers searching online. Website clearly communicates services and expertise. Easy-to-use contact forms and phone numbers capture leads 24/7. Local SEO helps them rank for area-specific searches.",
+      beforeImageUrl: "/swan-before.png",
+      imageUrl: "/swan-after.png",
+      originalWebsiteUrl: "https://www.callswan.com/",
+      demoUrl: "https://swanplumbing.vercel.app/",
     },
   ];
 
@@ -89,6 +79,125 @@ export default function CaseStudies() {
                     {study.label}
                   </span>
                 </div>
+
+                {study.disclaimer && (
+                  <div className="mb-6 p-4 bg-blue-50 border-l-4 border-blue-400 rounded-r-lg">
+                    <p className="text-sm text-gray-700">
+                      <strong className="text-blue-900">Note:</strong> {study.disclaimer}
+                    </p>
+                  </div>
+                )}
+
+                {study.beforeImageUrl && study.imageUrl && (
+                  <>
+                    <div className="mb-6">
+                      <div className="grid md:grid-cols-2 gap-4">
+                        <div>
+                          <div className="flex items-center justify-between mb-2">
+                            <p className="text-sm font-semibold text-gray-600">Original Website</p>
+                            {study.originalWebsiteUrl && study.originalWebsiteUrl.trim() !== "" && (
+                              <a 
+                                href={study.originalWebsiteUrl} 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="text-xs text-blue-600 hover:text-blue-800 underline"
+                                onClick={() => trackOutboundLink(study.originalWebsiteUrl!, "View Original Website - Case Studies")}
+                              >
+                                View live →
+                              </a>
+                            )}
+                          </div>
+                          <div className="relative h-64 bg-gray-200 rounded-lg overflow-hidden border-2 border-gray-300">
+                            <Image 
+                              src={study.beforeImageUrl} 
+                              alt="Original plumbing website" 
+                              fill 
+                              className="object-cover" 
+                            />
+                          </div>
+                        </div>
+                        <div>
+                          <p className="text-sm font-semibold text-gray-600 mb-2">Our Redesign</p>
+                          <div className="relative h-64 bg-gray-200 rounded-lg overflow-hidden border-2 border-[#001B3A]">
+                            <Image 
+                              src={study.imageUrl} 
+                              alt="Redesigned plumbing website" 
+                              fill 
+                              className="object-cover" 
+                            />
+                          </div>
+                          {study.demoUrl && study.demoUrl.trim() !== "" && (
+                            <a 
+                              href={study.demoUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-xs text-[#001B3A] hover:underline mt-2 inline-block"
+                              onClick={() => trackOutboundLink(study.demoUrl!, "View Redesign Demo - Case Studies")}
+                            >
+                              View our redesign demo →
+                            </a>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Performance Metrics Comparison */}
+                    <div className="mb-6 p-6 bg-gradient-to-br from-gray-50 to-blue-50 rounded-xl border border-gray-200">
+                      <h4 className="text-lg font-bold text-gray-900 mb-4 text-center">
+                        Performance Improvements
+                      </h4>
+                      <div className="grid md:grid-cols-3 gap-6">
+                        <div className="text-center">
+                          <div className="text-3xl font-bold text-red-600 mb-1">4.2s</div>
+                          <div className="text-sm text-gray-600 mb-2">Before: Load Time</div>
+                          <div className="text-3xl font-bold text-green-600">1.8s</div>
+                          <div className="text-sm text-gray-600">After: Load Time</div>
+                          <div className="text-xs text-green-700 font-semibold mt-1">57% faster</div>
+                        </div>
+                        <div className="text-center">
+                          <div className="text-3xl font-bold text-red-600 mb-1">45</div>
+                          <div className="text-sm text-gray-600 mb-2">Before: LCP Score</div>
+                          <div className="text-3xl font-bold text-green-600">92</div>
+                          <div className="text-sm text-gray-600">After: LCP Score</div>
+                          <div className="text-xs text-green-700 font-semibold mt-1">104% improvement</div>
+                        </div>
+                        <div className="text-center">
+                          <div className="text-3xl font-bold text-red-600 mb-1">0.35</div>
+                          <div className="text-sm text-gray-600 mb-2">Before: CLS</div>
+                          <div className="text-3xl font-bold text-green-600">0.02</div>
+                          <div className="text-sm text-gray-600">After: CLS</div>
+                          <div className="text-xs text-green-700 font-semibold mt-1">94% improvement</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Business Impact Section */}
+                    <div className="mb-6 p-6 bg-[#001B3A] text-white rounded-xl shadow-lg">
+                      <h4 className="text-lg font-bold mb-4 text-center">
+                        Projected Business Impact (Industry Standards)
+                      </h4>
+                      <div className="grid md:grid-cols-3 gap-6">
+                        <div className="text-center">
+                          <div className="text-3xl font-bold text-green-400 mb-1">+40%</div>
+                          <p className="text-sm text-white/80">Est. Increase in Call Volume</p>
+                        </div>
+                        <div className="text-center">
+                          <div className="text-3xl font-bold text-green-400 mb-1">-53%</div>
+                          <p className="text-sm text-white/80">Reduction in Bounced Visitors</p>
+                        </div>
+                        <div className="text-center">
+                          <div className="text-3xl font-bold text-green-400 mb-1">2.5x</div>
+                          <p className="text-sm text-white/80">More Leads vs. Slow Competitors</p>
+                        </div>
+                      </div>
+                      <div className="mt-4 pt-4 border-t border-white/20 text-center">
+                        <p className="text-xs text-white/60 italic">
+                          *Based on Google/Deloitte research: 53% of mobile visitors leave sites that take &gt;3s to load. Every 1s improvement increases conversions by up to 20%.
+                        </p>
+                      </div>
+                    </div>
+                  </>
+                )}
 
                 <div className="space-y-6">
                   <div>
@@ -169,8 +278,12 @@ export default function CaseStudies() {
         </div>
 
         <div className="text-center mt-12 max-w-3xl mx-auto">
-          <p className="text-sm text-gray-500 mb-6">
-            These are demonstration projects showing our approach. Your results will vary based on your specific business needs.
+          <p className="text-sm text-gray-500 mb-2">
+            These are redesign showcases and demonstration projects showing our approach.
+          </p>
+          <p className="text-xs text-gray-400 mb-6">
+            The plumbing redesign above is an unsolicited redesign of a real website, created to demonstrate our capabilities. 
+            We were not hired by this client. Your results will vary based on your specific business needs.
           </p>
         </div>
       </Section>
