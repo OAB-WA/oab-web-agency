@@ -93,7 +93,7 @@ export default function FAQ() {
     {
       question: "Do you build new websites for businesses without an existing site?",
       answer:
-        "Absolutely! We build brand new websites from scratch for businesses that don't have a website yet. Whether you're starting fresh or need a complete redesign, we'll create a high-converting website that gets you more calls and booked jobs. The process is the same—we'll work with you to understand your business, target customers, and goals, then build a fast, mobile-friendly website optimized for local search.",
+        "Absolutely! We build brand new websites from scratch for businesses that don't have a website yet. Whether you're starting fresh or need a complete redesign, we'll create a high-converting website that gets you more calls and booked jobs. The process is the same. We'll work with you to understand your business, target customers, and goals, then build a fast, mobile-friendly website optimized for local search.",
     },
     {
       question: "Can you redesign my existing website?",
@@ -103,7 +103,7 @@ export default function FAQ() {
     {
       question: "What makes your websites different from others?",
       answer:
-        "We focus on conversion optimization, not just aesthetics. Every element is designed to generate leads and phone calls. We also prioritize speed (Core Web Vitals), local SEO, and mobile experience—all critical factors for service businesses. Our websites are built to pay for themselves with more calls and booked jobs.",
+        "We focus on conversion optimization, not just aesthetics. Every element is designed to generate leads and phone calls. We also prioritize speed (Core Web Vitals), local SEO, and mobile experience. These are all critical factors for service businesses. Our websites are built to pay for themselves with more calls and booked jobs.",
     },
   ];
 
@@ -112,9 +112,9 @@ export default function FAQ() {
   };
 
   return (
-    <>
+    <div className="bg-transparent">
       <FAQSchema faqs={faqs} />
-      <section className="relative text-white py-20 overflow-hidden">
+      <section className="relative text-white pt-32 pb-24 md:py-40 overflow-hidden -mt-20">
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
@@ -129,51 +129,53 @@ export default function FAQ() {
         </div>
         
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Frequently Asked Questions
+          <div className="text-center max-w-4xl mx-auto">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 leading-[1.1] tracking-tight">
+              Frequently Asked <span className="text-primary-400">Questions</span>
             </h1>
-            <p className="text-xl text-white/90">
-              Everything you need to know about our services
+            <p className="text-xl md:text-2xl text-white/90 font-light leading-relaxed max-w-3xl mx-auto">
+              Everything you need to know about our high-performance websites and lead-generation strategy.
             </p>
           </div>
         </div>
       </section>
 
-      <Section>
-        <div className="max-w-4xl mx-auto">
-          <div className="space-y-4">
+      <Section className="py-20 md:py-32 bg-white/60 backdrop-blur-sm">
+        <div className="max-w-4xl mx-auto px-4">
+          <div className="space-y-6">
             {faqs.map((faq, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.3, delay: index * 0.05 }}
-                className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+                className="bg-white border border-neutral-100 rounded-[2rem] overflow-hidden shadow-sm hover:shadow-md transition-all duration-300"
               >
                 <button
                   onClick={() => toggleFAQ(index)}
-                  className="w-full px-6 py-5 text-left flex items-center justify-between focus:outline-none focus:ring-2 focus:ring-[#001B3A]"
+                  className="w-full px-8 py-6 text-left flex items-center justify-between focus:outline-none group"
                 >
-                  <span className="text-lg font-semibold text-gray-900 pr-8">
+                  <span className="text-xl font-bold text-gray-900 pr-8 tracking-tight group-hover:text-primary-600 transition-colors">
                     {faq.question}
                   </span>
-                  <svg
-                    className={`w-6 h-6 text-[#001B3A] flex-shrink-0 transition-transform duration-300 ${
-                      openIndex === index ? "rotate-180" : ""
-                    }`}
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
+                  <div className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 ${
+                    openIndex === index ? "bg-primary-950 text-white rotate-180" : "bg-neutral-50 text-primary-950"
+                  }`}>
+                    <svg
+                      className="w-5 h-5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </svg>
+                  </div>
                 </button>
                 <AnimatePresence>
                   {openIndex === index && (
@@ -184,8 +186,8 @@ export default function FAQ() {
                       transition={{ duration: 0.3 }}
                       className="overflow-hidden"
                     >
-                      <div className="px-6 pb-5 pt-0">
-                        <p className="text-gray-700 leading-relaxed">
+                      <div className="px-8 pb-8 pt-0 border-t border-neutral-50 mt-2">
+                        <p className="text-neutral-600 leading-relaxed font-light text-lg pt-6">
                           {faq.answer}
                         </p>
                       </div>
@@ -196,24 +198,26 @@ export default function FAQ() {
             ))}
           </div>
 
-          <div className="mt-12 text-center bg-[#001B3A]/10 p-8 rounded-xl border border-[#001B3A]/30">
-            <h3 className="text-xl font-bold text-gray-900 mb-3">
+          <div className="mt-20 text-center bg-neutral-50/50 p-12 rounded-[3rem] border border-neutral-100 shadow-sm">
+            <h3 className="text-3xl font-bold text-gray-900 mb-4 tracking-tight">
               Still have questions?
             </h3>
-            <p className="text-gray-700 mb-6">
+            <p className="text-xl text-neutral-600 font-light mb-10 leading-relaxed max-w-xl mx-auto">
               We're here to help! Get in touch and we'll answer any questions
-              you have.
+              you have within 24 hours.
             </p>
-            <a
-              href="/contact"
-              className="btn-primary px-8 py-3"
-            >
-              Contact Us
-            </a>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="/contact"
+                className="btn-primary px-10 py-4 text-lg font-bold"
+              >
+                Contact Us Now
+              </a>
+            </div>
           </div>
         </div>
       </Section>
-    </>
+    </div>
   );
 }
 

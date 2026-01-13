@@ -64,9 +64,9 @@ export default function Contact() {
   };
 
   return (
-    <>
+    <div className="bg-transparent">
       {/* Hero */}
-      <section className="relative text-white py-20 overflow-hidden">
+      <section className="relative text-white pt-32 pb-24 md:py-40 overflow-hidden -mt-20">
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
@@ -81,106 +81,89 @@ export default function Contact() {
         </div>
         
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Let's Get You More Calls & Booked Jobs
+          <div className="text-center max-w-4xl mx-auto">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 leading-[1.1] tracking-tight">
+              Let's Get You <span className="text-primary-400">More Calls & Jobs</span>
             </h1>
-            <p className="text-xl text-white/90">
-              Book a free 15-minute call (no sales pitch) or get a free website audit (if you have a site) or consultation (if you need a new one) showing exactly what's costing you leads
+            <p className="text-xl md:text-2xl text-white/90 font-light leading-relaxed max-w-3xl mx-auto">
+              Book a free 15-minute call or get a free website audit showing exactly what's costing you leads. No sales pitch, just real data.
             </p>
           </div>
         </div>
       </section>
 
-      <Section>
-        <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+      <Section className="py-20 md:py-32 bg-white/60 backdrop-blur-sm">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 max-w-7xl mx-auto px-4">
           {/* Contact Form */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
+            className="bg-white rounded-[2.5rem] p-8 md:p-12 shadow-sm border border-neutral-100"
           >
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">
-              Get in Touch
+            <h2 className="text-3xl font-bold text-gray-900 mb-8 tracking-tight">
+              Send a Message
             </h2>
             <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-medium text-gray-700 mb-2"
-                >
-                  Your Name *
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  required
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#001B3A] focus:border-[#001B3A]"
-                />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-bold text-gray-400 uppercase tracking-widest mb-2">Your Name *</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="John Doe"
+                    className="w-full px-5 py-4 bg-neutral-50 border border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-950 focus:border-transparent outline-none transition-all placeholder:text-neutral-300"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="email" className="block text-sm font-bold text-gray-400 uppercase tracking-widest mb-2">Email Address *</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="john@example.com"
+                    className="w-full px-5 py-4 bg-neutral-50 border border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-950 focus:border-transparent outline-none transition-all placeholder:text-neutral-300"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label htmlFor="phone" className="block text-sm font-bold text-gray-400 uppercase tracking-widest mb-2">Phone Number</label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    placeholder="(555) 000-0000"
+                    className="w-full px-5 py-4 bg-neutral-50 border border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-950 focus:border-transparent outline-none transition-all placeholder:text-neutral-300"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="business" className="block text-sm font-bold text-gray-400 uppercase tracking-widest mb-2">Business Name</label>
+                  <input
+                    type="text"
+                    id="business"
+                    name="business"
+                    value={formData.business}
+                    onChange={handleChange}
+                    placeholder="Your Business LLC"
+                    className="w-full px-5 py-4 bg-neutral-50 border border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-950 focus:border-transparent outline-none transition-all placeholder:text-neutral-300"
+                  />
+                </div>
               </div>
 
               <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-gray-700 mb-2"
-                >
-                  Email Address *
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#001B3A] focus:border-[#001B3A]"
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="phone"
-                  className="block text-sm font-medium text-gray-700 mb-2"
-                >
-                  Phone Number
-                </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#001B3A] focus:border-[#001B3A]"
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="business"
-                  className="block text-sm font-medium text-gray-700 mb-2"
-                >
-                  Business Name
-                </label>
-                <input
-                  type="text"
-                  id="business"
-                  name="business"
-                  value={formData.business}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#001B3A] focus:border-[#001B3A]"
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium text-gray-700 mb-2"
-                >
-                  Message *
-                </label>
+                <label htmlFor="message" className="block text-sm font-bold text-gray-400 uppercase tracking-widest mb-2">How can we help? *</label>
                 <textarea
                   id="message"
                   name="message"
@@ -188,169 +171,95 @@ export default function Contact() {
                   rows={5}
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#001B3A] focus:border-[#001B3A]"
-                  placeholder="Tell us about your website (if you have one) or what you'd like to discuss..."
+                  placeholder="Tell us about your project or current website..."
+                  className="w-full px-5 py-4 bg-neutral-50 border border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-950 focus:border-transparent outline-none transition-all placeholder:text-neutral-300"
                 />
               </div>
 
               {error && (
-                <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">
+                <div className="bg-rose-50 border border-rose-100 text-rose-600 px-5 py-4 rounded-xl text-sm font-light">
                   {error}
                 </div>
               )}
 
               {submitted && (
-                <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg text-sm">
-                  Thank you! We'll get back to you within 24 hours.
+                <div className="bg-emerald-50 border border-emerald-100 text-emerald-600 px-5 py-4 rounded-xl text-sm font-light">
+                  ✓ Thank you! We'll get back to you within 24 hours.
                 </div>
               )}
 
               <button
                 type="submit"
                 disabled={isSubmitting || submitted}
-                className="w-full bg-[#001B3A] text-white px-6 py-3 rounded-xl font-semibold hover:bg-[#00152E] transition-all duration-300 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-primary-950 text-white px-8 py-5 rounded-2xl font-bold text-lg hover:bg-primary-900 transition-all shadow-xl hover:shadow-2xl active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {isSubmitting
-                  ? "Sending..."
-                  : submitted
-                  ? "Message Sent! ✓"
-                  : "Send Message"}
+                {isSubmitting ? "Sending..." : submitted ? "Message Sent! ✓" : "Send Message →"}
               </button>
             </form>
           </motion.div>
 
-          {/* Contact Info */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            className="space-y-8"
-          >
+          {/* Side Info */}
+          <div className="space-y-12">
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">
+              <h2 className="text-3xl font-bold text-gray-900 mb-10 tracking-tight">
                 What Happens Next?
               </h2>
-              <div className="space-y-4">
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 w-8 h-8 bg-[#001B3A] text-white rounded-full flex items-center justify-center font-bold mr-4">
-                    1
+              <div className="space-y-10">
+                {[
+                  {
+                    step: "1",
+                    title: "We Review Your Request",
+                    text: "We'll review your message and current website status, getting back to you within 24 hours."
+                  },
+                  {
+                    step: "2",
+                    title: "Schedule a Call",
+                    text: "We'll hop on a free 15-minute strategy call to discuss your goals and needs."
+                  },
+                  {
+                    step: "3",
+                    title: "Get Your Free Audit",
+                    text: "If you have a website, we'll provide a detailed performance report. If not, we'll build a clear launch plan."
+                  }
+                ].map((item) => (
+                  <div key={item.step} className="flex items-start group">
+                    <div className="flex-shrink-0 w-12 h-12 bg-neutral-50 text-primary-950 rounded-2xl flex items-center justify-center font-bold text-xl mr-6 border border-neutral-100 group-hover:bg-primary-950 group-hover:text-white transition-colors duration-300 shadow-sm">
+                      {item.step}
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-gray-900 mb-2 tracking-tight">
+                        {item.title}
+                      </h3>
+                      <p className="text-neutral-600 font-light leading-relaxed">
+                        {item.text}
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">
-                      We Review Your Request
-                    </h3>
-                    <p className="text-gray-600">
-                      We'll review your message and get back to you within 24
-                      hours.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 w-8 h-8 bg-[#001B3A] text-white rounded-full flex items-center justify-center font-bold mr-4">
-                    2
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">
-                      Schedule a Call
-                    </h3>
-                    <p className="text-gray-600">
-                      We'll schedule a free 15-minute strategy call to discuss
-                      your needs.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 w-8 h-8 bg-[#001B3A] text-white rounded-full flex items-center justify-center font-bold mr-4">
-                    3
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">
-                      Get Your Free Audit or Consultation
-                    </h3>
-                    <p className="text-gray-600">
-                      If you have a website, we'll analyze it and show you exactly what's costing you calls and jobs. Don't have one? We'll discuss building a new website from scratch — with real numbers and a clear plan.
-                    </p>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
 
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="font-semibold text-gray-900 mb-3">
+            <div className="bg-neutral-50/50 p-10 rounded-[2.5rem] border border-neutral-100 shadow-sm">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4 tracking-tight">
                 Prefer to Talk?
               </h3>
-              <p className="text-gray-600 mb-4">
-                Book a call directly using the button below. No form needed.
+              <p className="text-neutral-600 font-light mb-8 leading-relaxed">
+                Book a call directly using our calendar. No form required.
               </p>
               <a
                 href={CALENDLY_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => trackOutboundLink(CALENDLY_URL, "Book a 15-Minute Call - Contact Page")}
-                className="btn-primary px-6 py-3"
+                className="inline-flex items-center justify-center px-10 py-4 bg-white text-primary-950 border border-neutral-200 rounded-2xl font-bold hover:bg-neutral-50 transition-all shadow-md hover:shadow-lg active:scale-95"
               >
-                Book a 15-Minute Call
+                Book a 15-Minute Call →
               </a>
             </div>
-
-            <div className="bg-[#001B3A]/10 p-6 rounded-lg border border-[#001B3A]/30">
-              <h3 className="font-semibold text-gray-900 mb-2">
-                Free Website Audit or Consultation
-              </h3>
-              <p className="text-gray-600 mb-4">
-                Have a website? See exactly what it's costing you. Don't have one? Get a consultation on building a new one. Get a free audit or consultation that shows:
-              </p>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li className="flex items-start">
-                  <svg
-                    className="w-5 h-5 text-[#001B3A] mr-2 mt-0.5 flex-shrink-0"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  <span>How many customers you're losing to slow loading times</span>
-                </li>
-                <li className="flex items-start">
-                  <svg
-                    className="w-5 h-5 text-[#001B3A] mr-2 mt-0.5 flex-shrink-0"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  <span>Why you're not ranking for local searches</span>
-                </li>
-                <li className="flex items-start">
-                  <svg
-                    className="w-5 h-5 text-[#001B3A] mr-2 mt-0.5 flex-shrink-0"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  <span>What's stopping visitors from calling you</span>
-                </li>
-              </ul>
-            </div>
-          </motion.div>
+          </div>
         </div>
       </Section>
-    </>
+    </div>
   );
 }
 

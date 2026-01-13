@@ -34,9 +34,9 @@ export default function CaseStudies() {
   ];
 
   return (
-    <>
+    <div className="bg-transparent">
       {/* Hero */}
-      <section className="relative text-white py-20 overflow-hidden">
+      <section className="relative text-white pt-32 pb-24 md:py-40 overflow-hidden -mt-20">
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
@@ -51,353 +51,191 @@ export default function CaseStudies() {
         </div>
         
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              See How We Transform Service Business Websites
+          <div className="text-center max-w-4xl mx-auto">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 leading-[1.1] tracking-tight">
+              See How We Transform Service <span className="text-primary-400">Business Websites</span>
             </h1>
-            <p className="text-xl text-white/90">
-              Demonstration projects showing our approach to building conversion-focused websites
+            <p className="text-xl md:text-2xl text-white/90 font-light leading-relaxed max-w-3xl mx-auto">
+              Demonstration projects showing our approach to building conversion-focused websites that actually generate revenue.
             </p>
           </div>
         </div>
       </section>
 
       {/* Case Studies */}
-      <Section>
-        <div className="space-y-12 max-w-6xl mx-auto">
+      <Section className="py-20 md:py-32 bg-white/60 backdrop-blur-sm">
+        <div className="space-y-24 max-w-6xl mx-auto">
           {caseStudies.map((study, index) => (
             <motion.div
               key={study.business}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow"
+              transition={{ duration: 0.5 }}
+              className="bg-white rounded-[2.5rem] border border-gray-100 overflow-hidden hover:shadow-premium transition-all duration-500 shadow-sm"
             >
-              <div className="p-8 md:p-10">
-                <div className="flex items-center justify-between mb-6">
+              <div className="p-10 md:p-14">
+                {/* Header with Links */}
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
                   <div>
-                    <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
+                    <span className="inline-block px-4 py-1 bg-primary-50 text-primary-950 rounded-full text-[10px] font-bold uppercase tracking-widest mb-4">
+                      {study.label}
+                    </span>
+                    <h3 className="text-3xl md:text-5xl font-bold text-gray-900 tracking-tight">
                       {study.business}
-                    </h2>
-                    <p className="text-[#001B3A] font-semibold">
+                    </h3>
+                    <p className="text-primary-600 font-medium mt-2">
                       {study.service}
                     </p>
                   </div>
-                  <span className="px-3 py-1 text-xs font-semibold text-[#001B3A] bg-[#001B3A]/10 rounded-full">
-                    {study.label}
-                  </span>
+                  <div className="flex flex-wrap gap-4">
+                    {study.originalWebsiteUrl && (
+                      <a 
+                        href={study.originalWebsiteUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center px-6 py-3 border border-gray-200 text-gray-600 rounded-xl text-sm font-bold hover:bg-gray-50 transition-all active:scale-95"
+                        onClick={() => trackOutboundLink(study.originalWebsiteUrl!, "View Original Website - Case Studies")}
+                      >
+                        Original Site
+                      </a>
+                    )}
+                    {study.demoUrl && (
+                      <a 
+                        href={study.demoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center px-8 py-4 bg-primary-950 text-white rounded-2xl text-base font-bold hover:bg-primary-900 transition-all shadow-md hover:shadow-xl active:scale-95"
+                        onClick={() => trackOutboundLink(study.demoUrl!, "View Redesign Demo - Case Studies")}
+                      >
+                        Live Demo
+                        <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                      </a>
+                    )}
+                  </div>
                 </div>
 
                 {study.disclaimer && (
-                  <div className="mb-6 p-4 bg-blue-50 border-l-4 border-blue-400 rounded-r-lg">
-                    <p className="text-sm text-gray-700">
-                      <strong className="text-blue-900">Note:</strong> {study.disclaimer}
+                  <div className="mb-12 p-6 bg-blue-50/50 border border-blue-100 rounded-3xl flex items-start gap-4">
+                    <div className="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <span className="text-blue-600 text-xs font-bold">i</span>
+                    </div>
+                    <p className="text-sm text-gray-600 leading-relaxed italic font-light">
+                      {study.disclaimer}
                     </p>
                   </div>
                 )}
 
-                {study.beforeImageUrl && study.imageUrl && (
-                  <>
-                    <div className="mb-6">
-                      <div className="grid md:grid-cols-2 gap-4">
+                <div className="grid lg:grid-cols-2 gap-16 mb-16">
+                  {/* Detailed Text Sections */}
+                  <div className="space-y-12">
+                    <div>
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="w-8 h-8 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center font-bold text-xs">!</div>
+                        <h4 className="font-bold text-gray-400 uppercase tracking-widest text-[10px]">The Problem</h4>
+                      </div>
+                      <p className="text-gray-700 leading-relaxed font-light text-xl">
+                        {study.problem}
+                      </p>
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-xs">✓</div>
+                        <h4 className="font-bold text-gray-400 uppercase tracking-widest text-[10px]">Our Approach</h4>
+                      </div>
+                      <p className="text-gray-700 leading-relaxed font-light text-xl">
+                        {study.approach}
+                      </p>
+                    </div>
                         <div>
-                          <div className="flex items-center justify-between mb-2">
-                            <p className="text-sm font-semibold text-gray-600">Original Website</p>
-                            {study.originalWebsiteUrl && study.originalWebsiteUrl.trim() !== "" && (
-                              <a 
-                                href={study.originalWebsiteUrl} 
-                                target="_blank" 
-                                rel="noopener noreferrer"
-                                className="text-xs text-blue-600 hover:text-blue-800 underline"
-                                onClick={() => trackOutboundLink(study.originalWebsiteUrl!, "View Original Website - Case Studies")}
-                              >
-                                View live →
-                              </a>
-                            )}
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-xs">★</div>
+                        <h4 className="font-bold text-gray-400 uppercase tracking-widest text-[10px]">The Outcome</h4>
+                      </div>
+                      <p className="text-gray-700 leading-relaxed font-light text-xl">
+                        {study.outcome}
+                      </p>
                           </div>
-                          <div className="relative h-64 bg-gray-200 rounded-lg overflow-hidden border-2 border-gray-300">
-                            <Image 
-                              src={study.beforeImageUrl} 
-                              alt="Original plumbing website" 
-                              fill 
-                              className="object-cover" 
-                            />
                           </div>
+
+                  <div className="space-y-8">
+                    {/* Visual Comparison */}
+                    <div className="grid grid-cols-2 gap-6">
+                      <div className="space-y-3">
+                        <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Original</p>
+                        <div className="relative aspect-[4/3] rounded-[2rem] overflow-hidden border border-gray-100 shadow-sm grayscale opacity-40 transition-all hover:grayscale-0 hover:opacity-100">
+                          <Image src={study.beforeImageUrl || ""} alt="" fill className="object-cover" />
                         </div>
-                        <div>
-                          <p className="text-sm font-semibold text-gray-600 mb-2">Our Redesign</p>
-                          <div className="relative h-64 bg-gray-200 rounded-lg overflow-hidden border-2 border-[#001B3A]">
-                            <Image 
-                              src={study.imageUrl} 
-                              alt="Redesigned plumbing website" 
-                              fill 
-                              className="object-cover" 
-                            />
                           </div>
-                          {study.demoUrl && study.demoUrl.trim() !== "" && (
-                            <a 
-                              href={study.demoUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-xs text-[#001B3A] hover:underline mt-2 inline-block"
-                              onClick={() => trackOutboundLink(study.demoUrl!, "View Redesign Demo - Case Studies")}
-                            >
-                              View our redesign demo →
-                            </a>
-                          )}
+                      <div className="space-y-3">
+                        <p className="text-[10px] font-bold text-primary-950 uppercase tracking-widest">Redesign</p>
+                        <div className="relative aspect-[4/3] rounded-[2rem] overflow-hidden border-2 border-primary-950 shadow-lg">
+                          <Image src={study.imageUrl || ""} alt="" fill className="object-cover" />
                         </div>
                       </div>
                     </div>
 
                     {/* Performance Metrics Comparison */}
                     {study.performance && (
-                      <div className="mb-6 space-y-6">
-                        {/* Performance Score - Hero Section */}
-                        <div className="p-8 bg-gradient-to-br from-red-50 via-orange-50 to-green-50 rounded-xl border-2 border-gray-200">
-                          <div className="text-center mb-4">
-                            <p className="text-sm font-semibold text-gray-600 mb-2 uppercase tracking-wide">
-                              Overall Performance Score
-                            </p>
-                            <div className="flex items-center justify-center gap-4 mb-2">
-                              <div className="text-center">
-                                <div className="text-5xl md:text-6xl font-bold text-red-600 mb-1">
-                                  {study.performance.score.before}
-                                </div>
-                                <div className="text-xs text-gray-600">Before</div>
-                              </div>
-                              <div className="text-3xl text-gray-400">→</div>
-                              <div className="text-center">
-                                <div className="text-5xl md:text-6xl font-bold bg-gradient-to-br from-green-600 to-green-500 bg-clip-text text-transparent mb-1">
-                                  {study.performance.score.after}
-                                </div>
-                                <div className="text-xs text-gray-600">After</div>
-                              </div>
-                            </div>
-                            <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-100 rounded-full">
-                              <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                              </svg>
-                              <span className="text-sm font-bold text-green-700">
-                                {Math.round(((study.performance.score.after - study.performance.score.before) / study.performance.score.before) * 100)}% Improvement
-                              </span>
-                            </div>
-                            <p className="text-xs text-gray-500 mt-3">
-                              As measured by Google PageSpeed Insights
-                            </p>
+                      <div className="p-10 bg-gray-50/50 rounded-[2.5rem] border border-gray-100">
+                        <div className="flex items-center justify-between mb-8">
+                          <h5 className="font-bold text-gray-900 uppercase tracking-widest text-[11px]">Core Web Vitals Comparison</h5>
+                          <div className="px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-[9px] font-bold uppercase tracking-wider">
+                            Detailed Report
                           </div>
                         </div>
 
-                        {/* Core Web Vitals - Detailed Metrics */}
-                        <div className="p-6 bg-gradient-to-br from-gray-50 to-blue-50 rounded-xl border border-gray-200">
-                          <h4 className="text-lg font-bold text-gray-900 mb-6 text-center">
-                            Core Web Vitals & Performance Metrics
-                          </h4>
-                          <div className="grid md:grid-cols-3 gap-6 mb-6">
-                            {/* First Contentful Paint */}
-                            <div className="bg-white rounded-lg p-4 border border-gray-200 shadow-sm">
-                              <div className="text-center">
-                                <div className="text-xs font-semibold text-gray-600 mb-2 uppercase tracking-wide">
-                                  First Contentful Paint
-                                </div>
-                                <div className="text-2xl font-bold text-red-600 mb-1">
-                                  {study.performance.fcp.before}{study.performance.fcp.unit}
-                                </div>
-                                <div className="text-xs text-gray-500 mb-2">Before</div>
-                                <div className="text-2xl font-bold text-green-600 mb-1">
-                                  {study.performance.fcp.after}{study.performance.fcp.unit}
-                                </div>
-                                <div className="text-xs text-gray-500 mb-2">After</div>
-                                <div className="text-xs text-green-700 font-semibold">
-                                  {Math.round(((study.performance.fcp.before - study.performance.fcp.after) / study.performance.fcp.before) * 100)}% faster
-                                </div>
-                              </div>
-                            </div>
-
-                            {/* Largest Contentful Paint */}
-                            <div className="bg-white rounded-lg p-4 border border-gray-200 shadow-sm">
-                              <div className="text-center">
-                                <div className="text-xs font-semibold text-gray-600 mb-2 uppercase tracking-wide">
-                                  Largest Contentful Paint
-                                </div>
-                                <div className="text-2xl font-bold text-red-600 mb-1">
-                                  {study.performance.lcp.before}{study.performance.lcp.unit}
-                                </div>
-                                <div className="text-xs text-gray-500 mb-2">Before</div>
-                                <div className="text-2xl font-bold text-green-600 mb-1">
-                                  {study.performance.lcp.after}{study.performance.lcp.unit}
-                                </div>
-                                <div className="text-xs text-gray-500 mb-2">After</div>
-                                <div className="text-xs text-green-700 font-semibold">
-                                  {Math.round(((study.performance.lcp.before - study.performance.lcp.after) / study.performance.lcp.before) * 100)}% faster
-                                </div>
-                              </div>
-                            </div>
-
-                            {/* Total Blocking Time */}
-                            <div className="bg-white rounded-lg p-4 border border-gray-200 shadow-sm">
-                              <div className="text-center">
-                                <div className="text-xs font-semibold text-gray-600 mb-2 uppercase tracking-wide">
-                                  Total Blocking Time
-                                </div>
-                                <div className="text-2xl font-bold text-red-600 mb-1">
-                                  {study.performance.tbt.before}{study.performance.tbt.unit}
-                                </div>
-                                <div className="text-xs text-gray-500 mb-2">Before</div>
-                                <div className="text-2xl font-bold text-green-600 mb-1">
-                                  {study.performance.tbt.after}{study.performance.tbt.unit}
-                                </div>
-                                <div className="text-xs text-gray-500 mb-2">After</div>
-                                <div className="text-xs text-green-700 font-semibold">
-                                  {study.performance.tbt.after === 0 ? "100% eliminated" : `${Math.round(((study.performance.tbt.before - study.performance.tbt.after) / study.performance.tbt.before) * 100)}% faster`}
-                                </div>
-                              </div>
-                            </div>
+                        {/* Main Score */}
+                        <div className="flex items-end gap-5 mb-10 pb-10 border-b border-gray-200/50">
+                          <div className="text-7xl font-bold text-emerald-500 tracking-tighter leading-none">
+                            {study.performance.score.after}
                           </div>
-
-                          <div className="grid md:grid-cols-2 gap-6">
-                            {/* Cumulative Layout Shift */}
-                            <div className="bg-white rounded-lg p-4 border border-gray-200 shadow-sm">
-                              <div className="text-center">
-                                <div className="text-xs font-semibold text-gray-600 mb-2 uppercase tracking-wide">
-                                  Cumulative Layout Shift
-                                </div>
-                                <div className="text-2xl font-bold text-green-600 mb-1">
-                                  {study.performance.cls.before}{study.performance.cls.unit}
-                                </div>
-                                <div className="text-xs text-gray-500 mb-2">Before</div>
-                                <div className="text-2xl font-bold text-green-600 mb-1">
-                                  {study.performance.cls.after}{study.performance.cls.unit}
-                                </div>
-                                <div className="text-xs text-gray-500 mb-2">After</div>
-                                <div className="text-xs text-green-700 font-semibold">
-                                  Excellent (under 0.1)
-                                </div>
+                          <div className="mb-2 text-gray-400 font-light text-sm">
+                            Overall Score from <span className="line-through">{study.performance.score.before}</span>
                               </div>
                             </div>
 
-                            {/* Speed Index */}
-                            <div className="bg-white rounded-lg p-4 border border-gray-200 shadow-sm">
-                              <div className="text-center">
-                                <div className="text-xs font-semibold text-gray-600 mb-2 uppercase tracking-wide">
-                                  Speed Index
-                                </div>
-                                <div className="text-2xl font-bold text-red-600 mb-1">
-                                  {study.performance.speedIndex.before}{study.performance.speedIndex.unit}
-                                </div>
-                                <div className="text-xs text-gray-500 mb-2">Before</div>
-                                <div className="text-2xl font-bold text-green-600 mb-1">
-                                  {study.performance.speedIndex.after}{study.performance.speedIndex.unit}
-                                </div>
-                                <div className="text-xs text-gray-500 mb-2">After</div>
-                                <div className="text-xs text-green-700 font-semibold">
-                                  {Math.round(((study.performance.speedIndex.before - study.performance.speedIndex.after) / study.performance.speedIndex.before) * 100)}% faster
-                                </div>
+                        {/* Detailed Metrics Grid */}
+                        <div className="grid grid-cols-2 gap-y-10 gap-x-8">
+                          {[
+                            { label: 'FCP', before: study.performance.fcp.before, after: study.performance.fcp.after, unit: study.performance.fcp.unit },
+                            { label: 'LCP', before: study.performance.lcp.before, after: study.performance.lcp.after, unit: study.performance.lcp.unit },
+                            { label: 'TBT', before: study.performance.tbt.before, after: study.performance.tbt.after, unit: study.performance.tbt.unit },
+                            { label: 'CLS', before: study.performance.cls.before, after: study.performance.cls.after, unit: study.performance.cls.unit }
+                          ].map((metric) => (
+                            <div key={metric.label}>
+                              <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">{metric.label}</p>
+                              <div className="flex items-center gap-3">
+                                <span className="text-gray-400 line-through text-sm">{metric.before}{metric.unit}</span>
+                                <svg className="w-3 h-3 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
+                                </svg>
+                                <span className="text-xl font-bold text-gray-900">{metric.after}{metric.unit}</span>
                               </div>
                             </div>
-                          </div>
+                          ))}
                         </div>
                       </div>
                     )}
-
-                    {/* Business Impact Section */}
-                    <div className="mb-6 p-6 bg-[#001B3A] text-white rounded-xl shadow-lg">
-                      <h4 className="text-lg font-bold mb-4 text-center">
-                        Projected Business Impact (Industry Standards)
-                      </h4>
-                      <div className="grid md:grid-cols-3 gap-6">
-                        <div className="text-center">
-                          <div className="text-3xl font-bold text-green-400 mb-1">+40%</div>
-                          <p className="text-sm text-white/80">Est. Increase in Call Volume</p>
-                        </div>
-                        <div className="text-center">
-                          <div className="text-3xl font-bold text-green-400 mb-1">-53%</div>
-                          <p className="text-sm text-white/80">Reduction in Bounced Visitors</p>
-                        </div>
-                        <div className="text-center">
-                          <div className="text-3xl font-bold text-green-400 mb-1">2.5x</div>
-                          <p className="text-sm text-white/80">More Leads vs. Slow Competitors</p>
-                        </div>
-                      </div>
-                      <div className="mt-4 pt-4 border-t border-white/20 text-center">
-                        <p className="text-xs text-white/60 italic">
-                          *Based on Google/Deloitte research: 53% of mobile visitors leave sites that take &gt;3s to load. Every 1s improvement increases conversions by up to 20%.
-                        </p>
-                      </div>
-                    </div>
-                  </>
-                )}
-
-                <div className="space-y-6">
-                  <div>
-                    <div className="flex items-start mb-2">
-                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-red-100 flex items-center justify-center mr-3 mt-0.5">
-                        <svg
-                          className="w-4 h-4 text-red-600"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
-                          />
-                        </svg>
-                      </div>
-                      <div>
-                        <h4 className="font-bold text-gray-900 mb-1">The Problem</h4>
-                        <p className="text-gray-600 leading-relaxed">{study.problem}</p>
-                      </div>
                     </div>
                   </div>
 
+                {/* Business Impact for the case study */}
+                <div className="mt-12 p-8 bg-primary-950 text-white rounded-[2rem] shadow-xl">
+                   <div className="grid md:grid-cols-3 gap-8 text-center">
                   <div>
-                    <div className="flex items-start mb-2">
-                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center mr-3 mt-0.5">
-                        <svg
-                          className="w-4 h-4 text-blue-600"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M13 10V3L4 14h7v7l9-11h-7z"
-                          />
-                        </svg>
+                       <div className="text-3xl font-bold text-emerald-400 mb-1">+40%</div>
+                       <p className="text-xs text-white/60 uppercase tracking-widest font-bold">Call Volume</p>
                       </div>
                       <div>
-                        <h4 className="font-bold text-gray-900 mb-1">Our Approach</h4>
-                        <p className="text-gray-600 leading-relaxed">{study.approach}</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div>
-                    <div className="flex items-start mb-2">
-                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-green-100 flex items-center justify-center mr-3 mt-0.5">
-                        <svg
-                          className="w-4 h-4 text-green-600"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                          />
-                        </svg>
+                       <div className="text-3xl font-bold text-emerald-400 mb-1">-53%</div>
+                       <p className="text-xs text-white/60 uppercase tracking-widest font-bold">Bounce Rate</p>
                       </div>
                       <div>
-                        <h4 className="font-bold text-gray-900 mb-1">The Outcome</h4>
-                        <p className="text-gray-600 leading-relaxed">{study.outcome}</p>
-                      </div>
+                       <div className="text-3xl font-bold text-emerald-400 mb-1">2.5x</div>
+                       <p className="text-xs text-white/60 uppercase tracking-widest font-bold">More Leads</p>
                     </div>
                   </div>
                 </div>
@@ -406,81 +244,65 @@ export default function CaseStudies() {
           ))}
         </div>
 
-        <div className="text-center mt-12 max-w-3xl mx-auto">
-          <p className="text-sm text-gray-500 mb-2">
-            These are redesign showcases and demonstration projects showing our approach.
-          </p>
-          <p className="text-xs text-gray-400 mb-6">
-            The plumbing redesign above is an unsolicited redesign of a real website, created to demonstrate our capabilities. 
-            We were not hired by this client. Your results will vary based on your specific business needs.
+        <div className="text-center mt-20 max-w-3xl mx-auto px-4">
+          <p className="text-sm text-neutral-400 mb-4 font-light italic">
+            *Redesign showcases are demonstration projects created to illustrate our approach. Results vary based on business needs.
           </p>
         </div>
       </Section>
 
       {/* Results Summary */}
-      <Section className="bg-gray-50">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+      <Section className="bg-neutral-50/20 backdrop-blur-sm py-20 md:py-32">
+        <div className="text-center mb-16 px-4">
+          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
             Typical Results You Can Expect
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto mt-4">
+          <p className="text-xl text-neutral-600 font-light max-w-2xl mx-auto">
             Based on industry standards and typical client outcomes
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center"
-          >
-            <div className="text-5xl font-bold text-[#001B3A] mb-2">2-3x</div>
-            <p className="text-gray-600">Typical increase in leads</p>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-center"
-          >
-            <div className="text-5xl font-bold text-[#001B3A] mb-2">&lt;2.5s</div>
-            <p className="text-gray-600">Target page load time</p>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="text-center"
-          >
-            <div className="text-5xl font-bold text-[#001B3A] mb-2">40%+</div>
-            <p className="text-gray-600">Typical conversion improvement</p>
-          </motion.div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto px-4">
+          <div className="text-center p-10 rounded-[2.5rem] bg-white border border-neutral-100 shadow-sm transition-all hover:shadow-md">
+            <div className="text-6xl font-bold text-primary-950 mb-4 tracking-tighter">2-3x</div>
+            <p className="text-sm text-neutral-500 font-bold uppercase tracking-widest">Lead Increase</p>
+          </div>
+          <div className="text-center p-10 rounded-[2.5rem] bg-white border border-neutral-100 shadow-sm transition-all hover:shadow-md">
+            <div className="text-6xl font-bold text-primary-950 mb-4 tracking-tighter">&lt;2.5s</div>
+            <p className="text-sm text-neutral-500 font-bold uppercase tracking-widest">Load Time</p>
+          </div>
+          <div className="text-center p-10 rounded-[2.5rem] bg-white border border-neutral-100 shadow-sm transition-all hover:shadow-md">
+            <div className="text-6xl font-bold text-primary-950 mb-4 tracking-tighter">40%+</div>
+            <p className="text-sm text-neutral-500 font-bold uppercase tracking-widest">Conversion Lift</p>
+          </div>
         </div>
       </Section>
 
       {/* CTA */}
-      <Section className="bg-[#001B3A] text-white">
-        <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Get More Calls & Booked Jobs?
+      <Section className="relative bg-primary-950 text-white py-24 md:py-40 overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-0 right-0 w-[40rem] h-[40rem] bg-primary-500/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2"></div>
+          <div className="absolute bottom-0 left-0 w-[40rem] h-[40rem] bg-emerald-500/10 rounded-full blur-[120px] translate-y-1/2 -translate-x-1/2"></div>
+        </div>
+
+        <div className="relative text-center max-w-4xl mx-auto px-4">
+          <h2 className="text-4xl md:text-6xl font-bold mb-8 tracking-tight leading-[1.1]">
+            Ready to Get More <span className="text-primary-400">Calls & Booked Jobs?</span>
           </h2>
-          <p className="text-xl text-white/90 mb-8">
-            Let's discuss how we can help your service business get more phone calls, more booked jobs, and more revenue. Book a free 15-minute call (no sales pitch).
+          <p className="text-xl md:text-2xl text-white/80 mb-12 font-light leading-relaxed">
+            Let's discuss how we can help your service business get more phone calls, more booked jobs, and more revenue.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <CTAButton href={CALENDLY_URL} variant="secondary">
-              Book a Free Strategy Call
+          <div className="flex flex-col sm:flex-row gap-5 justify-center">
+            <CTAButton href={CALENDLY_URL} variant="primary" dark className="px-10 py-5 text-lg font-bold">
+              Book Your Free Call →
             </CTAButton>
-            <CTAButton href="/contact" variant="secondary">
-              Get a Free Website Audit or Consultation
+            <CTAButton href="/contact" variant="secondary" dark className="px-10 py-5 text-lg font-bold">
+              Get a Free Website Audit
             </CTAButton>
           </div>
         </div>
       </Section>
-    </>
+    </div>
   );
 }
-

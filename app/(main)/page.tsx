@@ -1,16 +1,38 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Section from "@/components/Section";
 import CTAButton from "@/components/CTAButton";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { BoltIcon, PhoneIcon, MapPinIcon } from "@/components/Icons";
 import { CALENDLY_URL } from "@/lib/constants";
 
 export default function Home() {
+  const testimonials = [
+    {
+      quote: "We went from maybe 2-3 calls a week to 10-15 calls a week after the website redesign. The investment paid for itself in the first month. Now I'm turning down work instead of chasing it.",
+      author: "Service Business Owner",
+      role: "Plumbing Company",
+      rating: 5
+    },
+    {
+      quote: "Our website was so slow, customers were leaving before it even loaded. After optimization, we're getting 3x more leads. Best $1,500 I've spent on my business this year.",
+      author: "Service Business Owner",
+      role: "HVAC Company",
+      rating: 5
+    },
+    {
+      quote: "The team understood that I need phone calls, not a fancy website. They built something that actually generates jobs. I'm now ranking on page 1 for 'electrician [my city]' and the phone won't stop ringing.",
+      author: "Service Business Owner",
+      role: "Electrical Services",
+      rating: 5
+    }
+  ];
+
   return (
-    <>
+    <div className="bg-transparent">
       {/* Hero Section */}
       <HeroSection />
 
@@ -18,10 +40,10 @@ export default function Home() {
       <Section className="bg-gradient-to-b from-white to-gray-50">
         <div className="text-center max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-            Your Website Should Bring You Jobs — Not Just Look Pretty
+            Your Website Should Bring You Jobs: Not Just Look Pretty
           </h2>
           <p className="text-xl text-gray-600 mb-8">
-            Most service businesses have websites that look fine but don't generate calls. Meanwhile, your competitors are ranking higher and getting all the jobs. We build websites designed to get you more phone calls and booked appointments — not just win design awards.
+            Most service businesses have websites that look fine but don't generate calls. Meanwhile, your competitors are ranking higher and getting all the jobs. We build websites designed to get you more phone calls and booked appointments, not just win design awards.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <CTAButton href="/contact">Get a Free Website Audit or Consultation (See What You're Missing)</CTAButton>
@@ -63,7 +85,7 @@ export default function Home() {
       </Section>
 
       {/* Testimonials Section */}
-      <Section className="bg-gray-50">
+      <Section className="bg-gray-50/40 backdrop-blur-sm overflow-hidden">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Real Results From Real Service Business Owners
@@ -73,26 +95,7 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          <TestimonialCard
-            quote="We went from maybe 2-3 calls a week to 10-15 calls a week after the website redesign. The investment paid for itself in the first month. Now I'm turning down work instead of chasing it."
-            author="Service Business Owner"
-            role="Plumbing Company"
-            rating={5}
-          />
-          <TestimonialCard
-            quote="Our website was so slow, customers were leaving before it even loaded. After optimization, we're getting 3x more leads. Best $1,500 I've spent on my business this year."
-            author="Service Business Owner"
-            role="HVAC Company"
-            rating={5}
-          />
-          <TestimonialCard
-            quote="The team understood that I need phone calls, not a fancy website. They built something that actually generates jobs. I'm now ranking on page 1 for 'electrician [my city]' and the phone won't stop ringing."
-            author="Service Business Owner"
-            role="Electrical Services"
-            rating={5}
-          />
-        </div>
+        <TestimonialSlider testimonials={testimonials} />
       </Section>
 
       {/* Process Section */}
@@ -120,7 +123,7 @@ export default function Home() {
           <ProcessStep
             number="3"
             title="Launch & Watch the Calls Come In"
-            description="We launch your new site and optimize it based on real performance. You'll see more calls, more booked jobs, and more revenue — not just a pretty website."
+            description="We launch your new site and optimize it based on real performance. You'll see more calls, more booked jobs, and more revenue. Not just a pretty website."
           />
         </div>
       </Section>
@@ -170,7 +173,7 @@ export default function Home() {
       </Section>
 
       {/* Client Logos Section */}
-      <Section className="bg-white">
+      <Section className="bg-white/60 backdrop-blur-sm">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Trusted by Service Businesses
@@ -211,7 +214,7 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto px-4">
           <StatCard number="2-3x" label="Typical Lead Increase" />
           <StatCard number="<2.5s" label="Target Load Time" />
           <StatCard number="40%+" label="Conversion Improvement" />
@@ -232,7 +235,7 @@ export default function Home() {
             Every Day You Don't Have a Website (Or It's Slow), You're Losing Jobs to Competitors
           </h2>
           <p className="text-xl text-white/90 mb-8">
-            Get a free audit (if you have a site) or consultation (if you need a new one) and see exactly how many calls and jobs you're missing out on every month. No sales pitch — just real numbers showing what you're missing.
+            Get a free audit (if you have a site) or consultation (if you need a new one) and see exactly how many calls and jobs you're missing out on every month. No sales pitch: just real numbers showing what you're missing.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
             <Link
@@ -267,13 +270,13 @@ export default function Home() {
           </div>
         </div>
       </Section>
-    </>
+    </div>
   );
 }
 
 function HeroSection() {
   return (
-    <section className="relative text-white overflow-hidden">
+    <section className="relative text-white overflow-hidden min-h-[100dvh] flex items-center -mt-20">
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
@@ -293,7 +296,7 @@ function HeroSection() {
         <div className="absolute top-0 right-0 w-96 h-96 bg-[#001B3A] rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-2000"></div>
       </div>
       
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24 md:py-32">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-32 pb-20 md:py-20 w-full">
         <div className="text-center max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -334,10 +337,10 @@ function HeroSection() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <CTAButton href="/contact" variant="secondary">
+            <CTAButton href="/contact" variant="primary" dark className="px-8 py-4 text-lg">
               Get Your Free Audit or Consultation
             </CTAButton>
-            <CTAButton href={CALENDLY_URL} variant="secondary" dark>
+            <CTAButton href={CALENDLY_URL} variant="secondary" dark className="px-8 py-4 text-lg">
               Book a 15-Min Call (No Sales Pitch)
             </CTAButton>
           </motion.div>
@@ -447,34 +450,115 @@ function TestimonialCard({
   rating: number;
 }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
-      className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300"
-    >
-      {/* Star Rating */}
-      <div className="flex items-center mb-4">
-        {[...Array(rating)].map((_, i) => (
-          <svg
-            key={i}
-            className="w-5 h-5 text-yellow-400"
-            fill="currentColor"
-            viewBox="0 0 20 20"
+    <div className="bg-white/60 backdrop-blur-md p-8 md:p-12 rounded-[2.5rem] shadow-premium border border-white/40 h-full flex flex-col justify-between transition-all duration-500 hover:shadow-2xl text-center md:text-left">
+      <div>
+        {/* Star Rating */}
+        <div className="flex items-center justify-center md:justify-start gap-1 mb-8">
+          {[...Array(rating)].map((_, i) => (
+            <svg
+              key={i}
+              className="w-5 h-5 text-amber-400 fill-current"
+              viewBox="0 0 20 20"
+            >
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+            </svg>
+          ))}
+        </div>
+
+        <p className="text-gray-800 text-xl md:text-2xl italic mb-12 leading-relaxed font-light">
+          "{quote}"
+        </p>
+      </div>
+      
+      <div className="flex flex-col md:flex-row items-center gap-5 border-t border-gray-100 pt-8 mt-auto">
+        <div className="w-14 h-14 rounded-full bg-primary-950 text-white flex items-center justify-center text-xl font-bold shadow-lg border-2 border-white">
+          {author.split(' ').map(n => n[0]).join('')}
+        </div>
+        <div>
+          <p className="font-bold text-gray-900 text-lg leading-tight">{author}</p>
+          <p className="text-sm text-primary-600 font-medium uppercase tracking-widest mt-1">{role}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function TestimonialSlider({ testimonials }: { testimonials: any[] }) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+
+  useEffect(() => {
+    if (!isAutoPlaying) return;
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+    }, 6000);
+    return () => clearInterval(interval);
+  }, [isAutoPlaying, testimonials.length]);
+
+  return (
+    <div className="max-w-5xl mx-auto px-4 relative">
+      <div className="relative overflow-hidden pt-4 pb-12">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentIndex}
+            initial={{ opacity: 0, x: 50, scale: 0.95 }}
+            animate={{ opacity: 1, x: 0, scale: 1 }}
+            exit={{ opacity: 0, x: -50, scale: 0.95 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            onMouseEnter={() => setIsAutoPlaying(false)}
+            onMouseLeave={() => setIsAutoPlaying(true)}
+            className="w-full"
           >
-            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-          </svg>
-        ))}
+            <TestimonialCard {...testimonials[currentIndex]} />
+          </motion.div>
+        </AnimatePresence>
       </div>
 
-      <p className="text-gray-700 italic mb-6 leading-relaxed">"{quote}"</p>
-      
-      <div>
-        <p className="font-semibold text-gray-900">{author}</p>
-        <p className="text-sm text-gray-600">{role}</p>
+      {/* Navigation Controls */}
+      <div className="flex items-center justify-center gap-8 mt-4">
+        <button
+          onClick={() => {
+            setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+            setIsAutoPlaying(false);
+          }}
+          className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:text-primary-950 hover:border-primary-950 transition-all active:scale-90"
+          aria-label="Previous testimonial"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+
+        <div className="flex gap-3">
+          {testimonials.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => {
+                setCurrentIndex(idx);
+                setIsAutoPlaying(false);
+              }}
+              className={`h-2 rounded-full transition-all duration-500 ${
+                idx === currentIndex ? "w-10 bg-primary-950" : "w-2 bg-gray-300 hover:bg-gray-400"
+              }`}
+              aria-label={`Go to testimonial ${idx + 1}`}
+            />
+          ))}
+        </div>
+
+        <button
+          onClick={() => {
+            setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+            setIsAutoPlaying(false);
+          }}
+          className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:text-primary-950 hover:border-primary-950 transition-all active:scale-90"
+          aria-label="Next testimonial"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
       </div>
-    </motion.div>
+    </div>
   );
 }
 

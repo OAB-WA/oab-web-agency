@@ -12,7 +12,7 @@ export default function Services() {
     {
       title: "Website Design & Redesign for Service Businesses",
       description:
-        "We build brand new websites from scratch or redesign your existing site—either way, we focus on getting you phone calls and booked jobs, not just making it look pretty. Your new site will be fast, mobile-friendly, and designed to convert visitors into customers. Perfect whether you're starting fresh or need to improve your current website.",
+        "We build brand new websites from scratch or redesign your existing site. Either way, we focus on getting you phone calls and booked jobs, not just making it look pretty. Your new site will be fast, mobile-friendly, and designed to convert visitors into customers. Perfect whether you're starting fresh or need to improve your current website.",
       features: [
         "Mobile-responsive design",
         "Fast loading times (< 2.5 seconds)",
@@ -68,9 +68,9 @@ export default function Services() {
   ];
 
   return (
-    <>
+    <div className="bg-transparent">
       {/* Hero */}
-      <section className="relative text-white py-20 overflow-hidden">
+      <section className="relative text-white pt-32 pb-24 md:py-40 overflow-hidden -mt-20">
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
@@ -85,11 +85,11 @@ export default function Services() {
         </div>
         
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Services That Get Service Businesses More Jobs
+          <div className="text-center max-w-4xl mx-auto">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 leading-[1.1] tracking-tight">
+              Services That Get Service Businesses <span className="text-primary-400">More Jobs</span>
             </h1>
-            <p className="text-xl text-white/90">
+            <p className="text-xl md:text-2xl text-white/90 font-light leading-relaxed max-w-3xl mx-auto">
               Everything you need to turn your website into a lead-generating machine that actually pays for itself
             </p>
           </div>
@@ -97,19 +97,19 @@ export default function Services() {
       </section>
 
       {/* Services List */}
-      <Section>
-        <div className="space-y-16">
+      <Section className="py-20 md:py-32 bg-white/60 backdrop-blur-sm">
+        <div className="space-y-32">
           {services.map((service, index) => (
             <motion.div
               key={service.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="grid md:grid-cols-2 gap-8 items-center"
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.5 }}
+              className={`grid lg:grid-cols-2 gap-16 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}
             >
-              <div>
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-to-br bg-[#001B3A] text-white mb-6 shadow-lg">
+              <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary-950 text-white mb-8 shadow-xl group-hover:scale-110 transition-transform duration-300">
                   {(() => {
                     const IconComponent = {
                       paintbrush: PaintBrushIcon,
@@ -121,35 +121,56 @@ export default function Services() {
                     return <IconComponent className="w-8 h-8" />;
                   })()}
                 </div>
-                <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
                   {service.title}
                 </h2>
-                <p className="text-lg text-gray-600 mb-6">
+                <p className="text-xl text-neutral-600 mb-8 font-light leading-relaxed">
                   {service.description}
                 </p>
-                <ul className="space-y-2">
+                <ul className="grid sm:grid-cols-2 gap-4 mb-10">
                   {service.features.map((feature) => (
                     <li key={feature} className="flex items-start">
-                      <svg
-                        className="w-5 h-5 text-[#001B3A] mr-2 mt-0.5 flex-shrink-0"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                      <span className="text-gray-700">{feature}</span>
+                      <div className="w-5 h-5 rounded-full bg-primary-50 flex items-center justify-center mr-3 mt-1 flex-shrink-0">
+                        <svg
+                          className="w-3 h-3 text-primary-950"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={3}
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                      </div>
+                      <span className="text-gray-700 font-light">{feature}</span>
                     </li>
                   ))}
                 </ul>
-              </div>
-              <div className="bg-gray-50 rounded-xl p-8 h-full flex items-center justify-center">
-                <div className="text-center">
-                  <p className="text-gray-600 mb-4">Ready to get started?</p>
+                <div className="flex flex-col sm:flex-row gap-4">
                   <CTAButton href="/contact">Get a Free Consultation</CTAButton>
+                </div>
+              </div>
+              <div className={`relative aspect-square bg-neutral-50/50 rounded-[3rem] border border-neutral-100 p-12 flex items-center justify-center overflow-hidden group ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
+                <div className="absolute inset-0 bg-gradient-to-br from-primary-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="text-center relative z-10">
+                   <div className="w-24 h-24 bg-white rounded-3xl shadow-premium flex items-center justify-center mx-auto mb-8 group-hover:-translate-y-2 transition-transform duration-500">
+                      {(() => {
+                        const IconComponent = {
+                          paintbrush: PaintBrushIcon,
+                          bolt: BoltIcon,
+                          mappin: MapPinIcon,
+                          chartbar: ChartBarIcon,
+                        }[service.icon] || PaintBrushIcon;
+                        
+                        return <IconComponent className="w-10 h-10 text-primary-950" />;
+                      })()}
+                   </div>
+                   <p className="text-2xl font-bold text-gray-900 mb-2 tracking-tight">Ready to see results?</p>
+                   <p className="text-neutral-500 font-light mb-8 max-w-xs mx-auto">Get a custom strategy for your {service.title.split(' ')[0].toLowerCase()} needs.</p>
+                   <CTAButton href="/contact" variant="secondary">Start Your Project</CTAButton>
                 </div>
               </div>
             </motion.div>
@@ -158,18 +179,25 @@ export default function Services() {
       </Section>
 
       {/* CTA Section */}
-      <Section className="bg-gray-50">
-        <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+      <Section className="bg-neutral-50/20 backdrop-blur-sm py-20 md:py-32">
+        <div className="text-center max-w-4xl mx-auto px-4">
+          <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-8 tracking-tight">
             Not Sure Which Service You Need?
           </h2>
-          <p className="text-xl text-gray-600 mb-8">
-            Book a free 15-minute strategy call (no sales pitch). We'll analyze your current website (if you have one) and show you exactly what's costing you calls and jobs, then recommend the best path forward. Don't have a website yet? We'll discuss building a new one from scratch.
+          <p className="text-xl md:text-2xl text-neutral-600 mb-12 font-light leading-relaxed">
+            Book a free 15-minute strategy call (no sales pitch). We'll analyze your current website and show you exactly what's costing you calls and jobs, then recommend the best path forward.
           </p>
-          <CTAButton href={CALENDLY_URL}>Book Your Free Strategy Call</CTAButton>
+          <div className="flex flex-col sm:flex-row gap-5 justify-center">
+            <CTAButton href={CALENDLY_URL} variant="primary" className="px-10 py-5 text-lg font-bold">
+              Book Your Free Strategy Call
+            </CTAButton>
+            <CTAButton href="/contact" variant="secondary" className="px-10 py-5 text-lg font-bold">
+              Send a Message Instead
+            </CTAButton>
+          </div>
         </div>
       </Section>
-    </>
+    </div>
   );
 }
 

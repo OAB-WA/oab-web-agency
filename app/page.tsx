@@ -1,34 +1,56 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Section from "@/components/Section";
 import CTAButton from "@/components/CTAButton";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { BoltIcon, PhoneIcon, MapPinIcon } from "@/components/Icons";
 import { CALENDLY_URL } from "@/lib/constants";
-import { trackOutboundLink } from "@/lib/gtag";
+import { trackOutboundLink, trackCTAClick } from "@/lib/gtag";
 
 export default function Home() {
+  const testimonials = [
+    {
+      quote: "Absolutely blown away by the work OAB Web Agency delivered! They completely revamped our website and the result is exceptional. The new design is modern, clean and perfectly aligned with our brand. They also did a full SEO optimization and we've already seen noticeable improvements in our search rankings. The site is fully mobile responsive and looks stunning on every device.",
+      author: "Ben Othman",
+      role: "Owner, PeerSoc",
+      rating: 5
+    },
+    {
+      quote: "OAB Web Agency genuinely delivered amazing work that helped my business loads. They over-delivered on the website project and maintained professionalism throughout. Stellar performance all around. Would definitely work with them again.",
+      author: "Gerald Winkler",
+      role: "Owner, Green and Clean Services",
+      rating: 5
+    },
+    {
+      quote: "The team understood that I need phone calls, not a fancy website. They built something that actually generates jobs. I'm now ranking on page 1 and the phone won't stop ringing.",
+      author: "Service Business Owner",
+      role: "Electrical Services",
+      rating: 5
+    }
+  ];
+
   return (
-    <>
+    <div className="bg-transparent">
       {/* Hero Section */}
       <HeroSection />
 
       {/* Value Proposition */}
-      <Section className="bg-gray-50">
-        <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-            Your Website Should Bring You Leads — Not Just Look Good
+      <Section className="bg-neutral-50/50">
+        <div className="text-center max-w-4xl mx-auto py-8">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8 tracking-tight leading-[1.1]">
+            Your Website Should Bring You Leads: <span className="text-primary-600">Not Just Look Good</span>
           </h2>
-          <p className="text-xl text-gray-600 mb-8">
+          <p className="text-xl text-neutral-600 mb-12 max-w-2xl mx-auto leading-relaxed font-light">
             Most service businesses have websites that look fine but don't
             generate calls or bookings. We build websites designed to convert
             visitors into customers.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <CTAButton href="/contact">Get a Free Website Audit or Consultation</CTAButton>
-            <CTAButton href={CALENDLY_URL} variant="secondary">
+          <div className="flex flex-col sm:flex-row gap-5 justify-center">
+            <CTAButton href="/contact" className="px-8 py-4 text-lg">Get a Free Website Audit or Consultation</CTAButton>
+            <CTAButton href={CALENDLY_URL} variant="secondary" className="px-8 py-4 text-lg">
               Book a 15-Minute Strategy Call
             </CTAButton>
           </div>
@@ -36,12 +58,12 @@ export default function Home() {
       </Section>
 
       {/* Benefits Section */}
-      <Section>
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+      <Section className="bg-white/60 backdrop-blur-sm">
+        <div className="text-center mb-20">
+          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
             Why Service Businesses Choose Us
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-500 font-light max-w-2xl mx-auto">
             We focus on what matters: speed, leads, and trust
           </p>
         </div>
@@ -66,40 +88,21 @@ export default function Home() {
       </Section>
 
       {/* Testimonials Section */}
-      <Section className="bg-gray-50">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Real Results From Real Service Business Owners
+      <Section className="bg-neutral-50/50 overflow-hidden">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
+            Real Results From Service Business Owners
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-500 font-light max-w-2xl mx-auto">
             See how other service businesses are getting more calls and jobs
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          <TestimonialCard
-            quote="Absolutely blown away by the work OAB Web Agency delivered! They completely revamped our website and the result is exceptional. The new design is modern, clean and perfectly aligned with our brand. They also did a full SEO optimization and we've already seen noticeable improvements in our search rankings. The site is fully mobile responsive and looks stunning on every device. Their attention to detail and commitment to delivering top tier quality is what sets them apart."
-            author="Ben Othman"
-            role="Owner, PeerSoc"
-            rating={5}
-          />
-          <TestimonialCard
-            quote="OAB Web Agency genuinely delivered amazing work that helped my business loads. They over-delivered on the website project and maintained professionalism throughout. Stellar performance all around. Would definitely work with them again."
-            author="Gerald Winkler"
-            role="Owner, Green and Clean Services"
-            rating={5}
-          />
-          <TestimonialCard
-            quote="The team understood that I need phone calls, not a fancy website. They built something that actually generates jobs. I'm now ranking on page 1 and the phone won't stop ringing."
-            author="Service Business Owner"
-            role="Electrical Services"
-            rating={5}
-          />
-        </div>
+        <TestimonialSlider testimonials={testimonials} />
       </Section>
 
       {/* Demo Case Studies Section */}
-      <Section>
+      <Section className="bg-white/60 backdrop-blur-sm">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             See How We Transform Service Business Websites
@@ -141,7 +144,7 @@ export default function Home() {
             We were not hired by this client. Your results will vary based on your specific business needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <CTAButton href="/contact" trackingLabel="Get Your Free Audit or Consultation" trackingLocation="Demo Case Studies">
+            <CTAButton href="/contact" variant="primary" trackingLabel="Get Your Free Audit or Consultation" trackingLocation="Demo Case Studies">
               Get Your Free Audit or Consultation
             </CTAButton>
             <CTAButton href={CALENDLY_URL} variant="secondary" trackingLabel="Book a Strategy Call" trackingLocation="Demo Case Studies">
@@ -152,7 +155,7 @@ export default function Home() {
       </Section>
 
       {/* Process Section */}
-      <Section className="bg-gray-50">
+      <Section className="bg-gray-50/40 backdrop-blur-sm">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             How We Build Your High-Converting Website
@@ -182,14 +185,17 @@ export default function Home() {
       </Section>
 
       {/* Services Preview */}
-      <Section>
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+      <Section className="bg-white/60 backdrop-blur-sm">
+        <div className="text-center mb-20">
+          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
             What We Do
           </h2>
+          <p className="text-xl text-gray-500 font-light max-w-2xl mx-auto">
+            Specialized solutions to help your service business dominate local search
+          </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           <ServiceCard
             title="Website Design & Redesign"
             description="Build a new website from scratch or redesign your existing site. Converts visitors into customers. Built for speed and performance."
@@ -249,7 +255,7 @@ export default function Home() {
       </Section> */}
 
       {/* Stats Section */}
-      <Section className="bg-gradient-to-br from-[#001B3A]/10 to-[#001B3A]/5">
+      <Section className="bg-gradient-to-br from-[#001B3A]/10 to-[#001B3A]/5 backdrop-blur-sm">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Typical Results You Can Expect
@@ -268,25 +274,25 @@ export default function Home() {
       </Section>
 
       {/* CTA Section */}
-      <Section className="relative bg-gradient-to-br from-[#001B3A] via-[#00152E] to-[#001022] text-white overflow-hidden">
+      <Section className="relative bg-gradient-to-br from-[#001B3A] via-[#00152E] to-[#001022] text-white overflow-hidden py-24 md:py-40">
         {/* Background decoration */}
         <div className="absolute inset-0">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-[#003366] rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#001B3A] rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+          <div className="absolute top-0 right-0 w-[30rem] h-[30rem] bg-primary-500/10 rounded-full blur-[100px]"></div>
+          <div className="absolute bottom-0 left-0 w-[30rem] h-[30rem] bg-primary-500/10 rounded-full blur-[100px]"></div>
         </div>
         
-        <div className="relative text-center max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            See What Your Website Is Costing You (Or What You're Missing Without One)
+        <div className="relative text-center max-w-4xl mx-auto px-4">
+          <h2 className="text-4xl md:text-6xl font-bold mb-8 tracking-tight leading-[1.1]">
+            Stop Missing Leads With Your <span className="text-primary-400">Current Website</span>
           </h2>
-          <p className="text-xl text-white/90 mb-8">
-            Get a free audit (if you have a site) or consultation (if you need a new one) and discover how many leads you're missing out on
-            every month. No sales pitch — just real numbers.
+          <p className="text-xl md:text-2xl text-white/80 mb-12 font-light leading-relaxed">
+            Get a free audit and discover how many leads you're missing out on
+            every month. No sales pitch: just real data and a plan to win.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+          <div className="flex flex-col sm:flex-row gap-5 justify-center mb-16">
             <Link
               href="/contact"
-              className="btn-primary-dark px-8 py-4"
+              className="inline-flex items-center justify-center px-10 py-5 bg-white text-primary-950 rounded-2xl text-lg font-bold hover:bg-gray-100 transition-all shadow-xl hover:shadow-2xl active:scale-[0.98]"
             >
               Get Your Free Audit or Consultation
             </Link>
@@ -294,35 +300,37 @@ export default function Home() {
               href={CALENDLY_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-secondary-dark px-8 py-4"
+              className="inline-flex items-center justify-center px-10 py-5 bg-transparent border-2 border-white/20 text-white rounded-2xl text-lg font-bold hover:bg-white/10 transition-all active:scale-[0.98]"
             >
-              Book a Call
+              Book a Strategy Call
             </Link>
           </div>
           
           {/* Guarantee Badge */}
-          <div className="mt-8 pt-8 border-t border-white/30">
+          <div className="max-w-2xl mx-auto pt-12 border-t border-white/10">
             <div className="flex flex-col items-center">
-              <div className="flex items-center mb-3">
-                <svg className="w-6 h-6 text-green-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                </svg>
-                <span className="text-lg font-bold text-white">100% Money-Back Guarantee</span>
+              <div className="flex items-center mb-4">
+                <div className="w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center mr-4">
+                  <svg className="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                </div>
+                <span className="text-xl font-bold text-white tracking-tight">100% Result Guarantee</span>
               </div>
-              <p className="text-sm text-white/80 max-w-2xl">
+              <p className="text-base text-white/60 font-light leading-relaxed">
                 Delivered in 1-2 weeks or it's free. Site loads in under 2.5 seconds or we fix it free. Not happy? Full refund in 30 days. No questions asked.
               </p>
             </div>
           </div>
         </div>
       </Section>
-    </>
+    </div>
   );
 }
 
 function HeroSection() {
   return (
-    <section className="relative text-white overflow-hidden">
+    <section className="relative text-white overflow-hidden min-h-[100dvh] flex items-center -mt-20">
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
@@ -336,21 +344,21 @@ function HeroSection() {
         <div className="absolute inset-0 bg-[#000B16]/60"></div>
       </div>
       
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24 md:py-32">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-32 pb-20 md:py-20 w-full">
         <div className="text-center max-w-4xl mx-auto">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-4xl md:text-6xl font-bold mb-6 leading-tight"
+            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 leading-[1.1] tracking-tight"
           >
-            Websites That Turn Visitors Into Calls & Booked Jobs
+            Websites That Turn Visitors Into <span className="text-primary-400">Calls & Booked Jobs</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto"
+            className="text-xl md:text-2xl text-white/90 mb-12 max-w-2xl mx-auto leading-relaxed font-light"
           >
             High-performance websites built for service businesses. We
             specialize in generating leads, phone calls, and booked jobs.
@@ -359,12 +367,12 @@ function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            className="flex flex-col sm:flex-row gap-5 justify-center"
           >
-            <CTAButton href="/contact" variant="secondary">
+            <CTAButton href="/contact" variant="primary" dark className="px-10 py-5 text-lg font-bold">
               Get a Free Website Audit or Consultation
             </CTAButton>
-            <CTAButton href={CALENDLY_URL} variant="secondary">
+            <CTAButton href={CALENDLY_URL} variant="secondary" dark className="px-10 py-5 text-lg font-bold">
               Book a 15-Minute Call
             </CTAButton>
           </motion.div>
@@ -395,13 +403,13 @@ function BenefitCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      className="bg-white p-8 rounded-xl shadow-lg border border-gray-100"
+      className="bg-white p-10 rounded-[2rem] shadow-sm border border-neutral-100 hover:shadow-premium hover:-translate-y-1 transition-all duration-300 group"
     >
-      <div className="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-to-br bg-[#001B3A] text-white mb-6 shadow-lg">
-        <IconComponent className="w-8 h-8" />
+      <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-neutral-50 text-primary-950 mb-8 group-hover:bg-primary-950 group-hover:text-white transition-colors duration-300">
+        <IconComponent className="w-7 h-7" />
       </div>
-      <h3 className="text-xl font-bold text-gray-900 mb-3">{title}</h3>
-      <p className="text-gray-600">{description}</p>
+      <h3 className="text-2xl font-bold text-gray-900 mb-4 tracking-tight">{title}</h3>
+      <p className="text-neutral-600 leading-relaxed font-light">{description}</p>
     </motion.div>
   );
 }
@@ -421,13 +429,13 @@ function ProcessStep({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      className="text-center"
+      className="text-center group"
     >
-      <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#001B3A] text-white text-2xl font-bold mb-4">
+      <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary-950 text-white text-2xl font-bold mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
         {number}
     </div>
-      <h3 className="text-xl font-bold text-gray-900 mb-3">{title}</h3>
-      <p className="text-gray-600">{description}</p>
+      <h3 className="text-2xl font-bold text-gray-900 mb-4 tracking-tight">{title}</h3>
+      <p className="text-neutral-600 leading-relaxed font-light">{description}</p>
     </motion.div>
   );
 }
@@ -445,10 +453,10 @@ function ServiceCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      className="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow"
+      className="bg-white p-10 rounded-[2.5rem] border border-neutral-100 shadow-sm hover:shadow-premium hover:-translate-y-1 transition-all duration-300 group"
     >
-      <h3 className="text-xl font-bold text-gray-900 mb-3">{title}</h3>
-      <p className="text-gray-600">{description}</p>
+      <h3 className="text-2xl font-bold text-gray-900 mb-4 tracking-tight group-hover:text-primary-600 transition-colors">{title}</h3>
+      <p className="text-neutral-600 leading-relaxed font-light">{description}</p>
     </motion.div>
   );
 }
@@ -465,34 +473,115 @@ function TestimonialCard({
   rating: number;
 }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
-      className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300"
-    >
-      {/* Star Rating */}
-      <div className="flex items-center mb-4">
-        {[...Array(rating)].map((_, i) => (
-          <svg
-            key={i}
-            className="w-5 h-5 text-yellow-400"
-            fill="currentColor"
-            viewBox="0 0 20 20"
+    <div className="bg-white/60 backdrop-blur-md p-8 md:p-12 rounded-[2.5rem] shadow-premium border border-white/40 h-full flex flex-col justify-between transition-all duration-500 hover:shadow-2xl">
+      <div>
+        {/* Star Rating */}
+        <div className="flex items-center gap-1 mb-8">
+          {[...Array(rating)].map((_, i) => (
+            <svg
+              key={i}
+              className="w-5 h-5 text-amber-400 fill-current"
+              viewBox="0 0 20 20"
+            >
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+            </svg>
+          ))}
+        </div>
+
+        <p className="text-gray-800 text-xl md:text-2xl italic mb-12 leading-relaxed font-light">
+          "{quote}"
+        </p>
+      </div>
+      
+      <div className="flex items-center gap-5 border-t border-gray-100 pt-8 mt-auto">
+        <div className="w-14 h-14 rounded-full bg-primary-950 text-white flex items-center justify-center text-xl font-bold shadow-lg border-2 border-white">
+          {author.split(' ').map(n => n[0]).join('')}
+        </div>
+        <div>
+          <p className="font-bold text-gray-900 text-lg leading-tight">{author}</p>
+          <p className="text-sm text-primary-600 font-medium uppercase tracking-widest mt-1">{role}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function TestimonialSlider({ testimonials }: { testimonials: any[] }) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+
+  useEffect(() => {
+    if (!isAutoPlaying) return;
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+    }, 6000);
+    return () => clearInterval(interval);
+  }, [isAutoPlaying, testimonials.length]);
+
+  return (
+    <div className="max-w-5xl mx-auto px-4 relative">
+      <div className="relative overflow-hidden pt-4 pb-12">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentIndex}
+            initial={{ opacity: 0, x: 50, scale: 0.95 }}
+            animate={{ opacity: 1, x: 0, scale: 1 }}
+            exit={{ opacity: 0, x: -50, scale: 0.95 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            onMouseEnter={() => setIsAutoPlaying(false)}
+            onMouseLeave={() => setIsAutoPlaying(true)}
+            className="w-full"
           >
-            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-          </svg>
-        ))}
+            <TestimonialCard {...testimonials[currentIndex]} />
+          </motion.div>
+        </AnimatePresence>
       </div>
 
-      <p className="text-gray-700 italic mb-6 leading-relaxed">"{quote}"</p>
-      
-      <div>
-        <p className="font-semibold text-gray-900">{author}</p>
-        <p className="text-sm text-gray-600">{role}</p>
+      {/* Navigation Controls */}
+      <div className="flex items-center justify-center gap-8 mt-4">
+        <button
+          onClick={() => {
+            setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+            setIsAutoPlaying(false);
+          }}
+          className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:text-primary-950 hover:border-primary-950 transition-all active:scale-90"
+          aria-label="Previous testimonial"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+
+        <div className="flex gap-3">
+          {testimonials.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => {
+                setCurrentIndex(idx);
+                setIsAutoPlaying(false);
+              }}
+              className={`h-2 rounded-full transition-all duration-500 ${
+                idx === currentIndex ? "w-10 bg-primary-950" : "w-2 bg-gray-300 hover:bg-gray-400"
+              }`}
+              aria-label={`Go to testimonial ${idx + 1}`}
+            />
+          ))}
+        </div>
+
+        <button
+          onClick={() => {
+            setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+            setIsAutoPlaying(false);
+          }}
+          className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:text-primary-950 hover:border-primary-950 transition-all active:scale-90"
+          aria-label="Next testimonial"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
@@ -503,12 +592,12 @@ function StatCard({ number, label }: { number: string; label: string }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      className="text-center"
+      className="text-center p-10 rounded-[2.5rem] bg-white/50 border border-white/20 shadow-sm"
     >
-      <div className="text-5xl md:text-6xl font-bold text-[#001B3A] mb-2">
+      <div className="text-6xl md:text-7xl font-bold text-primary-950 mb-4 tracking-tighter">
         {number}
       </div>
-      <p className="text-lg text-gray-700 font-medium">{label}</p>
+      <p className="text-sm text-neutral-500 font-bold uppercase tracking-widest">{label}</p>
     </motion.div>
   );
 }
@@ -549,319 +638,164 @@ function DemoCaseStudy({
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
+      viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.5 }}
-      className="bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow"
+      className="bg-white rounded-[2.5rem] border border-gray-100 overflow-hidden hover:shadow-premium transition-all duration-500 shadow-sm"
     >
-      <div className="p-8 md:p-10">
-        <div className="flex items-center justify-between mb-6">
-          <h3 className="text-2xl md:text-3xl font-bold text-gray-900">
-            {businessType}
-          </h3>
-          <span className="px-3 py-1 text-xs font-semibold text-[#001B3A] bg-[#001B3A]/10 rounded-full">
-            {label}
-          </span>
+      <div className="p-10 md:p-14">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
+          <div>
+            <span className="inline-block px-4 py-1 bg-primary-50 text-primary-950 rounded-full text-[10px] font-bold uppercase tracking-widest mb-4">
+              {label}
+            </span>
+            <h3 className="text-3xl md:text-5xl font-bold text-gray-900 tracking-tight">
+              {businessType}
+            </h3>
+          </div>
+          <div className="flex flex-wrap gap-4">
+            {originalWebsiteUrl && (
+              <a 
+                href={originalWebsiteUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-6 py-3 border border-gray-200 text-gray-600 rounded-xl text-sm font-bold hover:bg-gray-50 transition-all active:scale-95"
+                onClick={() => trackOutboundLink(originalWebsiteUrl, "View Original Website - Demo")}
+              >
+                Original Site
+              </a>
+            )}
+            {demoUrl && (
+              <a 
+                href={demoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-8 py-4 bg-primary-950 text-white rounded-2xl text-base font-bold hover:bg-primary-900 transition-all shadow-md hover:shadow-xl active:scale-95"
+                onClick={() => trackOutboundLink(demoUrl, "View Redesign Demo")}
+              >
+                Live Demo
+                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+            )}
+          </div>
         </div>
 
         {disclaimer && (
-          <div className="mb-6 p-4 bg-blue-50 border-l-4 border-blue-400 rounded-r-lg">
-            <p className="text-sm text-gray-700">
-              <strong className="text-blue-900">Note:</strong> {disclaimer}
+          <div className="mb-12 p-6 bg-blue-50/50 border border-blue-100 rounded-3xl flex items-start gap-4">
+            <div className="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <span className="text-blue-600 text-xs font-bold">i</span>
+            </div>
+            <p className="text-sm text-gray-600 leading-relaxed italic font-light">
+              {disclaimer}
             </p>
           </div>
         )}
 
-        {beforeImageUrl && imageUrl && (
-          <>
-            <div className="mb-6">
-              <div className="grid md:grid-cols-2 gap-4">
-                <div>
-                  <div className="flex items-center justify-between mb-2">
-                    <p className="text-sm font-semibold text-gray-600">Original Website</p>
-                    {originalWebsiteUrl && originalWebsiteUrl.trim() !== "" && (
-                      <a 
-                        href={originalWebsiteUrl} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-xs text-blue-600 hover:text-blue-800 underline"
-                        onClick={() => trackOutboundLink(originalWebsiteUrl, "View Original Website - Demo")}
-                      >
-                        View live →
-                      </a>
-                    )}
-                  </div>
-                  <div className="relative h-64 bg-gray-200 rounded-lg overflow-hidden border-2 border-gray-300">
-                    <Image 
-                      src={beforeImageUrl} 
-                      alt="Original plumbing website" 
-                      fill 
-                      className="object-cover" 
-                    />
-                  </div>
+        <div className="grid lg:grid-cols-2 gap-16 mb-16">
+          <div className="space-y-12">
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-8 h-8 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center font-bold text-xs">!</div>
+                <h4 className="font-bold text-gray-400 uppercase tracking-widest text-[10px]">The Problem</h4>
+              </div>
+              <p className="text-gray-700 leading-relaxed font-light text-xl">
+                {problem}
+              </p>
+            </div>
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-xs">✓</div>
+                <h4 className="font-bold text-gray-400 uppercase tracking-widest text-[10px]">Our Approach</h4>
+              </div>
+              <p className="text-gray-700 leading-relaxed font-light text-xl">
+                {improvement}
+              </p>
+            </div>
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-xs">★</div>
+                <h4 className="font-bold text-gray-400 uppercase tracking-widest text-[10px]">The Outcome</h4>
+              </div>
+              <p className="text-gray-700 leading-relaxed font-light text-xl">
+                {outcome}
+              </p>
+            </div>
+          </div>
+
+          <div className="space-y-8">
+            <div className="grid grid-cols-2 gap-6">
+              <div className="space-y-3">
+                <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Original</p>
+                <div className="relative aspect-[4/3] rounded-[2rem] overflow-hidden border border-gray-100 shadow-sm grayscale opacity-40 transition-all hover:grayscale-0 hover:opacity-100">
+                  <Image src={beforeImageUrl || ""} alt="" fill className="object-cover" />
                 </div>
-                <div>
-                  <p className="text-sm font-semibold text-gray-600 mb-2">Our Redesign</p>
-                  <div className="relative h-64 bg-gray-200 rounded-lg overflow-hidden border-2 border-[#001B3A]">
-                    <Image 
-                      src={imageUrl} 
-                      alt="Redesigned plumbing website" 
-                      fill 
-                      className="object-cover" 
-                    />
-                  </div>
-                  {demoUrl && demoUrl.trim() !== "" && (
-                    <a 
-                      href={demoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-xs text-[#001B3A] hover:underline mt-2 inline-block"
-                      onClick={() => trackOutboundLink(demoUrl, "View Redesign Demo")}
-                    >
-                      View our redesign demo →
-                    </a>
-                  )}
+              </div>
+              <div className="space-y-3">
+                <p className="text-[10px] font-bold text-primary-950 uppercase tracking-widest">Redesign</p>
+                <div className="relative aspect-[4/3] rounded-[2rem] overflow-hidden border-2 border-primary-950 shadow-lg">
+                  <Image src={imageUrl || ""} alt="" fill className="object-cover" />
                 </div>
               </div>
             </div>
-
-            {/* Performance Metrics Comparison */}
-            {performance ? (
-              <div className="mb-6 space-y-6">
-                {/* Performance Score - Hero Section */}
-                <div className="p-8 bg-gradient-to-br from-red-50 via-orange-50 to-green-50 rounded-xl border-2 border-gray-200">
-                  <div className="text-center mb-4">
-                    <p className="text-sm font-semibold text-gray-600 mb-2 uppercase tracking-wide">
-                      Overall Performance Score
-                    </p>
-                    <div className="flex items-center justify-center gap-4 mb-2">
-                      <div className="text-center">
-                        <div className="text-5xl md:text-6xl font-bold text-red-600 mb-1">
-                          {performance.score.before}
-                        </div>
-                        <div className="text-xs text-gray-600">Before</div>
-                      </div>
-                      <div className="text-3xl text-gray-400">→</div>
-                      <div className="text-center">
-                        <div className="text-5xl md:text-6xl font-bold bg-gradient-to-br from-green-600 to-green-500 bg-clip-text text-transparent mb-1">
-                          {performance.score.after}
-                        </div>
-                        <div className="text-xs text-gray-600">After</div>
-                      </div>
-                    </div>
-                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-100 rounded-full">
-                      <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                      </svg>
-                      <span className="text-sm font-bold text-green-700">
-                        {Math.round(((performance.score.after - performance.score.before) / performance.score.before) * 100)}% Improvement
-                      </span>
-                    </div>
-                    <p className="text-xs text-gray-500 mt-3">
-                      As measured by Google PageSpeed Insights
-                    </p>
+            
+            {performance && (
+              <div className="p-10 bg-gray-50/50 rounded-[2.5rem] border border-gray-100">
+                <div className="flex items-center justify-between mb-8">
+                  <h5 className="font-bold text-gray-900 uppercase tracking-widest text-[11px]">Core Web Vitals Comparison</h5>
+                  <div className="px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-[9px] font-bold uppercase tracking-wider">
+                    Detailed Report
+                  </div>
+                </div>
+                
+                <div className="flex flex-col sm:flex-row sm:items-end gap-3 sm:gap-5 mb-10 pb-10 border-b border-gray-200/50">
+                  <div className="text-6xl sm:text-7xl font-bold text-emerald-500 tracking-tighter leading-none">
+                    {performance.score.after}
+                  </div>
+                  <div className="mb-1 sm:mb-2 text-gray-400 font-light text-sm">
+                    Overall Score from <span className="line-through">{performance.score.before}</span>
                   </div>
                 </div>
 
-                {/* Core Web Vitals - Simplified for Homepage */}
-                <div className="p-6 bg-gradient-to-br from-gray-50 to-blue-50 rounded-xl border border-gray-200">
-                  <h4 className="text-lg font-bold text-gray-900 mb-6 text-center">
-                    Core Web Vitals & Performance Metrics
-                  </h4>
-                  <div className="grid md:grid-cols-3 gap-6 mb-6">
-                    <div className="bg-white rounded-lg p-4 border border-gray-200 shadow-sm">
-                      <div className="text-center">
-                        <div className="text-xs font-semibold text-gray-600 mb-2 uppercase tracking-wide">FCP</div>
-                        <div className="text-2xl font-bold text-red-600 mb-1">{performance.fcp.before}{performance.fcp.unit}</div>
-                        <div className="text-xs text-gray-500 mb-2">Before</div>
-                        <div className="text-2xl font-bold text-green-600 mb-1">{performance.fcp.after}{performance.fcp.unit}</div>
-                        <div className="text-xs text-gray-500 mb-2">After</div>
-                        <div className="text-xs text-green-700 font-semibold">
-                          {Math.round(((performance.fcp.before - performance.fcp.after) / performance.fcp.before) * 100)}% faster
-                        </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-8 sm:gap-y-10 gap-x-8">
+                  {[
+                    { label: 'FCP', before: performance.fcp.before, after: performance.fcp.after, unit: performance.fcp.unit },
+                    { label: 'LCP', before: performance.lcp.before, after: performance.lcp.after, unit: performance.lcp.unit },
+                    { label: 'TBT', before: performance.tbt.before, after: performance.tbt.after, unit: performance.tbt.unit },
+                    { label: 'CLS', before: performance.cls.before, after: performance.cls.after, unit: performance.cls.unit }
+                  ].map((metric) => (
+                    <div key={metric.label} className="flex flex-col">
+                      <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">{metric.label}</p>
+                      <div className="flex items-center gap-3">
+                        <span className="text-gray-400 line-through text-xs sm:text-sm">{metric.before}{metric.unit}</span>
+                        <svg className="w-3 h-3 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
+                        </svg>
+                        <span className="text-lg sm:text-xl font-bold text-gray-900">{metric.after}{metric.unit}</span>
                       </div>
                     </div>
-                    <div className="bg-white rounded-lg p-4 border border-gray-200 shadow-sm">
-                      <div className="text-center">
-                        <div className="text-xs font-semibold text-gray-600 mb-2 uppercase tracking-wide">LCP</div>
-                        <div className="text-2xl font-bold text-red-600 mb-1">{performance.lcp.before}{performance.lcp.unit}</div>
-                        <div className="text-xs text-gray-500 mb-2">Before</div>
-                        <div className="text-2xl font-bold text-green-600 mb-1">{performance.lcp.after}{performance.lcp.unit}</div>
-                        <div className="text-xs text-gray-500 mb-2">After</div>
-                        <div className="text-xs text-green-700 font-semibold">
-                          {Math.round(((performance.lcp.before - performance.lcp.after) / performance.lcp.before) * 100)}% faster
-                        </div>
-                      </div>
-                    </div>
-                    <div className="bg-white rounded-lg p-4 border border-gray-200 shadow-sm">
-                      <div className="text-center">
-                        <div className="text-xs font-semibold text-gray-600 mb-2 uppercase tracking-wide">TBT</div>
-                        <div className="text-2xl font-bold text-red-600 mb-1">{performance.tbt.before}{performance.tbt.unit}</div>
-                        <div className="text-xs text-gray-500 mb-2">Before</div>
-                        <div className="text-2xl font-bold text-green-600 mb-1">{performance.tbt.after}{performance.tbt.unit}</div>
-                        <div className="text-xs text-gray-500 mb-2">After</div>
-                        <div className="text-xs text-green-700 font-semibold">
-                          {performance.tbt.after === 0 ? "100% eliminated" : `${Math.round(((performance.tbt.before - performance.tbt.after) / performance.tbt.before) * 100)}% faster`}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="bg-white rounded-lg p-4 border border-gray-200 shadow-sm">
-                      <div className="text-center">
-                        <div className="text-xs font-semibold text-gray-600 mb-2 uppercase tracking-wide">CLS</div>
-                        <div className="text-2xl font-bold text-green-600 mb-1">{performance.cls.before}{performance.cls.unit}</div>
-                        <div className="text-xs text-gray-500 mb-2">Before</div>
-                        <div className="text-2xl font-bold text-green-600 mb-1">{performance.cls.after}{performance.cls.unit}</div>
-                        <div className="text-xs text-gray-500 mb-2">After</div>
-                        <div className="text-xs text-green-700 font-semibold">Excellent</div>
-                      </div>
-                    </div>
-                    <div className="bg-white rounded-lg p-4 border border-gray-200 shadow-sm">
-                      <div className="text-center">
-                        <div className="text-xs font-semibold text-gray-600 mb-2 uppercase tracking-wide">Speed Index</div>
-                        <div className="text-2xl font-bold text-red-600 mb-1">{performance.speedIndex.before}{performance.speedIndex.unit}</div>
-                        <div className="text-xs text-gray-500 mb-2">Before</div>
-                        <div className="text-2xl font-bold text-green-600 mb-1">{performance.speedIndex.after}{performance.speedIndex.unit}</div>
-                        <div className="text-xs text-gray-500 mb-2">After</div>
-                        <div className="text-xs text-green-700 font-semibold">
-                          {Math.round(((performance.speedIndex.before - performance.speedIndex.after) / performance.speedIndex.before) * 100)}% faster
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ) : (
-              <div className="mb-6 p-6 bg-gradient-to-br from-gray-50 to-blue-50 rounded-xl border border-gray-200">
-                <h4 className="text-lg font-bold text-gray-900 mb-4 text-center">
-                  Performance Improvements
-                </h4>
-                <div className="grid md:grid-cols-3 gap-6">
-                  <div className="text-center">
-                    <div className="text-3xl font-bold text-red-600 mb-1">4.2s</div>
-                    <div className="text-sm text-gray-600 mb-2">Before: Load Time</div>
-                    <div className="text-3xl font-bold text-green-600">1.8s</div>
-                    <div className="text-sm text-gray-600">After: Load Time</div>
-                    <div className="text-xs text-green-700 font-semibold mt-1">57% faster</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-3xl font-bold text-red-600 mb-1">45</div>
-                    <div className="text-sm text-gray-600 mb-2">Before: LCP Score</div>
-                    <div className="text-3xl font-bold text-green-600">92</div>
-                    <div className="text-sm text-gray-600">After: LCP Score</div>
-                    <div className="text-xs text-green-700 font-semibold mt-1">104% improvement</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-3xl font-bold text-red-600 mb-1">0.35</div>
-                    <div className="text-sm text-gray-600 mb-2">Before: CLS</div>
-                    <div className="text-3xl font-bold text-green-600">0.02</div>
-                    <div className="text-sm text-gray-600">After: CLS</div>
-                    <div className="text-xs text-green-700 font-semibold mt-1">94% improvement</div>
-                  </div>
+                  ))}
                 </div>
               </div>
             )}
-
-            {/* Business Impact Section */}
-            <div className="mb-6 p-6 bg-[#001B3A] text-white rounded-xl shadow-lg">
-              <h4 className="text-lg font-bold mb-4 text-center">
-                Projected Business Impact (Industry Standards)
-              </h4>
-              <div className="grid md:grid-cols-3 gap-6">
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-green-400 mb-1">+40%</div>
-                  <p className="text-sm text-white/80">Est. Increase in Call Volume</p>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-green-400 mb-1">-53%</div>
-                  <p className="text-sm text-white/80">Reduction in Bounced Visitors</p>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-green-400 mb-1">2.5x</div>
-                  <p className="text-sm text-white/80">More Leads vs. Slow Competitors</p>
-                </div>
-              </div>
-              <div className="mt-4 pt-4 border-t border-white/20 text-center">
-                <p className="text-xs text-white/60 italic">
-                  *Based on Google/Deloitte research: 53% of mobile visitors leave sites that take &gt;3s to load. Every 1s improvement increases conversions by up to 20%.
-                </p>
-              </div>
-            </div>
-          </>
-        )}
-
-        <div className="space-y-6">
-          <div>
-            <div className="flex items-start mb-2">
-              <div className="flex-shrink-0 w-6 h-6 rounded-full bg-red-100 flex items-center justify-center mr-3 mt-0.5">
-                <svg
-                  className="w-4 h-4 text-red-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
-                  />
-                </svg>
-              </div>
-              <div>
-                <h4 className="font-bold text-gray-900 mb-1">The Problem</h4>
-                <p className="text-gray-600 leading-relaxed">{problem}</p>
-              </div>
-            </div>
           </div>
+        </div>
 
-          <div>
-            <div className="flex items-start mb-2">
-              <div className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center mr-3 mt-0.5">
-                <svg
-                  className="w-4 h-4 text-blue-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M13 10V3L4 14h7v7l9-11h-7z"
-                  />
-                </svg>
-              </div>
-              <div>
-                <h4 className="font-bold text-gray-900 mb-1">Our Approach</h4>
-                <p className="text-gray-600 leading-relaxed">{improvement}</p>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <div className="flex items-start mb-2">
-              <div className="flex-shrink-0 w-6 h-6 rounded-full bg-green-100 flex items-center justify-center mr-3 mt-0.5">
-                <svg
-                  className="w-4 h-4 text-green-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-              </div>
-              <div>
-                <h4 className="font-bold text-gray-900 mb-1">The Outcome</h4>
-                <p className="text-gray-600 leading-relaxed">{outcome}</p>
-              </div>
-            </div>
-          </div>
+        <div className="mt-12 p-8 bg-primary-950 text-white rounded-[2rem] shadow-xl">
+           <div className="grid md:grid-cols-3 gap-8 text-center">
+             <div>
+               <div className="text-3xl font-bold text-emerald-400 mb-1">+40%</div>
+               <p className="text-xs text-white/60 uppercase tracking-widest font-bold">Call Volume</p>
+             </div>
+             <div>
+               <div className="text-3xl font-bold text-emerald-400 mb-1">-53%</div>
+               <p className="text-xs text-white/60 uppercase tracking-widest font-bold">Bounce Rate</p>
+             </div>
+             <div>
+               <div className="text-3xl font-bold text-emerald-400 mb-1">2.5x</div>
+               <p className="text-xs text-white/60 uppercase tracking-widest font-bold">More Leads</p>
+             </div>
+           </div>
         </div>
       </div>
     </motion.div>

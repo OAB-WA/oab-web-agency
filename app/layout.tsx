@@ -79,12 +79,36 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={inter.variable}>
-      <body className="antialiased bg-white text-gray-900">
+      <body className={`${inter.variable} antialiased min-h-screen relative isolate bg-white`}>
+        {/* Global Ambient Background Animation */}
+        <div 
+          className="fixed inset-0 -z-10 overflow-hidden pointer-events-none hidden lg:block" 
+          aria-hidden="true"
+        >
+          <style dangerouslySetInnerHTML={{ __html: `
+            @keyframes ambient-float {
+              0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.1; }
+              33% { transform: translate3d(2%, 1%, 0) scale(1.05); opacity: 0.15; }
+              66% { transform: translate3d(-1%, 2%, 0) scale(0.98); opacity: 0.08; }
+            }
+            @media (prefers-reduced-motion: reduce) {
+              .animate-ambient { animation: none !important; }
+            }
+          `}} />
+          <div 
+            className="animate-ambient absolute top-[-10%] left-[-5%] w-[70%] h-[70%] rounded-full bg-primary-500/20 blur-[120px]"
+            style={{ animation: 'ambient-float 40s ease-in-out infinite' }}
+          />
+          <div 
+            className="animate-ambient absolute bottom-[-5%] right-[-5%] w-[60%] h-[60%] rounded-full bg-emerald-500/15 blur-[100px]"
+            style={{ animation: 'ambient-float 55s ease-in-out infinite reverse' }}
+          />
+        </div>
         <GoogleAnalytics />
         <SchemaMarkup />
         <PageAnalytics />
         <Header />
-        <main>{children}</main>
+        <main className="relative z-0 pt-20">{children}</main>
         <Footer />
       </body>
     </html>
