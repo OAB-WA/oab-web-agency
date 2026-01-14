@@ -41,7 +41,19 @@ export default function PlumbersLandingPage() {
       setSubmitted(true);
       setFormData({ name: "", email: "", phone: "", website: "" });
       
-      // Track form submission
+      // Track form submission for GA4 Import to Google Ads
+      if (typeof window !== "undefined" && window.gtag) {
+        window.gtag("event", "conversion_event_submit_lead_form_1", {
+          'event_callback': () => console.log("Lead tracked successfully"),
+          'event_timeout': 2000,
+          'email': formData.email, // Enhanced Conversions
+          'phone_number': formData.phone, // Enhanced Conversions
+          'value': 100.0,
+          'currency': 'USD'
+        });
+      }
+      
+      // Keep existing local tracking
       trackFormSubmission("Free Audit Form - Dallas Plumbers");
       
       // Reset success message after 5 seconds
