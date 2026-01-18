@@ -533,6 +533,70 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* Guarantee Section */}
+      <section className="py-24 md:py-32 bg-emerald-50/50">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.5 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
+              Our Triple Result Guarantee
+            </h2>
+            <p className="text-xl text-gray-500 font-light max-w-2xl mx-auto">
+              We remove all the risk. You get results or you don't pay.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="grid md:grid-cols-3 gap-8"
+          >
+            <div className="bg-white rounded-3xl p-8 shadow-sm border border-emerald-100 hover:shadow-md transition-all">
+              <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-6">
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3 tracking-tight">Fast Delivery</h3>
+              <p className="text-gray-500 leading-relaxed font-light">
+                Delivered in <span className="font-bold text-emerald-700">1-2 weeks</span> or it's <span className="font-bold text-emerald-700">free</span>. Guaranteed.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-3xl p-8 shadow-sm border border-emerald-100 hover:shadow-md transition-all">
+              <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-6">
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3 tracking-tight">Lightning Fast</h3>
+              <p className="text-gray-500 leading-relaxed font-light">
+                Loads in under <span className="font-bold text-emerald-700">2.5 seconds</span> or we <span className="font-bold text-emerald-700">fix it free</span>.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-3xl p-8 shadow-sm border border-emerald-100 hover:shadow-md transition-all">
+              <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-6">
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3 tracking-tight">30-Day Refund</h3>
+              <p className="text-gray-500 leading-relaxed font-light">
+                Not happy? <span className="font-bold text-emerald-700">Full refund</span> in <span className="font-bold text-emerald-700">30 days</span>. No questions asked.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-24 md:py-40 bg-white/60 backdrop-blur-sm relative overflow-hidden">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center relative z-10">

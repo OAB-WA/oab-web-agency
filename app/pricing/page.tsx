@@ -27,46 +27,46 @@ function CheckIcon({ className }: { className?: string }) {
 export default function Pricing() {
   const pricingTiers = [
     {
-      name: "Speed Up Your Existing Site",
-      price: "Starting at $1,000",
-      description: "Fix your slow website and stop losing customers to competitors",
+      name: "Lead-Gen Landing Page",
+      price: "Starting at $950",
+      description: "A high-converting single page designed specifically to turn your ad traffic into phone calls",
       features: [
-        "Website loads instantly",
-        "Works perfectly on phones",
-        "Stop losing customers to slow loading",
-        "Before/after speed report",
-        "30 days of support",
+        "1 High-converting landing page",
+        "Mobile-optimized design",
+        "Lightning fast load speeds",
+        "Contact form & click-to-call",
+        "Analytics setup included",
+        "Delivered in 3-5 days",
       ],
       popular: false,
     },
     {
-      name: "Website Design & Redesign",
-      price: "Starting at $1,800",
-      description: "Build a new website from scratch or redesign your existing site. Gets you more phone calls and jobs",
+      name: "Professional Website",
+      price: "Starting at $2,400",
+      description: "Our core package for service businesses. Everything you need to look professional and rank locally",
       features: [
-        "Brand new website (5 pages)",
+        "Full website (5-7 pages)",
         "Mobile-friendly design",
-        "Fast loading (< 2.5 seconds)",
-        "Contact forms that work",
-        "Set up for Google search",
+        "Guaranteed < 2.5s load time",
+        "Local SEO foundation",
+        "Custom brand styling",
         "Delivered in 1-2 weeks",
         "30 days of support",
       ],
       popular: true,
     },
     {
-      name: "Complete Package",
+      name: "Market Dominator",
       price: "Starting at $3,500",
-      description: "Everything you need to dominate local search and get more jobs",
+      description: "The complete solution to beat every competitor in your area and own the local search results",
       features: [
-        "Complete website design or redesign (10 pages)",
-        "Lightning fast performance",
-        "Show up first in local Google searches",
-        "Google Business Profile optimization",
-        "Get more phone calls",
-        "3 months SEO support",
+        "Expanded website (10+ pages)",
+        "Advanced SEO strategy",
+        "Google Business Profile setup",
+        "Content writing included",
+        "Review management integration",
+        "3 months of Growth Support",
         "Monthly performance reports",
-        "Delivered in 2-3 weeks",
       ],
       popular: false,
     },
@@ -222,6 +222,153 @@ export default function Pricing() {
         </div>
       </Section>
 
+      {/* Speed Optimization Section */}
+      <Section className="py-24 md:py-32 bg-neutral-50/50">
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="bg-white rounded-[2.5rem] p-8 md:p-16 shadow-sm border border-neutral-100 flex flex-col lg:flex-row items-center gap-12">
+            <div className="flex-1">
+              <div className="inline-flex items-center px-4 py-2 rounded-full bg-emerald-50 text-emerald-600 text-sm font-bold mb-6">
+                <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" />
+                </svg>
+                Already have a website?
+              </div>
+              <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
+                Website Speed <span className="text-primary-600">Optimization</span>
+              </h2>
+              <p className="text-xl text-neutral-600 mb-8 font-light leading-relaxed">
+                If your site takes more than 3 seconds to load, you're losing 40% of your visitors. We'll fix your slow WordPress or Wix site and make it load instantly.
+              </p>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+                {[
+                  "Score 90+ on Google PageSpeed",
+                  "Optimize images & code",
+                  "Fix Core Web Vitals",
+                  "Mobile speed boost",
+                  "Faster server response",
+                  "Before/After performance report"
+                ].map((item) => (
+                  <li key={item} className="flex items-center text-neutral-600">
+                    <div className="w-5 h-5 rounded-full bg-emerald-50 flex items-center justify-center mr-3 flex-shrink-0">
+                      <svg className="w-3 h-3 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <span className="text-sm font-light">{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="flex flex-col sm:flex-row items-center gap-6">
+                <CTAButton href="/contact">Fix My Speed →</CTAButton>
+                <div className="flex flex-col">
+                  <span className="text-2xl font-bold text-gray-900">Starting at $1,000</span>
+                  <span className="text-xs text-neutral-400 font-bold uppercase tracking-widest">One-time investment</span>
+                </div>
+              </div>
+            </div>
+            <div className="hidden lg:block w-1/3">
+              <div className="relative">
+                <div className="absolute inset-0 bg-primary-500/10 blur-3xl rounded-full"></div>
+                <div className="relative bg-white p-8 rounded-3xl border border-neutral-100 shadow-xl">
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-sm font-bold text-gray-400 uppercase tracking-widest">Page Speed Score</span>
+                    <span className="text-emerald-500 font-bold text-2xl">98/100</span>
+                  </div>
+                  <div className="w-full bg-neutral-100 h-4 rounded-full overflow-hidden">
+                    <div className="bg-emerald-500 h-full w-[98%] transition-all duration-1000"></div>
+                  </div>
+                  <div className="mt-8 space-y-4">
+                    <div className="flex justify-between items-center">
+                      <div className="h-2 w-1/2 bg-neutral-100 rounded-full"></div>
+                      <div className="h-2 w-4 bg-emerald-500 rounded-full"></div>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <div className="h-2 w-1/3 bg-neutral-100 rounded-full"></div>
+                      <div className="h-2 w-4 bg-emerald-500 rounded-full"></div>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <div className="h-2 w-2/3 bg-neutral-100 rounded-full"></div>
+                      <div className="h-2 w-4 bg-emerald-500 rounded-full"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      {/* Ownership vs Rental Section */}
+      <Section className="py-24 md:py-32 bg-white">
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
+              Own Your Site, <span className="text-primary-600">Don't Rent It</span>
+            </h2>
+            <p className="text-xl text-neutral-600 font-light max-w-2xl mx-auto">
+              Most agencies lock you into expensive monthly contracts. If you stop paying, you lose your website. With OAB, you own everything.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-12 items-stretch">
+            {/* Typical Agency */}
+            <div className="bg-neutral-50 rounded-[2.5rem] p-8 md:p-12 border border-neutral-100">
+              <h3 className="text-2xl font-bold text-gray-900 mb-8 flex items-center">
+                <span className="w-8 h-8 rounded-full bg-red-100 text-red-600 flex items-center justify-center mr-3 text-lg">✕</span>
+                Big "Rental" Agencies
+              </h3>
+              <ul className="space-y-6">
+                {[
+                  "Monthly 'rent' fees ($300 - $500/mo)",
+                  "You lose your site if you cancel",
+                  "Slow, bloated templates",
+                  "Hidden setup & cancellation fees",
+                  "Support tickets take 3-5 days",
+                  "Proprietary platform (Locked in)"
+                ].map((item) => (
+                  <li key={item} className="flex items-center text-neutral-500 font-light">
+                    <div className="w-1.5 h-1.5 rounded-full bg-red-400 mr-4"></div>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-12 pt-8 border-t border-neutral-200">
+                <p className="text-sm uppercase tracking-widest text-neutral-400 font-bold mb-2">Cost after 2 Years:</p>
+                <p className="text-3xl font-bold text-gray-900">$7,200+</p>
+              </div>
+            </div>
+
+            {/* OAB Model */}
+            <div className="bg-primary-950 rounded-[2.5rem] p-8 md:p-12 text-white shadow-2xl transform md:scale-105 z-10">
+              <h3 className="text-2xl font-bold mb-8 flex items-center">
+                <span className="w-8 h-8 rounded-full bg-emerald-500 text-white flex items-center justify-center mr-3 text-lg">✓</span>
+                The OAB Advantage
+              </h3>
+              <ul className="space-y-6">
+                {[
+                  "One-time investment",
+                  "You own 100% of the code & assets",
+                  "Hand-coded for instant loading",
+                  "No hidden fees, ever",
+                  "Direct access to your developer",
+                  "Modern tech stack (Next.js)"
+                ].map((item) => (
+                  <li key={item} className="flex items-center text-white/80 font-light">
+                    <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 mr-4"></div>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-12 pt-8 border-t border-white/10">
+                <p className="text-sm uppercase tracking-widest text-white/40 font-bold mb-2">Cost after 2 Years:</p>
+                <p className="text-3xl font-bold text-white">$2,400</p>
+                <p className="text-emerald-400 text-sm mt-2 font-bold italic">You save $4,800+</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Section>
+
       {/* Custom Quote Section */}
       <Section className="py-24 md:py-32 bg-white">
         <div className="max-w-5xl mx-auto px-4">
@@ -276,12 +423,16 @@ export default function Pricing() {
                 a: "Yes! For larger projects, we offer flexible payment plans. We typically require 50% upfront and 50% upon completion, but we can work with you to create a schedule that fits your budget."
               },
               {
-                q: "What about updates later?",
-                a: "All packages include a support period. After that, we offer maintenance packages starting at $150/month for updates, backups, and ongoing support."
+                q: "Do you offer ongoing support?",
+                a: "Yes! We offer a 'Performance & Growth Plan' for $150/month. This includes managed hosting, monthly speed audits, security updates, and small content changes so you never have to touch a line of code."
               },
               {
                 q: "Can I add services later?",
                 a: "Absolutely! Many clients start with one service and add more as they see results. We'll prorate any additional services based on your existing package."
+              },
+              {
+                q: "Can you fix my current website?",
+                a: "Yes! If you aren't ready for a full redesign, we offer a standalone Speed Optimization service for $1,000. We'll optimize your existing code, images, and server settings to guarantee a faster load time."
               },
               {
                 q: "Do you offer refunds?",
