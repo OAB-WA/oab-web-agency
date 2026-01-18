@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Pricing",
   description:
-    "Transparent pricing for website design, SEO, and conversion optimization. Packages starting from $1,200. Get a custom quote for your service business website. No hidden fees.",
+    "Transparent pricing for website design, SEO, and conversion optimization. Packages starting from $950. Get a custom quote for your service business website. No hidden fees.",
   keywords: [
     "website design pricing",
     "web design cost",

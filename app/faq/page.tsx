@@ -48,7 +48,7 @@ export default function FAQ() {
     {
       question: "How much does a website cost?",
       answer:
-        "We offer transparent pricing starting at $1,000 for speed optimization, $1,800 for new websites and redesigns, and $3,500 for complete packages. See our pricing page for full details. Website costs vary based on your specific needs, and we offer custom quotes after understanding your goals. Factors that affect pricing include: number of pages, custom features, e-commerce functionality, and ongoing maintenance needs. Contact us for a free consultation and quote.",
+        "We offer transparent pricing starting at $950 for lead-gen landing pages, $1,000 for speed optimization, $2,400 for new websites and redesigns, and $3,500 for complete packages. See our pricing page for full details. Website costs vary based on your specific needs, and we offer custom quotes after understanding your goals. Factors that affect pricing include: number of pages, custom features, e-commerce functionality, and ongoing maintenance needs. Contact us for a free consultation and quote.",
     },
     {
       question: "Do you offer payment plans?",
