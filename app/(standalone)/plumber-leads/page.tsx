@@ -54,7 +54,7 @@ export default function PlumbersLandingPage() {
       }
       
       // Keep existing local tracking
-      trackFormSubmission("Free Audit Form - Dallas Plumbers");
+      trackFormSubmission("Free Audit Form - Plumber Leads");
       
       // Reset success message after 5 seconds
       setTimeout(() => {
@@ -98,7 +98,7 @@ export default function PlumbersLandingPage() {
 
   return (
     <div className="min-h-screen bg-transparent">
-      {/* Hero Section - Dallas Plumber-specific */}
+      {/* Hero Section - US Plumber-specific */}
       <section className="relative text-white overflow-hidden min-h-[100dvh] flex items-center -mt-20">
         <div className="absolute inset-0">
           <Image
@@ -117,7 +117,7 @@ export default function PlumbersLandingPage() {
             {/* Left: Headline & Benefits */}
             <div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-[1.1] tracking-tight text-white">
-                Dallas Plumbers: Get 2-3x More <span className="text-primary-400">Emergency Calls</span>
+                US Plumbing Companies: Get 2-3x More <span className="text-primary-400">Emergency Calls</span>
               </h1>
               <p className="text-xl md:text-2xl text-white/90 mb-10 leading-relaxed font-light">
                 Stop losing 40-60% of your leads to slow, outdated websites. We build high-performance sites that integrate with ServiceTitan & Jobber. Delivered in just 1-2 weeks.
@@ -247,7 +247,7 @@ export default function PlumbersLandingPage() {
               Your Website Is Costing You Emergency Calls Every Day
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light">
-              Most Dallas plumbing companies lose 40-60% of potential customers. Whether you have a slow website or no website at all, you're losing emergency calls to competitors.
+              Most US plumbing companies lose 40-60% of potential customers. Whether you have a slow website or no website at all, you're losing emergency calls to competitors.
             </p>
           </div>
 
@@ -313,7 +313,7 @@ export default function PlumbersLandingPage() {
           <div className="mt-16 text-center bg-gray-50/80 p-10 md:p-14 rounded-[2rem] border border-gray-100 relative overflow-hidden group">
             <div className="absolute top-0 left-0 w-2 h-full bg-primary-950/10 group-hover:bg-primary-950 transition-colors" />
             <p className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 leading-tight max-w-3xl mx-auto">
-              The average Dallas plumbing company loses $2,000-$5,000 per month in missed opportunities.
+              The average US plumbing company loses $2,000-$5,000 per month in missed opportunities.
             </p>
             <p className="text-lg text-gray-500 font-light max-w-2xl mx-auto">
               Every day you don't have a fast, high-converting website, you're handing emergency calls to your competitors on a silver platter.
@@ -322,7 +322,7 @@ export default function PlumbersLandingPage() {
         </div>
       </section>
 
-      {/* Solution Positioning - Dallas/Plumber-specific */}
+      {/* Solution Positioning - US/Plumber-specific */}
       <section className="py-24 md:py-32 bg-gray-50/40 backdrop-blur-sm">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-8 tracking-tight leading-tight">
@@ -355,7 +355,7 @@ export default function PlumbersLandingPage() {
         </div>
       </section>
 
-      {/* Why Dallas Plumbers Choose Us Section */}
+      {/* Why US Plumber Leads Choose Us Section */}
       <section className="py-20 md:py-32 bg-white/60 backdrop-blur-sm">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -366,7 +366,7 @@ export default function PlumbersLandingPage() {
             className="text-center mb-20"
           >
             <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
-              Why Dallas Plumbers Choose Us
+              Why US Plumber Leads Choose Us
             </h2>
             <p className="text-xl text-gray-500 font-light max-w-2xl mx-auto">
               We understand the unique speed and conversion needs of plumbing businesses.
@@ -441,7 +441,7 @@ export default function PlumbersLandingPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4 tracking-tight">Local Dallas & DFW SEO</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4 tracking-tight">Dominant Local SEO</h3>
               <p className="text-gray-500 leading-relaxed font-light">
                 Optimized for local search so when customers search "plumber near me", you show up first in your service area.
               </p>
@@ -479,7 +479,7 @@ export default function PlumbersLandingPage() {
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4 tracking-tight">Triple Result Guarantee</h3>
               <p className="text-gray-500 leading-relaxed font-light">
-                Delivered in 2 weeks or it's free. Loads in under 2.5s or we fix it free. 30-day money-back guarantee.
+                Delivered in 2 weeks or it's free. Loads in under 2.5s or we fix it free. If calls don't increase, you don't pay.
               </p>
             </motion.div>
           </div>
@@ -497,7 +497,7 @@ export default function PlumbersLandingPage() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              See How We'd Approach Your Dallas Plumbing Business
+              See How We'd Approach Your US Plumbing Business
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Demonstration projects showing our approach to building conversion-focused websites for plumbing companies
@@ -506,7 +506,7 @@ export default function PlumbersLandingPage() {
 
           <div className="space-y-12">
             <DemoCaseStudy
-              businessType="Dallas Plumbing Company"
+              businessType="US-Based Plumbing Company"
               label="Redesign Showcase"
               disclaimer="This is an unsolicited redesign of a real plumbing company's website, created to demonstrate our approach. We were not hired by this client."
               problem="Outdated website that wasn't mobile-friendly. Customers searching 'plumber near me' on phones couldn't easily find services or call. Site loaded slowly, causing visitors to leave before seeing emergency services."
@@ -566,7 +566,7 @@ export default function PlumbersLandingPage() {
               Real Results From Service Business Owners
             </h2>
             <p className="text-lg text-gray-600">
-              While these testimonials are from other service businesses, we apply the same conversion-focused approach to Dallas plumbing companies
+              While these testimonials are from other service businesses, we apply the same conversion-focused approach to US plumbing companies
             </p>
           </motion.div>
 
@@ -620,7 +620,7 @@ export default function PlumbersLandingPage() {
             className="mt-16 text-center"
           >
             <p className="text-sm text-gray-600 italic">
-              See our demo projects above to see how we'd approach your Dallas plumbing business.
+              See our demo projects above to see how we'd approach your US plumbing business.
             </p>
           </motion.div>
         </div>
@@ -716,7 +716,7 @@ export default function PlumbersLandingPage() {
               What You Get: More Emergency Calls, More Jobs, More Revenue
             </h2>
             <p className="text-lg text-gray-600">
-              Results that matter for your Dallas plumbing business
+              Results that matter for your US plumbing business
             </p>
           </div>
 
@@ -833,9 +833,9 @@ export default function PlumbersLandingPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3 tracking-tight">30-Day Refund</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-3 tracking-tight">Calls or It's Free</h3>
               <p className="text-gray-500 leading-relaxed font-light">
-                Not happy? <span className="font-bold text-emerald-700">Full refund</span> in <span className="font-bold text-emerald-700">30 days</span>. No questions asked.
+                If calls don't increase (or you don't get your first leads) in <span className="font-bold text-emerald-700">30 days</span>, you get a <span className="font-bold text-emerald-700">full refund</span>. No questions asked.
               </p>
             </div>
           </motion.div>
@@ -865,7 +865,7 @@ export default function PlumbersLandingPage() {
               Get Your Free Audit or Consultation →
             </a>
             <p className="mt-6 text-sm text-gray-400 font-light">
-              No spam. No sales pitch. Just real numbers for your Dallas plumbing business.
+              No spam. No sales pitch. Just real numbers for your US plumbing business.
             </p>
           </motion.div>
         </div>
@@ -1055,7 +1055,7 @@ function DemoCaseStudy({
                         target="_blank" 
                         rel="noopener noreferrer"
                 className="inline-flex items-center px-6 py-3 border border-gray-200 text-gray-600 rounded-xl text-sm font-bold hover:bg-gray-50 transition-all active:scale-95"
-                        onClick={() => trackOutboundLink(originalWebsiteUrl, "View Original Website - Dallas Plumbers")}
+                        onClick={() => trackOutboundLink(originalWebsiteUrl, "View Original Website - Plumber Leads")}
                       >
                 Original Site
                       </a>
@@ -1066,7 +1066,7 @@ function DemoCaseStudy({
                       target="_blank"
                       rel="noopener noreferrer"
                 className="inline-flex items-center px-8 py-4 bg-primary-950 text-white rounded-2xl text-base font-bold hover:bg-primary-900 transition-all shadow-md hover:shadow-xl active:scale-95"
-                      onClick={() => trackOutboundLink(demoUrl, "View Redesign Demo - Dallas Plumbers")}
+                      onClick={() => trackOutboundLink(demoUrl, "View Redesign Demo - Plumber Leads")}
                     >
                 Live Demo
                 <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

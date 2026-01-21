@@ -213,9 +213,9 @@ export default function Pricing() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016" />
               </svg>
             </div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-4 tracking-tight">100% Refund</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-4 tracking-tight">Calls or It's Free</h3>
             <p className="text-neutral-600 font-light leading-relaxed">
-              Not happy? <span className="font-bold text-emerald-600">100% refund</span> in first <span className="font-bold text-emerald-600">30 days</span>.
+              If calls don't increase within the first <span className="font-bold text-emerald-600">30 days</span>, you get a <span className="font-bold text-emerald-600">100% refund</span>.
             </p>
           </div>
         </div>
@@ -436,7 +436,7 @@ export default function Pricing() {
               },
               {
                 q: "Do you offer refunds?",
-                a: "We're confident in our work and offer a 100% money-back guarantee. If you're not happy with your website, we offer a full refund within 30 days. No questions asked."
+                a: "We offer a 'Calls or It's Free' guarantee. If we don't increase your call volume (or get you your first leads) within the first 30 days of launch, we'll give you a 100% refund. No questions asked."
               }
             ].map((faq) => (
               <div key={faq.q} className="bg-white rounded-[2rem] p-8 shadow-sm border border-neutral-100">

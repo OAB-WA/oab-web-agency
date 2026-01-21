@@ -588,9 +588,9 @@ export default function LandingPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3 tracking-tight">30-Day Refund</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-3 tracking-tight">Calls or It's Free</h3>
               <p className="text-gray-500 leading-relaxed font-light">
-                Not happy? <span className="font-bold text-emerald-700">Full refund</span> in <span className="font-bold text-emerald-700">30 days</span>. No questions asked.
+                If calls don't increase (or you don't get your first leads) in <span className="font-bold text-emerald-700">30 days</span>, you get a <span className="font-bold text-emerald-700">full refund</span>. No questions asked.
               </p>
             </div>
           </motion.div>

@@ -11,7 +11,7 @@ export default function Footer() {
   
   // Determine the correct CTA link based on current page
   const getCTALink = () => {
-    if (pathname === "/dallas-plumbers" || pathname === "/free-audit") {
+    if (pathname === "/plumber-leads" || pathname === "/free-audit") {
       return "#audit-form";
     }
     return "/free-audit";

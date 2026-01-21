@@ -13,12 +13,12 @@ export default function FAQ() {
     {
       question: "What is your delivery guarantee?",
       answer:
-        "We guarantee delivery within 1-2 weeks for new websites and redesigns, or it's free. Complete packages with SEO take 2-3 weeks. This timeline assumes prompt client feedback and content delivery. This is part of our triple guarantee that also includes a 2.5-second load time guarantee and a 30-day money-back guarantee. We're that confident in our work.",
+        "We guarantee delivery within 1-2 weeks for new websites and redesigns, or it's free. This timeline assumes prompt client feedback and content delivery. This is part of our triple guarantee that also includes a 2.5-second load time guarantee and our 'Calls or It's Free' performance guarantee. We're that confident in our work.",
     },
     {
       question: "What is your refund policy?",
       answer:
-        "We offer a 100% money-back guarantee. If you're not satisfied with your website within 30 days of launch, we'll provide a full refund. No questions asked. This removes all risk for you. To request a refund, simply contact us within 30 days of project launch.",
+        "We offer a performance-based 'Calls or It's Free' guarantee. If we don't increase your inbound phone call volume (or generate your first leads if you're starting from scratch) within 30 days of launch, we'll provide a 100% refund. No questions asked. This removes all the risk—you get results or you don't pay.",
     },
     {
       question: "How long does it take to build a website?",

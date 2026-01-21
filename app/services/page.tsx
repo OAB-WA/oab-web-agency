@@ -189,7 +189,7 @@ export default function Services() {
           </p>
           <div className="flex flex-col sm:flex-row gap-5 justify-center">
             <CTAButton href={CALENDLY_URL} variant="primary" className="px-10 py-5 text-lg font-bold">
-              Book Your Free Strategy Call
+              Book a 15-Minute Strategy Call
             </CTAButton>
             <CTAButton href="/contact" variant="secondary" className="px-10 py-5 text-lg font-bold">
               Send a Message Instead

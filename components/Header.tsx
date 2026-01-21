@@ -12,7 +12,7 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
-  const isLandingPage = pathname === "/free-audit" || pathname === "/dallas-plumbers";
+  const isLandingPage = pathname === "/free-audit" || pathname === "/plumber-leads";
 
   // Handle scroll effect
   useEffect(() => {
@@ -92,7 +92,7 @@ export default function Header() {
                 href={CALENDLY_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => trackCTAClick("Book a Call", "Header - Desktop")}
+                onClick={() => trackCTAClick("Book a 15-Minute Strategy Call", "Header - Desktop")}
                 className="btn-primary text-[13px] uppercase tracking-wider px-7 py-2.5 shadow-sm active:scale-95 transition-all"
               >
                 Book a Call
@@ -187,7 +187,7 @@ export default function Header() {
                       className="btn-primary w-full py-5 rounded-2xl text-lg uppercase tracking-widest font-bold"
                       onClick={() => {
                         setMobileMenuOpen(false);
-                        trackCTAClick("Book a Call", "Header - Mobile Menu");
+                        trackCTAClick("Book a 15-Minute Strategy Call", "Header - Mobile Menu");
                       }}
                     >
                       Book a Strategy Call
