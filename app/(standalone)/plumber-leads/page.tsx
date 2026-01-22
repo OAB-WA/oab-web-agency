@@ -46,6 +46,7 @@ export default function PlumbersLandingPage() {
         window.gtag("event", "conversion_event_submit_lead_form_1", {
           'event_callback': () => console.log("Lead tracked successfully"),
           'event_timeout': 2000,
+          'event_label': 'Plumber Leads - GA4 Conversion Event',
           'email': formData.email, // Enhanced Conversions
           'phone_number': formData.phone, // Enhanced Conversions
           'value': 100.0,
@@ -54,7 +55,8 @@ export default function PlumbersLandingPage() {
 
         // Google Ads conversion tracking for Plumber Leads campaign
         window.gtag('event', 'conversion', {
-          'send_to': 'AW-17872130458/xihSCIvfmuobEJqjjMpC',
+          'send_to': 'AW-17872130458/JB8nCJS-oOobEJqjjMpC',
+          'event_label': 'Plumber Leads - Google Ads Conversion',
           'value': 100.0,
           'currency': 'USD',
           'transaction_id': `plumber-leads-${Date.now()}` // Unique ID to prevent duplicate conversions
@@ -62,7 +64,7 @@ export default function PlumbersLandingPage() {
       }
       
       // Keep existing local tracking
-      trackFormSubmission("Free Audit Form - Plumber Leads");
+      trackFormSubmission("Plumber Leads - Form Submission General Tracking");
       
       // Reset success message after 5 seconds
       setTimeout(() => {
@@ -355,7 +357,7 @@ export default function PlumbersLandingPage() {
           </div>
           <a
             href="#audit-form"
-            onClick={() => trackCTAClick("Get Your Free Website Audit or Consultation", "Solution Section")}
+            onClick={() => trackCTAClick("Plumber Leads - CTA Solution Section", "Hero to Solution")}
             className="inline-flex items-center px-10 py-5 bg-primary-950 text-white rounded-2xl text-lg font-bold hover:bg-primary-900 transition-all shadow-lg hover:shadow-2xl active:scale-[0.98]"
           >
             Get Your Free Audit or Consultation →
@@ -551,7 +553,7 @@ export default function PlumbersLandingPage() {
             </p>
             <a
               href="#audit-form"
-              onClick={() => trackCTAClick("Get Your Free Audit or Consultation", "Demo Case Studies")}
+              onClick={() => trackCTAClick("Plumber Leads - CTA Demo Case Studies", "After Case Study")}
               className="btn-primary px-10 py-5 text-lg font-bold inline-block"
             >
               Get Your Free Audit or Consultation →
@@ -775,7 +777,7 @@ export default function PlumbersLandingPage() {
           </p>
           <a
             href="#audit-form"
-            onClick={() => trackCTAClick("Get Your Free Website Audit or Consultation", "Strong CTA Section")}
+            onClick={() => trackCTAClick("Plumber Leads - CTA Strong CTA Section", "Before Guarantee")}
             className="inline-flex items-center px-10 py-5 bg-white text-primary-950 rounded-2xl text-lg font-bold hover:bg-gray-100 transition-all shadow-xl hover:shadow-2xl active:scale-[0.98]"
           >
             Get Your Free Audit or Consultation →
@@ -867,7 +869,7 @@ export default function PlumbersLandingPage() {
             </p>
             <a
               href="#audit-form"
-              onClick={() => trackCTAClick("Get Your Free Website Audit or Consultation", "Final CTA Section")}
+              onClick={() => trackCTAClick("Plumber Leads - CTA Final CTA Section", "End of Page")}
               className="inline-flex items-center px-10 py-5 bg-primary-950 text-white rounded-2xl text-lg font-bold hover:bg-primary-900 transition-all shadow-lg hover:shadow-2xl active:scale-[0.98]"
             >
               Get Your Free Audit or Consultation →
@@ -1063,7 +1065,7 @@ function DemoCaseStudy({
                         target="_blank" 
                         rel="noopener noreferrer"
                 className="inline-flex items-center px-6 py-3 border border-gray-200 text-gray-600 rounded-xl text-sm font-bold hover:bg-gray-50 transition-all active:scale-95"
-                        onClick={() => trackOutboundLink(originalWebsiteUrl, "View Original Website - Plumber Leads")}
+                        onClick={() => trackOutboundLink(originalWebsiteUrl, "Plumber Leads - Outbound Swan Plumbing - Original Site")}
                       >
                 Original Site
                       </a>
@@ -1071,10 +1073,10 @@ function DemoCaseStudy({
             {demoUrl && (
                     <a 
                       href={demoUrl}
-                      target="_blank"
+                      target="_blank" 
                       rel="noopener noreferrer"
                 className="inline-flex items-center px-8 py-4 bg-primary-950 text-white rounded-2xl text-base font-bold hover:bg-primary-900 transition-all shadow-md hover:shadow-xl active:scale-95"
-                      onClick={() => trackOutboundLink(demoUrl, "View Redesign Demo - Plumber Leads")}
+                      onClick={() => trackOutboundLink(demoUrl, "Plumber Leads - Outbound Swan Plumbing - Redesign Demo")}
                     >
                 Live Demo
                 <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
