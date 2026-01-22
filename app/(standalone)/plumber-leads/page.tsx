@@ -51,6 +51,14 @@ export default function PlumbersLandingPage() {
           'value': 100.0,
           'currency': 'USD'
         });
+
+        // Google Ads conversion tracking for Plumber Leads campaign
+        window.gtag('event', 'conversion', {
+          'send_to': 'AW-17872130458/xihSCIvfmuobEJqjjMpC',
+          'value': 100.0,
+          'currency': 'USD',
+          'transaction_id': `plumber-leads-${Date.now()}` // Unique ID to prevent duplicate conversions
+        });
       }
       
       // Keep existing local tracking
