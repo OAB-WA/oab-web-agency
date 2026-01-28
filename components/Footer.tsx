@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { trackCTAClick } from "@/lib/gtag";
+import { AUDIT_FORM_ANCHOR, PRIMARY_CTA_HREF, PRIMARY_CTA_LABEL } from "@/lib/cta";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -12,9 +13,9 @@ export default function Footer() {
   // Determine the correct CTA link based on current page
   const getCTALink = () => {
     if (pathname === "/plumber-leads" || pathname === "/free-audit") {
-      return "#audit-form";
+      return AUDIT_FORM_ANCHOR;
     }
-    return "/free-audit";
+    return PRIMARY_CTA_HREF;
   };
 
   // TODO: Replace with your actual social media links
@@ -35,7 +36,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-12 md:grid-cols-12 mb-16">
           {/* Brand & CTA */}
           <div className="col-span-1 md:col-span-5 space-y-8">
-            <div>
+            <div className="flex justify-center md:justify-start">
               <Image
                 src="/logo_dark.webp"
                 alt="OAB Web Agency"
@@ -52,10 +53,10 @@ export default function Footer() {
             <div className="pt-2">
               <Link
                 href={getCTALink()}
-                onClick={() => trackCTAClick("Get Your Free Audit or Consultation", "Footer - CTA")}
-                className="inline-flex items-center justify-center px-8 py-4 bg-white text-primary-950 rounded-2xl font-bold text-base hover:bg-neutral-100 transition-all shadow-xl hover:shadow-white/10 active:scale-95"
+                onClick={() => trackCTAClick(PRIMARY_CTA_LABEL, "Footer - CTA")}
+                className="btn-primary-dark rounded-2xl px-8 py-4 font-bold shadow-xl hover:shadow-white/10 active:scale-95"
               >
-                Get Your Free Audit →
+                {PRIMARY_CTA_LABEL}
               </Link>
             </div>
             

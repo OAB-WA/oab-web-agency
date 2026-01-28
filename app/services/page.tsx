@@ -2,10 +2,11 @@
 
 import Section from "@/components/Section";
 import CTAButton from "@/components/CTAButton";
+import SectionHeader from "@/components/SectionHeader";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { PaintBrushIcon, BoltIcon, MapPinIcon, ChartBarIcon } from "@/components/Icons";
-import { CALENDLY_URL } from "@/lib/constants";
+import { CALL_CTA_HREF, CALL_CTA_LABEL, PRIMARY_CTA_HREF, PRIMARY_CTA_LABEL } from "@/lib/cta";
 
 export default function Services() {
   const services = [
@@ -121,12 +122,12 @@ export default function Services() {
                     return <IconComponent className="w-8 h-8" />;
                   })()}
                 </div>
-                <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
-                  {service.title}
-                </h2>
-                <p className="text-xl text-neutral-600 mb-8 font-light leading-relaxed">
-                  {service.description}
-                </p>
+                <SectionHeader
+                  align="left"
+                  className="mb-8"
+                  title={service.title}
+                  subtitle={service.description}
+                />
                 <ul className="grid sm:grid-cols-2 gap-4 mb-10">
                   {service.features.map((feature) => (
                     <li key={feature} className="flex items-start">
@@ -150,10 +151,14 @@ export default function Services() {
                   ))}
                 </ul>
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <CTAButton href="/contact">Get a Free Consultation</CTAButton>
+                  <CTAButton href={PRIMARY_CTA_HREF}>{PRIMARY_CTA_LABEL}</CTAButton>
                 </div>
               </div>
-              <div className={`relative aspect-square bg-neutral-50/50 rounded-[3rem] border border-neutral-100 p-12 flex items-center justify-center overflow-hidden group ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
+              <div
+                className={`relative bg-neutral-50/50 rounded-[3rem] border border-neutral-100 p-8 sm:p-10 md:p-12 flex items-center justify-center overflow-hidden group min-h-[320px] sm:min-h-[360px] md:min-h-0 md:aspect-square ${
+                  index % 2 === 1 ? 'lg:order-1' : ''
+                }`}
+              >
                 <div className="absolute inset-0 bg-gradient-to-br from-primary-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="text-center relative z-10">
                    <div className="w-24 h-24 bg-white rounded-3xl shadow-premium flex items-center justify-center mx-auto mb-8 group-hover:-translate-y-2 transition-transform duration-500">
@@ -170,7 +175,7 @@ export default function Services() {
                    </div>
                    <p className="text-2xl font-bold text-gray-900 mb-2 tracking-tight">Ready to see results?</p>
                    <p className="text-neutral-500 font-light mb-8 max-w-xs mx-auto">Get a custom strategy for your {service.title.split(' ')[0].toLowerCase()} needs.</p>
-                   <CTAButton href="/contact" variant="secondary">Start Your Project</CTAButton>
+                   <CTAButton href="/contact" variant="secondary">Send a Message</CTAButton>
                 </div>
               </div>
             </motion.div>
@@ -188,11 +193,14 @@ export default function Services() {
             Book a free 15-minute strategy call (no sales pitch). We'll analyze your current website and show you exactly what's costing you calls and jobs, then recommend the best path forward.
           </p>
           <div className="flex flex-col sm:flex-row gap-5 justify-center">
-            <CTAButton href={CALENDLY_URL} variant="primary" className="px-10 py-5 text-lg font-bold">
-              Book a 15-Minute Strategy Call
+            <CTAButton href={PRIMARY_CTA_HREF} variant="primary" className="px-10 py-5 text-lg font-bold">
+              {PRIMARY_CTA_LABEL}
             </CTAButton>
-            <CTAButton href="/contact" variant="secondary" className="px-10 py-5 text-lg font-bold">
-              Send a Message Instead
+            <CTAButton href={CALL_CTA_HREF} variant="secondary" className="px-10 py-5 text-lg font-bold">
+              {CALL_CTA_LABEL}
+            </CTAButton>
+            <CTAButton href="/contact" variant="outline" className="px-10 py-5 text-lg font-bold">
+              Send a Message
             </CTAButton>
           </div>
         </div>

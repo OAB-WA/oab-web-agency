@@ -2,9 +2,10 @@
 
 import Section from "@/components/Section";
 import CTAButton from "@/components/CTAButton";
+import SectionHeader from "@/components/SectionHeader";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { CALENDLY_URL } from "@/lib/constants";
+import { CALL_CTA_HREF, CALL_CTA_LABEL, PRIMARY_CTA_HREF, PRIMARY_CTA_LABEL } from "@/lib/cta";
 
 export default function About() {
   const values = [
@@ -62,9 +63,7 @@ export default function About() {
       {/* Story */}
       <Section className="py-24 md:py-32">
         <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-10 tracking-tight">
-            Our Story
-          </h2>
+          <SectionHeader align="left" className="mb-10" title="Our Story" />
           <div className="space-y-8">
             <p className="text-xl text-neutral-600 font-light leading-relaxed">
               Most service businesses have websites that look fine but don't generate calls. They're slow, hard to use on phones, and don't convert visitors into customers. Meanwhile, competitors with better websites are getting all the jobs.
@@ -81,11 +80,8 @@ export default function About() {
 
       {/* Values */}
       <Section className="bg-neutral-50/20 backdrop-blur-sm py-20 md:py-32">
-        <div className="text-center mb-16 px-4">
-          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
-            What We Stand For
-          </h2>
-          <p className="text-xl text-neutral-500 font-light max-w-2xl mx-auto">Our Core Values & Mission</p>
+        <div className="px-4 mb-16">
+          <SectionHeader title="What We Stand For" subtitle="Our Core Values & Mission" />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto px-4">
@@ -110,9 +106,7 @@ export default function About() {
       {/* Why Service Businesses */}
       <Section className="py-20 md:py-32 bg-white/60 backdrop-blur-sm">
         <div className="max-w-4xl mx-auto text-center px-4">
-          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-10 tracking-tight">
-            Why We Focus on Service Businesses
-          </h2>
+          <SectionHeader className="mb-10" title="Why We Focus on Service Businesses" />
           <div className="space-y-8">
             <p className="text-xl text-neutral-600 font-light leading-relaxed">
               Home-based service businesses have unique needs. When someone's pipe bursts at 2 AM or their AC breaks in the summer, they need to find you quickly, trust you immediately, and contact you easily. Your website needs to be fast, mobile-friendly, and optimized for local search. Or they're calling your competitor.
@@ -140,11 +134,11 @@ export default function About() {
             Let's discuss how we can build you a new website or turn your existing website into a lead-generating machine.
           </p>
           <div className="flex flex-col sm:flex-row gap-5 justify-center">
-            <CTAButton href={CALENDLY_URL} variant="primary" dark className="px-10 py-5 text-lg font-bold">
-              Book a Strategy Call →
+            <CTAButton href={CALL_CTA_HREF} variant="primary" dark className="px-10 py-5 text-lg font-bold">
+              {CALL_CTA_LABEL}
             </CTAButton>
-            <CTAButton href="/contact" variant="secondary" dark className="px-10 py-5 text-lg font-bold">
-              Get Your Free Audit
+            <CTAButton href={PRIMARY_CTA_HREF} variant="secondary" dark className="px-10 py-5 text-lg font-bold">
+              {PRIMARY_CTA_LABEL}
             </CTAButton>
           </div>
         </div>

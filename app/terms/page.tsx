@@ -57,7 +57,7 @@ export default function TermsOfService() {
                 <svg className="w-5 h-5 text-emerald-500 mr-4 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                <span><strong className="text-gray-900 font-bold">Calls or It's Free:</strong> Full refund within 30 days if calls don't increase or you don't get your first leads</span>
+                <span><strong className="text-gray-900 font-bold">Calls or It's Free:</strong> If inbound calls or booked jobs do not increase within 30 days of website launch, you don't pay. Calls are tracked via call tracking, and booked jobs are tracked via form submissions or booking system integrations. The client must answer calls during normal business hours and respond to booking requests promptly.</span>
               </li>
               <li className="flex items-start">
                 <svg className="w-5 h-5 text-emerald-500 mr-4 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
@@ -154,7 +154,7 @@ export default function TermsOfService() {
                   <div className="flex-shrink-0 w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-sm">✓</div>
                   <div>
                     <strong className="text-gray-900 font-bold block mb-1">Performance Guarantee ('Calls or It's Free'):</strong>
-                    If we don't increase your inbound phone call volume (or generate your first leads if starting from zero) within 30 days of launch, we offer a 100% refund. No questions asked.
+                    If inbound calls or booked jobs do not increase within 30 days of website launch, you don't pay. Calls are tracked via call tracking, and booked jobs are tracked via form submissions or booking system integrations. The client must answer calls during normal business hours and respond to booking requests promptly. Website delivery is 1–2 weeks for new sites/redesigns or 2–3 weeks for complete packages (assumes prompt client feedback and content delivery). Pages are optimized to load under 2.5 seconds or we fix it at no cost.
                   </div>
                 </li>
               </ul>
@@ -171,12 +171,12 @@ export default function TermsOfService() {
                 5. Refund Policy ('Calls or It's Free')
               </h2>
               <p className="text-neutral-600 leading-relaxed mb-6 font-light">
-                We offer a 100% money-back guarantee if calls do not increase (or you do not receive your first leads) within 30 days of launch. To request a refund:
+                Our 'Calls or It's Free' guarantee: If inbound calls or booked jobs do not increase within 30 days of website launch, you don't pay. If any project fees were paid, we will refund those fees under this guarantee. Calls are tracked via call tracking, and booked jobs are tracked via form submissions or booking system integrations. The client must answer calls during normal business hours and respond to booking requests promptly. Website delivery is 1–2 weeks for new sites/redesigns or 2–3 weeks for complete packages (assumes prompt client feedback and content delivery). Pages are optimized to load under 2.5 seconds or we fix it at no cost. To request relief under this guarantee:
               </p>
               <ul className="space-y-3 text-neutral-600 font-light mb-8">
                 <li className="flex items-start gap-3">
                   <div className="w-1.5 h-1.5 rounded-full bg-primary-500 mt-2.5 flex-shrink-0"></div>
-                  <span>Contact us within 30 days of project launch</span>
+                  <span>Contact us within 30 days of website launch</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="w-1.5 h-1.5 rounded-full bg-primary-500 mt-2.5 flex-shrink-0"></div>
@@ -191,7 +191,7 @@ export default function TermsOfService() {
                 Refunds will be issued to the original payment method. Once a refund
                 is processed, all rights to the website and content transfer back to
                 OAB Web Agency. Refunds are not available for completed projects
-                beyond 30 days or for maintenance/hosting services. Partial refunds
+                beyond 30 days of website launch or for maintenance/hosting services. Partial refunds
                 may be available for projects cancelled mid-development, calculated
                 based on work completed.
               </p>

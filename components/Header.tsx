@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { trackCTAClick } from "@/lib/gtag";
-import { CALENDLY_URL } from "@/lib/constants";
+import { AUDIT_FORM_ANCHOR, CALL_CTA_HREF, CALL_CTA_LABEL, PRIMARY_CTA_LABEL, PRIMARY_CTA_LABEL_SHORT } from "@/lib/cta";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -89,23 +89,23 @@ export default function Header() {
                 );
               })}
               <Link
-                href={CALENDLY_URL}
+                href={CALL_CTA_HREF}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => trackCTAClick("Book a 15-Minute Strategy Call", "Header - Desktop")}
+                onClick={() => trackCTAClick(CALL_CTA_LABEL, "Header - Desktop")}
                 className="btn-primary text-[13px] uppercase tracking-wider px-7 py-2.5 shadow-sm active:scale-95 transition-all"
               >
-                Book a Call
+                {CALL_CTA_LABEL}
               </Link>
             </div>
           ) : (
             <div className="hidden md:flex md:items-center">
               <a
-                href="#audit-form"
-                onClick={() => trackCTAClick("Get Your Free Audit or Consultation", "Header - Landing Page")}
+                href={AUDIT_FORM_ANCHOR}
+                onClick={() => trackCTAClick(PRIMARY_CTA_LABEL, "Header - Landing Page")}
                 className={`btn-primary text-[13px] uppercase tracking-wider px-7 py-2.5 ${!isSolid ? "bg-white !text-primary-950 hover:bg-neutral-50" : ""}`}
               >
-                Get Your Free Audit or Consultation
+                {PRIMARY_CTA_LABEL}
               </a>
             </div>
           )}
@@ -130,11 +130,11 @@ export default function Header() {
           {isLandingPage && (
             <div className="md:hidden">
               <a
-                href="#audit-form"
-                onClick={() => trackCTAClick("Get Free Audit or Consultation", "Header - Mobile - Landing Page")}
+                href={AUDIT_FORM_ANCHOR}
+                onClick={() => trackCTAClick(PRIMARY_CTA_LABEL_SHORT, "Header - Mobile - Landing Page")}
                 className={`btn-primary text-xs uppercase tracking-wider px-5 py-2.5 text-center block ${!isSolid ? "bg-white !text-primary-950" : ""}`}
               >
-                Get Free Audit
+                {PRIMARY_CTA_LABEL_SHORT}
               </a>
             </div>
           )}
@@ -181,16 +181,16 @@ export default function Header() {
                   
                   <div className="mt-auto pt-10 border-t border-neutral-100">
                     <Link
-                      href={CALENDLY_URL}
+                      href={CALL_CTA_HREF}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="btn-primary w-full py-5 rounded-2xl text-lg uppercase tracking-widest font-bold"
                       onClick={() => {
                         setMobileMenuOpen(false);
-                        trackCTAClick("Book a 15-Minute Strategy Call", "Header - Mobile Menu");
+                        trackCTAClick(CALL_CTA_LABEL, "Header - Mobile Menu");
                       }}
                     >
-                      Book a Strategy Call
+                      {CALL_CTA_LABEL}
                     </Link>
                   </div>
                 </div>

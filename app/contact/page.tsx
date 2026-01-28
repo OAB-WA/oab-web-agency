@@ -1,17 +1,19 @@
 "use client";
 
 import Section from "@/components/Section";
+import CTAButton from "@/components/CTAButton";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import Image from "next/image";
 import { trackFormSubmission, trackOutboundLink } from "@/lib/gtag";
-import { CALENDLY_URL } from "@/lib/constants";
+import { CALL_CTA_HREF, CALL_CTA_LABEL, PRIMARY_CTA_HREF, PRIMARY_CTA_LABEL } from "@/lib/cta";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
+    website: "",
     business: "",
     message: "",
   });
@@ -40,7 +42,7 @@ export default function Contact() {
       }
 
       setSubmitted(true);
-      setFormData({ name: "", email: "", phone: "", business: "", message: "" });
+      setFormData({ name: "", email: "", phone: "", website: "", business: "", message: "" });
       
       // Track form submission
       trackFormSubmission("Contact Form");
@@ -86,8 +88,16 @@ export default function Contact() {
               Let's Get You <span className="text-primary-400">More Calls & Jobs</span>
             </h1>
             <p className="text-xl md:text-2xl text-white/90 font-light leading-relaxed max-w-3xl mx-auto">
-              Book a free 15-minute call or get a free website audit showing exactly what's costing you leads. No sales pitch, just real data.
+              Choose your next step: request a free website audit (or consultation), book a free 15‑minute call, or send a message below. No sales pitch—just real data and the next best step.
             </p>
+            <div className="mt-10 flex flex-col sm:flex-row gap-5 justify-center">
+              <CTAButton href={PRIMARY_CTA_HREF} variant="primary" dark className="px-10 py-5 text-lg font-bold">
+                {PRIMARY_CTA_LABEL}
+              </CTAButton>
+              <CTAButton href={CALL_CTA_HREF} variant="secondary" dark className="px-10 py-5 text-lg font-bold">
+                {CALL_CTA_LABEL}
+              </CTAButton>
+            </div>
           </div>
         </div>
       </section>
@@ -149,25 +159,37 @@ export default function Contact() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="business" className="block text-sm font-bold text-gray-400 uppercase tracking-widest mb-2">Business Name</label>
+                  <label htmlFor="website" className="block text-sm font-bold text-gray-400 uppercase tracking-widest mb-2">Website URL (Optional)</label>
                   <input
-                    type="text"
-                    id="business"
-                    name="business"
-                    value={formData.business}
+                    type="url"
+                    id="website"
+                    name="website"
+                    value={formData.website}
                     onChange={handleChange}
-                    placeholder="Your Business LLC"
+                    placeholder="https://yourwebsite.com (or GBP link)"
                     className="w-full px-5 py-4 bg-neutral-50 border border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-950 focus:border-transparent outline-none transition-all placeholder:text-neutral-300"
                   />
                 </div>
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-bold text-gray-400 uppercase tracking-widest mb-2">How can we help? *</label>
+                <label htmlFor="business" className="block text-sm font-bold text-gray-400 uppercase tracking-widest mb-2">Business Name</label>
+                <input
+                  type="text"
+                  id="business"
+                  name="business"
+                  value={formData.business}
+                  onChange={handleChange}
+                  placeholder="Your Business LLC"
+                  className="w-full px-5 py-4 bg-neutral-50 border border-neutral-200 rounded-xl focus:ring-2 focus:ring-primary-950 focus:border-transparent outline-none transition-all placeholder:text-neutral-300"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="message" className="block text-sm font-bold text-gray-400 uppercase tracking-widest mb-2">How can we help?</label>
                 <textarea
                   id="message"
                   name="message"
-                  required
                   rows={5}
                   value={formData.message}
                   onChange={handleChange}
@@ -209,17 +231,17 @@ export default function Contact() {
                   {
                     step: "1",
                     title: "We Review Your Request",
-                    text: "We'll review your message and current website status, getting back to you within 24 hours."
+                    text: "We’ll read your note and reply within 24 hours with the next best step."
                   },
                   {
                     step: "2",
-                    title: "Schedule a Call",
-                    text: "We'll hop on a free 15-minute strategy call to discuss your goals and needs."
+                    title: "We’ll Ask for Any Missing Details (If Needed)",
+                    text: "If we need your website URL or Google Business Profile link, we’ll ask—or you can include it now above."
                   },
                   {
                     step: "3",
-                    title: "Get Your Free Audit",
-                    text: "If you have a website, we'll provide a detailed performance report. If not, we'll build a clear launch plan."
+                    title: "Choose Your Fastest Path (No Pressure)",
+                    text: "If you want to move quickly, book a 15‑minute call. If you prefer a free audit or consultation, request it above. Or we can keep it async over email."
                   }
                 ].map((item) => (
                   <div key={item.step} className="flex items-start group">
@@ -247,13 +269,13 @@ export default function Contact() {
                 Book a call directly using our calendar. No form required.
               </p>
               <a
-                href={CALENDLY_URL}
+                href={CALL_CTA_HREF}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => trackOutboundLink(CALENDLY_URL, "Book a 15-Minute Call - Contact Page")}
+                onClick={() => trackOutboundLink(CALL_CTA_HREF, CALL_CTA_LABEL)}
                 className="inline-flex items-center justify-center px-10 py-4 bg-white text-primary-950 border border-neutral-200 rounded-2xl font-bold hover:bg-neutral-50 transition-all shadow-md hover:shadow-lg active:scale-95"
               >
-                Book a 15-Minute Call →
+                {CALL_CTA_LABEL}
               </a>
             </div>
           </div>

@@ -13,12 +13,12 @@ export default function FAQ() {
     {
       question: "What is your delivery guarantee?",
       answer:
-        "We guarantee delivery within 1-2 weeks for new websites and redesigns, or it's free. This timeline assumes prompt client feedback and content delivery. This is part of our triple guarantee that also includes a 2.5-second load time guarantee and our 'Calls or It's Free' performance guarantee. We're that confident in our work.",
+        "Website delivery is 1–2 weeks for new sites/redesigns, or 2–3 weeks for complete packages (assuming prompt client feedback and content delivery). Pages are optimized to load under 2.5 seconds or we fix it at no cost. This is part of our 'Calls or It's Free' guarantee. We're that confident in our work.",
     },
     {
       question: "What is your refund policy?",
       answer:
-        "We offer a performance-based 'Calls or It's Free' guarantee. If we don't increase your inbound phone call volume (or generate your first leads if you're starting from scratch) within 30 days of launch, we'll provide a 100% refund. No questions asked. This removes all the risk—you get results or you don't pay.",
+        "Our 'Calls or It's Free' guarantee: If inbound calls or booked jobs do not increase within 30 days of website launch, you don't pay. Calls are tracked via call tracking, and booked jobs are tracked via form submissions or booking system integrations. The client must answer calls during normal business hours and respond to booking requests promptly. Website delivery is 1–2 weeks for new sites/redesigns, or 2–3 weeks for complete packages (assuming prompt client feedback and content delivery). Pages are optimized to load under 2.5 seconds or we fix it at no cost. This removes all the risk—you get results or you don't pay.",
     },
     {
       question: "How long does it take to build a website?",
@@ -43,7 +43,7 @@ export default function FAQ() {
     {
       question: "What's included in a website design or redesign?",
       answer:
-        "Whether we're building a new website or redesigning your existing one, we include: mobile-responsive design, performance optimization, SEO setup, conversion-focused layouts, contact forms, clear CTAs, and basic training on how to update your site. Additional features can be added based on your needs.",
+        "Inclusions vary by package and scope. In general, we build mobile-responsive designs, performance optimization, conversion-focused layouts, contact forms, clear CTAs, and SEO foundations. Complete packages include expanded SEO and additional pages/features. See the pricing page for exact deliverables.",
     },
     {
       question: "How much does a website cost?",

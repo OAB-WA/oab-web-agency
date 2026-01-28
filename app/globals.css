@@ -155,7 +155,7 @@ html {
 @layer components {
   /* Primary button - works on light backgrounds */
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-xl px-6 py-3 text-base font-semibold;
+    @apply inline-flex items-center justify-center text-center leading-tight rounded-xl px-6 py-3 text-base font-semibold;
     @apply bg-primary-950 text-white;
     @apply hover:bg-primary-900;
     @apply transition-all duration-150 ease-out;
@@ -166,7 +166,7 @@ html {
   
   /* Primary button variant for dark backgrounds */
   .btn-primary-dark {
-    @apply inline-flex items-center justify-center rounded-xl px-6 py-3 text-base font-semibold;
+    @apply inline-flex items-center justify-center text-center leading-tight rounded-xl px-6 py-3 text-base font-semibold;
     @apply bg-white text-primary-950;
     @apply hover:bg-neutral-50;
     @apply transition-all duration-150 ease-out;
@@ -177,7 +177,7 @@ html {
   
   /* Secondary button - works on light backgrounds */
   .btn-secondary {
-    @apply inline-flex items-center justify-center rounded-xl px-6 py-3 text-base font-semibold;
+    @apply inline-flex items-center justify-center text-center leading-tight rounded-xl px-6 py-3 text-base font-semibold;
     @apply bg-white text-primary-950 border-2 border-primary-950;
     @apply hover:bg-primary-50 hover:border-primary-900;
     @apply transition-all duration-150 ease-out;
@@ -188,7 +188,7 @@ html {
   
   /* Secondary button variant for dark backgrounds */
   .btn-secondary-dark {
-    @apply inline-flex items-center justify-center rounded-xl px-6 py-3 text-base font-semibold;
+    @apply inline-flex items-center justify-center text-center leading-tight rounded-xl px-6 py-3 text-base font-semibold;
     @apply bg-transparent text-white border-2 border-white/20;
     @apply hover:bg-white/10 hover:border-white/30;
     @apply transition-all duration-150 ease-out;
@@ -199,7 +199,7 @@ html {
   
   /* Ghost button - minimal styling */
   .btn-ghost {
-    @apply inline-flex items-center justify-center rounded-xl px-6 py-3 text-base font-semibold;
+    @apply inline-flex items-center justify-center text-center leading-tight rounded-xl px-6 py-3 text-base font-semibold;
     @apply bg-transparent text-primary-950;
     @apply hover:bg-primary-50;
     @apply transition-all duration-150 ease-out;
@@ -210,7 +210,7 @@ html {
   
   /* Ghost button for dark backgrounds */
   .btn-ghost-dark {
-    @apply inline-flex items-center justify-center rounded-xl px-6 py-3 text-base font-semibold;
+    @apply inline-flex items-center justify-center text-center leading-tight rounded-xl px-6 py-3 text-base font-semibold;
     @apply bg-transparent text-white;
     @apply hover:bg-white/10;
     @apply transition-all duration-150 ease-out;
@@ -221,7 +221,7 @@ html {
   
   /* Outline button */
   .btn-outline {
-    @apply inline-flex items-center justify-center rounded-xl px-6 py-3 text-base font-semibold;
+    @apply inline-flex items-center justify-center text-center leading-tight rounded-xl px-6 py-3 text-base font-semibold;
     @apply bg-transparent text-primary-950 border-2 border-primary-950;
     @apply hover:bg-primary-950 hover:text-white;
     @apply transition-all duration-150 ease-out;
@@ -232,7 +232,7 @@ html {
   
   /* Outline button for dark backgrounds */
   .btn-outline-dark {
-    @apply inline-flex items-center justify-center rounded-xl px-6 py-3 text-base font-semibold;
+    @apply inline-flex items-center justify-center text-center leading-tight rounded-xl px-6 py-3 text-base font-semibold;
     @apply bg-transparent text-white border-2 border-white/30;
     @apply hover:bg-white/10 hover:border-white/50;
     @apply transition-all duration-150 ease-out;
