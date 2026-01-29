@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "High-Converting Websites for Service Businesses",
+  title: "Lead-Generating Websites for Service Businesses",
   description:
     "Your website should bring you leads: not just look good. We build high-performance websites that turn visitors into calls and booked jobs for service-based businesses. We work with plumbers, HVAC companies, electricians, landscapers, roofers, and other service businesses.",
   keywords: [
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     "service business web design",
   ],
   openGraph: {
-    title: "High-Converting Websites for Service Businesses | OAB Web Agency",
+    title: "Lead-Generating Websites for Service Businesses | OAB Web Agency",
     description:
       "Your website should bring you leads: not just look good. We build high-performance websites that turn visitors into calls and booked jobs.",
     type: "website",

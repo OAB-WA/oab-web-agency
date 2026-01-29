@@ -11,7 +11,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "OAB Web Agency | High-Converting Websites for Service Businesses",
+    default: "OAB Web Agency | Lead-Generating Websites for Service Businesses",
     template: "%s | OAB Web Agency",
   },
   description:

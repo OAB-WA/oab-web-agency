@@ -18,7 +18,7 @@ export default function FAQ() {
     {
       question: "What is your refund policy?",
       answer:
-        "Our 'Calls or It's Free' guarantee: If inbound calls or booked jobs do not increase within 30 days of website launch, you don't pay. Calls are tracked via call tracking, and booked jobs are tracked via form submissions or booking system integrations. The client must answer calls during normal business hours and respond to booking requests promptly. Website delivery is 1–2 weeks for new sites/redesigns, or 2–3 weeks for complete packages (assuming prompt client feedback and content delivery). Pages are optimized to load under 2.5 seconds or we fix it at no cost. This removes all the risk—you get results or you don't pay.",
+        "Our 'Calls or It's Free' guarantee: If inbound calls or booked jobs do not increase within 30 days of website launch, you get a full refund. Calls are tracked via call tracking, and booked jobs are tracked via form submissions or booking system integrations. The client must answer calls during normal business hours and respond to booking requests promptly. Website delivery is 1–2 weeks for new sites/redesigns, or 2–3 weeks for complete packages (assuming prompt client feedback and content delivery). Pages are optimized to load under 2.5 seconds or we fix it at no cost. This removes all the risk. You get results or you get a full refund.",
     },
     {
       question: "How long does it take to build a website?",
@@ -38,12 +38,12 @@ export default function FAQ() {
     {
       question: "Do you work with service-based businesses only?",
       answer:
-        "While we specialize in service-based businesses (plumbers, HVAC, electricians, contractors, etc.), we work with all types of businesses that need high-converting websites. Our expertise in conversion optimization benefits any business that relies on leads and phone calls.",
+        "While we specialize in service-based businesses (plumbers, HVAC, electricians, contractors, etc.), we work with all types of businesses that need lead-generating websites. Our expertise in lead generation benefits any business that relies on leads and phone calls.",
     },
     {
       question: "What's included in a website design or redesign?",
       answer:
-        "Inclusions vary by package and scope. In general, we build mobile-responsive designs, performance optimization, conversion-focused layouts, contact forms, clear CTAs, and SEO foundations. Complete packages include expanded SEO and additional pages/features. See the pricing page for exact deliverables.",
+        "Inclusions vary by package and scope. In general, we build mobile-responsive designs, performance optimization, lead-focused layouts, contact forms, clear CTAs, and SEO foundations. Complete packages include expanded SEO and additional pages/features. See the pricing page for exact deliverables.",
     },
     {
       question: "How much does a website cost?",
@@ -93,12 +93,12 @@ export default function FAQ() {
     {
       question: "Do you build new websites for businesses without an existing site?",
       answer:
-        "Absolutely! We build brand new websites from scratch for businesses that don't have a website yet. Whether you're starting fresh or need a complete redesign, we'll create a high-converting website that gets you more calls and booked jobs. The process is the same. We'll work with you to understand your business, target customers, and goals, then build a fast, mobile-friendly website optimized for local search.",
+        "Absolutely! We build brand new websites from scratch for businesses that don't have a website yet. Whether you're starting fresh or need a complete redesign, we'll create a lead-generating website that gets you more calls and booked jobs. The process is the same. We'll work with you to understand your business, target customers, and goals, then build a fast, mobile-friendly website optimized for local search.",
     },
     {
       question: "Can you redesign my existing website?",
       answer:
-        "Yes! We can redesign your existing website while preserving your content and improving the design, speed, and conversion rates. We'll analyze your current site and show you exactly what needs improvement before we start. Many clients see 2-3x more leads after a redesign.",
+        "Yes! We can redesign your existing website while preserving your content and improving the design, speed, and conversion rates. We'll analyze your current site and show you exactly what needs improvement before we start. Many clients see significantly more leads after a redesign.",
     },
     {
       question: "What makes your websites different from others?",
@@ -134,7 +134,7 @@ export default function FAQ() {
               Frequently Asked <span className="text-primary-400">Questions</span>
             </h1>
             <p className="text-xl md:text-2xl text-white/90 font-light leading-relaxed max-w-3xl mx-auto">
-              Everything you need to know about our high-performance websites and lead-generation strategy.
+              Everything you need to know about our lead-generating websites and lead-generation strategy.
             </p>
           </div>
         </div>

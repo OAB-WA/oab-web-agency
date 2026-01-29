@@ -3,11 +3,11 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Get 2-3x More Phone Calls From Your Website | Free Audit",
   description:
-    "High-converting websites for service businesses. Get 2-3x more phone calls and booked jobs. Free website audit shows exactly how many leads you're missing. Delivered in 1-3 weeks depending on scope.",
+    "Get a free website audit showing exactly what's costing you leads. Delivered in 24 hours. No sales pitch. Just clear priorities and quick wins.",
   keywords: [
     "service business websites",
     "lead-generating websites",
-    "high-converting websites",
+    "lead-generating websites",
     "website for plumbers",
     "website for HVAC companies",
     "website for electricians",
@@ -22,13 +22,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Get 2-3x More Phone Calls From Your Website | Free Audit",
     description:
-      "High-converting websites for service businesses. Get 2-3x more phone calls and booked jobs. Free website audit.",
+      "Get a free website audit showing exactly what's costing you leads. Delivered in 24 hours. No sales pitch.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Get 2-3x More Phone Calls From Your Website",
-    description: "High-converting websites for service businesses. Free website audit.",
+    description:
+      "Get a free website audit showing exactly what's costing you leads. Delivered in 24 hours. No sales pitch.",
   },
 };
 

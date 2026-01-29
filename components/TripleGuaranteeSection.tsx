@@ -21,7 +21,7 @@ export default function TripleGuaranteeSection() {
           <SectionHeader
             className="mb-0"
             title="Our Triple Guarantee"
-            subtitle="We remove the risk. You get a fast website built to generate calls—with clear expectations and real tracking."
+            subtitle="We remove the risk. You get a fast website built to generate calls, with clear expectations and real tracking."
           />
         </div>
 
@@ -36,7 +36,7 @@ export default function TripleGuaranteeSection() {
             <p className="text-neutral-600 font-light leading-relaxed">
               Delivered in{" "}
               <span className="font-bold text-emerald-600">1–2 weeks</span> (new sites/redesigns) or{" "}
-              <span className="font-bold text-emerald-600">2–3 weeks</span> (complete packages) — or it's{" "}
+              <span className="font-bold text-emerald-600">2–3 weeks</span> (complete packages), or it's{" "}
               <span className="font-bold text-emerald-600">free</span>.
               <span className="text-xs text-neutral-400 block mt-4 italic">Assumes prompt feedback.</span>
             </p>
@@ -64,7 +64,7 @@ export default function TripleGuaranteeSection() {
             <h3 className="text-2xl font-bold text-gray-900 mb-4 tracking-tight">Calls or It's Free</h3>
             <p className="text-neutral-600 font-light leading-relaxed">
               If inbound calls or booked jobs do not increase within{" "}
-              <span className="font-bold text-emerald-600">30 days of website launch</span>, you don't pay.
+              <span className="font-bold text-emerald-600">30 days of website launch</span>, you get a full refund.
               <span className="text-xs text-neutral-400 block mt-4 italic">
                 Calls are tracked via call tracking. Booked jobs are tracked via form submissions or booking system integrations. Client must answer calls during normal business hours and respond to booking requests promptly.
               </span>

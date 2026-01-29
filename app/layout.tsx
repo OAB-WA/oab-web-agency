@@ -15,7 +15,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "OAB Web Agency | High-Converting Websites for Service Businesses",
+    default: "OAB Web Agency | Lead-Generating Websites for Service Businesses",
     template: "%s | OAB Web Agency",
   },
   description:
@@ -38,13 +38,13 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://oabwebagency.com",
     siteName: "OAB Web Agency",
-    title: "OAB Web Agency | High-Converting Websites for Service Businesses",
+    title: "OAB Web Agency | Lead-Generating Websites for Service Businesses",
     description:
       "We build high-performance websites that turn visitors into calls and booked jobs. Specializing in website design, SEO, and conversion optimization for service-based businesses.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "OAB Web Agency | High-Converting Websites for Service Businesses",
+    title: "OAB Web Agency | Lead-Generating Websites for Service Businesses",
     description:
       "We build high-performance websites that turn visitors into calls and booked jobs.",
   },

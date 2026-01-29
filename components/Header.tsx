@@ -6,13 +6,23 @@ import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { trackCTAClick } from "@/lib/gtag";
-import { AUDIT_FORM_ANCHOR, CALL_CTA_HREF, CALL_CTA_LABEL, PRIMARY_CTA_LABEL, PRIMARY_CTA_LABEL_SHORT } from "@/lib/cta";
+import {
+  AUDIT_FORM_ANCHOR,
+  AUDIT_CTA_LABEL,
+  AUDIT_CTA_LABEL_SHORT,
+  CALL_CTA_HREF,
+  CALL_CTA_LABEL,
+  PRIMARY_CTA_HREF,
+  PRIMARY_CTA_LABEL,
+  PRIMARY_CTA_LABEL_SHORT,
+} from "@/lib/cta";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
-  const isLandingPage = pathname === "/free-audit" || pathname === "/plumber-leads";
+  const isLandingPage =
+    pathname === "/plumber-leads" || pathname.startsWith("/free-audit");
 
   // Handle scroll effect
   useEffect(() => {
@@ -89,23 +99,21 @@ export default function Header() {
                 );
               })}
               <Link
-                href={CALL_CTA_HREF}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => trackCTAClick(CALL_CTA_LABEL, "Header - Desktop")}
+                href={PRIMARY_CTA_HREF}
+                onClick={() => trackCTAClick(PRIMARY_CTA_LABEL, "Header - Desktop - Quote")}
                 className="btn-primary text-[13px] uppercase tracking-wider px-7 py-2.5 shadow-sm active:scale-95 transition-all"
               >
-                {CALL_CTA_LABEL}
+                {PRIMARY_CTA_LABEL}
               </Link>
             </div>
           ) : (
             <div className="hidden md:flex md:items-center">
               <a
                 href={AUDIT_FORM_ANCHOR}
-                onClick={() => trackCTAClick(PRIMARY_CTA_LABEL, "Header - Landing Page")}
+                onClick={() => trackCTAClick(AUDIT_CTA_LABEL, "Header - Landing Page")}
                 className={`btn-primary text-[13px] uppercase tracking-wider px-7 py-2.5 ${!isSolid ? "bg-white !text-primary-950 hover:bg-neutral-50" : ""}`}
               >
-                {PRIMARY_CTA_LABEL}
+                {AUDIT_CTA_LABEL}
               </a>
             </div>
           )}
@@ -131,10 +139,10 @@ export default function Header() {
             <div className="md:hidden">
               <a
                 href={AUDIT_FORM_ANCHOR}
-                onClick={() => trackCTAClick(PRIMARY_CTA_LABEL_SHORT, "Header - Mobile - Landing Page")}
+                onClick={() => trackCTAClick(AUDIT_CTA_LABEL_SHORT, "Header - Mobile - Landing Page")}
                 className={`btn-primary text-xs uppercase tracking-wider px-5 py-2.5 text-center block ${!isSolid ? "bg-white !text-primary-950" : ""}`}
               >
-                {PRIMARY_CTA_LABEL_SHORT}
+                {AUDIT_CTA_LABEL_SHORT}
               </a>
             </div>
           )}
@@ -181,16 +189,14 @@ export default function Header() {
                   
                   <div className="mt-auto pt-10 border-t border-neutral-100">
                     <Link
-                      href={CALL_CTA_HREF}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      href={PRIMARY_CTA_HREF}
                       className="btn-primary w-full py-5 rounded-2xl text-lg uppercase tracking-widest font-bold"
                       onClick={() => {
                         setMobileMenuOpen(false);
-                        trackCTAClick(CALL_CTA_LABEL, "Header - Mobile Menu");
+                        trackCTAClick(PRIMARY_CTA_LABEL, "Header - Mobile Menu");
                       }}
                     >
-                      {CALL_CTA_LABEL}
+                      {PRIMARY_CTA_LABEL}
                     </Link>
                   </div>
                 </div>

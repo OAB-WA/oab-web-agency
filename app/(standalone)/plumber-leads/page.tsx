@@ -7,11 +7,10 @@ import { trackFormSubmission, trackCTAClick } from "@/lib/gtag";
 import CaseStudyCarousel from "@/components/CaseStudyCarousel";
 import { getFeaturedCaseStudies } from "@/lib/caseStudies";
 import SectionHeader from "@/components/SectionHeader";
-import { AUDIT_FORM_ANCHOR, PRIMARY_CTA_LABEL } from "@/lib/cta";
+import { AUDIT_FORM_ANCHOR, AUDIT_CTA_LABEL } from "@/lib/cta";
 import ReviewsMarqueeSection from "@/components/ReviewsMarqueeSection";
 import ProcessSection from "@/components/ProcessSection";
 import { PROCESS_COPY_AUDIT_FIRST } from "@/lib/process";
-import TripleGuaranteeSection from "@/components/TripleGuaranteeSection";
 
 export default function PlumbersLandingPage() {
   const [formData, setFormData] = useState({
@@ -137,7 +136,7 @@ export default function PlumbersLandingPage() {
                 US Plumbing Companies: Get 2-3x More <span className="text-primary-400">Emergency Calls</span>
               </h1>
               <p className="text-xl md:text-2xl text-white/90 mb-10 leading-relaxed font-light">
-                Stop losing 40-60% of your leads to slow, outdated websites. We build high-performance sites that integrate with ServiceTitan & Jobber. Delivered in just 1-2 weeks.
+                Stop losing leads to slow, outdated websites. Get a free audit (if you have a site) or consultation (if you need a new one) showing exactly how many emergency calls you're missing.
               </p>
               <div className="space-y-5 text-white/80">
                 <div className="flex items-start">
@@ -154,7 +153,7 @@ export default function PlumbersLandingPage() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                   </svg>
                   </div>
-                  <span className="text-lg"><strong>Seamless Sync:</strong> Built-in integration for ServiceTitan & Jobber</span>
+                  <span className="text-lg">Speed issues, SEO problems, conversion opportunities</span>
                 </div>
                 <div className="flex items-start">
                   <div className="flex-shrink-0 w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center mr-4 mt-1">
@@ -162,7 +161,7 @@ export default function PlumbersLandingPage() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                   </svg>
                   </div>
-                  <span className="text-lg"><strong>Urgency Optimized:</strong> Designed to capture leads in under 2.5 seconds</span>
+                  <span className="text-lg">Delivered in 24 hours. No sales pitch.</span>
                 </div>
               </div>
             </div>
@@ -172,7 +171,7 @@ export default function PlumbersLandingPage() {
               <div className="bg-white rounded-3xl p-8 md:p-10 shadow-premium border border-white/20">
                 <div className="mb-8">
                   <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2 text-center">
-                    {PRIMARY_CTA_LABEL}
+                    {AUDIT_CTA_LABEL}
                 </h2>
                   <p className="text-gray-500 text-center text-sm">
                     Discover why customers are leaving your site
@@ -244,7 +243,7 @@ export default function PlumbersLandingPage() {
                       ? "Submitting..."
                       : submitted
                       ? "Request Sent! ✓"
-                      : "Get My Free Audit"}
+                      : AUDIT_CTA_LABEL}
                   </button>
                 </form>
                 <p className="mt-6 text-[12px] text-gray-400 text-center leading-relaxed">
@@ -262,7 +261,7 @@ export default function PlumbersLandingPage() {
           <SectionHeader
             className="mb-16"
             title="Your Website Is Costing You Emergency Calls Every Day"
-            subtitle="Most US plumbing companies lose 40-60% of potential customers. Whether you have a slow website or no website at all, you're losing emergency calls to competitors."
+            subtitle="Many US plumbing companies lose potential customers due to slow or missing websites. Whether you have a slow website or no website at all, you're likely losing emergency calls to competitors."
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -330,7 +329,7 @@ export default function PlumbersLandingPage() {
               The average US plumbing company loses $2,000-$5,000 per month in missed opportunities.
             </p>
             <p className="text-lg text-gray-500 font-light max-w-2xl mx-auto">
-              Every day you don't have a fast, high-converting website, you're handing emergency calls to your competitors on a silver platter.
+              Every day you don't have a fast, lead-generating website, you're handing emergency calls to your competitors on a silver platter.
             </p>
           </div>
         </div>
@@ -365,10 +364,10 @@ export default function PlumbersLandingPage() {
           </div>
           <a
             href={AUDIT_FORM_ANCHOR}
-            onClick={() => trackCTAClick(PRIMARY_CTA_LABEL, "Plumber Leads - CTA Solution Section")}
+            onClick={() => trackCTAClick(AUDIT_CTA_LABEL, "Plumber Leads - CTA Solution Section")}
             className="inline-flex items-center px-10 py-5 bg-primary-950 text-white rounded-2xl text-lg font-bold hover:bg-primary-900 transition-all shadow-lg hover:shadow-2xl active:scale-[0.98]"
           >
-            {PRIMARY_CTA_LABEL}
+            {AUDIT_CTA_LABEL}
           </a>
         </div>
       </section>
@@ -422,7 +421,7 @@ export default function PlumbersLandingPage() {
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4 tracking-tight">Mobile Domination</h3>
               <p className="text-gray-500 leading-relaxed font-light">
-                90% of emergency plumbers are found on mobile. Your site will look and work better than any competitor.
+                Most emergency plumber searches happen on mobile. Your site will look and work better than any competitor.
               </p>
             </motion.div>
 
@@ -460,7 +459,7 @@ export default function PlumbersLandingPage() {
           >
             <SectionHeader
               title="See How We'd Approach Your US Plumbing Business"
-              subtitle="Demonstration projects showing our approach to building conversion-focused websites for plumbing companies"
+              subtitle="Demonstration projects showing our approach to building lead-generating websites for plumbing companies"
             />
           </motion.div>
 
@@ -486,10 +485,10 @@ export default function PlumbersLandingPage() {
             </p>
             <a
               href={AUDIT_FORM_ANCHOR}
-              onClick={() => trackCTAClick(PRIMARY_CTA_LABEL, "Plumber Leads - CTA Demo Case Studies")}
+              onClick={() => trackCTAClick(AUDIT_CTA_LABEL, "Plumber Leads - CTA Demo Case Studies")}
               className="btn-primary px-10 py-5 text-lg font-bold inline-block"
             >
-              {PRIMARY_CTA_LABEL}
+              {AUDIT_CTA_LABEL}
             </a>
           </motion.div>
         </div>
@@ -512,19 +511,16 @@ export default function PlumbersLandingPage() {
           />
           <a
             href={AUDIT_FORM_ANCHOR}
-            onClick={() => trackCTAClick(PRIMARY_CTA_LABEL, "Plumber Leads - CTA Strong CTA Section")}
+            onClick={() => trackCTAClick(AUDIT_CTA_LABEL, "Plumber Leads - CTA Strong CTA Section")}
             className="inline-flex items-center px-10 py-5 bg-white text-primary-950 rounded-2xl text-lg font-bold hover:bg-gray-100 transition-all shadow-xl hover:shadow-2xl active:scale-[0.98]"
           >
-            {PRIMARY_CTA_LABEL}
+            {AUDIT_CTA_LABEL}
           </a>
           <p className="mt-6 text-sm text-white/50 uppercase tracking-widest font-bold">
             Delivered in 24 hours. No obligation.
           </p>
         </div>
       </section>
-
-      {/* Guarantee Section */}
-      <TripleGuaranteeSection />
 
       {/* Final CTA - Repeat Ask */}
       <section className="py-24 md:py-32 bg-white">
@@ -542,10 +538,10 @@ export default function PlumbersLandingPage() {
             />
             <a
               href={AUDIT_FORM_ANCHOR}
-              onClick={() => trackCTAClick(PRIMARY_CTA_LABEL, "Plumber Leads - CTA Final CTA Section")}
+              onClick={() => trackCTAClick(AUDIT_CTA_LABEL, "Plumber Leads - CTA Final CTA Section")}
               className="inline-flex items-center px-10 py-5 bg-primary-950 text-white rounded-2xl text-lg font-bold hover:bg-primary-900 transition-all shadow-lg hover:shadow-2xl active:scale-[0.98]"
             >
-              {PRIMARY_CTA_LABEL}
+              {AUDIT_CTA_LABEL}
             </a>
             <p className="mt-6 text-sm text-gray-400 font-light">
               No spam. No sales pitch. Just real numbers for your US plumbing business.

@@ -11,6 +11,7 @@ import ReviewsMarqueeSection from "@/components/ReviewsMarqueeSection";
 import ProcessSection from "@/components/ProcessSection";
 import { PROCESS_COPY_CHOICE_FIRST } from "@/lib/process";
 import TripleGuaranteeSection from "@/components/TripleGuaranteeSection";
+import FinalCTASection from "@/components/FinalCTASection";
 
 export default function Pricing() {
   const [openFAQIndex, setOpenFAQIndex] = useState<number | null>(0);
@@ -34,9 +35,10 @@ export default function Pricing() {
       name: "Lead-Gen Landing Page",
       pricePrefix: "Starting at",
       priceAmount: "$950",
-      description: "A high-converting single page designed specifically to turn your ad traffic into phone calls",
+      description: "A lead-generating single page designed specifically to turn your ad traffic into phone calls",
       features: [
-        "1 conversion-focused landing page (desktop + mobile)",
+        "1 lead-generating landing page (desktop + mobile)",
+        "Professional copywriting",
         "Click-to-call + quote form",
         "Tracking for calls + form submissions",
         "Fast-loading build (no bloated templates)",
@@ -53,8 +55,9 @@ export default function Pricing() {
       description: "Our core package for service businesses. Everything you need to look professional and rank locally",
       features: [
         "5–7 pages (Home, Services, About, Reviews, Contact + more)",
+        "Professional copywriting for core pages",
+        "Optimized for local search (so customers find you when searching 'plumber near me')",
         "Conversion-first layout + clear calls-to-action",
-        "Local SEO foundation (titles, headings, internal links)",
         "Fast load time (under 2.5s target)",
         "Analytics + call/form tracking setup",
         "Delivered in 1–2 weeks",
@@ -66,10 +69,10 @@ export default function Pricing() {
       name: "Market Dominator",
       pricePrefix: "Starting at",
       priceAmount: "$3,500",
-      description: "The complete foundation for local search dominance—more pages, stronger trust signals, and ongoing support",
+      description: "The complete foundation for local search dominance. More pages, stronger trust signals, and ongoing support",
       features: [
         "10+ pages (services + service areas + trust pages)",
-        "Copywriting included for core pages (scope-based)",
+        "Professional copywriting + local SEO optimization",
         "Google Business Profile setup/cleanup (if needed)",
         "Review request & display system (to build trust faster)",
         "3 months Growth Support (updates + improvements)",
@@ -85,8 +88,8 @@ export default function Pricing() {
     { label: "Pages", values: ["1 page", "5–7 pages", "10+ pages"] },
     { label: "Mobile-first design", values: ["Yes", "Yes", "Yes"] },
     { label: "Call + form tracking", values: ["Yes", "Yes", "Yes"] },
-    { label: "Local SEO foundation", values: ["Basic", "Included", "Included + expanded"] },
-    { label: "Copywriting", values: ["Light polish", "Guided / scope-based", "Included (scope-based)"] },
+    { label: "Local SEO optimization", values: ["—", "Optimized for local search", "Optimized + Google Business Profile"] },
+    { label: "Copywriting", values: ["We write your page copy (or optimize yours if you provide it). No blogs.", "We write copy for core pages (Home, Services, About, Contact), or optimize yours if you provide it. No blogs.", "We write copy for core pages + optimize for local search, or optimize yours if you provide it. No blogs."] },
     { label: "Google Business Profile", values: ["—", "Optional add-on", "Setup/cleanup (if needed)"] },
     { label: "Post-launch support", values: ["14 days", "30 days", "3 months Growth Support"] },
   ];
@@ -114,7 +117,7 @@ export default function Pricing() {
               Transparent Pricing for <span className="text-primary-400">Service Businesses</span>
             </h1>
             <p className="text-xl md:text-2xl text-white/90 font-light leading-relaxed max-w-3xl mx-auto">
-              No hidden fees. No surprises. Just clear pricing that pays for itself with more calls and booked jobs—built fast and designed to convert. Payment plans available to fit your budget.
+              No hidden fees. No surprises. Just clear pricing that pays for itself with more calls and booked jobs. Built fast and designed to generate leads. Payment plans available to fit your budget.
             </p>
             <p className="mt-6 text-sm md:text-base text-white/70 font-medium">
               We keep our build schedule intentionally small so every project gets senior attention.
@@ -368,17 +371,17 @@ export default function Pricing() {
         </div>
       </Section>
 
-      {/* Optional Monthly Support */}
+      {/* Performance & Growth Plan */}
       <Section className="py-24 md:py-32 bg-white">
         <div className="max-w-5xl mx-auto px-4">
           <SectionHeader
             className="mb-12"
             title={
               <>
-                Optional: Ongoing Support & <span className="text-primary-600">Growth</span>
+                Keep Your Site Fast & <span className="text-primary-600">Growing</span>
               </>
             }
-            subtitle="Your site works perfectly without ongoing support—that's the beauty of ownership. But if you want help with updates, hosting, and improvements, we've got you covered."
+            subtitle="Your site works great on its own, but ongoing optimization keeps it performing at its best. Get monthly speed audits, security updates, and performance improvements."
           />
 
           <div className="bg-gradient-to-br from-primary-950 to-primary-900 rounded-[2.5rem] p-8 md:p-12 text-white shadow-2xl">
@@ -389,7 +392,7 @@ export default function Pricing() {
                 </div>
                 <h3 className="text-3xl font-bold mb-4 tracking-tight">Performance & Growth Plan</h3>
                 <p className="text-white/80 font-light leading-relaxed mb-6">
-                  Only if you want ongoing support—your site works perfectly without it. This plan is completely optional and you can cancel anytime.
+                  Keep your site fast, secure, and optimized month after month. Hands-off maintenance so you can focus on your business. Cancel anytime.
                 </p>
                 <div className="flex items-baseline gap-2 mb-6">
                   <span className="text-4xl font-bold">$150</span>
@@ -414,17 +417,17 @@ export default function Pricing() {
                     </li>
                   ))}
                 </ul>
-                <CTAButton href={CALL_CTA_HREF} variant="secondary" dark className="w-full sm:w-auto">
-                  Learn More →
+                <CTAButton href={PRIMARY_CTA_HREF} variant="secondary" dark className="w-full sm:w-auto">
+                  Add Performance & Growth Plan
                 </CTAButton>
               </div>
               <div className="bg-white/5 rounded-[2rem] p-8 border border-white/10">
-                <p className="text-xs font-bold uppercase tracking-widest text-white/60 mb-4">Why This Is Optional</p>
+                <p className="text-xs font-bold uppercase tracking-widest text-white/60 mb-4">Why This Helps</p>
                 <p className="text-white/80 font-light leading-relaxed mb-4">
-                  Unlike monthly subscription agencies, your OAB website works perfectly on its own. You own it, it's fast, and it converts—no monthly fees required.
+                  Unlike monthly subscription agencies, your OAB website works perfectly on its own. You own it, it's fast, and it generates leads. No monthly fees required.
                 </p>
                 <p className="text-white/80 font-light leading-relaxed">
-                  This plan is only for businesses that want ongoing help with updates, hosting, and improvements. Most clients don't need it, but it's there if you do.
+                  This plan is for businesses that want to keep their site optimized without the hassle. Monthly speed checks, security updates, and small improvements keep your site performing at its best.
                 </p>
               </div>
             </div>
@@ -432,17 +435,17 @@ export default function Pricing() {
         </div>
       </Section>
 
-      {/* Optional Add-On: Google Ads */}
+      {/* Google Ads Accelerator */}
       <Section className="py-24 md:py-32 bg-neutral-50/50">
         <div className="max-w-5xl mx-auto px-4">
           <SectionHeader
             className="mb-12"
             title={
               <>
-                Optional Add‑On: Google Ads <span className="text-primary-600">Accelerator</span>
+                Turn Your Site Into a <span className="text-primary-600">Lead Machine</span>
               </>
             }
-            subtitle="If you want faster results, Ads can turn your new landing pages into calls quickly. We keep this tightly scoped, tracking-first, and optional."
+            subtitle="Your new site is built to convert. Google Ads gets it in front of customers immediately. Skip the wait for SEO and start getting calls this week."
           />
 
           <div className="grid lg:grid-cols-2 gap-8">
@@ -450,9 +453,9 @@ export default function Pricing() {
               <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary-50 border border-primary-100 mb-6">
                 <span className="text-sm font-bold uppercase tracking-widest text-primary-950">Launch Setup</span>
               </div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-4 tracking-tight">Build the campaign the right way</h3>
+              <h3 className="text-3xl font-bold text-gray-900 mb-4 tracking-tight">Get Your Campaign Running Right</h3>
               <p className="text-neutral-600 font-light leading-relaxed mb-8">
-                We set up conversion tracking, call tracking, and a clean campaign structure so your spend is measurable and optimized from day one.
+                Your site is built to convert. Now let's get it in front of customers. We set up conversion tracking, call tracking, and a clean campaign structure so every dollar is measurable and optimized from day one.
               </p>
               <ul className="space-y-3 mb-10">
                 {[
@@ -472,11 +475,11 @@ export default function Pricing() {
                   </li>
                 ))}
               </ul>
-              <CTAButton href="/contact" className="w-full sm:w-auto">
-                Get an Ads Quote
+              <CTAButton href={PRIMARY_CTA_HREF} className="w-full sm:w-auto">
+                Start Getting Calls This Week
               </CTAButton>
               <p className="mt-4 text-xs text-neutral-500 font-medium leading-relaxed">
-                Ad spend is paid directly to Google. Pricing depends on scope and service area count.
+                Ad spend is paid directly to Google. Setup pricing depends on scope and service area count.
               </p>
             </div>
 
@@ -484,9 +487,9 @@ export default function Pricing() {
               <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 border border-white/20 mb-6">
                 <span className="text-sm font-bold uppercase tracking-widest">Monthly Management</span>
               </div>
-              <h3 className="text-3xl font-bold mb-4 tracking-tight">Optimize weekly, not “set and forget”</h3>
+              <h3 className="text-3xl font-bold mb-4 tracking-tight">Keep Your Ads Performing at Their Best</h3>
               <p className="text-white/80 font-light leading-relaxed mb-8">
-                We manage bids, search terms, negatives, and landing page experiments so you get more qualified calls and booked jobs for the same budget.
+                Weekly optimization keeps your campaigns improving. We manage bids, search terms, negatives, and landing page experiments so you get more qualified calls and booked jobs for the same budget, without the hassle.
               </p>
               <ul className="space-y-3 mb-10">
                 {[
@@ -542,7 +545,7 @@ export default function Pricing() {
                     Website Speed <span className="text-primary-600">Optimization</span>
                   </>
                 }
-                subtitle="If your site takes more than 3 seconds to load, around half of your visitors leave. We'll fix your slow WordPress or Wix site and make it load instantly."
+                subtitle="If your website takes more than 3 seconds to load, around half of your visitors leave. We'll optimize your slow WordPress or Wix site and make it load instantly."
               />
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
                 {[
@@ -551,7 +554,7 @@ export default function Pricing() {
                   "Reduce lag, stutters, and “loading…” moments",
                   "Improve SEO signals tied to speed",
                   "Before/after speed report (proof included)",
-                  "Implementation—not just an audit"
+                  "Implementation, not just an audit"
                 ].map((item) => (
                   <li key={item} className="flex items-center text-neutral-600">
                     <div className="w-5 h-5 rounded-full bg-emerald-50 flex items-center justify-center mr-3 flex-shrink-0">
@@ -576,7 +579,7 @@ export default function Pricing() {
                 <div className="absolute inset-0 bg-primary-500/10 blur-3xl rounded-full"></div>
                 <div className="relative bg-white p-8 rounded-3xl border border-neutral-100 shadow-xl">
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-sm font-bold text-gray-400 uppercase tracking-widest">Page Speed Score</span>
+                    <span className="text-sm font-bold text-gray-400 uppercase tracking-widest">Page Speed Score (Example)</span>
                     <span className="text-emerald-500 font-bold text-2xl">98/100</span>
                   </div>
                   <div className="w-full bg-neutral-100 h-4 rounded-full overflow-hidden">
@@ -613,7 +616,7 @@ export default function Pricing() {
                 How OAB Compares to <span className="text-primary-600">Monthly Subscription Agencies</span>
               </>
             }
-            subtitle="We're not saying monthly agencies are bad—they work for some businesses. But if you want to own your site and save money long-term, OAB is the better choice."
+            subtitle="We're not saying monthly agencies are bad. They work for some businesses. But if you want to own your site and save money long-term, OAB is the better choice."
           />
 
           <div className="overflow-x-auto rounded-[2rem] border border-neutral-200 bg-white shadow-sm">
@@ -640,7 +643,7 @@ export default function Pricing() {
                   { label: "Customization", values: ["Limited by their platform/templates", "Fully custom, no limits"] },
                   { label: "Speed Guarantee", values: ["Usually slower (templates/bloat)", "Hand-coded, <2.5s guaranteed"] },
                   { label: "Focus", values: ["All-in-one (website + social + ads)", "Specialized: website + SEO for service businesses"] },
-                  { label: "Results Guarantee", values: ["Rarely offered", "30-day calls or booked jobs guarantee or don't pay"] },
+                  { label: "Results Guarantee", values: ["Rarely offered", "30-day calls or booked jobs guarantee or full refund"] },
                 ].map((row) => (
                   <div key={row.label} className="contents">
                     <div className="p-5 md:p-6 bg-neutral-50 border-b border-neutral-200">
@@ -722,15 +725,15 @@ export default function Pricing() {
               },
               {
                 q: "Why should I pay upfront instead of monthly?",
-                a: "Great question! Monthly subscriptions seem cheaper, but they add up fast. A $249/mo plan costs $5,976 over 2 years—more than double our Professional Website package ($2,400). Plus, with OAB, you own your site forever. If you stop paying a monthly agency, you lose your site. With OAB, you keep everything. We also offer payment plans (50% upfront, 50% on completion) to make it easier."
+                a: "Great question! Monthly subscriptions seem cheaper, but they add up fast. A $249/mo plan costs $5,976 over 2 years, more than double our Professional Website package ($2,400). Plus, with OAB, you own your site forever. If you stop paying a monthly agency, you lose your site. With OAB, you keep everything. We also offer payment plans (50% upfront, 50% on completion) to make it easier."
               },
               {
                 q: "Do you offer ongoing support?",
-                a: "Your site works perfectly without ongoing support—that's the beauty of ownership. But if you want help with updates, hosting, and improvements, we offer an optional 'Performance & Growth Plan' for $150/month. It includes managed hosting, monthly speed audits, security updates, and small content changes. It's completely optional and you can cancel anytime."
+                a: "Your site works perfectly without ongoing support. That's the beauty of ownership. But if you want help with updates, hosting, and improvements, we offer an optional 'Performance & Growth Plan' for $150/month. It includes managed hosting, monthly speed audits, security updates, and small content changes. It's completely optional and you can cancel anytime."
               },
               {
                 q: "How is OAB different from monthly subscription agencies?",
-                a: "Monthly agencies rent you a website—you pay forever and if you stop, you lose it. OAB sells you a website—you pay once, own it forever, and it's yours to keep. Think of it like buying vs renting a house. We also focus specifically on service businesses and guarantee results (30-day calls or booked jobs guarantee), which most monthly agencies don't. Over 2 years, you'll save $4,800+ compared to typical monthly plans."
+                a: "Monthly agencies rent you a website. You pay forever and if you stop, you lose it. OAB sells you a website. You pay once, own it forever, and it's yours to keep. Think of it like buying vs renting a house. We also focus specifically on service businesses and guarantee results (30-day calls or booked jobs guarantee), which most monthly agencies don't. Over 2 years, you'll typically save thousands compared to typical monthly plans."
               },
               {
                 q: "Can I add services later?",
@@ -742,7 +745,7 @@ export default function Pricing() {
               },
               {
                 q: "Do you offer refunds?",
-                a: "Yes. Our 'Calls or It's Free' guarantee: If inbound calls or booked jobs do not increase within 30 days of website launch, you don't pay. Calls are tracked via call tracking, and booked jobs are tracked via form submissions or booking system integrations. The client must answer calls during normal business hours and respond to booking requests promptly. Website delivery is 1–2 weeks for new sites/redesigns or 2–3 weeks for complete packages (assumes prompt client feedback and content delivery). Pages are optimized to load under 2.5 seconds or we fix it at no cost."
+                a: "Yes. Our 'Calls or It's Free' guarantee: If inbound calls or booked jobs do not increase within 30 days of website launch, you get a full refund. Calls are tracked via call tracking, and booked jobs are tracked via form submissions or booking system integrations. The client must answer calls during normal business hours and respond to booking requests promptly. Website delivery is 1–2 weeks for new sites/redesigns or 2–3 weeks for complete packages (assumes prompt client feedback and content delivery). Pages are optimized to load under 2.5 seconds or we fix it at no cost."
               }
             ].map((faq, index) => (
               <motion.div
@@ -802,37 +805,14 @@ export default function Pricing() {
       </Section>
 
       {/* CTA Section */}
-      <Section className="relative bg-primary-950 text-white py-24 md:py-40 overflow-hidden">
-        {/* Background decoration */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-0 right-0 w-[40rem] h-[40rem] bg-primary-500/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2"></div>
-          <div className="absolute bottom-0 left-0 w-[40rem] h-[40rem] bg-emerald-500/10 rounded-full blur-[120px] translate-y-1/2 -translate-x-1/2"></div>
-        </div>
-
-        <div className="relative text-center max-w-4xl mx-auto px-4">
-          <SectionHeader
-            variant="dark"
-            className="mb-10 md:mb-12"
-            title={
-              <>
-                Ready to Get More Calls & <span className="text-primary-400">Booked Jobs?</span>
-              </>
-            }
-            subtitle="Book a quick call to get a fixed scope and quote. If it’s a fit, we can usually start within the next available build slot."
-          />
-          <p className="text-sm text-white/60 font-medium mb-10">
-            Prefer to start with a free audit? We’ll show exactly what’s holding your site back and what to fix first.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-5 justify-center">
-            <CTAButton href={CALL_CTA_HREF} variant="primary" dark className="px-10 py-5 text-lg font-bold">
-              {CALL_CTA_LABEL}
-            </CTAButton>
-            <CTAButton href={PRIMARY_CTA_HREF} variant="secondary" dark className="px-10 py-5 text-lg font-bold">
-              {PRIMARY_CTA_LABEL}
-            </CTAButton>
-          </div>
-        </div>
-      </Section>
+      <FinalCTASection
+        title={
+          <>
+            Ready to Get More <span className="text-primary-400">Calls & Booked Jobs?</span>
+          </>
+        }
+        subtitle="Request a quote or book a call to get a fixed scope and timeline. If it's a fit, we can usually start within the next available build slot."
+      />
     </div>
   );
 }

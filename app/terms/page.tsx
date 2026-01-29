@@ -57,7 +57,7 @@ export default function TermsOfService() {
                 <svg className="w-5 h-5 text-emerald-500 mr-4 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                <span><strong className="text-gray-900 font-bold">Calls or It's Free:</strong> If inbound calls or booked jobs do not increase within 30 days of website launch, you don't pay. Calls are tracked via call tracking, and booked jobs are tracked via form submissions or booking system integrations. The client must answer calls during normal business hours and respond to booking requests promptly.</span>
+                <span><strong className="text-gray-900 font-bold">Calls or It's Free:</strong> If inbound calls or booked jobs do not increase within 30 days of website launch, you get a full refund. Calls are tracked via call tracking, and booked jobs are tracked via form submissions or booking system integrations. The client must answer calls during normal business hours and respond to booking requests promptly.</span>
               </li>
               <li className="flex items-start">
                 <svg className="w-5 h-5 text-emerald-500 mr-4 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
@@ -154,7 +154,7 @@ export default function TermsOfService() {
                   <div className="flex-shrink-0 w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-sm">✓</div>
                   <div>
                     <strong className="text-gray-900 font-bold block mb-1">Performance Guarantee ('Calls or It's Free'):</strong>
-                    If inbound calls or booked jobs do not increase within 30 days of website launch, you don't pay. Calls are tracked via call tracking, and booked jobs are tracked via form submissions or booking system integrations. The client must answer calls during normal business hours and respond to booking requests promptly. Website delivery is 1–2 weeks for new sites/redesigns or 2–3 weeks for complete packages (assumes prompt client feedback and content delivery). Pages are optimized to load under 2.5 seconds or we fix it at no cost.
+                    If inbound calls or booked jobs do not increase within 30 days of website launch, you get a full refund. Calls are tracked via call tracking, and booked jobs are tracked via form submissions or booking system integrations. The client must answer calls during normal business hours and respond to booking requests promptly. Website delivery is 1–2 weeks for new sites/redesigns or 2–3 weeks for complete packages (assumes prompt client feedback and content delivery). Pages are optimized to load under 2.5 seconds or we fix it at no cost.
                   </div>
                 </li>
               </ul>
@@ -170,30 +170,53 @@ export default function TermsOfService() {
               <h2 className="text-3xl font-bold text-gray-900 mb-6 tracking-tight">
                 5. Refund Policy ('Calls or It's Free')
               </h2>
-              <p className="text-neutral-600 leading-relaxed mb-6 font-light">
-                Our 'Calls or It's Free' guarantee: If inbound calls or booked jobs do not increase within 30 days of website launch, you don't pay. If any project fees were paid, we will refund those fees under this guarantee. Calls are tracked via call tracking, and booked jobs are tracked via form submissions or booking system integrations. The client must answer calls during normal business hours and respond to booking requests promptly. Website delivery is 1–2 weeks for new sites/redesigns or 2–3 weeks for complete packages (assumes prompt client feedback and content delivery). Pages are optimized to load under 2.5 seconds or we fix it at no cost. To request relief under this guarantee:
+
+              {/* Plain-English summary */}
+              <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-6 mb-8">
+                <p className="text-gray-900 font-semibold mb-3">In short:</p>
+                <ul className="space-y-2 text-neutral-700 font-light">
+                  <li><strong>Full refund</strong> – Only if calls or booked jobs do <strong>not</strong> increase within 30 days of launch (we verify with our tracking).</li>
+                  <li><strong>No refund under this guarantee</strong> – If calls or booked jobs <strong>do</strong> increase, this guarantee does not apply and no refund is due; the project is complete.</li>
+                  <li><strong>Stopping work before launch</strong> – If you want to stop the project before the website is launched, that is covered in Section 7 (Cancellation), not by this guarantee.</li>
+                </ul>
+              </div>
+
+              <p className="text-neutral-600 leading-relaxed mb-4 font-light">
+                <strong className="text-gray-900">The guarantee.</strong> Our &quot;Calls or It&apos;s Free&quot; guarantee applies only when inbound calls or booked jobs do not increase within 30 days of website launch. If that is the case, you get a full refund.
               </p>
-              <ul className="space-y-3 text-neutral-600 font-light mb-8">
+              <p className="text-neutral-600 leading-relaxed mb-4 font-light">
+                <strong className="text-gray-900">How we measure.</strong> Calls are tracked via call tracking; booked jobs via form submissions or booking system integrations. For the guarantee to apply, you must answer calls during normal business hours and respond to booking requests promptly.
+              </p>
+              <p className="text-neutral-600 leading-relaxed mb-6 font-light">
+                <strong className="text-gray-900">Other promises.</strong> We deliver in 1–2 weeks (new sites/redesigns) or 2–3 weeks (complete packages), assuming prompt feedback. Pages are built to load under 2.5 seconds or we fix it at no cost. These are separate from the refund guarantee.
+              </p>
+
+              <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6 mb-6">
+                <p className="text-neutral-700 font-medium">
+                  <strong>If calls or booked jobs increase within 30 days</strong>, this guarantee does not apply. No refund is due; the project is complete and the deal is fulfilled.
+                </p>
+              </div>
+
+              <p className="text-neutral-600 leading-relaxed mb-3 font-light">
+                <strong className="text-gray-900">To request a refund under this guarantee:</strong>
+              </p>
+              <ul className="space-y-3 text-neutral-600 font-light mb-6">
                 <li className="flex items-start gap-3">
                   <div className="w-1.5 h-1.5 rounded-full bg-primary-500 mt-2.5 flex-shrink-0"></div>
                   <span>Contact us within 30 days of website launch</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="w-1.5 h-1.5 rounded-full bg-primary-500 mt-2.5 flex-shrink-0"></div>
-                  <span>Provide specific reasons for dissatisfaction</span>
+                  <span>We verify with our tracking data that calls/booked jobs did not increase</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="w-1.5 h-1.5 rounded-full bg-primary-500 mt-2.5 flex-shrink-0"></div>
-                  <span>Allow us 5 business days to process the refund</span>
+                  <span>We process the refund within 5 business days</span>
                 </li>
               </ul>
+
               <p className="text-neutral-600 leading-relaxed font-light">
-                Refunds will be issued to the original payment method. Once a refund
-                is processed, all rights to the website and content transfer back to
-                OAB Web Agency. Refunds are not available for completed projects
-                beyond 30 days of website launch or for maintenance/hosting services. Partial refunds
-                may be available for projects cancelled mid-development, calculated
-                based on work completed.
+                Refunds are made to the original payment method. After a refund, all rights to the website and content revert to OAB Web Agency. This guarantee does not apply to projects completed more than 30 days after launch or to maintenance/hosting. For cancelling a project before it is finished, see Section 7.
               </p>
             </section>
 
@@ -225,15 +248,15 @@ export default function TermsOfService() {
                 7. Cancellation Policy
               </h2>
               <p className="text-neutral-600 leading-relaxed mb-8 font-light">
-                Either party may cancel a project with written notice. Cancellation
-                terms are as follows:
+                You can only cancel a project before it is finished (before the website is launched). Once the site is launched, the project is complete; there is nothing to cancel. Refunds after launch are only covered by the &quot;Calls or It&apos;s Free&quot; guarantee in Section 5 (when calls/booked jobs do not increase). If you stop the project before launch, the terms below apply:
               </p>
               <ul className="space-y-6 text-neutral-600 font-light mb-8">
                 <li className="flex items-start gap-4">
                   <div className="w-1.5 h-1.5 rounded-full bg-primary-500 mt-2.5 flex-shrink-0"></div>
                   <div>
                     <strong className="text-gray-900 font-bold block mb-1">Client Cancellation:</strong>
-                    If you cancel before work begins, you'll receive a full refund. If work has begun, you'll be charged for completed work at our standard hourly rate, and the remainder will be refunded.
+                    <p className="mb-2">If you cancel before work begins, you'll receive a full refund of any payments made.</p>
+                    <p>If you cancel after work has begun (but before launch), the 50% upfront payment covers all work completed up to the cancellation date. You will receive all deliverables, files, and assets completed at that point. No additional charges will apply unless work completed significantly exceeds the value of the upfront payment (which would be discussed and agreed upon in advance).</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-4">

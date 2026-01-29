@@ -1,12 +1,18 @@
 import { CALENDLY_URL } from "@/lib/constants";
 
-export const PRIMARY_CTA_LABEL = "Get Your Free Audit or Consultation";
+// Sitewide primary CTA (main website)
+export const PRIMARY_CTA_LABEL = "Request a Quote";
 
 // Use when space is tight (e.g., mobile header button)
-export const PRIMARY_CTA_LABEL_SHORT = "Get Free Audit";
+export const PRIMARY_CTA_LABEL_SHORT = "Request Quote";
 
 // Default destination for the primary CTA from non-landing pages
-export const PRIMARY_CTA_HREF = "/free-audit";
+export const PRIMARY_CTA_HREF = "/contact#quote-form";
+
+// Standalone ads landing CTA (free audit)
+export const AUDIT_CTA_LABEL = "Get My Free Audit";
+export const AUDIT_CTA_LABEL_SHORT = "Get My Audit";
+export const AUDIT_CTA_HREF = "/free-audit";
 
 // Anchor used on landing pages to jump directly to the form
 export const AUDIT_FORM_ANCHOR = "#audit-form";

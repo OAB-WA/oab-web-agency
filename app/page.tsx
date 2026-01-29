@@ -35,7 +35,7 @@ export default function Home() {
             }
             subtitle={
               <>
-                Most service businesses have websites that look fine but don't generate calls or bookings. We build websites designed to convert visitors into customers.
+                Whether you have a website or need one built from scratch, we create lead-generating websites designed to turn visitors into phone calls and booked jobs.
               </>
             }
           />
@@ -66,12 +66,12 @@ export default function Home() {
           />
           <BenefitCard
             title="Built for Leads"
-            description="Every page is designed to get phone calls and form submissions. No fluff, just conversion-focused design."
+            description="Every page is designed to get phone calls and form submissions. No fluff, just lead-focused design."
             icon="phone"
           />
           <BenefitCard
             title="Local SEO Optimized"
-            description="We optimize your site so customers in your area find you when they search for your services."
+            description="We optimize your website (new or existing) so customers in your area find you when they search for your services."
             icon="mappin"
           />
         </div>
@@ -84,7 +84,7 @@ export default function Home() {
         <SectionHeader
           className="mb-12"
           title="See How We Transform Service Business Websites"
-          subtitle="Demonstration projects showing our approach to building conversion-focused websites"
+          subtitle="Demonstration projects showing our approach to building lead-generating websites"
         />
 
         <div className="space-y-12 max-w-6xl mx-auto">
@@ -136,12 +136,12 @@ export default function Home() {
           <ServiceCard
             icon="paintbrush"
             title="Website Design & Redesign"
-            description="Build a new website from scratch or redesign your existing site. Converts visitors into customers. Built for speed and performance."
+            description="Build a new website from scratch or redesign your existing site. Turns visitors into leads and calls. Built for speed and performance."
           />
           <ServiceCard
             icon="bolt"
             title="Performance Optimization"
-            description="Make your existing site faster. Improve Core Web Vitals and reduce bounce rates."
+            description="Make your site faster (new or existing). Improve Core Web Vitals and reduce bounce rates."
           />
           <ServiceCard
             icon="mappin"
@@ -207,11 +207,10 @@ export default function Home() {
         
         <div className="relative text-center max-w-4xl mx-auto px-4">
           <h2 className="text-4xl md:text-6xl font-bold mb-8 tracking-tight leading-[1.1]">
-            Stop Missing Leads With Your <span className="text-primary-400">Current Website</span>
+            Ready to Get More <span className="text-primary-400">Calls & Booked Jobs?</span>
           </h2>
           <p className="text-xl md:text-2xl text-white/80 mb-12 font-light leading-relaxed">
-            Get a free audit and discover how many leads you're missing out on
-            every month. No sales pitch: just real data and a plan to win.
+            Request a quote or book a call to get a fixed scope and timeline. If it's a fit, we can usually start within the next available build slot.
           </p>
           <div className="flex flex-col sm:flex-row gap-5 justify-center mb-16">
             <Link
@@ -242,7 +241,7 @@ export default function Home() {
                 <span className="text-xl font-bold text-white tracking-tight">Calls or It's Free Guarantee</span>
               </div>
               <p className="text-base text-white/60 font-light leading-relaxed">
-                If inbound calls or booked jobs do not increase within 30 days of website launch, you don't pay. Calls are tracked via call tracking, and booked jobs are tracked via form submissions or booking system integrations. The client must answer calls during normal business hours and respond to booking requests promptly. Website delivery is 1–2 weeks for new sites/redesigns or 2–3 weeks for complete packages (assumes prompt client feedback and content delivery). Pages are optimized to load under 2.5 seconds or we fix it at no cost.
+                If inbound calls or booked jobs do not increase within 30 days of website launch, you get a full refund. Calls are tracked via call tracking, and booked jobs are tracked via form submissions or booking system integrations. The client must answer calls during normal business hours and respond to booking requests promptly. Website delivery is 1–2 weeks for new sites/redesigns or 2–3 weeks for complete packages (assumes prompt client feedback and content delivery). Pages are optimized to load under 2.5 seconds or we fix it at no cost.
               </p>
             </div>
           </div>
@@ -284,8 +283,7 @@ function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-xl md:text-2xl text-white/90 mb-12 max-w-2xl mx-auto leading-relaxed font-light"
           >
-            High-performance websites built for service businesses. We
-            specialize in generating leads, phone calls, and booked jobs.
+            Lead-generating websites built for service businesses. We turn visitors into phone calls and booked jobs.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}

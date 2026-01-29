@@ -6,7 +6,7 @@ export default function SchemaMarkup() {
     url: "https://oabwebagency.com",
     logo: "https://oabwebagency.com/logo_dark.webp",
     description:
-      "High-converting websites built for service-based businesses. We turn visitors into calls and booked jobs.",
+      "Lead-generating websites built for service-based businesses. We turn visitors into calls and booked jobs.",
     contactPoint: {
       "@type": "ContactPoint",
       telephone: "+2349150725803",
@@ -52,7 +52,7 @@ export default function SchemaMarkup() {
     "@type": "LocalBusiness",
     name: "OAB Web Agency",
     description:
-      "Web design and development agency specializing in high-converting websites for service-based businesses.",
+      "Web design and development agency specializing in lead-generating websites for service-based businesses.",
     url: "https://oabwebagency.com",
     telephone: "+2349150725803",
     email: "hello@oabwebagency.com",

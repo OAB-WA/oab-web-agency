@@ -1,12 +1,11 @@
 "use client";
 
 import Section from "@/components/Section";
-import CTAButton from "@/components/CTAButton";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import Image from "next/image";
 import { trackFormSubmission, trackOutboundLink } from "@/lib/gtag";
-import { CALL_CTA_HREF, CALL_CTA_LABEL, PRIMARY_CTA_HREF, PRIMARY_CTA_LABEL } from "@/lib/cta";
+import { CALL_CTA_HREF, CALL_CTA_LABEL } from "@/lib/cta";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -88,16 +87,8 @@ export default function Contact() {
               Let's Get You <span className="text-primary-400">More Calls & Jobs</span>
             </h1>
             <p className="text-xl md:text-2xl text-white/90 font-light leading-relaxed max-w-3xl mx-auto">
-              Choose your next step: request a free website audit (or consultation), book a free 15‑minute call, or send a message below. No sales pitch—just real data and the next best step.
+              Choose your next step: request a quote, book a free strategy call, or send a message below.
             </p>
-            <div className="mt-10 flex flex-col sm:flex-row gap-5 justify-center">
-              <CTAButton href={PRIMARY_CTA_HREF} variant="primary" dark className="px-10 py-5 text-lg font-bold">
-                {PRIMARY_CTA_LABEL}
-              </CTAButton>
-              <CTAButton href={CALL_CTA_HREF} variant="secondary" dark className="px-10 py-5 text-lg font-bold">
-                {CALL_CTA_LABEL}
-              </CTAButton>
-            </div>
           </div>
         </div>
       </section>
@@ -106,15 +97,14 @@ export default function Contact() {
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 max-w-7xl mx-auto px-4">
           {/* Contact Form */}
           <motion.div
+            id="quote-form"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
             className="bg-white rounded-[2.5rem] p-8 md:p-12 shadow-sm border border-neutral-100"
           >
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 tracking-tight">
-              Send a Message
-            </h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-8 tracking-tight">Request a Quote</h2>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
@@ -230,18 +220,18 @@ export default function Contact() {
                 {[
                   {
                     step: "1",
-                    title: "We Review Your Request",
-                    text: "We’ll read your note and reply within 24 hours with the next best step."
+                    title: "Submit Your Request",
+                    text: "Fill out the form with your details and project needs."
                   },
                   {
                     step: "2",
-                    title: "We’ll Ask for Any Missing Details (If Needed)",
-                    text: "If we need your website URL or Google Business Profile link, we’ll ask—or you can include it now above."
+                    title: "We Review & Send a Fixed Quote",
+                    text: "We'll review your request and send you a clear plan with a fixed quote within 24 hours (or ask for any missing details if needed)."
                   },
                   {
                     step: "3",
-                    title: "Choose Your Fastest Path (No Pressure)",
-                    text: "If you want to move quickly, book a 15‑minute call. If you prefer a free audit or consultation, request it above. Or we can keep it async over email."
+                    title: "Proceed Your Way",
+                    text: "If it's a fit, choose what works best: schedule a quick call to confirm scope and timeline, or continue via email. Either way, we'll get started."
                   }
                 ].map((item) => (
                   <div key={item.step} className="flex items-start group">

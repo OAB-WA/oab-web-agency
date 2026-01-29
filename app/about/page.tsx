@@ -1,11 +1,10 @@
 "use client";
 
 import Section from "@/components/Section";
-import CTAButton from "@/components/CTAButton";
 import SectionHeader from "@/components/SectionHeader";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { CALL_CTA_HREF, CALL_CTA_LABEL, PRIMARY_CTA_HREF, PRIMARY_CTA_LABEL } from "@/lib/cta";
+import FinalCTASection from "@/components/FinalCTASection";
 
 export default function About() {
   const values = [
@@ -54,7 +53,7 @@ export default function About() {
               We Build Websites That Get You <span className="text-primary-400">More Calls & Jobs</span>
             </h1>
             <p className="text-xl md:text-2xl text-white/90 font-light leading-relaxed max-w-3xl mx-auto">
-              Specializing in high-converting websites for service-based businesses. We turn your online presence into a lead-generating machine.
+              Specializing in lead-generating websites for service-based businesses. We turn your online presence into a lead-generating machine.
             </p>
           </div>
         </div>
@@ -66,7 +65,7 @@ export default function About() {
           <SectionHeader align="left" className="mb-10" title="Our Story" />
           <div className="space-y-8">
             <p className="text-xl text-neutral-600 font-light leading-relaxed">
-              Most service businesses have websites that look fine but don't generate calls. They're slow, hard to use on phones, and don't convert visitors into customers. Meanwhile, competitors with better websites are getting all the jobs.
+              Most service businesses have websites that look fine but don't generate calls. They're slow, hard to use on phones, and don't turn visitors into leads and calls. Meanwhile, competitors with better websites are getting all the jobs.
             </p>
             <p className="text-xl text-neutral-600 font-light leading-relaxed">
               We started OAB Web Agency to fix that. We build websites designed specifically for service businesses. Websites that turn visitors into phone calls and booked jobs. No fancy animations or design awards. Just websites that bring you customers.
@@ -119,30 +118,14 @@ export default function About() {
       </Section>
 
       {/* CTA */}
-      <Section className="relative bg-primary-950 text-white py-24 md:py-40 overflow-hidden">
-        {/* Background decoration */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-0 right-0 w-[40rem] h-[40rem] bg-primary-500/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2"></div>
-          <div className="absolute bottom-0 left-0 w-[40rem] h-[40rem] bg-emerald-500/10 rounded-full blur-[120px] translate-y-1/2 -translate-x-1/2"></div>
-        </div>
-
-        <div className="relative text-center max-w-4xl mx-auto px-4">
-          <h2 className="text-4xl md:text-6xl font-bold mb-8 tracking-tight leading-[1.1]">
+      <FinalCTASection
+        title={
+          <>
             Ready to Get More <span className="text-primary-400">Calls & Booked Jobs?</span>
-          </h2>
-          <p className="text-xl md:text-2xl text-white/80 mb-12 font-light leading-relaxed">
-            Let's discuss how we can build you a new website or turn your existing website into a lead-generating machine.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-5 justify-center">
-            <CTAButton href={CALL_CTA_HREF} variant="primary" dark className="px-10 py-5 text-lg font-bold">
-              {CALL_CTA_LABEL}
-            </CTAButton>
-            <CTAButton href={PRIMARY_CTA_HREF} variant="secondary" dark className="px-10 py-5 text-lg font-bold">
-              {PRIMARY_CTA_LABEL}
-            </CTAButton>
-          </div>
-        </div>
-      </Section>
+          </>
+        }
+        subtitle="Let's discuss how we can build you a new website from scratch or turn your existing website into a lead-generating machine."
+      />
     </div>
   );
 }

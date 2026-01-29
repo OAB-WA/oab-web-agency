@@ -6,14 +6,15 @@ import SectionHeader from "@/components/SectionHeader";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { PaintBrushIcon, BoltIcon, MapPinIcon, ChartBarIcon } from "@/components/Icons";
-import { CALL_CTA_HREF, CALL_CTA_LABEL, PRIMARY_CTA_HREF, PRIMARY_CTA_LABEL } from "@/lib/cta";
+import { PRIMARY_CTA_HREF, PRIMARY_CTA_LABEL } from "@/lib/cta";
+import FinalCTASection from "@/components/FinalCTASection";
 
 export default function Services() {
   const services = [
     {
       title: "Website Design & Redesign for Service Businesses",
       description:
-        "We build brand new websites from scratch or redesign your existing site. Either way, we focus on getting you phone calls and booked jobs, not just making it look pretty. Your new site will be fast, mobile-friendly, and designed to convert visitors into customers. Perfect whether you're starting fresh or need to improve your current website.",
+        "We build brand new websites from scratch or redesign your existing site. Either way, we focus on getting you phone calls and booked jobs, not just making it look pretty. Your new site will be fast, mobile-friendly, and designed to turn visitors into leads and calls. Perfect whether you're starting fresh or need to improve your current website.",
       features: [
         "Mobile-responsive design",
         "Fast loading times (< 2.5 seconds)",
@@ -27,7 +28,7 @@ export default function Services() {
     {
       title: "Speed Up Your Slow Website",
       description:
-        "Your website is slow, and it's costing you customers to competitors. We optimize your existing site for speed and Core Web Vitals. Faster sites rank higher, convert better, and keep visitors from leaving before they even see your services.",
+        "If your website is slow, it's costing you customers to competitors. We optimize your site (new or existing) for speed and Core Web Vitals. Faster sites rank higher, generate more leads, and keep visitors from leaving before they even see your services.",
       features: [
         "Core Web Vitals optimization",
         "Image optimization",
@@ -55,7 +56,7 @@ export default function Services() {
     {
       title: "Turn More Visitors Into Phone Calls",
       description:
-        "Turn more website visitors into phone calls and booked jobs. We analyze your site's performance, identify what's stopping people from calling, and optimize forms, CTAs, and user experience to maximize conversions.",
+        "Turn more website visitors into phone calls and booked jobs. Whether you have a new site or an existing one, we analyze performance, identify what's stopping people from calling, and optimize forms, CTAs, and user experience to maximize conversions.",
       features: [
         "Conversion rate analysis",
         "A/B testing",
@@ -184,27 +185,11 @@ export default function Services() {
       </Section>
 
       {/* CTA Section */}
-      <Section className="bg-neutral-50/20 backdrop-blur-sm py-20 md:py-32">
-        <div className="text-center max-w-4xl mx-auto px-4">
-          <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-8 tracking-tight">
-            Not Sure Which Service You Need?
-          </h2>
-          <p className="text-xl md:text-2xl text-neutral-600 mb-12 font-light leading-relaxed">
-            Book a free 15-minute strategy call (no sales pitch). We'll analyze your current website and show you exactly what's costing you calls and jobs, then recommend the best path forward.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-5 justify-center">
-            <CTAButton href={PRIMARY_CTA_HREF} variant="primary" className="px-10 py-5 text-lg font-bold">
-              {PRIMARY_CTA_LABEL}
-            </CTAButton>
-            <CTAButton href={CALL_CTA_HREF} variant="secondary" className="px-10 py-5 text-lg font-bold">
-              {CALL_CTA_LABEL}
-            </CTAButton>
-            <CTAButton href="/contact" variant="outline" className="px-10 py-5 text-lg font-bold">
-              Send a Message
-            </CTAButton>
-          </div>
-        </div>
-      </Section>
+      <FinalCTASection
+        variant="dark"
+        title="Not Sure Which Service You Need?"
+        subtitle="Request a quote or book a free 15-minute strategy call (no sales pitch). We'll review your situation (whether you have a website or not) and show you exactly what's costing you calls and jobs, then recommend the best path forward."
+      />
     </div>
   );
 }

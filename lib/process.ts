@@ -11,20 +11,20 @@ export type ProcessCopy = {
 };
 
 export const PROCESS_COPY_CHOICE_FIRST: ProcessCopy = {
-  heading: "What Happens Next (Pick Your Starting Point)",
+  heading: "Our Process",
   subheading:
-    "Choose a free audit or a quick call — either way, you’ll get a clear plan and fast execution.",
+    "Request a quote or book a call. We'll review your needs and provide a clear plan with fast execution.",
   proofLine: "Delivered in 1–3 weeks depending on scope. Loads under 2.5s. Built for calls & booked jobs.",
   steps: [
     {
-      title: "Free Audit or Quick Call",
+      title: "Request a Quote / Book a Call",
       description:
-        "Pick what’s easiest: request a free audit (24h) or book a quick call. No pressure.",
+        "Fill out the form or book a quick call. We'll review your goals, service area, and what you need most: calls, booked jobs, or both.",
     },
     {
-      title: "Clear Plan + Scope",
+      title: "Clear Plan + Fixed Scope",
       description:
-        "We review your site (or your situation), identify what’s blocking calls and booked jobs, and confirm the best path forward.",
+        "We review your site (or your situation), identify what's blocking calls and booked jobs, and provide a clear plan with a fixed quote and timeline.",
     },
     {
       title: "Build, Launch, Optimize",
@@ -37,13 +37,13 @@ export const PROCESS_COPY_CHOICE_FIRST: ProcessCopy = {
 export const PROCESS_COPY_CALL_FIRST: ProcessCopy = {
   heading: "What Happens After You Book a Call",
   subheading:
-    "A quick 15-minute call to confirm fit and scope — then we move fast.",
+    "A quick 15-minute call to confirm fit and scope. Then we move fast.",
   proofLine: "Clear scope. Fast delivery. Built to convert.",
   steps: [
     {
       title: "15‑Minute Call (Fit + Scope)",
       description:
-        "We confirm your goals, service area, and what you need most — calls, booked jobs, or both.",
+        "We confirm your goals, service area, and what you need most: calls, booked jobs, or both.",
     },
     {
       title: "Audit + Plan",
@@ -59,25 +59,25 @@ export const PROCESS_COPY_CALL_FIRST: ProcessCopy = {
 };
 
 export const PROCESS_COPY_AUDIT_FIRST: ProcessCopy = {
-  heading: "Here’s What You Get Next",
+  heading: "How It Works",
   subheading:
-    "Request your free audit — then decide if you want help implementing.",
+    "Simple process. Fast delivery. No sales pitch.",
   proofLine: "24h audit. Clear next steps. No pressure.",
   steps: [
     {
-      title: "Request Your Free Audit (24h)",
+      title: "Submit Your Request",
       description:
-        "Submit your details and we’ll send a clear breakdown of what’s costing you calls and booked jobs.",
+        "Fill out the form above with your website URL. Takes less than a minute.",
     },
     {
-      title: "Findings + Next Best Moves",
+      title: "We Review & Send Your Audit",
       description:
-        "You’ll get actionable priorities (speed, SEO, conversions) — even if you don’t hire us.",
+        "Within 24 hours, you'll receive your free audit via email with clear findings and priorities.",
     },
     {
-      title: "If You Want Help, We Build + Launch",
+      title: "Use Your Audit to Take Action",
       description:
-        "If it’s a fit, we build and launch fast — with tracking and conversion-focused improvements.",
+        "Review the findings and use the priority roadmap to fix issues yourself or share it with a developer.",
     },
   ],
 };
