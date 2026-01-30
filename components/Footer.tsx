@@ -10,12 +10,12 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
   const pathname = usePathname();
   const isLandingPage =
-    pathname === "/plumber-leads" || pathname.startsWith("/free-audit");
+    pathname.startsWith("/free-redesign") || pathname.startsWith("/free-audit");
   const isPrintOnly = pathname === "/free-audit/example-audit-output";
 
   // Determine the correct CTA link based on current page
   const getCTALink = () => {
-    if (pathname === "/plumber-leads" || pathname.startsWith("/free-audit")) {
+    if (pathname.startsWith("/free-redesign") || pathname.startsWith("/free-audit")) {
       return AUDIT_FORM_ANCHOR;
     }
     return PRIMARY_CTA_HREF;

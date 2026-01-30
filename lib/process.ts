@@ -82,6 +82,30 @@ export const PROCESS_COPY_AUDIT_FIRST: ProcessCopy = {
   ],
 };
 
+export const PROCESS_COPY_FREE_REDESIGN: ProcessCopy = {
+  heading: "How the Free Redesign Works",
+  subheading:
+    "Application-based. We build a new site designed to get you more calls and booked jobs, then we replace your current one. No upfront cost.",
+  proofLine: "New site built for leads. Same URL. We can roll back to your previous site if you're not happy.",
+  steps: [
+    {
+      title: "Apply (Above)",
+      description:
+        "Submit the application with your business name, site URL, and a few quick questions. We review fit and select participants.",
+    },
+    {
+      title: "We Build Your New Site",
+      description:
+        "We build a new website from the ground up, designed to turn visitors into calls and booked jobs, fast and mobile-first, then we replace your current site with it.",
+    },
+    {
+      title: "Launch & Optional Testimonial",
+      description:
+        "We go live and track key metrics (calls, leads, booked jobs) before and after launch. If there's significant improvement within 30 days, we may ask for a short 2–3 minute video testimonial for our case studies. We only ask when the numbers support it.",
+    },
+  ],
+};
+
 // Backwards-compatible default used by <ProcessSection /> when no copy is provided.
 export const PROCESS_COPY: ProcessCopy = PROCESS_COPY_CHOICE_FIRST;
 

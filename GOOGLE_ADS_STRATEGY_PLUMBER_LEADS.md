@@ -22,6 +22,8 @@
 - ⚠️ **Competition is HIGH** - Plumbing keywords are competitive, but your landing page is well-optimized
 - ✅ **Quality over quantity** - Better to get 1 qualified lead than 10 tire-kickers
 
+**Real data (benchmarks):** Published CPC for *consumer* plumbing ("plumber near me", emergency) is often **$7–$35**; cost per lead **$35–$90+**. Your keywords are *B2B/marketing* ("plumber website audit", "plumber lead generation") — less competition, so **$2–$8 CPC** is plausible. At $10–15/day, expect **1–5 clicks/day** and **0.5–2 leads/week** early on; 5–15 clicks and 1–3 leads/week are possible if CPC stays low. For consistent volume, plan to scale to **$30–50/day+**; see GOOGLE_ADS_FREE_AUDIT_3_CAMPAIGNS section 1 (Budget realism) for the full table.
+
 **Expected Timeline:**
 - **Week 1-2**: Learning phase, Google gathering data ($0-2 leads)
 - **Week 3-4**: Optimization phase, refining keywords ($1-3 leads)
@@ -1039,5 +1041,6 @@ Whenever you change the Plumbers campaign (keywords, bids, ads, budgets), use th
 
 ## Document history
 
+- **2026-01-30** – Added **Real data (benchmarks)** to budget section: consumer plumbing CPC $7–35, CPL $35–90+; B2B keywords $2–8 CPC plausible; conservative expectations at $10–15/day; link to GOOGLE_ADS_FREE_AUDIT_3_CAMPAIGNS Budget realism table. *Why:* Align expectations with published data for new projects. *Scope:* Plumbers strategy doc only.
 - **2026-01-30** – Added **After you make updates** section (What to expect | When to check | What to do next). *Why:* Guide should show what to expect after changes, when to check results, and what to do next for reuse on new projects. *Scope:* Plumbers strategy doc only.
 - **2026-01-30** – Synced keyword list with GOOGLE_ADS_FREE_AUDIT_3_CAMPAIGNS (added website/audit + SEO/leads terms to 3-campaign doc; this doc remains the deep-dive reference). *Why:* Single source of truth for Plumbers campaign; diagnostics drove keyword expansion. *Scope:* Plumbers strategy doc only.

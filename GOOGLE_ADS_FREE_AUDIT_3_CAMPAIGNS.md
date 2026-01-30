@@ -21,6 +21,15 @@ Step-by-step guide to run three separate Search campaigns, one per vertical, eac
 
 **What to expect at $10/day:** Roughly 3–10 clicks per day total (CPC often $2–5 for these keywords). With a 2–5% form conversion rate, expect about **2–8 audit requests per week** while learning. After a few weeks, optimize by shifting budget toward the campaign that gets the best cost per lead.
 
+**Budget realism (real data)**  
+Published benchmarks are mostly for *consumer* plumbing (e.g. "plumber near me", "emergency plumber"): CPC often **$7–$35**, cost per lead **$35–$90+**, and at $10/day you’d get only **~0.3–1 click/day** in those keywords. Your campaigns target *B2B/marketing* terms ("plumber website audit", "plumber lead generation", "website for plumbers") — less competition, so CPC can be **lower ($2–$8 plausible)**; there’s no strong public benchmark for these exact terms. **Conservative expectation at $10/day:** 1–4 clicks/day total across all three campaigns, **0.5–2 audit requests per week** in the first 2–4 weeks. The 3–10 clicks and 2–8 leads/week above are achievable if CPC stays low ($2–$4) and conversion 4–5%. Treat **$10/day as a learning/test budget**. For more consistent volume, plan to scale to **$30–50/day+** once you see which vertical converts; some sources suggest **$40–75/day** for "meaningful" results in home-service lead gen (you may need less for B2B audit offers).
+
+| Budget tier   | Daily  | Clicks/day (approx) | Leads/week (approx) | Use case              |
+|---------------|--------|----------------------|----------------------|------------------------|
+| Test / learn  | $10    | 1–4                  | 0.5–2                | Learning, diagnostics  |
+| Light run     | $20–30 | 3–8                  | 1–4                  | Early optimization     |
+| Growth        | $40–75+| 8–25+                | 4–12+                | Consistent lead flow   |
+
 **Per-campaign settings (same for all three):**
 - **Campaign type:** Search
 - **Goal:** Leads
@@ -386,5 +395,6 @@ Use this doc as your single reference for building and optimizing the three free
 
 ## Document history
 
+- **2026-01-30** – Added **Budget realism (real data)** in section 1: published CPC/CPL for consumer plumbing ($7–35 CPC, $35–90+ CPL); B2B/marketing keywords likely $2–8 CPC; conservative expectation at $10/day (1–4 clicks/day, 0.5–2 leads/week); budget-tier table (Test $10 | Light $20–30 | Growth $40–75+). *Why:* Validate budgets against real data; set realistic expectations for new projects. *Scope:* All campaigns.
 - **2026-01-30** – Added 6 keywords to Plumbers campaign (Ad Groups 1 & 2: website/audit, SEO/leads). Clarified match types: add all as Exact + Phrase first; add Broad Match / BMM later for volume. *Why:* Campaign diagnostics: "Not targeting relevant searches" / "Targeting fewer searches". *Scope:* Plumbers only. *What to expect:* More impressions/clicks; some diagnostics may clear in 1–2 weeks. *When to check:* 3–5 days (first look), 7–14 days (meaningful). *What to do next:* Re-check diagnostics; if warnings are gone, consider broad match; update *Result* here after 1–2 weeks. *Result:* (fill in after 7–14 days if desired.)
 - **2026-01-29** – Initial setup: 3 campaigns (Plumbers, HVAC, Electricians), landing page URLs with UTM, ad groups and keywords, match-type guidance. *Scope:* All campaigns. *Template:* This doc is the master for new projects.
