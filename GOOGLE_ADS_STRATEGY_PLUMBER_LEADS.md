@@ -1,6 +1,9 @@
 # Google Ads Strategy for Plumber Leads Landing Page
 ## Complete Step-by-Step Guide ($10-15/day Budget)
 
+**Last updated:** 2026-01-30  
+*Copy this for new plumber-leads projects; rename for client.*
+
 ---
 
 ## 📊 BUDGET ANALYSIS: Is $10-15/day Realistic?
@@ -1009,4 +1012,32 @@ Once you're getting 2-3 leads/week consistently:
 
 ---
 
+## After you make updates
+
+Whenever you change the Plumbers campaign (keywords, bids, ads, budgets), use this rhythm.
+
+**What to expect after these updates**
+- More impressions and possibly more clicks after adding keywords or broadening match.
+- Campaign diagnostics may clear some warnings after 1–2 weeks.
+- Cost per click and cost per lead may shift; give it 1–2 weeks before judging.
+
+**When to check for results**
+- **First check:** 3–5 days after the change (see if impressions/clicks moved).
+- **Meaningful check:** 7–14 days (enough data to compare; fill in *Result* in Document history if you want).
+- **Ongoing:** Check Search terms, negatives, and cost per lead weekly (see GOOGLE_ADS_FREE_AUDIT_3_CAMPAIGNS section 9).
+
+**What to do next**
+- Re-check **Campaign diagnostics**; if "Targeting fewer searches" / "Not targeting relevant searches" are gone, consider broad match for top keywords.
+- Once you have ~30 conversions, consider Target CPA instead of Maximize conversions.
+- Update this doc’s **Document history** (and CHANGELOG_GOOGLE_ADS.md) with the change and, if you like, the *Result* after 1–2 weeks.
+
+---
+
 *This strategy is designed specifically for your plumber leads landing page. Adjust based on your actual results and data.*
+
+---
+
+## Document history
+
+- **2026-01-30** – Added **After you make updates** section (What to expect | When to check | What to do next). *Why:* Guide should show what to expect after changes, when to check results, and what to do next for reuse on new projects. *Scope:* Plumbers strategy doc only.
+- **2026-01-30** – Synced keyword list with GOOGLE_ADS_FREE_AUDIT_3_CAMPAIGNS (added website/audit + SEO/leads terms to 3-campaign doc; this doc remains the deep-dive reference). *Why:* Single source of truth for Plumbers campaign; diagnostics drove keyword expansion. *Scope:* Plumbers strategy doc only.

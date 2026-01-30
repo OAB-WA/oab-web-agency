@@ -39,6 +39,38 @@ export const trackFormSubmission = (formName: string) => {
   });
 };
 
+/**
+ * Send submit_form via gtag with event_callback and optional delayed navigation.
+ * Use when you want to fire the conversion event and then redirect (e.g. to a thank-you page)
+ * so the event has time to send before the page unloads.
+ * @param formLabel - Same label as trackFormSubmission (e.g. "Free Audit Form - Plumbers")
+ * @param url - Optional URL to navigate to after the event is sent (or after timeout)
+ * @param timeoutMs - Max wait before callback runs (default 2000)
+ * @returns false so you can use onClick="return gtagSendEvent(...)" to prevent immediate navigation
+ */
+export function gtagSendEventAndMaybeNavigate(
+  formLabel: string,
+  url?: string,
+  timeoutMs: number = 2000
+): boolean {
+  if (typeof window === "undefined" || !window.gtag) {
+    if (url) window.location.href = url;
+    return false;
+  }
+  const callback = () => {
+    if (typeof url === "string" && url) {
+      window.location.href = url;
+    }
+  };
+  window.gtag("event", "submit_form", {
+    event_category: "Form",
+    event_label: formLabel,
+    event_callback: callback,
+    event_timeout: timeoutMs,
+  });
+  return false;
+}
+
 // Track CTA button clicks
 export const trackCTAClick = (ctaLabel: string, location?: string) => {
   event({

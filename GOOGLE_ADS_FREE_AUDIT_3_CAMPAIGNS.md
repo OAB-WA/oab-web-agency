@@ -1,5 +1,8 @@
 # Google Ads Setup: Free Audit – 3 Campaigns (Plumbers, HVAC, Electricians)
 
+**Last updated:** 2026-01-30  
+*Use this as the master template for new projects; copy and rename for each new client/vertical.*
+
 Step-by-step guide to run three separate Search campaigns, one per vertical, each sending traffic to its dedicated landing page.
 
 ---
@@ -63,16 +66,22 @@ Create **2–3 ad groups per campaign**. Use the keywords below; add your own va
 - `plumber website audit`
 - `free plumber website audit`
 - `plumber website not getting leads`
+- `plumber website not getting calls`
+- `plumber website problems`
 - `plumber website design`
 - `website for plumbers`
 - `plumber website that gets calls`
+- `plumber lead generation website`
 
 **Ad Group 2 – Plumber SEO / leads**
 - `plumber SEO`
 - `plumber local SEO`
 - `plumber lead generation`
+- `how to get more plumbing leads`
 - `get more plumbing calls`
 - `plumber website optimization`
+- `ServiceTitan website integration`
+- `Jobber website integration`
 
 **Ad Group 3 – Emergency / results**
 - `emergency plumber website`
@@ -80,7 +89,7 @@ Create **2–3 ad groups per campaign**. Use the keywords below; add your own va
 - `plumber marketing website`
 - `increase plumbing business calls`
 
-**Match types:** Start with **Exact** `[keyword]` and **Phrase** `"keyword"` for control. Add **Broad Match Modifier** (+keyword) later if you need more volume.
+**Match types:** Add all of the above as **Exact** `[keyword]` and **Phrase** `"keyword"` first for control. Add **Broad Match** or **Broad Match Modifier** (+keyword) versions later when you need more volume (e.g. after clicking "Update keywords" in campaign diagnostics).
 
 ---
 
@@ -241,6 +250,45 @@ Add these so you don’t pay for consumer, job, or irrelevant searches. Use a **
 
 *(Add more as you see irrelevant terms in the Search terms report.)*
 
+**Copy-paste list (one per line for Google Ads):**
+```
+near me
+find a plumber
+find plumber
+best plumber
+plumber cost
+plumber price
+plumber rates
+hire a plumber
+24 hour plumber
+emergency plumber
+plumber repair
+find HVAC
+HVAC near me
+furnace repair near me
+find electrician
+electrician near me
+hire electrician
+electrician cost
+jobs
+careers
+hiring
+salary
+apply
+free template
+DIY
+how to do it yourself
+tutorial
+course
+certification
+cheap
+discount
+coupon
+review
+reddit
+youtube
+```
+
 ---
 
 ## 6. Conversion tracking
@@ -310,4 +358,33 @@ Use the same extension ideas for HVAC and Electricians campaigns; only the final
 - **Clear reporting** (spend, leads, cost per lead per campaign).
 - **Easy scaling/pausing** (e.g. scale Plumbers, pause Electricians) without touching the others.
 
+---
+
+## 11. After you make updates
+
+Whenever you change campaigns (keywords, bids, ads, budgets), use this rhythm so the guide stays useful for the next project.
+
+**What to expect after these updates**
+- More impressions and possibly more clicks (e.g. after adding keywords or broadening match).
+- Campaign diagnostics may clear some warnings after 1–2 weeks; "Bid strategy inactive" often stays until you have enough conversions.
+- Cost per click and cost per lead may shift as volume changes; give it 1–2 weeks before judging.
+
+**When to check for results**
+- **First check:** 3–5 days after the change (see if impressions/clicks moved).
+- **Meaningful check:** 7–14 days (enough data to compare to before; fill in *Result* in Document history if you want).
+- **Ongoing:** Use the post-launch checklist (section 9) weekly.
+
+**What to do next**
+- Re-open **Campaign diagnostics** and see if the same issues remain or new ones appear.
+- If "Targeting fewer searches" / "Not targeting relevant searches" are gone: consider adding broad match versions of top keywords for more volume.
+- If conversions are coming in: keep Maximize conversions; once you have ~30 conversions, consider switching to Target CPA.
+- Update this doc’s **Document history** (and CHANGELOG_GOOGLE_ADS.md) with the change and, if you like, the *Result* after 1–2 weeks.
+
 Use this doc as your single reference for building and optimizing the three free-audit campaigns.
+
+---
+
+## Document history
+
+- **2026-01-30** – Added 6 keywords to Plumbers campaign (Ad Groups 1 & 2: website/audit, SEO/leads). Clarified match types: add all as Exact + Phrase first; add Broad Match / BMM later for volume. *Why:* Campaign diagnostics: "Not targeting relevant searches" / "Targeting fewer searches". *Scope:* Plumbers only. *What to expect:* More impressions/clicks; some diagnostics may clear in 1–2 weeks. *When to check:* 3–5 days (first look), 7–14 days (meaningful). *What to do next:* Re-check diagnostics; if warnings are gone, consider broad match; update *Result* here after 1–2 weeks. *Result:* (fill in after 7–14 days if desired.)
+- **2026-01-29** – Initial setup: 3 campaigns (Plumbers, HVAC, Electricians), landing page URLs with UTM, ad groups and keywords, match-type guidance. *Scope:* All campaigns. *Template:* This doc is the master for new projects.

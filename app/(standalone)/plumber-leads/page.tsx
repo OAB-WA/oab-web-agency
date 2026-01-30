@@ -47,19 +47,8 @@ export default function PlumbersLandingPage() {
       setSubmitted(true);
       setFormData({ name: "", email: "", phone: "", website: "" });
       
-      // Track form submission for GA4 Import to Google Ads
+      // Google Ads conversion tracking for Plumber Leads campaign
       if (typeof window !== "undefined" && window.gtag) {
-        window.gtag("event", "conversion_event_submit_lead_form_1", {
-          'event_callback': () => console.log("Lead tracked successfully"),
-          'event_timeout': 2000,
-          'event_label': 'Plumber Leads - GA4 Conversion Event',
-          'email': formData.email, // Enhanced Conversions
-          'phone_number': formData.phone, // Enhanced Conversions
-          'value': 100.0,
-          'currency': 'USD'
-        });
-
-        // Google Ads conversion tracking for Plumber Leads campaign
         window.gtag('event', 'conversion', {
           'send_to': 'AW-17872130458/JB8nCJS-oOobEJqjjMpC',
           'event_label': 'Plumber Leads - Google Ads Conversion',
