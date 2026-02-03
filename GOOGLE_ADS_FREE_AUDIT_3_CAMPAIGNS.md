@@ -314,7 +314,7 @@ Your site already sends GA4 events when the audit form is submitted:
 4. In each of the three campaigns, set **Goals → Conversions** and select the right conversion for that campaign’s landing page (Plumbers conversion for plumbers campaign, etc.).
 5. Optionally set a **value** per conversion (e.g. $50–$100 per audit request) and use **Count: One** per click.
 
-If you prefer a **Google Ads tag** instead of GA4 import, add a conversion action per campaign and install the tag on each landing page (same pattern as your plumber-leads page).
+If you prefer a **Google Ads tag** instead of GA4 import, add a conversion action per campaign and install the tag on each landing page (same pattern as your other landing pages).
 
 ---
 

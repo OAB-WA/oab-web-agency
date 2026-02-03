@@ -10,22 +10,19 @@ import SectionHeader from "@/components/SectionHeader";
 import { AUDIT_FORM_ANCHOR } from "@/lib/cta";
 import ReviewsMarqueeSection from "@/components/ReviewsMarqueeSection";
 import ProcessSection from "@/components/ProcessSection";
-import { PROCESS_COPY_FREE_REDESIGN } from "@/lib/process";
-import type { FreeRedesignCopy, FreeRedesignVertical } from "@/lib/freeRedesignCopy";
+import { PROCESS_COPY_FREE_WEBSITE } from "@/lib/process";
+import type { FreeWebsiteCopy, FreeWebsiteVertical } from "@/lib/freeWebsiteCopy";
 
-type FreeRedesignLandingPageProps = {
-  copy: FreeRedesignCopy;
-  vertical: FreeRedesignVertical | null;
+type FreeWebsiteLandingPageProps = {
+  copy: FreeWebsiteCopy;
+  vertical: FreeWebsiteVertical | null;
 };
 
-export default function FreeRedesignLandingPage({ copy, vertical }: FreeRedesignLandingPageProps) {
+export default function FreeWebsiteLandingPage({ copy, vertical }: FreeWebsiteLandingPageProps) {
   const verticalSlug = vertical ?? "general";
   const [formData, setFormData] = useState({
     businessName: "",
     email: "",
-    websiteUrl: "",
-    leads: "",
-    googleAds: "",
     videoTestimonialWilling: "",
     notes: "",
   });
@@ -48,7 +45,7 @@ export default function FreeRedesignLandingPage({ copy, vertical }: FreeRedesign
     const payload = {
       ...formData,
       qualified,
-      _form: "free-redesign-application",
+      _form: "free-website-application",
       _vertical: verticalSlug,
     };
 
@@ -70,9 +67,6 @@ export default function FreeRedesignLandingPage({ copy, vertical }: FreeRedesign
       setFormData({
         businessName: "",
         email: "",
-        websiteUrl: "",
-        leads: "",
-        googleAds: "",
         videoTestimonialWilling: "",
         notes: "",
       });
@@ -80,13 +74,13 @@ export default function FreeRedesignLandingPage({ copy, vertical }: FreeRedesign
       if (typeof window !== "undefined" && window.gtag) {
         window.gtag("event", "conversion", {
           send_to: "AW-17872130458/JB8nCJS-oOobEJqjjMpC",
-          event_label: `Free Redesign - ${verticalSlug} - Application Submitted`,
+          event_label: `Free Website - ${verticalSlug} - Application Submitted`,
           value: 100.0,
           currency: "USD",
-          transaction_id: `free-redesign-${Date.now()}`,
+          transaction_id: `free-website-${Date.now()}`,
         });
       }
-      trackFormSubmission(`Free Redesign - ${verticalSlug} - Application Form Submission`);
+      trackFormSubmission(`Free Website - ${verticalSlug} - Application Form Submission`);
 
       setTimeout(() => setSubmitted(false), 5000);
     } catch (err) {
@@ -116,7 +110,7 @@ export default function FreeRedesignLandingPage({ copy, vertical }: FreeRedesign
 
   return (
     <div className="min-h-screen bg-transparent">
-      {/* Hero Section - Free Redesign (Case Study Program) */}
+      {/* Hero Section - Free Website (Case Study Program) */}
       <section className="relative text-white overflow-hidden min-h-[100dvh] flex items-center -mt-20">
         <div className="absolute inset-0">
           <Image
@@ -188,50 +182,7 @@ export default function FreeRedesignLandingPage({ copy, vertical }: FreeRedesign
                     />
                   </div>
                   <div>
-                    <input
-                      type="url"
-                      name="websiteUrl"
-                      placeholder="Website URL *"
-                      required
-                      value={formData.websiteUrl}
-                      onChange={handleChange}
-                      className="w-full px-5 py-4 border border-gray-200 rounded-xl focus:ring-4 focus:ring-primary-950/5 focus:border-primary-950 transition-all text-gray-900 bg-gray-50/50"
-                    />
-                  </div>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Getting leads?</label>
-                      <select
-                        name="leads"
-                        required
-                        value={formData.leads}
-                        onChange={handleChange}
-                        className="w-full px-5 py-4 border border-gray-200 rounded-xl focus:ring-4 focus:ring-primary-950/5 focus:border-primary-950 transition-all text-gray-900 bg-gray-50/50"
-                      >
-                        <option value="">Select</option>
-                        <option value="Yes">Yes</option>
-                        <option value="Sometimes">Sometimes</option>
-                        <option value="No">No</option>
-                      </select>
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Running Google Ads?</label>
-                      <select
-                        name="googleAds"
-                        required
-                        value={formData.googleAds}
-                        onChange={handleChange}
-                        className="w-full px-5 py-4 border border-gray-200 rounded-xl focus:ring-4 focus:ring-primary-950/5 focus:border-primary-950 transition-all text-gray-900 bg-gray-50/50"
-                      >
-                        <option value="">Select</option>
-                        <option value="Yes, active">Yes, active</option>
-                        <option value="Yes, paused">Yes, paused</option>
-                        <option value="No">No</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Willing to record a 2–3 min VIDEO testimonial if results are strong?</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Willing to record a 2–3 min VIDEO testimonial as part of the program?</label>
                     <select
                       name="videoTestimonialWilling"
                       required
@@ -318,7 +269,7 @@ export default function FreeRedesignLandingPage({ copy, vertical }: FreeRedesign
                 Who this is NOT for
               </h3>
               <p className="text-gray-600 leading-relaxed">
-                Businesses that only want a quick tweak on their current platform. Anyone uncomfortable recording a 2–3 minute video testimonial if they're happy with the results. We exclude applicants who aren't willing to do that; it's part of how we run the case study program.
+                Businesses that only want a one-page placeholder or a quick template. Anyone unwilling to record a 2–3 minute video testimonial as part of the program. We exclude applicants who aren't willing to do that; it's part of the exchange.
               </p>
             </div>
           </div>
@@ -329,7 +280,7 @@ export default function FreeRedesignLandingPage({ copy, vertical }: FreeRedesign
               Application-based. We select participants that fit, and we're clear about what we need in return.
             </p>
             <p className="text-lg text-gray-500 font-light max-w-2xl mx-auto">
-              No upfront cost. A new site built to get you more calls and booked jobs, then we replace your current one. If results are strong, a short video testimonial. That's the exchange.
+              No upfront cost. A full site built to get you more calls and booked jobs. A short video testimonial as part of the program. That's the exchange.
             </p>
           </div>
         </div>
@@ -345,7 +296,7 @@ export default function FreeRedesignLandingPage({ copy, vertical }: FreeRedesign
                 Why We&apos;re Doing This
               </>
             }
-            subtitle="We're building case studies with real results: more calls, more booked jobs. We track before and after launch; if there's significant improvement within 30 days, we may ask for a short video testimonial. No upfront cost for you, a proven case study for us when the numbers support it."
+            subtitle="We're building case studies. We ask for a short video testimonial as part of the program. No upfront cost for you, a proven case study for us."
           />
           <div className="flex flex-col sm:flex-row items-center justify-center gap-8 mb-12">
             <div className="flex items-center gap-3">
@@ -354,7 +305,7 @@ export default function FreeRedesignLandingPage({ copy, vertical }: FreeRedesign
             </div>
             <div className="flex items-center gap-3">
               <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
-              <span className="text-gray-900 font-medium">Results-first approach</span>
+              <span className="text-gray-900 font-medium">Case study program</span>
             </div>
             <div className="flex items-center gap-3">
               <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
@@ -363,7 +314,7 @@ export default function FreeRedesignLandingPage({ copy, vertical }: FreeRedesign
           </div>
           <a
             href={AUDIT_FORM_ANCHOR}
-            onClick={() => trackCTAClick(copy.formCtaLabel, `Free Redesign - ${verticalSlug} - CTA Why Section`)}
+            onClick={() => trackCTAClick(copy.formCtaLabel, `Free Website - ${verticalSlug} - CTA Why Section`)}
             className="inline-flex items-center px-10 py-5 bg-primary-950 text-white rounded-2xl text-lg font-bold hover:bg-primary-900 transition-all shadow-lg hover:shadow-2xl active:scale-[0.98]"
           >
             {copy.formCtaLabel}
@@ -451,14 +402,14 @@ export default function FreeRedesignLandingPage({ copy, vertical }: FreeRedesign
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <SectionHeader
             className="mb-16"
-            title="What the Redesign Includes"
-            subtitle="This isn't a cosmetic refresh. We build a new site designed to get you more calls and more booked jobs, then we replace your current one with it."
+            title="What the Website Includes"
+            subtitle="A full site built to get you more calls and more booked jobs—not a one-page template."
           />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
               <h3 className="font-bold text-gray-900 mb-3 text-xl tracking-tight">Built for more calls & booked jobs</h3>
               <p className="text-gray-600 leading-relaxed">
-                Every layout, CTA, and page is designed to turn visitors into calls and booked jobs, not just to look good. We then replace your existing site with this new one (same URL, new engine).
+                Every layout, CTA, and page is designed to turn visitors into calls and booked jobs, not just to look good. You get a complete site built for your business and your goals.
               </p>
             </div>
             <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
@@ -476,7 +427,7 @@ export default function FreeRedesignLandingPage({ copy, vertical }: FreeRedesign
             <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
               <h3 className="font-bold text-gray-900 mb-3 text-xl tracking-tight">Mobile-first</h3>
               <p className="text-gray-600 leading-relaxed">
-                Most service-business searches happen on mobile. Your new site is built mobile-first so it turns phone traffic into calls and booked jobs, not lost leads.
+                Most service-business searches happen on mobile. Your site is built mobile-first so it turns phone traffic into calls and booked jobs, not lost leads.
               </p>
             </div>
           </div>
@@ -513,15 +464,15 @@ export default function FreeRedesignLandingPage({ copy, vertical }: FreeRedesign
             className="text-center mt-12"
           >
             <p className="text-sm text-gray-500 mb-2">
-              These are redesign showcases and demonstration projects showing our approach.
+              These are demonstration projects showing our approach.
             </p>
             <p className="text-xs text-gray-400 mb-6">
-              The redesigns above are unsolicited demonstration projects created to show our approach. We were not hired by these clients.
+              The projects above are unsolicited demonstration work created to show our approach. We were not hired by these clients.
               Your results will vary based on your specific business needs.
             </p>
             <a
               href={AUDIT_FORM_ANCHOR}
-              onClick={() => trackCTAClick(copy.formCtaLabel, `Free Redesign - ${verticalSlug} - CTA Case Studies`)}
+              onClick={() => trackCTAClick(copy.formCtaLabel, `Free Website - ${verticalSlug} - CTA Case Studies`)}
               className="btn-primary px-10 py-5 text-lg font-bold inline-block"
             >
               {copy.formCtaLabel}
@@ -532,33 +483,37 @@ export default function FreeRedesignLandingPage({ copy, vertical }: FreeRedesign
 
       <ReviewsMarqueeSection variant="light" showStats />
 
-      <ProcessSection variant="light" copy={PROCESS_COPY_FREE_REDESIGN} />
+      <ProcessSection variant="light" copy={PROCESS_COPY_FREE_WEBSITE} />
 
-      {/* FAQ Section - same accordion pattern as /faq and /pricing */}
+      {/* FAQ Section */}
       <section className="py-20 md:py-32 bg-white/60 backdrop-blur-sm">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <SectionHeader
             className="mb-12"
             title="Frequently Asked Questions"
-            subtitle="Quick answers about the free redesign and what happens next."
+            subtitle="Quick answers about the free website and what happens next."
           />
           <div className="space-y-6">
             {[
               {
-                q: "What if I'm not happy with the new site or the results?",
-                a: "We can roll back to your previous website. If you're not satisfied with the new site or the results you're getting (calls, booked jobs), we'll restore your old site at no extra cost. We're confident you'll see more calls and booked jobs, but we remove the risk by offering this option.",
+                q: "How long until my site is live?",
+                a: "We determine scope and aim to deliver within 1–2 weeks of kickoff.",
               },
               {
-                q: "What does \"redesign\" mean? Are you changing my current site or building a new one?",
-                a: "We build a new website from the ground up, designed to get you more calls and booked jobs, and then we replace your current site with it. We don't redesign on your existing platform (e.g. WordPress, Wix). You get a new site, same URL, built for leads.",
+                q: "What if I'm not happy with the site or the results?",
+                a: "We'll do a reasonable round or two of revisions to get the site right. If you're not satisfied with the site or the results you're getting (calls, booked jobs), we'll work with you to improve it within that scope. The program isn't unlimited design iterations—we're committed to getting you to a site you're happy with, within reason.",
+              },
+              {
+                q: "What do I get? A template or a custom site?",
+                a: "You get a full website built from the ground up, designed to get you more calls and booked jobs. We don't hand you a generic template; we build for your business and your goals—mobile-first, fast, and built for leads.",
               },
               {
                 q: "When do you ask for the video testimonial?",
-                a: "We track key metrics (calls, leads, booked jobs) before and after launch. If there's significant improvement within 30 days of launch, we may ask for a short 2–3 minute video testimonial. We only ask when the numbers support it, so you're never on the spot unless the results are there.",
+                a: "After we launch your site. We ask for a short 2–3 minute video testimonial as part of the program—it's how we build case studies.",
               },
               {
                 q: "Why do you ask for a video testimonial?",
-                a: "This is a case study program. We track before and after; if results are strong within 30 days, we ask for a short video so we can showcase real outcomes. It's part of the exchange: no upfront cost for you, a proven case study for us. We only ask when the data shows improvement, and we exclude applicants who aren't willing to do that.",
+                a: "It's part of the exchange: no upfront cost for you, a proven case study for us. We always ask for a short video as part of the program, and we exclude applicants who aren't willing to do that.",
               },
             ].map((faq, index) => (
               <motion.div
@@ -630,7 +585,7 @@ export default function FreeRedesignLandingPage({ copy, vertical }: FreeRedesign
           />
           <a
             href={AUDIT_FORM_ANCHOR}
-            onClick={() => trackCTAClick(copy.formCtaLabel, `Free Redesign - ${verticalSlug} - CTA Strong CTA Section`)}
+            onClick={() => trackCTAClick(copy.formCtaLabel, `Free Website - ${verticalSlug} - CTA Strong CTA Section`)}
             className="inline-flex items-center px-10 py-5 bg-white text-primary-950 rounded-2xl text-lg font-bold hover:bg-gray-100 transition-all shadow-xl hover:shadow-2xl active:scale-[0.98]"
           >
             {copy.formCtaLabel}
@@ -657,7 +612,7 @@ export default function FreeRedesignLandingPage({ copy, vertical }: FreeRedesign
             />
             <a
               href={AUDIT_FORM_ANCHOR}
-              onClick={() => trackCTAClick(copy.formCtaLabel, `Free Redesign - ${verticalSlug} - CTA Final CTA Section`)}
+              onClick={() => trackCTAClick(copy.formCtaLabel, `Free Website - ${verticalSlug} - CTA Final CTA Section`)}
               className="inline-flex items-center px-10 py-5 bg-primary-950 text-white rounded-2xl text-lg font-bold hover:bg-primary-900 transition-all shadow-lg hover:shadow-2xl active:scale-[0.98]"
             >
               {copy.formCtaLabel}

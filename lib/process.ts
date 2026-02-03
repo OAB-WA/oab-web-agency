@@ -106,6 +106,30 @@ export const PROCESS_COPY_FREE_REDESIGN: ProcessCopy = {
   ],
 };
 
+export const PROCESS_COPY_FREE_WEBSITE: ProcessCopy = {
+  heading: "How the Free Website Works",
+  subheading:
+    "Application-based. We build a full site designed to get you more calls and booked jobs. No upfront cost.",
+  proofLine: "Full site built for leads. Delivered in 1–2 weeks. We can iterate if you're not happy.",
+  steps: [
+    {
+      title: "Apply (Above)",
+      description:
+        "Submit the application with your business name, email, and a few quick questions. We review fit and select participants.",
+    },
+    {
+      title: "We Build Your Website",
+      description:
+        "We build a full website from the ground up, designed to turn visitors into calls and booked jobs, fast and mobile-first. We determine scope and aim to deliver within 1–2 weeks.",
+    },
+    {
+      title: "Launch & Video Testimonial",
+      description:
+        "We go live. As part of the program we ask for a short 2–3 minute video testimonial for our case studies. No upfront cost for you, a proven case study for us.",
+    },
+  ],
+};
+
 // Backwards-compatible default used by <ProcessSection /> when no copy is provided.
 export const PROCESS_COPY: ProcessCopy = PROCESS_COPY_CHOICE_FIRST;
 

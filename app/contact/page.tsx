@@ -42,11 +42,18 @@ export default function Contact() {
 
       setSubmitted(true);
       setFormData({ name: "", email: "", phone: "", website: "", business: "", message: "" });
-      
-      // Track form submission
+
+      if (typeof window !== "undefined" && window.gtag) {
+        window.gtag("event", "conversion", {
+          send_to: "AW-17872130458/JB8nCJS-oOobEJqjjMpC",
+          event_label: "Contact Form - Submitted",
+          value: 100.0,
+          currency: "USD",
+          transaction_id: `contact-${Date.now()}`,
+        });
+      }
       trackFormSubmission("Contact Form");
-      
-      // Reset success message after 5 seconds
+
       setTimeout(() => {
         setSubmitted(false);
       }, 5000);

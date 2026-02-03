@@ -43,11 +43,18 @@ export default function LandingPage() {
 
       setSubmitted(true);
       setFormData({ name: "", email: "", website: "" });
-      
-      // Track form submission
-      trackFormSubmission("Free Audit Form");
-      
-      // Reset success message after 5 seconds
+
+      if (typeof window !== "undefined" && window.gtag) {
+        window.gtag("event", "conversion", {
+          send_to: "AW-17872130458/JB8nCJS-oOobEJqjjMpC",
+          event_label: "Free Audit - General - Form Submitted",
+          value: 100.0,
+          currency: "USD",
+          transaction_id: `free-audit-general-${Date.now()}`,
+        });
+      }
+      trackFormSubmission("Free Audit Form - General");
+
       setTimeout(() => {
         setSubmitted(false);
       }, 5000);
@@ -65,10 +72,10 @@ export default function LandingPage() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Auto-focus first field when hash is #audit-form
+  // Auto-focus first field when hash is #apply-form
   useEffect(() => {
     const handleHashChange = () => {
-      if (window.location.hash === "#audit-form") {
+      if (window.location.hash === "#apply-form") {
         // Small delay to allow scroll to complete
         setTimeout(() => {
           nameInputRef.current?.focus();
@@ -142,7 +149,7 @@ export default function LandingPage() {
             </div>
             
             {/* Right: Form */}
-            <div id="audit-form" className="scroll-mt-20">
+            <div id="apply-form" className="scroll-mt-20">
               <div className="bg-white rounded-3xl p-8 md:p-10 shadow-premium border border-white/20">
                 <div className="mb-8">
                   <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2 text-center">

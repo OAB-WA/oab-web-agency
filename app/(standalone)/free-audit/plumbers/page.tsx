@@ -10,7 +10,6 @@ export const metadata: Metadata = {
     "plumber website audit",
     "free website audit plumbers",
     "plumber website",
-    "plumber leads",
     "plumber SEO",
     "plumber near me",
     "plumbing company website",

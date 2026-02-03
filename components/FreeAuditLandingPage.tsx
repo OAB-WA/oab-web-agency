@@ -59,6 +59,15 @@ export default function FreeAuditLandingPage({ vertical, copy }: FreeAuditLandin
       setSubmitted(true);
       setFormData({ name: "", email: "", website: "" });
 
+      if (typeof window !== "undefined" && window.gtag) {
+        window.gtag("event", "conversion", {
+          send_to: "AW-17872130458/JB8nCJS-oOobEJqjjMpC",
+          event_label: `Free Audit - ${vertical} - Form Submitted`,
+          value: 100.0,
+          currency: "USD",
+          transaction_id: `free-audit-${vertical}-${Date.now()}`,
+        });
+      }
       trackFormSubmission(AUDIT_FORM_GA_LABEL[vertical]);
 
       setTimeout(() => {
@@ -80,7 +89,7 @@ export default function FreeAuditLandingPage({ vertical, copy }: FreeAuditLandin
 
   useEffect(() => {
     const handleHashChange = () => {
-      if (window.location.hash === "#audit-form") {
+      if (window.location.hash === "#apply-form") {
         setTimeout(() => {
           nameInputRef.current?.focus();
         }, 300);
@@ -139,7 +148,7 @@ export default function FreeAuditLandingPage({ vertical, copy }: FreeAuditLandin
               </div>
             </div>
 
-            <div id="audit-form" className="scroll-mt-20">
+            <div id="apply-form" className="scroll-mt-20">
               <div className="bg-white rounded-3xl p-8 md:p-10 shadow-premium border border-white/20">
                 <div className="mb-8">
                   <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2 text-center">

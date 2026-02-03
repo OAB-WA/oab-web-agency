@@ -18,8 +18,12 @@ export const AUDIT_CTA_HREF = "/free-audit";
 export const FREE_REDESIGN_CTA_LABEL = "Apply for the Free Redesign";
 export const FREE_REDESIGN_CTA_LABEL_SHORT = "Apply for Free Redesign";
 
-// Anchor used on landing pages to jump directly to the form
-export const AUDIT_FORM_ANCHOR = "#audit-form";
+// Free website landing page CTA
+export const FREE_WEBSITE_CTA_LABEL = "Apply for the Free Website";
+export const FREE_WEBSITE_CTA_LABEL_SHORT = "Apply for Free Website";
+
+// Anchor used on landing pages to jump to the form (free audit, free redesign, free website)
+export const AUDIT_FORM_ANCHOR = "#apply-form";
 
 // Call CTA (single consistent label sitewide)
 export const CALL_CTA_LABEL = "Book a Call";

@@ -12,6 +12,8 @@ import {
   AUDIT_CTA_LABEL_SHORT,
   FREE_REDESIGN_CTA_LABEL,
   FREE_REDESIGN_CTA_LABEL_SHORT,
+  FREE_WEBSITE_CTA_LABEL,
+  FREE_WEBSITE_CTA_LABEL_SHORT,
   CALL_CTA_HREF,
   CALL_CTA_LABEL,
   PRIMARY_CTA_HREF,
@@ -24,8 +26,9 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
   const isLandingPage =
-    pathname.startsWith("/free-redesign") || pathname.startsWith("/free-audit");
+    pathname.startsWith("/free-redesign") || pathname.startsWith("/free-audit") || pathname.startsWith("/free-website");
   const isFreeRedesignPage = pathname.startsWith("/free-redesign");
+  const isFreeWebsitePage = pathname.startsWith("/free-website");
 
   // Handle scroll effect
   useEffect(() => {
@@ -113,10 +116,13 @@ export default function Header() {
             <div className="hidden md:flex md:items-center">
               <a
                 href={AUDIT_FORM_ANCHOR}
-                onClick={() => trackCTAClick(isFreeRedesignPage ? FREE_REDESIGN_CTA_LABEL : AUDIT_CTA_LABEL, "Header - Landing Page")}
+                onClick={() => trackCTAClick(
+                  isFreeRedesignPage ? FREE_REDESIGN_CTA_LABEL : isFreeWebsitePage ? FREE_WEBSITE_CTA_LABEL : AUDIT_CTA_LABEL,
+                  "Header - Landing Page"
+                )}
                 className={`btn-primary text-[13px] uppercase tracking-wider px-7 py-2.5 ${!isSolid ? "bg-white !text-primary-950 hover:bg-neutral-50" : ""}`}
               >
-                {isFreeRedesignPage ? FREE_REDESIGN_CTA_LABEL : AUDIT_CTA_LABEL}
+                {isFreeRedesignPage ? FREE_REDESIGN_CTA_LABEL : isFreeWebsitePage ? FREE_WEBSITE_CTA_LABEL : AUDIT_CTA_LABEL}
               </a>
             </div>
           )}
@@ -142,10 +148,13 @@ export default function Header() {
             <div className="md:hidden">
               <a
                 href={AUDIT_FORM_ANCHOR}
-                onClick={() => trackCTAClick(isFreeRedesignPage ? FREE_REDESIGN_CTA_LABEL_SHORT : AUDIT_CTA_LABEL_SHORT, "Header - Mobile - Landing Page")}
+                onClick={() => trackCTAClick(
+                  isFreeRedesignPage ? FREE_REDESIGN_CTA_LABEL_SHORT : isFreeWebsitePage ? FREE_WEBSITE_CTA_LABEL_SHORT : AUDIT_CTA_LABEL_SHORT,
+                  "Header - Mobile - Landing Page"
+                )}
                 className={`btn-primary text-xs uppercase tracking-wider px-5 py-2.5 text-center block ${!isSolid ? "bg-white !text-primary-950" : ""}`}
               >
-                {isFreeRedesignPage ? FREE_REDESIGN_CTA_LABEL_SHORT : AUDIT_CTA_LABEL_SHORT}
+                {isFreeRedesignPage ? FREE_REDESIGN_CTA_LABEL_SHORT : isFreeWebsitePage ? FREE_WEBSITE_CTA_LABEL_SHORT : AUDIT_CTA_LABEL_SHORT}
               </a>
             </div>
           )}
