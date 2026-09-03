@@ -12,58 +12,58 @@ import FinalCTASection from "@/components/FinalCTASection";
 export default function Services() {
   const services = [
     {
-      title: "Website Design & Redesign for Service Businesses",
+      title: "Conversion-First Website Design & Redesign",
       description:
-        "We build brand new websites from scratch or redesign your existing site. Either way, we focus on getting you phone calls and booked jobs, not just making it look pretty. Your new site will be fast, mobile-friendly, and designed to turn visitors into leads and calls. Perfect whether you're starting fresh or need to improve your current website.",
+        "We build brand new websites from scratch or rebuild your existing site. Every layout is engineered to get you inbound phone calls, scheduled bays, and quote requests. Your new site will be blazing fast, 100% mobile-friendly, and designed to turn local search intent into paying customers.",
       features: [
-        "Mobile-responsive design",
+        "Mobile-first responsive architecture",
         "Fast loading times (< 2.5 seconds)",
-        "Conversion-optimized layouts",
-        "Clear call-to-action buttons",
-        "Trust-building elements",
-        "Easy-to-use contact forms",
+        "Conversion-optimized CTA & phone placement",
+        "Dedicated service-page silos",
+        "Trust proof stack (licenses, reviews, warranties)",
+        "Frictionless appointment & estimate forms",
       ],
       icon: "paintbrush",
     },
     {
-      title: "Speed Up Your Slow Website",
+      title: "Instant Speed & Core Web Vitals Optimization",
       description:
-        "If your website is slow, it's costing you customers to competitors. We optimize your site (new or existing) for speed and Core Web Vitals. Faster sites rank higher, generate more leads, and keep visitors from leaving before they even see your services.",
+        "If your website is slow on mobile data, you're actively handing customers to competitors. We optimize your website for sub-2.5s speed and stellar Core Web Vitals (LCP, CLS, INP) so searchers stay on your page and convert.",
       features: [
         "Core Web Vitals optimization",
-        "Image optimization",
-        "Code minification",
-        "Caching strategies",
-        "CDN setup",
-        "Performance monitoring",
+        "Image optimization (WebP/AVIF)",
+        "Code minification & bundle reduction",
+        "Zero template bloat",
+        "CDN & caching architecture",
+        "Real-device performance testing",
       ],
       icon: "bolt",
     },
     {
-      title: "Get Found When Customers Search Locally",
+      title: "Local Search & Map Pack Dominance",
       description:
-        "Get found by customers in your area when they search for your services locally. Whether it's 'plumber near me', 'HVAC repair [your city]', or any other local service search, we optimize your website for local search, improve your Google Business Profile, and help you rank higher than your competitors.",
+        "Get found by customers in your immediate service territory. Whether it's 'auto repair near me', 'brake repair [city]', 'emergency plumber near me', or 'AC repair [city]', we optimize your website structure, metadata, and Google Business Profile to capture top local rankings.",
       features: [
-        "Local keyword optimization",
+        "High-intent local keyword targeting",
         "Google Business Profile optimization",
-        "Local schema markup",
-        "Citation building",
-        "Review management",
-        "Local content strategy",
+        "Local schema markup (JSON-LD)",
+        "Service-area radius architecture",
+        "Review & rating integration",
+        "City-specific landing pages",
       ],
       icon: "mappin",
     },
     {
-      title: "Turn More Visitors Into Phone Calls",
+      title: "Call & Quote Conversion Optimization",
       description:
-        "Turn more website visitors into phone calls and booked jobs. Whether you have a new site or an existing one, we analyze performance, identify what's stopping people from calling, and optimize forms, CTAs, and user experience to maximize conversions.",
+        "Turn more website visitors into phone calls and scheduled jobs. We audit your user journey, eliminate lead leaks, and optimize your forms, click-to-call buttons, and trust badges to maximize conversion rates.",
       features: [
-        "Conversion rate analysis",
-        "A/B testing",
-        "Form optimization",
-        "CTA placement & design",
-        "User experience improvements",
-        "Heatmap & analytics review",
+        "Website lead leak audit",
+        "Click-to-call & form tracking",
+        "Friction-free quote workflows",
+        "CTA placement & copy testing",
+        "Trust badge & guarantee placement",
+        "Analytics & conversion tracking",
       ],
       icon: "chartbar",
     },
@@ -89,10 +89,10 @@ export default function Services() {
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 leading-[1.1] tracking-tight">
-              Services That Get Service Businesses <span className="text-primary-400">More Jobs</span>
+              Services Built to Turn Local Searches <span className="text-emerald-400">Into Customers</span>
             </h1>
             <p className="text-xl md:text-2xl text-white/90 font-light leading-relaxed max-w-3xl mx-auto">
-              Everything you need to turn your website into a lead-generating machine that actually pays for itself
+              Everything your local service business needs to capture high-intent search traffic, eliminate lead leaks, and drive more calls and booked jobs.
             </p>
           </div>
         </div>

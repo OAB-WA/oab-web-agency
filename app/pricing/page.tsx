@@ -56,7 +56,7 @@ export default function Pricing() {
       features: [
         "5–7 pages (Home, Services, About, Reviews, Contact + more)",
         "Professional copywriting for core pages",
-        "Optimized for local search (so customers find you when searching 'plumber near me')",
+        "Optimized for local search (so local customers find you when searching 'near me')",
         "Conversion-first layout + clear calls-to-action",
         "Fast load time (under 2.5s target)",
         "Analytics + call/form tracking setup",
@@ -114,7 +114,7 @@ export default function Pricing() {
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 leading-[1.1] tracking-tight">
-              Transparent Pricing for <span className="text-primary-400">Service Businesses</span>
+              Transparent Pricing for <span className="text-emerald-400">Local Service Businesses</span>
             </h1>
             <p className="text-xl md:text-2xl text-white/90 font-light leading-relaxed max-w-3xl mx-auto">
               No hidden fees. No surprises. Just clear pricing that pays for itself with more calls and booked jobs. Built fast and designed to generate leads. Payment plans available to fit your budget.

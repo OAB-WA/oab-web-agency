@@ -16,6 +16,7 @@ const AUDIT_FORM_GA_LABEL: Record<FreeAuditVertical, string> = {
   plumbers: "Free Audit Form - Plumbers",
   hvac: "Free Audit Form - HVAC",
   electricians: "Free Audit Form - Electricians",
+  "auto-repair": "Free Audit Form - Auto Repair",
 };
 
 type FreeAuditLandingPageProps = {

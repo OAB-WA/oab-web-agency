@@ -6,7 +6,7 @@ export default function SchemaMarkup() {
     url: "https://oabwebagency.com",
     logo: "https://oabwebagency.com/logo_dark.webp",
     description:
-      "Lead-generating websites built for service-based businesses. We turn visitors into calls and booked jobs.",
+      "Fast, conversion-focused websites for local service businesses and auto repair shops. We turn local searches into calls, bookings, and quote requests.",
     contactPoint: {
       "@type": "ContactPoint",
       telephone: "+2349150725803",
@@ -29,7 +29,7 @@ export default function SchemaMarkup() {
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    serviceType: "Web Design and Development",
+    serviceType: "Conversion-Focused Web Design and Local SEO",
     provider: {
       "@type": "Organization",
       name: "OAB Web Agency",
@@ -39,7 +39,7 @@ export default function SchemaMarkup() {
       name: "United States",
     },
     description:
-      "Website design, development, SEO, and conversion optimization for service-based businesses.",
+      "Conversion-focused website design, auto repair web design, speed optimization, and local SEO for service businesses.",
     offers: {
       "@type": "Offer",
       priceCurrency: "USD",
@@ -52,7 +52,7 @@ export default function SchemaMarkup() {
     "@type": "LocalBusiness",
     name: "OAB Web Agency",
     description:
-      "Web design and development agency specializing in lead-generating websites for service-based businesses.",
+      "Web design agency specializing in fast, conversion-focused websites that turn local searches into customers for service-based businesses and auto repair shops.",
     url: "https://oabwebagency.com",
     telephone: "+2349150725803",
     email: "hello@oabwebagency.com",

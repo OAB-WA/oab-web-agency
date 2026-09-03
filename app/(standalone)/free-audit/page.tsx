@@ -9,6 +9,7 @@ import { AUDIT_FORM_ANCHOR, AUDIT_CTA_LABEL } from "@/lib/cta";
 import ProcessSection from "@/components/ProcessSection";
 import { PROCESS_COPY_AUDIT_FIRST } from "@/lib/process";
 import ExampleAuditOutputSection from "@/components/ExampleAuditOutputSection";
+import { SparklesIcon } from "@/components/Icons";
 
 export default function LandingPage() {
   const [formData, setFormData] = useState({
@@ -114,37 +115,36 @@ export default function LandingPage() {
           <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Left: Headline & Benefits */}
             <div>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-xs sm:text-sm font-semibold text-emerald-300 mb-8">
+                <SparklesIcon className="w-4 h-4 text-emerald-400" />
+                <span>Free 24-Hour Website Audit</span>
+              </div>
+
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-[1.1] tracking-tight text-white">
-                Get 2–3x More Phone Calls & Booked Jobs From Your Website
+                Get 2–3x More{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 via-emerald-400 to-teal-200">
+                  Phone Calls & Booked Jobs
+                </span>{" "}
+                From Your Website
               </h1>
               <p className="text-xl md:text-2xl text-white/90 mb-10 leading-relaxed font-light">
                 While your competitors get calls from Google, you're losing customers to website issues. Get a free audit showing exactly what's costing you leads, with clear priorities and quick wins.
               </p>
-              <div className="space-y-4 text-white/80">
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-white/10 flex items-center justify-center mr-4 mt-1">
-                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
+              <div className="space-y-4 text-white/85">
+                {[
+                  "Know exactly what's costing you calls and booked jobs",
+                  "Speed, mobile, and local search fixes that drive more leads",
+                  "Delivered in 24 hours. No sales pitch.",
+                ].map((benefit) => (
+                  <div key={benefit} className="flex items-start gap-3.5">
+                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center mt-0.5">
+                      <svg className="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <span className="text-lg font-light">{benefit}</span>
                   </div>
-                  <span className="text-lg">Know exactly what's costing you calls and booked jobs</span>
-                </div>
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-white/10 flex items-center justify-center mr-4 mt-1">
-                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <span className="text-lg">Speed, mobile, and local search fixes that drive more leads</span>
-                </div>
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-white/10 flex items-center justify-center mr-4 mt-1">
-                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <span className="text-lg">Delivered in 24 hours. No sales pitch.</span>
-                </div>
+                ))}
               </div>
             </div>
             
@@ -233,7 +233,12 @@ export default function LandingPage() {
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <SectionHeader
             className="mb-16"
-            title="Your Website Issues Are Costing You Customers Every Day"
+            title={
+              <>
+                Your Website Issues Are{" "}
+                <span className="text-rose-600">Costing You Customers Every Day</span>
+              </>
+            }
             subtitle="Many service businesses lose potential customers due to website problems like slow loading, poor mobile experience, or weak local SEO. If your site isn't performing, you're likely losing jobs to competitors."
           />
 

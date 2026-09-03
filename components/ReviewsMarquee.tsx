@@ -28,6 +28,93 @@ function StarRow({ rating }: { rating: number }) {
   );
 }
 
+function ReviewCard({
+  testimonial,
+  variant,
+  className = "",
+  onMouseEnter,
+  onMouseLeave,
+}: {
+  testimonial: Testimonial;
+  variant: "light" | "dark";
+  className?: string;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
+}) {
+  const isDark = variant === "dark";
+  const initials = testimonial.author
+    .split(" ")
+    .slice(0, 2)
+    .map((n) => n[0])
+    .join("");
+
+  return (
+    <article
+      className={`group relative shrink-0 w-[290px] sm:w-[360px] md:w-[400px] overflow-hidden rounded-2xl border pl-5 pr-8 py-8 md:pl-6 md:pr-9 md:py-9 shadow-sm transition-transform duration-300 will-change-transform ${
+        isDark
+          ? "border-white/10 bg-white/[0.08] text-white"
+          : "border-neutral-200/80 bg-white text-neutral-900"
+      } ${className}`}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+    >
+      <div
+        className={`absolute inset-y-0 left-0 w-1 ${
+          isDark ? "bg-emerald-400/80" : "bg-primary-950"
+        }`}
+        aria-hidden="true"
+      />
+
+      <div className="relative">
+        <div className="flex items-start justify-between gap-4">
+          <StarRow rating={testimonial.rating} />
+          <span
+            className={`select-none font-serif text-6xl leading-none ${
+              isDark ? "text-white/15" : "text-primary-950/12"
+            }`}
+            aria-hidden="true"
+          >
+            “
+          </span>
+        </div>
+
+        <p
+          className={`mt-2 text-[15px] md:text-base leading-relaxed font-light ${
+            isDark ? "text-white/85" : "text-neutral-700"
+          }`}
+        >
+          {testimonial.quote}
+        </p>
+
+        <div
+          className={`mt-8 flex items-center gap-4 border-t pt-6 ${
+            isDark ? "border-white/10" : "border-neutral-100"
+          }`}
+        >
+          <div
+            className={`h-11 w-11 rounded-xl flex items-center justify-center text-sm font-bold tracking-wide ${
+              isDark ? "bg-white/15 text-white" : "bg-primary-950 text-white"
+            }`}
+            aria-hidden="true"
+          >
+            {initials}
+          </div>
+          <div>
+            <p className="font-bold leading-tight">{testimonial.author}</p>
+            <p
+              className={`text-xs font-medium uppercase tracking-widest mt-1 ${
+                isDark ? "text-white/60" : "text-primary-600"
+              }`}
+            >
+              {testimonial.role}
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
+  );
+}
+
 export default function ReviewsMarquee({
   testimonials,
   variant = "light",
@@ -38,29 +125,12 @@ export default function ReviewsMarquee({
   const [paused, setPaused] = useState(false);
 
   useEffect(() => {
-    // Only enable hover-pause on devices that actually hover.
     const mql = window.matchMedia("(hover: hover) and (pointer: fine)");
     const update = () => setSupportsHover(mql.matches);
     update();
     mql.addEventListener?.("change", update);
     return () => mql.removeEventListener?.("change", update);
   }, []);
-
-  const cardBase =
-    "group relative shrink-0 w-[290px] sm:w-[360px] md:w-[400px] rounded-[2.25rem] p-[1px] transition-transform duration-300 will-change-transform";
-
-  const cardOuterTheme =
-    variant === "dark"
-      ? "bg-gradient-to-br from-white/20 via-white/10 to-white/5"
-      : "bg-gradient-to-br from-primary-950/10 via-black/5 to-transparent";
-
-  const cardInnerBase =
-    "relative overflow-hidden rounded-[2.2rem] border px-8 py-8 md:px-9 md:py-9 backdrop-blur-xl transition-all duration-300";
-
-  const cardInnerTheme =
-    variant === "dark"
-      ? "bg-white/10 border-white/10 text-white hover:bg-white/14 hover:border-white/20"
-      : "bg-white/80 border-black/5 text-neutral-900 hover:bg-white hover:border-black/10";
 
   const cardHover = supportsHover ? "hover:-translate-y-1" : "";
 
@@ -85,72 +155,12 @@ export default function ReviewsMarquee({
         <div className="overflow-x-auto [-webkit-overflow-scrolling:touch]">
           <div className="flex gap-6 py-4 pr-6 snap-x snap-mandatory">
             {items.map((t, idx) => (
-              <article
+              <ReviewCard
                 key={`${t.author}-${idx}`}
-                className={`${cardBase} ${cardOuterTheme} ${cardHover} snap-start`}
-              >
-                <div className={`${cardInnerBase} ${cardInnerTheme}`}>
-                  <div
-                    className={`pointer-events-none absolute -top-24 -right-24 h-56 w-56 rounded-full blur-3xl ${
-                      variant === "dark" ? "bg-white/10" : "bg-primary-950/10"
-                    }`}
-                  />
-                  <div className="relative">
-                    <div className="flex items-center justify-between">
-                      <StarRow rating={t.rating} />
-                      <svg
-                        className={`h-5 w-5 ${
-                          variant === "dark" ? "text-white/35" : "text-neutral-300"
-                        }`}
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        aria-hidden="true"
-                      >
-                        <path d="M7.17 6A5.17 5.17 0 002 11.17V22h10.83V11.17A5.17 5.17 0 007.66 6H7.17zm9.17 0A5.17 5.17 0 0011 11.17V22h11V11.17A5.17 5.17 0 0016.34 6h-.0z" />
-                      </svg>
-                    </div>
-
-                    <p
-                      className={`mt-5 text-[15px] md:text-base leading-relaxed font-light ${
-                        variant === "dark" ? "text-white/85" : "text-neutral-700"
-                      }`}
-                    >
-                      {t.quote}
-                    </p>
-
-                    <div
-                      className={`mt-8 flex items-center gap-4 border-t pt-6 ${
-                        variant === "dark" ? "border-white/10" : "border-black/5"
-                      }`}
-                    >
-                      <div
-                        className={`h-12 w-12 rounded-2xl flex items-center justify-center text-sm font-bold tracking-wide ${
-                          variant === "dark"
-                            ? "bg-white/15 text-white"
-                            : "bg-primary-950 text-white"
-                        }`}
-                        aria-hidden="true"
-                      >
-                        {t.author
-                          .split(" ")
-                          .slice(0, 2)
-                          .map((n) => n[0])
-                          .join("")}
-                      </div>
-                      <div>
-                        <p className="font-bold leading-tight">{t.author}</p>
-                        <p
-                          className={`text-xs font-medium uppercase tracking-widest mt-1 ${
-                            variant === "dark" ? "text-white/60" : "text-primary-600"
-                          }`}
-                        >
-                          {t.role}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </article>
+                testimonial={t}
+                variant={variant}
+                className={`${cardHover} snap-start`}
+              />
             ))}
           </div>
         </div>
@@ -184,9 +194,11 @@ export default function ReviewsMarquee({
           {[0, 1].map((dup) => (
             <div key={dup} className="flex gap-6 pr-6">
               {items.map((t, idx) => (
-                <article
+                <ReviewCard
                   key={`${dup}-${t.author}-${idx}`}
-                  className={`${cardBase} ${cardOuterTheme} ${cardHover}`}
+                  testimonial={t}
+                  variant={variant}
+                  className={cardHover}
                   onMouseEnter={() => {
                     if (!supportsHover) return;
                     setPaused(true);
@@ -195,69 +207,7 @@ export default function ReviewsMarquee({
                     if (!supportsHover) return;
                     setPaused(false);
                   }}
-                >
-                  <div className={`${cardInnerBase} ${cardInnerTheme}`}>
-                    <div
-                      className={`pointer-events-none absolute -top-24 -right-24 h-56 w-56 rounded-full blur-3xl ${
-                        variant === "dark" ? "bg-white/10" : "bg-primary-950/10"
-                      }`}
-                    />
-                    <div className="relative">
-                      <div className="flex items-center justify-between">
-                        <StarRow rating={t.rating} />
-                        <svg
-                          className={`h-5 w-5 ${
-                            variant === "dark" ? "text-white/35" : "text-neutral-300"
-                          }`}
-                          viewBox="0 0 24 24"
-                          fill="currentColor"
-                          aria-hidden="true"
-                        >
-                          <path d="M7.17 6A5.17 5.17 0 002 11.17V22h10.83V11.17A5.17 5.17 0 007.66 6H7.17zm9.17 0A5.17 5.17 0 0011 11.17V22h11V11.17A5.17 5.17 0 0016.34 6h-.0z" />
-                        </svg>
-                      </div>
-
-                      <p
-                        className={`mt-5 text-[15px] md:text-base leading-relaxed font-light ${
-                          variant === "dark" ? "text-white/85" : "text-neutral-700"
-                        }`}
-                      >
-                        {t.quote}
-                      </p>
-
-                      <div
-                        className={`mt-8 flex items-center gap-4 border-t pt-6 ${
-                          variant === "dark" ? "border-white/10" : "border-black/5"
-                        }`}
-                      >
-                        <div
-                          className={`h-12 w-12 rounded-2xl flex items-center justify-center text-sm font-bold tracking-wide ${
-                            variant === "dark"
-                              ? "bg-white/15 text-white"
-                              : "bg-primary-950 text-white"
-                          }`}
-                          aria-hidden="true"
-                        >
-                          {t.author
-                            .split(" ")
-                            .slice(0, 2)
-                            .map((n) => n[0])
-                            .join("")}
-                        </div>
-                        <div>
-                          <p className="font-bold leading-tight">{t.author}</p>
-                          <p
-                            className={`text-xs font-medium uppercase tracking-widest mt-1 ${
-                              variant === "dark" ? "text-white/60" : "text-primary-600"
-                            }`}
-                          >
-                            {t.role}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </article>
+                />
               ))}
             </div>
           ))}
@@ -266,4 +216,3 @@ export default function ReviewsMarquee({
     </div>
   );
 }
-

@@ -1,4 +1,4 @@
-export type FreeAuditVertical = "plumbers" | "hvac" | "electricians";
+export type FreeAuditVertical = "plumbers" | "hvac" | "electricians" | "auto-repair";
 
 export type FreeAuditCopy = {
   /** Hero headline */
@@ -28,6 +28,45 @@ export type FreeAuditCopy = {
   ctaHeadline: string;
   /** Bottom CTA section subtext */
   ctaSubtext: string;
+};
+
+export const FREE_AUDIT_COPY_AUTO_REPAIR: FreeAuditCopy = {
+  heroHeadline: "Get 2–3x More Repair Calls & Scheduled Bays From Your Auto Repair Website",
+  heroSubhead:
+    "While dealerships and competitor shops win calls from local drivers searching on phones, you're losing high-ticket repair jobs to website friction. Get a free auto repair website conversion audit showing exactly what's costing you customers, with clear priorities and quick wins.",
+  heroBenefits: [
+    "Know exactly what's costing you repair calls and scheduled appointments",
+    "Instant speed, mobile click-to-call, and local search fixes for your shop",
+    "Delivered in 24 hours. No sales pitch.",
+  ],
+  ctaLabel: "Get My Free Auto Repair Website Audit",
+  formSubtext: "See what's costing you repair jobs—and what to fix first.",
+  problemTitle: "Your Auto Repair Website Issues Are Costing You Scheduled Bays Every Day",
+  problemSubtitle:
+    "When drivers have broken brakes, check engine lights, or failing AC, they search on their phones and call the first shop they trust. If your site is slow, hard to navigate, or lacks clear service pages, you lose the job instantly.",
+  problemCards: [
+    [
+      "Slow Mobile Loading = Lost Drivers",
+      "Drivers on the road won't wait 4+ seconds for a clunky site to load. They immediately tap back to Google and call the next shop.",
+    ],
+    [
+      "No Click-to-Call / Hard Drop-Off = Lost Appointments",
+      "Over 70% of auto repair searches happen on smartphones. If your phone number and estimate request form aren't instant to use, drivers bounce.",
+    ],
+    [
+      "Missing Service Pages = Invisible on Google",
+      "Without dedicated pages for Brake Repair, Engine Diagnostics, AC Repair, and Transmissions, competitor shops and dealerships outrank you in your city.",
+    ],
+  ],
+  problemCalloutTitle: "Every week your shop website underperforms, you're handing high-ticket repair jobs to competitors.",
+  problemCalloutBody:
+    "The average independent auto repair shop loses $3,000–$8,000 per month in high-margin repair work (brakes, diagnostics, suspension, major service) due to slow mobile loading and weak local search visibility.",
+  whatsIncludedTitle: "What You'll Get in Your Free Auto Repair Audit",
+  whatsIncludedSubtitle:
+    "A clear breakdown of what's costing your shop phone calls and scheduled bays, plus quick wins and a prioritized roadmap.",
+  ctaHeadline: "Find Out Exactly What's Costing Your Shop Customers",
+  ctaSubtext:
+    "Get your free auto repair website audit and see the specific issues preventing local drivers from calling or booking. Delivered in 24 hours. No sales pitch.",
 };
 
 export const FREE_AUDIT_COPY_PLUMBERS: FreeAuditCopy = {

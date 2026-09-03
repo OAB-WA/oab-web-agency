@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Lead-Generating Websites for Service Businesses",
+  title: "Websites That Turn Local Searches Into Customers",
   description:
-    "Your website should bring you leads: not just look good. We build high-performance websites that turn visitors into calls and booked jobs for service-based businesses. We work with plumbers, HVAC companies, electricians, landscapers, roofers, and other service businesses.",
+    "We build fast, conversion-focused websites for local service businesses and auto repair shops that want more calls, bookings, and quote requests. We work with auto repair shops, plumbers, HVAC companies, electricians, pest control, cleaners, landscapers, and other established service businesses.",
   keywords: [
-    "web design for service businesses",
+    "web design for local service businesses",
+    "auto repair website design",
+    "auto repair shop websites",
     "plumber website design",
     "HVAC website",
     "contractor website",
@@ -15,9 +17,9 @@ export const metadata: Metadata = {
     "service business web design",
   ],
   openGraph: {
-    title: "Lead-Generating Websites for Service Businesses | OAB Web Agency",
+    title: "Websites That Turn Local Searches Into Customers | OAB Web Agency",
     description:
-      "Your website should bring you leads: not just look good. We build high-performance websites that turn visitors into calls and booked jobs.",
+      "We build fast, conversion-focused websites for local service businesses and auto repair shops that want more calls, bookings, and quote requests.",
     type: "website",
     url: "https://oabwebagency.com",
   },

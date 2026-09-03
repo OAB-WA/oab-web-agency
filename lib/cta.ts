@@ -1,13 +1,19 @@
 import { CALENDLY_URL } from "@/lib/constants";
 
-// Sitewide primary CTA (main website)
-export const PRIMARY_CTA_LABEL = "Request a Quote";
+// Sitewide primary CTA (main website - Free Website Audit offer)
+export const PRIMARY_CTA_LABEL = "Get Free Audit";
+export const PRIMARY_CTA_LABEL_LONG = "Get a Free Website Audit";
 
 // Use when space is tight (e.g., mobile header button)
-export const PRIMARY_CTA_LABEL_SHORT = "Request Quote";
+export const PRIMARY_CTA_LABEL_SHORT = "Free Audit";
 
 // Default destination for the primary CTA from non-landing pages
-export const PRIMARY_CTA_HREF = "/contact#quote-form";
+export const PRIMARY_CTA_HREF = "/free-audit";
+
+// Quote CTA constants (for contact/pricing pages)
+export const QUOTE_CTA_LABEL = "Request a Quote";
+export const QUOTE_CTA_LABEL_SHORT = "Request Quote";
+export const QUOTE_CTA_HREF = "/contact#quote-form";
 
 // Standalone ads landing CTA (free audit)
 export const AUDIT_CTA_LABEL = "Get My Free Audit";

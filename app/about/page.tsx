@@ -21,12 +21,12 @@ export default function About() {
     {
       title: "Service Business Focus",
       description:
-        "We understand the unique needs of service businesses. Our websites are built specifically for plumbers, HVAC companies, electricians, landscapers, roofers, cleaners, and other service-based businesses.",
+        "We understand the unique needs of local service businesses. Our websites are built specifically for auto repair shops, plumbers, HVAC companies, electricians, pest control, cleaners, landscapers, roofers, and other local service providers.",
     },
     {
       title: "Transparent & Honest",
       description:
-        "No agency fluff or buzzwords. We tell you exactly what your website needs and why it matters for your business.",
+        "No agency fluff or buzzwords. We tell you exactly what your website needs, deliver clear audit roadmaps, and build sites that pay for themselves.",
     },
   ];
 
@@ -50,10 +50,10 @@ export default function About() {
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 leading-[1.1] tracking-tight">
-              We Build Websites That Get You <span className="text-primary-400">More Calls & Jobs</span>
+              Websites That Turn Local Searches <span className="text-emerald-400">Into Customers</span>
             </h1>
             <p className="text-xl md:text-2xl text-white/90 font-light leading-relaxed max-w-3xl mx-auto">
-              Specializing in lead-generating websites for service-based businesses. We turn your online presence into a lead-generating machine.
+              We engineer fast, high-converting websites for local service businesses and auto repair shops that want more calls, bookings, and quote requests.
             </p>
           </div>
         </div>
@@ -65,13 +65,13 @@ export default function About() {
           <SectionHeader align="left" className="mb-10" title="Our Story" />
           <div className="space-y-8">
             <p className="text-xl text-neutral-600 font-light leading-relaxed">
-              Most service businesses have websites that look fine but don't generate calls. They're slow, hard to use on phones, and don't turn visitors into leads and calls. Meanwhile, competitors with better websites are getting all the jobs.
+              Most local service businesses have websites that look decent on a desktop computer but fail to generate actual phone calls. They're slow to load on mobile, bury their phone number, lack dedicated service pages, and leak customers to competitors every single day.
             </p>
             <p className="text-xl text-neutral-600 font-light leading-relaxed">
-              We started OAB Web Agency to fix that. We build websites designed specifically for service businesses. Websites that turn visitors into phone calls and booked jobs. No fancy animations or design awards. Just websites that bring you customers.
+              We started OAB Web Agency to fix that. We build websites engineered specifically for local service businesses and independent shops. Websites that turn local search intent into booked jobs, scheduled bays, and tracked quote requests.
             </p>
             <p className="text-xl text-neutral-600 font-light leading-relaxed">
-              Our focus is simple: speed, local SEO, and getting you phone calls. We don't build flashy sites that win design awards. We build websites that pay for themselves with more calls, more jobs, and more revenue.
+              Our focus is simple: instant speed, local search visibility, and conversion architecture. We don't build generic templates that win superficial design awards—we build high-performing digital assets that pay for themselves.
             </p>
           </div>
         </div>
@@ -105,13 +105,13 @@ export default function About() {
       {/* Why Service Businesses */}
       <Section className="py-20 md:py-32 bg-white/60 backdrop-blur-sm">
         <div className="max-w-4xl mx-auto text-center px-4">
-          <SectionHeader className="mb-10" title="Why We Focus on Service Businesses" />
+          <SectionHeader className="mb-10" title="Why We Focus on Local Service Businesses" />
           <div className="space-y-8">
             <p className="text-xl text-neutral-600 font-light leading-relaxed">
-              Home-based service businesses have unique needs. When someone's pipe bursts at 2 AM or their AC breaks in the summer, they need to find you quickly, trust you immediately, and contact you easily. Your website needs to be fast, mobile-friendly, and optimized for local search. Or they're calling your competitor.
+              When someone&apos;s brakes start squeaking, their water heater leaks, or their AC stops cooling in July, they search on their phone, evaluate credibility in seconds, and call the first business they trust. If your site takes 4 seconds to load or makes it hard to call, you lose that customer instantly.
             </p>
             <p className="text-xl text-neutral-600 font-light leading-relaxed">
-              We understand these needs because we've worked with plumbers, HVAC companies, electricians, landscapers, roofers, and other service-based businesses. We know what works (fast loading, clear phone numbers, local SEO) and what doesn't (slow sites, fancy animations, confusing navigation).
+              We understand these dynamics because we focus exclusively on local service businesses—including auto repair shops, plumbers, HVAC technicians, electricians, and contractors. We know what converts (sub-2.5s speed, 1-tap calling, clear service pages, trust proof) and what fails.
             </p>
           </div>
         </div>

@@ -20,12 +20,12 @@ export const TESTIMONIALS: Testimonial[] = [
     role: "Owner, Green and Clean Services",
     rating: 5,
   },
-  {
-    quote:
-      "The team understood that I need phone calls, not a fancy website. They built something that actually generates jobs. I'm ranking higher and the phone is ringing a lot more.",
-    author: "Service Business Owner",
-    role: "Electrical Services",
-    rating: 5,
-  },
+  // {
+  //   quote:
+  //     "The team understood that I need phone calls, not a fancy website. They built something that actually generates jobs. I'm ranking higher and the phone is ringing a lot more.",
+  //   author: "Service Business Owner",
+  //   role: "Electrical Services",
+  //   rating: 5,
+  // },
 ];
 

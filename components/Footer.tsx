@@ -10,12 +10,20 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
   const pathname = usePathname();
   const isLandingPage =
-    pathname.startsWith("/free-redesign") || pathname.startsWith("/free-audit") || pathname.startsWith("/free-website");
+    pathname.startsWith("/free-redesign") ||
+    pathname.startsWith("/free-audit") ||
+    pathname.startsWith("/free-website") ||
+    pathname.startsWith("/auto-repair-websites");
   const isPrintOnly = pathname === "/free-audit/example-audit-output";
 
   // Determine the correct CTA link based on current page
   const getCTALink = () => {
-    if (pathname.startsWith("/free-redesign") || pathname.startsWith("/free-audit") || pathname.startsWith("/free-website")) {
+    if (
+      pathname.startsWith("/free-redesign") ||
+      pathname.startsWith("/free-audit") ||
+      pathname.startsWith("/free-website") ||
+      pathname.startsWith("/auto-repair-websites")
+    ) {
       return AUDIT_FORM_ANCHOR;
     }
     return PRIMARY_CTA_HREF;
@@ -75,7 +83,7 @@ export default function Footer() {
               />
             </div>
             <p className="text-lg text-neutral-400 max-w-md leading-relaxed font-light">
-              Lead-generating websites built for service-based businesses. We turn visitors into phone calls and booked jobs through speed and performance.
+              Fast, conversion-focused websites for local service businesses. We turn local search traffic into calls, bookings, and quote requests.
             </p>
             
             {/* CTA Button */}
@@ -85,7 +93,7 @@ export default function Footer() {
                 onClick={() => trackCTAClick(PRIMARY_CTA_LABEL, "Footer - CTA")}
                 className="btn-primary-dark rounded-2xl px-8 py-4 font-bold shadow-xl hover:shadow-white/10 active:scale-95"
               >
-                {PRIMARY_CTA_LABEL}
+                Get a Free Website Audit
               </Link>
             </div>
             
@@ -143,8 +151,9 @@ export default function Footer() {
             <ul className="space-y-4">
               {[
                 { label: 'Website Design', href: '/services' },
-                { label: 'Performance Optimization', href: '/services' },
-                { label: 'Local SEO', href: '/services' },
+                { label: 'Auto Repair Websites', href: '/auto-repair-websites' },
+                { label: 'Local Search & SEO', href: '/services' },
+                { label: 'Speed Optimization', href: '/services' },
                 { label: 'Conversion Strategy', href: '/services' }
               ].map((link) => (
                 <li key={link.label}>

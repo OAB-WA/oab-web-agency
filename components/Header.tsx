@@ -26,7 +26,10 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
   const isLandingPage =
-    pathname.startsWith("/free-redesign") || pathname.startsWith("/free-audit") || pathname.startsWith("/free-website");
+    pathname.startsWith("/free-redesign") ||
+    pathname.startsWith("/free-audit") ||
+    pathname.startsWith("/free-website") ||
+    pathname.startsWith("/auto-repair-websites");
   const isFreeRedesignPage = pathname.startsWith("/free-redesign");
   const isFreeWebsitePage = pathname.startsWith("/free-website");
 
@@ -106,7 +109,7 @@ export default function Header() {
               })}
               <Link
                 href={PRIMARY_CTA_HREF}
-                onClick={() => trackCTAClick(PRIMARY_CTA_LABEL, "Header - Desktop - Quote")}
+                onClick={() => trackCTAClick(PRIMARY_CTA_LABEL, "Header - Desktop - Free Audit")}
                 className="btn-primary text-[13px] uppercase tracking-wider px-7 py-2.5 shadow-sm active:scale-95 transition-all"
               >
                 {PRIMARY_CTA_LABEL}

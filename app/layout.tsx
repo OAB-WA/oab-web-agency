@@ -15,20 +15,22 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "OAB Web Agency | Lead-Generating Websites for Service Businesses",
+    default: "OAB Web Agency | Websites That Turn Local Searches Into Customers",
     template: "%s | OAB Web Agency",
   },
   description:
-    "We build high-performance websites that turn visitors into calls and booked jobs. Specializing in website design, SEO, and conversion optimization for service-based businesses.",
+    "We build fast, professional, conversion-focused websites for local service businesses and auto repair shops that want more calls, bookings, and quote requests.",
   keywords: [
-    "web design",
-    "website development",
+    "web design for local service businesses",
+    "auto repair website design",
+    "auto repair shop websites",
     "service business websites",
     "local SEO",
     "conversion optimization",
-    "lead generation",
+    "lead generation websites",
     "plumber websites",
     "HVAC websites",
+    "electrician websites",
     "contractor websites",
   ],
   authors: [{ name: "OAB Web Agency" }],
@@ -38,15 +40,15 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://oabwebagency.com",
     siteName: "OAB Web Agency",
-    title: "OAB Web Agency | Lead-Generating Websites for Service Businesses",
+    title: "OAB Web Agency | Websites That Turn Local Searches Into Customers",
     description:
-      "We build high-performance websites that turn visitors into calls and booked jobs. Specializing in website design, SEO, and conversion optimization for service-based businesses.",
+      "We build fast, professional, conversion-focused websites for local service businesses and auto repair shops that want more calls, bookings, and quote requests.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "OAB Web Agency | Lead-Generating Websites for Service Businesses",
+    title: "OAB Web Agency | Websites That Turn Local Searches Into Customers",
     description:
-      "We build high-performance websites that turn visitors into calls and booked jobs.",
+      "We build fast, professional, conversion-focused websites for local service businesses that turn visitors into calls and booked jobs.",
   },
   robots: {
     index: true,

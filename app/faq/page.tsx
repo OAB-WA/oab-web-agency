@@ -38,7 +38,7 @@ export default function FAQ() {
     {
       question: "Do you work with service-based businesses only?",
       answer:
-        "While we specialize in service-based businesses (plumbers, HVAC, electricians, contractors, etc.), we work with all types of businesses that need lead-generating websites. Our expertise in lead generation benefits any business that relies on leads and phone calls.",
+        "We specialize in local service businesses—including independent auto repair shops, plumbers, HVAC companies, electricians, pest control, cleaners, landscapers, and contractors. If your business depends on local phone calls, quote requests, and booked jobs, our conversion-first approach is built specifically for you.",
     },
     {
       question: "What's included in a website design or redesign?",
