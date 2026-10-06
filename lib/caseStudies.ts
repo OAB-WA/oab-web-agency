@@ -1,5 +1,5 @@
 export type CaseStudyPerformanceMetric = {
-  before: number;
+  before?: number;
   after: number;
   unit: string;
 };
@@ -9,6 +9,7 @@ export type CaseStudy = {
   business: string;
   label: string;
   service: string;
+  type?: "redesign" | "new-build";
   disclaimer?: string;
   // Long-form copy (used on /case-studies)
   problem: string;
@@ -16,13 +17,16 @@ export type CaseStudy = {
   outcome: string;
   // Short copy (used on compact cards)
   compactSummary: string;
-  beforeImageUrl: string;
+  beforeImageUrl?: string;
   imageUrl: string;
   originalWebsiteUrl?: string;
   demoUrl?: string;
   keyTakeaways?: string[];
   performance?: {
-    score: { before: number; after: number };
+    score: { before?: number; after: number };
+    accessibility?: number;
+    bestPractices?: number;
+    seo?: number;
     fcp: CaseStudyPerformanceMetric;
     lcp: CaseStudyPerformanceMetric;
     tbt: CaseStudyPerformanceMetric;
@@ -41,6 +45,7 @@ export const caseStudies: CaseStudy[] = [
     id: "swan-plumbing",
     business: "Swan Plumbing & Heating",
     label: "Redesign Showcase",
+    type: "redesign",
     service: "Website Design & Redesign + Local SEO",
     disclaimer:
       "This is an unsolicited redesign of a real plumbing company's website, created to demonstrate our approach. We were not hired by this client. Any “impact” metrics shown are modeled estimates based on performance/UX improvements (not measured client results).",
@@ -79,6 +84,7 @@ export const caseStudies: CaseStudy[] = [
     id: "tribeca-plumbing",
     business: "Tribeca Plumbing Inc",
     label: "Redesign Showcase",
+    type: "redesign",
     service: "Website Design & Redesign + Local SEO",
     disclaimer:
       "This is an unsolicited redesign of a real plumbing company's website, created to demonstrate our approach. We were not hired by this client. Any “impact” metrics shown are modeled estimates based on performance/UX improvements (not measured client results).",
@@ -113,6 +119,46 @@ export const caseStudies: CaseStudy[] = [
       leads: "+12–32%",
     },
   },
+  {
+    id: "apex-auto-care",
+    business: "Apex Auto Care",
+    label: "New Build Showcase",
+    type: "new-build",
+    service: "Auto Repair Website Design & Local SEO",
+    disclaimer:
+      "This is a custom demonstration website built from scratch to showcase our mobile-first, high-conversion web development approach for independent auto repair shops. Any impact metrics shown are modeled estimates based on Core Web Vitals and conversion architecture.",
+    compactSummary:
+      "A blazing-fast, mobile-first auto repair website engineered with 1-tap emergency calling, dedicated service silos, digital inspection transparency, and 95–100 Google PageSpeed scores.",
+    problem:
+      "Most auto repair shop websites struggle to win high-margin repair jobs (brakes, diagnostics, transmissions) from Google. They rely on bloated templates that take 4+ seconds to load on mobile, bury their phone numbers behind nested menus, lack dedicated landing pages for core services, and fail to present clear trust credentials—causing over 60% of roadside drivers to bounce and call competitors.",
+    approach:
+      "Built a custom, lightning-fast web application from the ground up tailored for modern motorists. Engineered 1-tap emergency mobile dialing, dedicated high-margin service landing silos (Brakes, Engine, A/C, Diagnostics, Maintenance), transparent digital photo/video inspection proof, ASE certified trust badges, and a frictionless 2-step bay reservation flow.",
+    outcome:
+      "Achieved exceptional Google PageSpeed Insights results (95 Performance, 95 Accessibility, 100 Best Practices, 100 SEO) with a 1.2s First Contentful Paint, 20ms Total Blocking Time, and 0 layout shift. Designed to maximize local search capture and turn urgent motorists into booked service bays.",
+    imageUrl: "/apex_autocare.png",
+    demoUrl: "https://apexautocare.vercel.app/",
+    keyTakeaways: [
+      "95–100 Google PageSpeed scores across all 4 categories",
+      "1-Tap mobile roadside calling & streamlined bay booking",
+      "Dedicated service silos for brakes, diagnostics, AC & maintenance",
+    ],
+    performance: {
+      score: { after: 95 },
+      accessibility: 95,
+      bestPractices: 100,
+      seo: 100,
+      fcp: { after: 1.2, unit: "s" },
+      lcp: { after: 2.6, unit: "s" },
+      tbt: { after: 20, unit: "ms" },
+      cls: { after: 0, unit: "" },
+      speedIndex: { after: 4.1, unit: "s" },
+    },
+    businessImpact: {
+      callVolume: "+25–45%",
+      bounceRate: "-30–50%",
+      leads: "2.5–3x",
+    },
+  },
 ];
 
 export function getCaseStudy(id: CaseStudy["id"]): CaseStudy | undefined {
@@ -125,7 +171,8 @@ export function getCaseStudiesNewestFirst(): CaseStudy[] {
   return [...caseStudies].reverse();
 }
 
-export function getFeaturedCaseStudies(count = 2): CaseStudy[] {
+export function getFeaturedCaseStudies(count = 3): CaseStudy[] {
   return getCaseStudiesNewestFirst().slice(0, count);
 }
+
 

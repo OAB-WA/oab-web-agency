@@ -8,7 +8,7 @@ import FinalCTASection from "@/components/FinalCTASection";
 
 export default function CaseStudiesPage() {
   return (
-    <div className="bg-transparent">
+    <div className="bg-transparent overflow-x-clip w-full max-w-full">
       {/* Hero */}
       <section className="relative text-white pt-32 pb-24 md:py-40 overflow-hidden -mt-20">
         <div className="absolute inset-0">

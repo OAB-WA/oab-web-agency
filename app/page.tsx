@@ -13,7 +13,7 @@ import {
   PhoneIcon,
   SparklesIcon,
 } from "@/components/Icons";
-import CaseStudyCarousel from "@/components/CaseStudyCarousel";
+import ProjectShowcaseGrid from "@/components/ProjectShowcaseGrid";
 import SectionHeader from "@/components/SectionHeader";
 import { trackCTAClick } from "@/lib/gtag";
 import { getFeaturedCaseStudies } from "@/lib/caseStudies";
@@ -254,43 +254,41 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* 6. Demo Case Studies Section */}
+      {/* 6. Demo Case Studies & Projects Section */}
       <Section id="case-studies" className="bg-white/60 backdrop-blur-sm scroll-mt-24">
         <SectionHeader
           className="mb-12"
-          title="See How We Transform Service Business Websites"
-          subtitle="Demonstration projects showing our approach to building fast, conversion-first local websites"
+          title="See Our Work in Action"
+          subtitle="Real showcase projects engineered for sub-second speed, Google search dominance, and high conversion"
         />
 
-        <div className="space-y-12 max-w-6xl mx-auto">
-          <CaseStudyCarousel studies={getFeaturedCaseStudies(2)} />
+        <div className="max-w-7xl mx-auto">
+          <ProjectShowcaseGrid studies={getFeaturedCaseStudies(3)} />
         </div>
 
-        <div className="text-center mt-12">
-          <p className="text-sm text-gray-500 mb-2">
-            These are redesign showcases and demonstration projects showing our approach.
-          </p>
-          <p className="text-xs text-gray-400 mb-6 max-w-2xl mx-auto">
-            The redesigns above are unsolicited demonstration projects created to show our performance and UX approach. We were not hired by these clients. Your results will vary based on your specific market and business needs.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <CTAButton
-              href={PRIMARY_CTA_HREF}
-              variant="primary"
-              trackingLabel={PRIMARY_CTA_LABEL}
-              trackingLocation="Homepage Case Studies"
-            >
-              {PRIMARY_CTA_LABEL_LONG}
-            </CTAButton>
-            <CTAButton
-              href={CALL_CTA_HREF}
-              variant="secondary"
-              trackingLabel={CALL_CTA_LABEL}
-              trackingLocation="Homepage Case Studies"
-            >
-              {CALL_CTA_LABEL}
-            </CTAButton>
+        <div className="mt-14 text-center">
+          <div className="inline-flex flex-col sm:flex-row items-center justify-between gap-6 bg-neutral-50/80 border border-neutral-200/80 p-6 sm:p-8 rounded-3xl max-w-4xl mx-auto shadow-xs text-left">
+            <div>
+              <h4 className="font-bold text-gray-900 text-base sm:text-lg mb-1">
+                Want to see our full technical breakdowns?
+              </h4>
+              <p className="text-xs sm:text-sm text-neutral-600 font-light leading-relaxed">
+                Explore Core Web Vitals scorecards, before/after comparisons, and conversion architecture.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto flex-shrink-0">
+              <Link
+                href="/case-studies"
+                className="btn-primary px-6 py-3 text-sm font-bold text-center whitespace-nowrap shadow-sm"
+              >
+                In-Depth Case Studies →
+              </Link>
+            </div>
           </div>
+
+          <p className="text-[11px] text-gray-400 mt-6 max-w-xl mx-auto font-light">
+            *Redesign showcases and demonstration projects created to illustrate our approach. Results vary based on business needs.
+          </p>
         </div>
       </Section>
 

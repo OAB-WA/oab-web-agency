@@ -3,6 +3,8 @@ export type Testimonial = {
   author: string;
   role: string;
   rating: 1 | 2 | 3 | 4 | 5;
+  projectType?: string;
+  verified?: boolean;
 };
 
 export const TESTIMONIALS: Testimonial[] = [
@@ -12,6 +14,8 @@ export const TESTIMONIALS: Testimonial[] = [
     author: "Ben Othman",
     role: "Owner, PeerSoc",
     rating: 5,
+    projectType: "Full Redesign & SEO",
+    verified: true,
   },
   {
     quote:
@@ -19,13 +23,9 @@ export const TESTIMONIALS: Testimonial[] = [
     author: "Gerald Winkler",
     role: "Owner, Green and Clean Services",
     rating: 5,
+    projectType: "Website Design & Launch",
+    verified: true,
   },
-  // {
-  //   quote:
-  //     "The team understood that I need phone calls, not a fancy website. They built something that actually generates jobs. I'm ranking higher and the phone is ringing a lot more.",
-  //   author: "Service Business Owner",
-  //   role: "Electrical Services",
-  //   rating: 5,
-  // },
 ];
+
 

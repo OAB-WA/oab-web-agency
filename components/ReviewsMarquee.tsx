@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
-import { useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import type { Testimonial } from "@/lib/testimonials";
 
 type ReviewsMarqueeProps = {
@@ -16,7 +15,7 @@ function StarRow({ rating }: { rating: number }) {
       {Array.from({ length: 5 }).map((_, i) => (
         <svg
           key={i}
-          className={`h-4 w-4 ${i < rating ? "text-amber-400" : "text-neutral-200/80"}`}
+          className={`h-4 w-4 ${i < rating ? "text-amber-400" : "text-neutral-200"}`}
           viewBox="0 0 20 20"
           fill="currentColor"
           aria-hidden="true"
@@ -28,18 +27,14 @@ function StarRow({ rating }: { rating: number }) {
   );
 }
 
-function ReviewCard({
+export function ReviewCard({
   testimonial,
-  variant,
-  className = "",
-  onMouseEnter,
-  onMouseLeave,
+  variant = "light",
+  index = 0,
 }: {
   testimonial: Testimonial;
-  variant: "light" | "dark";
-  className?: string;
-  onMouseEnter?: () => void;
-  onMouseLeave?: () => void;
+  variant?: "light" | "dark";
+  index?: number;
 }) {
   const isDark = variant === "dark";
   const initials = testimonial.author
@@ -49,169 +44,122 @@ function ReviewCard({
     .join("");
 
   return (
-    <article
-      className={`group relative shrink-0 w-[290px] sm:w-[360px] md:w-[400px] overflow-hidden rounded-2xl border pl-5 pr-8 py-8 md:pl-6 md:pr-9 md:py-9 shadow-sm transition-transform duration-300 will-change-transform ${
+    <motion.article
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      className={`group relative w-full rounded-2xl sm:rounded-3xl border p-6 sm:p-8 md:p-9 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between ${
         isDark
-          ? "border-white/10 bg-white/[0.08] text-white"
-          : "border-neutral-200/80 bg-white text-neutral-900"
-      } ${className}`}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
+          ? "border-white/10 bg-white/[0.05] text-white hover:border-white/20 hover:bg-white/[0.08]"
+          : "border-neutral-200/80 bg-white text-neutral-900 hover:border-neutral-300"
+      }`}
     >
+      {/* Subtle top accent */}
       <div
-        className={`absolute inset-y-0 left-0 w-1 ${
-          isDark ? "bg-emerald-400/80" : "bg-primary-950"
+        className={`absolute top-0 left-8 right-8 h-0.5 rounded-full ${
+          isDark
+            ? "bg-gradient-to-r from-transparent via-emerald-400/40 to-transparent"
+            : "bg-gradient-to-r from-transparent via-primary-500/30 to-transparent"
         }`}
-        aria-hidden="true"
       />
 
-      <div className="relative">
-        <div className="flex items-start justify-between gap-4">
-          <StarRow rating={testimonial.rating} />
-          <span
-            className={`select-none font-serif text-6xl leading-none ${
-              isDark ? "text-white/15" : "text-primary-950/12"
+      <div>
+        {/* Card Header: Rating + Verified Badge */}
+        <div className="flex items-center justify-between gap-3 mb-5">
+          <div className="flex items-center gap-2">
+            <StarRow rating={testimonial.rating} />
+            <span className={`text-xs font-bold ${isDark ? "text-white/70" : "text-neutral-500"}`}>
+              5.0
+            </span>
+          </div>
+
+          <div
+            className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider ${
+              isDark
+                ? "bg-emerald-500/15 text-emerald-300 border border-emerald-500/30"
+                : "bg-emerald-50 text-emerald-700 border border-emerald-200/80"
             }`}
-            aria-hidden="true"
           >
-            “
-          </span>
+            <svg className="w-3 h-3 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
+              <path
+                fillRule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clipRule="evenodd"
+              />
+            </svg>
+            <span>Verified Client</span>
+          </div>
         </div>
 
+        {/* Quote text */}
         <p
-          className={`mt-2 text-[15px] md:text-base leading-relaxed font-light ${
-            isDark ? "text-white/85" : "text-neutral-700"
+          className={`text-sm sm:text-base md:text-[1.05rem] leading-relaxed font-light ${
+            isDark ? "text-white/90" : "text-neutral-700"
           }`}
         >
-          {testimonial.quote}
+          &ldquo;{testimonial.quote}&rdquo;
         </p>
+      </div>
 
-        <div
-          className={`mt-8 flex items-center gap-4 border-t pt-6 ${
-            isDark ? "border-white/10" : "border-neutral-100"
-          }`}
-        >
+      {/* Author Footer */}
+      <div
+        className={`mt-6 sm:mt-8 pt-5 sm:pt-6 border-t flex flex-wrap items-center justify-between gap-4 ${
+          isDark ? "border-white/10" : "border-neutral-100"
+        }`}
+      >
+        <div className="flex items-center gap-3.5">
           <div
-            className={`h-11 w-11 rounded-xl flex items-center justify-center text-sm font-bold tracking-wide ${
-              isDark ? "bg-white/15 text-white" : "bg-primary-950 text-white"
+            className={`h-11 w-11 rounded-xl flex items-center justify-center text-sm font-bold tracking-wide shadow-sm flex-shrink-0 ${
+              isDark
+                ? "bg-gradient-to-br from-emerald-500/30 to-teal-500/20 text-white border border-white/15"
+                : "bg-gradient-to-br from-[#001B3A] to-[#002B5C] text-white"
             }`}
-            aria-hidden="true"
           >
             {initials}
           </div>
           <div>
-            <p className="font-bold leading-tight">{testimonial.author}</p>
-            <p
-              className={`text-xs font-medium uppercase tracking-widest mt-1 ${
-                isDark ? "text-white/60" : "text-primary-600"
-              }`}
-            >
+            <p className={`font-bold text-sm sm:text-base leading-tight ${isDark ? "text-white" : "text-gray-900"}`}>
+              {testimonial.author}
+            </p>
+            <p className={`text-xs sm:text-sm font-medium mt-0.5 ${isDark ? "text-white/60" : "text-primary-600"}`}>
               {testimonial.role}
             </p>
           </div>
         </div>
+
+        {testimonial.projectType && (
+          <span
+            className={`text-[11px] font-semibold px-3 py-1 rounded-lg ${
+              isDark
+                ? "bg-white/10 text-white/70"
+                : "bg-neutral-100 text-neutral-600"
+            }`}
+          >
+            {testimonial.projectType}
+          </span>
+        )}
       </div>
-    </article>
+    </motion.article>
   );
 }
 
 export default function ReviewsMarquee({
   testimonials,
   variant = "light",
-  speedSeconds = 55,
 }: ReviewsMarqueeProps) {
-  const prefersReducedMotion = useReducedMotion();
-  const [supportsHover, setSupportsHover] = useState(false);
-  const [paused, setPaused] = useState(false);
-
-  useEffect(() => {
-    const mql = window.matchMedia("(hover: hover) and (pointer: fine)");
-    const update = () => setSupportsHover(mql.matches);
-    update();
-    mql.addEventListener?.("change", update);
-    return () => mql.removeEventListener?.("change", update);
-  }, []);
-
-  const cardHover = supportsHover ? "hover:-translate-y-1" : "";
-
-  const maskTheme =
-    variant === "dark"
-      ? {
-          left: "bg-gradient-to-r from-[#000B16] to-transparent",
-          right: "bg-gradient-to-l from-[#000B16] to-transparent",
-        }
-      : {
-          left: "bg-gradient-to-r from-white to-transparent",
-          right: "bg-gradient-to-l from-white to-transparent",
-        };
-
-  const items = useMemo(() => testimonials, [testimonials]);
-
-  if (prefersReducedMotion) {
-    return (
-      <div className="relative">
-        <div className={`pointer-events-none absolute inset-y-0 left-0 w-16 ${maskTheme.left}`} />
-        <div className={`pointer-events-none absolute inset-y-0 right-0 w-16 ${maskTheme.right}`} />
-        <div className="overflow-x-auto [-webkit-overflow-scrolling:touch]">
-          <div className="flex gap-6 py-4 pr-6 snap-x snap-mandatory">
-            {items.map((t, idx) => (
-              <ReviewCard
-                key={`${t.author}-${idx}`}
-                testimonial={t}
-                variant={variant}
-                className={`${cardHover} snap-start`}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
-    );
-  }
-
   return (
-    <div className="relative">
-      <style>{`
-        @keyframes oab-marquee {
-          from { transform: translateX(0); }
-          to { transform: translateX(-50%); }
-        }
-      `}</style>
-
-      <div className={`pointer-events-none absolute inset-y-0 left-0 w-20 ${maskTheme.left}`} />
-      <div className={`pointer-events-none absolute inset-y-0 right-0 w-20 ${maskTheme.right}`} />
-
-      <div className="overflow-hidden py-4">
-        <div
-          className="flex w-max"
-          style={{
-            animationName: "oab-marquee",
-            animationTimingFunction: "linear",
-            animationIterationCount: "infinite",
-            animationDuration: `${speedSeconds}s`,
-            animationPlayState: paused ? "paused" : "running",
-          }}
-        >
-          {[0, 1].map((dup) => (
-            <div key={dup} className="flex gap-6 pr-6">
-              {items.map((t, idx) => (
-                <ReviewCard
-                  key={`${dup}-${t.author}-${idx}`}
-                  testimonial={t}
-                  variant={variant}
-                  className={cardHover}
-                  onMouseEnter={() => {
-                    if (!supportsHover) return;
-                    setPaused(true);
-                  }}
-                  onMouseLeave={() => {
-                    if (!supportsHover) return;
-                    setPaused(false);
-                  }}
-                />
-              ))}
-            </div>
-          ))}
-        </div>
+    <div className="w-full">
+      {/* 2-Column Responsive Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-6xl mx-auto">
+        {testimonials.map((testimonial, idx) => (
+          <ReviewCard
+            key={`${testimonial.author}-${idx}`}
+            testimonial={testimonial}
+            variant={variant}
+            index={idx}
+          />
+        ))}
       </div>
     </div>
   );

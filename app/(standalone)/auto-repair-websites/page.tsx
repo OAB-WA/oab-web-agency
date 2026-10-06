@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { trackFormSubmission, trackCTAClick } from "@/lib/gtag";
 import SectionHeader from "@/components/SectionHeader";
 import ReviewsMarqueeSection from "@/components/ReviewsMarqueeSection";
-import CaseStudyCarousel from "@/components/CaseStudyCarousel";
+import ProjectShowcaseGrid from "@/components/ProjectShowcaseGrid";
 import { getFeaturedCaseStudies } from "@/lib/caseStudies";
 import ExampleAuditOutputSection from "@/components/ExampleAuditOutputSection";
 import { AUDIT_FORM_ANCHOR } from "@/lib/cta";
@@ -409,23 +409,23 @@ export default function AutoRepairWebsitesPage() {
 
       {/* 6. Demonstration Case Studies */}
       <section className="py-20 md:py-32 bg-neutral-50/50">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeader
             className="mb-14"
             title="See Our Speed & Conversion Transformations"
             subtitle="Demonstration projects showing our mobile-first redesign approach and Core Web Vitals optimization."
           />
 
-          <CaseStudyCarousel studies={getFeaturedCaseStudies(2)} />
+          <ProjectShowcaseGrid studies={getFeaturedCaseStudies(3)} />
 
-          <div className="mt-12 text-center">
-            <p className="text-xs text-gray-400 mb-6 max-w-xl mx-auto">
+          <div className="mt-14 text-center">
+            <p className="text-xs text-gray-400 mb-6 max-w-xl mx-auto font-light">
               Demonstration showcase projects created to illustrate our performance and UX conversion approach.
             </p>
             <a
               href={AUDIT_FORM_ANCHOR}
               onClick={() => trackCTAClick("Get Free Shop Audit", "Auto Repair Page - Case Studies CTA")}
-              className="btn-primary px-10 py-5 text-lg font-bold inline-block"
+              className="btn-primary px-10 py-5 text-lg font-bold inline-block shadow-lg"
             >
               Get Free Shop Website Audit
             </a>

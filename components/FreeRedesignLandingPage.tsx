@@ -501,7 +501,7 @@ export default function FreeRedesignLandingPage({ copy, vertical }: FreeRedesign
 
           <div className="space-y-12">
             <CaseStudyCarousel
-              studies={getFeaturedCaseStudies(2)}
+              studies={getFeaturedCaseStudies(3)}
             />
           </div>
 
